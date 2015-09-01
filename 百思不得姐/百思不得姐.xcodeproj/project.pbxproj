@@ -12,7 +12,11 @@
 		562CF2391B95B80900F53479 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 562CF2381B95B80900F53479 /* Images.xcassets */; };
 		562CF23C1B95B80900F53479 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 562CF23A1B95B80900F53479 /* LaunchScreen.xib */; };
 		562CF2481B95B80900F53479 /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 562CF2471B95B80900F53479 /* _____Tests.m */; };
-		562CF2591B95D33F00F53479 /* XWTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 562CF2581B95D33F00F53479 /* XWTabBarController.m */; };
+		565DD1811B95E174000B0CF3 /* XWEssenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 565DD1801B95E174000B0CF3 /* XWEssenceController.m */; };
+		565DD1841B95E19F000B0CF3 /* XWFriendTrendsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 565DD1831B95E19F000B0CF3 /* XWFriendTrendsController.m */; };
+		565DD1881B95E1E1000B0CF3 /* XWMeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 565DD1871B95E1E1000B0CF3 /* XWMeController.m */; };
+		565DD18A1B95E23B000B0CF3 /* XWTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 565DD1891B95E23B000B0CF3 /* XWTabBarController.m */; };
+		565DD18D1B95E272000B0CF3 /* XWNewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 565DD18C1B95E272000B0CF3 /* XWNewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +41,15 @@
 		562CF2461B95B80900F53479 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		562CF2471B95B80900F53479 /* _____Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_____Tests.m"; sourceTree = "<group>"; };
 		562CF2571B95D33F00F53479 /* XWTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWTabBarController.h; sourceTree = "<group>"; };
-		562CF2581B95D33F00F53479 /* XWTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWTabBarController.m; sourceTree = "<group>"; };
+		565DD17F1B95E174000B0CF3 /* XWEssenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWEssenceController.h; sourceTree = "<group>"; };
+		565DD1801B95E174000B0CF3 /* XWEssenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWEssenceController.m; sourceTree = "<group>"; };
+		565DD1821B95E19F000B0CF3 /* XWFriendTrendsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWFriendTrendsController.h; sourceTree = "<group>"; };
+		565DD1831B95E19F000B0CF3 /* XWFriendTrendsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWFriendTrendsController.m; sourceTree = "<group>"; };
+		565DD1861B95E1E1000B0CF3 /* XWMeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWMeController.h; sourceTree = "<group>"; };
+		565DD1871B95E1E1000B0CF3 /* XWMeController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWMeController.m; sourceTree = "<group>"; };
+		565DD1891B95E23B000B0CF3 /* XWTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWTabBarController.m; sourceTree = "<group>"; };
+		565DD18B1B95E272000B0CF3 /* XWNewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWNewController.h; sourceTree = "<group>"; };
+		565DD18C1B95E272000B0CF3 /* XWNewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWNewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,8 +94,16 @@
 				562CF22F1B95B80900F53479 /* AppDelegate.h */,
 				562CF2301B95B80900F53479 /* AppDelegate.m */,
 				562CF2571B95D33F00F53479 /* XWTabBarController.h */,
-				562CF2581B95D33F00F53479 /* XWTabBarController.m */,
+				565DD1891B95E23B000B0CF3 /* XWTabBarController.m */,
 				562CF2381B95B80900F53479 /* Images.xcassets */,
+				565DD17F1B95E174000B0CF3 /* XWEssenceController.h */,
+				565DD1801B95E174000B0CF3 /* XWEssenceController.m */,
+				565DD18B1B95E272000B0CF3 /* XWNewController.h */,
+				565DD18C1B95E272000B0CF3 /* XWNewController.m */,
+				565DD1821B95E19F000B0CF3 /* XWFriendTrendsController.h */,
+				565DD1831B95E19F000B0CF3 /* XWFriendTrendsController.m */,
+				565DD1861B95E1E1000B0CF3 /* XWMeController.h */,
+				565DD1871B95E1E1000B0CF3 /* XWMeController.m */,
 				562CF23A1B95B80900F53479 /* LaunchScreen.xib */,
 				562CF22B1B95B80900F53479 /* Supporting Files */,
 			);
@@ -216,9 +236,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				565DD1811B95E174000B0CF3 /* XWEssenceController.m in Sources */,
 				562CF2311B95B80900F53479 /* AppDelegate.m in Sources */,
+				565DD18A1B95E23B000B0CF3 /* XWTabBarController.m in Sources */,
+				565DD1881B95E1E1000B0CF3 /* XWMeController.m in Sources */,
 				562CF22E1B95B80900F53479 /* main.m in Sources */,
-				562CF2591B95D33F00F53479 /* XWTabBarController.m in Sources */,
+				565DD1841B95E19F000B0CF3 /* XWFriendTrendsController.m in Sources */,
+				565DD18D1B95E272000B0CF3 /* XWNewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
