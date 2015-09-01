@@ -20,7 +20,7 @@
 {
     if(self = [super initWithFrame:frame])
     {
-        NSLog(@"%s",__func__);
+        
         //添加+号按钮
         UIButton *publishButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [publishButton setBackgroundImage:[UIImage imageNamed:@"tabBar_publish_icon"] forState:UIControlStateNormal];
@@ -39,7 +39,7 @@
 
 - (void)publishClick
 {
-    NSLog(@"%s",__func__);
+    NSLogFunc
 }
 
 - (void)layoutSubviews

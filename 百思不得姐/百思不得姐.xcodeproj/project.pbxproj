@@ -53,6 +53,7 @@
 		565DD18C1B95E272000B0CF3 /* XWNewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWNewController.m; sourceTree = "<group>"; };
 		565DD18E1B95FA8B000B0CF3 /* XWTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWTabBar.h; sourceTree = "<group>"; };
 		565DD18F1B95FA8B000B0CF3 /* XWTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWTabBar.m; sourceTree = "<group>"; };
+		565DD1911B960225000B0CF3 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +101,6 @@
 				565DD1891B95E23B000B0CF3 /* XWTabBarController.m */,
 				565DD18E1B95FA8B000B0CF3 /* XWTabBar.h */,
 				565DD18F1B95FA8B000B0CF3 /* XWTabBar.m */,
-				562CF2381B95B80900F53479 /* Images.xcassets */,
 				565DD17F1B95E174000B0CF3 /* XWEssenceController.h */,
 				565DD1801B95E174000B0CF3 /* XWEssenceController.m */,
 				565DD18B1B95E272000B0CF3 /* XWNewController.h */,
@@ -118,8 +118,10 @@
 		562CF22B1B95B80900F53479 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				562CF2381B95B80900F53479 /* Images.xcassets */,
 				562CF22C1B95B80900F53479 /* Info.plist */,
 				562CF22D1B95B80900F53479 /* main.m */,
+				565DD1911B960225000B0CF3 /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -367,6 +369,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "百思不得姐/PrefixHeader.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=1";
 				INFOPLIST_FILE = "百思不得姐/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -378,6 +383,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "百思不得姐/PrefixHeader.pch";
 				INFOPLIST_FILE = "百思不得姐/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
