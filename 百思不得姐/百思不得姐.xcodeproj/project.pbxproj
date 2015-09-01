@@ -12,7 +12,7 @@
 		562CF2391B95B80900F53479 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 562CF2381B95B80900F53479 /* Images.xcassets */; };
 		562CF23C1B95B80900F53479 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 562CF23A1B95B80900F53479 /* LaunchScreen.xib */; };
 		562CF2481B95B80900F53479 /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 562CF2471B95B80900F53479 /* _____Tests.m */; };
-		562CF2531B95C36B00F53479 /* XWTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 562CF2521B95C36B00F53479 /* XWTabBarController.m */; };
+		562CF2591B95D33F00F53479 /* XWTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 562CF2581B95D33F00F53479 /* XWTabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,8 +36,8 @@
 		562CF2411B95B80900F53479 /* 百思不得姐Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "百思不得姐Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		562CF2461B95B80900F53479 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		562CF2471B95B80900F53479 /* _____Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_____Tests.m"; sourceTree = "<group>"; };
-		562CF2511B95C36B00F53479 /* XWTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XWTabBarController.h; path = ../XWTabBarController.h; sourceTree = "<group>"; };
-		562CF2521B95C36B00F53479 /* XWTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XWTabBarController.m; path = ../XWTabBarController.m; sourceTree = "<group>"; };
+		562CF2571B95D33F00F53479 /* XWTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWTabBarController.h; sourceTree = "<group>"; };
+		562CF2581B95D33F00F53479 /* XWTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWTabBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,8 +81,8 @@
 			children = (
 				562CF22F1B95B80900F53479 /* AppDelegate.h */,
 				562CF2301B95B80900F53479 /* AppDelegate.m */,
-				562CF2511B95C36B00F53479 /* XWTabBarController.h */,
-				562CF2521B95C36B00F53479 /* XWTabBarController.m */,
+				562CF2571B95D33F00F53479 /* XWTabBarController.h */,
+				562CF2581B95D33F00F53479 /* XWTabBarController.m */,
 				562CF2381B95B80900F53479 /* Images.xcassets */,
 				562CF23A1B95B80900F53479 /* LaunchScreen.xib */,
 				562CF22B1B95B80900F53479 /* Supporting Files */,
@@ -160,7 +160,7 @@
 		562CF2201B95B80900F53479 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = I;
+				CLASSPREFIX = XW;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = longxianwen;
 				TargetAttributes = {
@@ -217,8 +217,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				562CF2311B95B80900F53479 /* AppDelegate.m in Sources */,
-				562CF2531B95C36B00F53479 /* XWTabBarController.m in Sources */,
 				562CF22E1B95B80900F53479 /* main.m in Sources */,
+				562CF2591B95D33F00F53479 /* XWTabBarController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +407,7 @@
 				562CF24D1B95B80900F53479 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		562CF24E1B95B80900F53479 /* Build configuration list for PBXNativeTarget "百思不得姐Tests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +416,7 @@
 				562CF2501B95B80900F53479 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
