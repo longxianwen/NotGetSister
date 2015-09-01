@@ -7,6 +7,8 @@
 //
 
 #import "XWEssenceController.h"
+#import "UIBarButtonItem+XWExtension.h"
+#import "XWTagViewController.h"
 
 @interface XWEssenceController ()
 
@@ -18,6 +20,20 @@
     [super viewDidLoad];
     
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainTitle"]];
+    
+    // 导航栏左边的
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem buttonItemCreate:self andImage:@"MainTagSubIcon" andHighlightedImage:@"MainTagSubIconClick" andAction:@selector(tagClickEssence)];
+}
+
+- (void)tagClickEssence
+{
+    NSLogFunc
+    XWTagViewController *tag = [[XWTagViewController alloc]init];
+    
+    tag.hidesBottomBarWhenPushed = YES;
+    
+    [self.navigationController pushViewController:tag animated:YES];
+    
 }
 
 @end

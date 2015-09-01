@@ -19,6 +19,9 @@
 		565DD18D1B95E272000B0CF3 /* XWNewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 565DD18C1B95E272000B0CF3 /* XWNewController.m */; };
 		565DD1901B95FA8B000B0CF3 /* XWTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 565DD18F1B95FA8B000B0CF3 /* XWTabBar.m */; };
 		565DD1941B960CBF000B0CF3 /* UIBarButtonItem+XWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 565DD1931B960CBF000B0CF3 /* UIBarButtonItem+XWExtension.m */; };
+		565DD1971B9614B9000B0CF3 /* XWSettingTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 565DD1961B9614B9000B0CF3 /* XWSettingTableController.m */; };
+		565DD19A1B96168F000B0CF3 /* XWTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 565DD1991B96168F000B0CF3 /* XWTagViewController.m */; };
+		565DD19C1B961893000B0CF3 /* XWTagViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 565DD19B1B961893000B0CF3 /* XWTagViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +60,11 @@
 		565DD1911B960225000B0CF3 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		565DD1921B960CBF000B0CF3 /* UIBarButtonItem+XWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+XWExtension.h"; sourceTree = "<group>"; };
 		565DD1931B960CBF000B0CF3 /* UIBarButtonItem+XWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+XWExtension.m"; sourceTree = "<group>"; };
+		565DD1951B9614B9000B0CF3 /* XWSettingTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWSettingTableController.h; sourceTree = "<group>"; };
+		565DD1961B9614B9000B0CF3 /* XWSettingTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWSettingTableController.m; sourceTree = "<group>"; };
+		565DD1981B96168F000B0CF3 /* XWTagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWTagViewController.h; sourceTree = "<group>"; };
+		565DD1991B96168F000B0CF3 /* XWTagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWTagViewController.m; sourceTree = "<group>"; };
+		565DD19B1B961893000B0CF3 /* XWTagViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWTagViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +122,11 @@
 				565DD1871B95E1E1000B0CF3 /* XWMeController.m */,
 				565DD1921B960CBF000B0CF3 /* UIBarButtonItem+XWExtension.h */,
 				565DD1931B960CBF000B0CF3 /* UIBarButtonItem+XWExtension.m */,
+				565DD1951B9614B9000B0CF3 /* XWSettingTableController.h */,
+				565DD1961B9614B9000B0CF3 /* XWSettingTableController.m */,
+				565DD1981B96168F000B0CF3 /* XWTagViewController.h */,
+				565DD1991B96168F000B0CF3 /* XWTagViewController.m */,
+				565DD19B1B961893000B0CF3 /* XWTagViewController.xib */,
 				562CF23A1B95B80900F53479 /* LaunchScreen.xib */,
 				562CF22B1B95B80900F53479 /* Supporting Files */,
 			);
@@ -230,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				562CF23C1B95B80900F53479 /* LaunchScreen.xib in Resources */,
+				565DD19C1B961893000B0CF3 /* XWTagViewController.xib in Resources */,
 				562CF2391B95B80900F53479 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,6 +268,8 @@
 				562CF2311B95B80900F53479 /* AppDelegate.m in Sources */,
 				565DD18A1B95E23B000B0CF3 /* XWTabBarController.m in Sources */,
 				565DD1881B95E1E1000B0CF3 /* XWMeController.m in Sources */,
+				565DD19A1B96168F000B0CF3 /* XWTagViewController.m in Sources */,
+				565DD1971B9614B9000B0CF3 /* XWSettingTableController.m in Sources */,
 				562CF22E1B95B80900F53479 /* main.m in Sources */,
 				565DD1841B95E19F000B0CF3 /* XWFriendTrendsController.m in Sources */,
 				565DD18D1B95E272000B0CF3 /* XWNewController.m in Sources */,
