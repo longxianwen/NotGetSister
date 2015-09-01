@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "XWTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -22,7 +23,7 @@
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     
     //2.设置根控制器
-    self.window.rootViewController = [[UITabBarController alloc]init];
+    self.window.rootViewController = [[XWTabBarController alloc]init];
     
     //3.显示窗口
     [self.window makeKeyAndVisible];
