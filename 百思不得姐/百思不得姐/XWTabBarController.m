@@ -30,46 +30,38 @@
 }
 
 /**
- 添加子控件
+ 添加所有的子控制器
  */
 - (void)addChildViews
 {
-    //设置底部4个tabBarItem
-    XWEssenceController *vc1 = [[XWEssenceController alloc]init];
-    UINavigationController *nv1 = [[UINavigationController alloc]initWithRootViewController:vc1];
+
+    [self addChildViewVC:[[XWEssenceController alloc]init] andTitle:@"精华" andImage:@"tabBar_essence_icon" andSelectImage:@"tabBar_essence_click_icon"];
     
-    vc1.view.backgroundColor = [UIColor greenColor];
-    vc1.tabBarItem.title = @"精华";
-    vc1.tabBarItem.image = [UIImage imageNamed:@"tabBar_essence_icon"];
+    [self addChildViewVC:[[XWNewController alloc]init] andTitle:@"新帖" andImage:@"tabBar_new_icon" andSelectImage:@"tabBar_new_click_icon"];
     
-    //设置选中状态下图片
-    vc1.tabBarItem.selectedImage = [UIImage imageNamed:@"tabBar_essence_click_icon"];
-    [self addChildViewController:nv1];
+    [self addChildViewVC:[[XWFriendTrendsController alloc]init] andTitle:@"关注" andImage:@"tabBar_friendTrends_icon" andSelectImage:@"tabBar_friendTrends_click_icon"];
     
-    
-    XWNewController *vc2 = [[XWNewController alloc]init];
-    UINavigationController *nv2 = [[UINavigationController alloc]initWithRootViewController:vc2];
-    vc2.view.backgroundColor = [UIColor blueColor];
-    vc2.tabBarItem.title = @"新帖";
-    vc2.tabBarItem.image = [[UIImage imageNamed:@"tabBar_new_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    vc2.tabBarItem.selectedImage = [UIImage imageNamed:@"tabBar_new_click_icon"];
-    [self addChildViewController:nv2];
-    
-    XWFriendTrendsController *vc3 = [[XWFriendTrendsController alloc]init];
-    UINavigationController *nv3 = [[UINavigationController alloc]initWithRootViewController:vc3];
-    vc3.view.backgroundColor = [UIColor purpleColor];
-    vc3.tabBarItem.title = @"关注";
-    vc3.tabBarItem.image = [UIImage imageNamed:@"tabBar_friendTrends_icon"];
-    vc3.tabBarItem.selectedImage = [UIImage imageNamed:@"tabBar_friendTrends_click_icon"];
-    [self addChildViewController:nv3];
-    
-    UINavigationController *vc4 = [[UINavigationController alloc]initWithRootViewController:[[XWMeController alloc]init]];
-    vc4.view.backgroundColor = [UIColor grayColor];
-    vc4.tabBarItem.title = @"我";
-    vc4.tabBarItem.image = [UIImage imageNamed:@"tabBar_me_icon"];
-    vc4.tabBarItem.selectedImage = [UIImage imageNamed:@"tabBar_me_click_icon"];
-    [self addChildViewController:vc4];
+    [self addChildViewVC:[[XWMeController alloc]init] andTitle:@"我" andImage:@"tabBar_me_icon" andSelectImage:@"tabBar_me_click_icon"];
 }
+
+/**
+ 添加一个子控制器
+ */
+- (void)addChildViewVC:(UIViewController *) vc andTitle: (NSString *)title andImage:(NSString *)image andSelectImage:(NSString*)selectedImage
+{
+    //疑问:如果是tableViewController控制器，颜色为什么没有显示出来呢
+    UINavigationController *vc1 = [[UINavigationController alloc]initWithRootViewController:vc];
+    
+    vc1.view.backgroundColor = [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1.0];
+    
+    vc1.tabBarItem.title = title;
+    vc1.tabBarItem.image = [UIImage imageNamed:image];
+    //设置选中状态下图片
+    vc1.tabBarItem.selectedImage = [UIImage imageNamed:selectedImage];
+    [self addChildViewController:vc1];
+    
+}
+
 
 /**
  *  设置item文字属性
