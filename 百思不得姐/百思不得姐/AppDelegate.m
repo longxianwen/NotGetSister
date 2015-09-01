@@ -20,42 +20,11 @@
     
     //1.添加窗口
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.backgroundColor = [UIColor redColor];
     
     //2.设置根控制器
-    UITabBarController *conn = [[UITabBarController alloc]init];
-    self.window.rootViewController = conn;
+    self.window.rootViewController = [[UITabBarController alloc]init];
     
-    UIViewController *vc1 = [[UIViewController alloc]init];
-    vc1.view.backgroundColor = [UIColor greenColor];
-    [conn addChildViewController:vc1];
-    vc1.tabBarItem.title = @"精华";
-    vc1.tabBarItem.image = [UIImage imageNamed:@"tabBar_essence_icon"];
-    //设置选中状态下图片
-    vc1.tabBarItem.selectedImage = [UIImage imageNamed:@"tabBar_essence_click_icon"];
-    
-    UIViewController *vc2 = [[UIViewController alloc]init];
-    vc2.view.backgroundColor = [UIColor blueColor];
-    vc2.tabBarItem.title = @"新帖";
-    vc2.tabBarItem.image = [[UIImage imageNamed:@"tabBar_new_icon"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    vc2.tabBarItem.selectedImage = [UIImage imageNamed:@"tabBar_new_click_icon"];
-    [conn addChildViewController:vc2];
-    
-    UIViewController *vc3 = [[UIViewController alloc]init];
-    vc3.view.backgroundColor = [UIColor purpleColor];
-    vc3.tabBarItem.title = @"关注";
-    vc3.tabBarItem.image = [UIImage imageNamed:@"tabBar_friendTrends_icon"];
-    vc3.tabBarItem.selectedImage = [UIImage imageNamed:@"tabBar_friendTrends_click_icon"];
-    [conn addChildViewController:vc3];
-    
-    UIViewController *vc4 = [[UIViewController alloc]init];
-    vc4.view.backgroundColor = [UIColor grayColor];
-    vc4.tabBarItem.title = @"我";
-    vc4.tabBarItem.image = [UIImage imageNamed:@"tabBar_me_icon"];
-    vc4.tabBarItem.selectedImage = [UIImage imageNamed:@"tabBar_me_click_icon"];
-    [conn addChildViewController:vc4];
-    
-    //3.显示
+    //3.显示窗口
     [self.window makeKeyAndVisible];
     
     

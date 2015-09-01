@@ -9,11 +9,10 @@
 /* Begin PBXBuildFile section */
 		562CF22E1B95B80900F53479 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 562CF22D1B95B80900F53479 /* main.m */; };
 		562CF2311B95B80900F53479 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 562CF2301B95B80900F53479 /* AppDelegate.m */; };
-		562CF2341B95B80900F53479 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 562CF2331B95B80900F53479 /* ViewController.m */; };
-		562CF2371B95B80900F53479 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 562CF2351B95B80900F53479 /* Main.storyboard */; };
 		562CF2391B95B80900F53479 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 562CF2381B95B80900F53479 /* Images.xcassets */; };
 		562CF23C1B95B80900F53479 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 562CF23A1B95B80900F53479 /* LaunchScreen.xib */; };
 		562CF2481B95B80900F53479 /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 562CF2471B95B80900F53479 /* _____Tests.m */; };
+		562CF2531B95C36B00F53479 /* XWTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 562CF2521B95C36B00F53479 /* XWTabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +31,13 @@
 		562CF22D1B95B80900F53479 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		562CF22F1B95B80900F53479 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		562CF2301B95B80900F53479 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		562CF2321B95B80900F53479 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		562CF2331B95B80900F53479 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		562CF2361B95B80900F53479 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		562CF2381B95B80900F53479 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		562CF23B1B95B80900F53479 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		562CF2411B95B80900F53479 /* 百思不得姐Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "百思不得姐Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		562CF2461B95B80900F53479 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		562CF2471B95B80900F53479 /* _____Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_____Tests.m"; sourceTree = "<group>"; };
+		562CF2511B95C36B00F53479 /* XWTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XWTabBarController.h; path = ../XWTabBarController.h; sourceTree = "<group>"; };
+		562CF2521B95C36B00F53479 /* XWTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XWTabBarController.m; path = ../XWTabBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,9 +81,8 @@
 			children = (
 				562CF22F1B95B80900F53479 /* AppDelegate.h */,
 				562CF2301B95B80900F53479 /* AppDelegate.m */,
-				562CF2321B95B80900F53479 /* ViewController.h */,
-				562CF2331B95B80900F53479 /* ViewController.m */,
-				562CF2351B95B80900F53479 /* Main.storyboard */,
+				562CF2511B95C36B00F53479 /* XWTabBarController.h */,
+				562CF2521B95C36B00F53479 /* XWTabBarController.m */,
 				562CF2381B95B80900F53479 /* Images.xcassets */,
 				562CF23A1B95B80900F53479 /* LaunchScreen.xib */,
 				562CF22B1B95B80900F53479 /* Supporting Files */,
@@ -163,6 +160,7 @@
 		562CF2201B95B80900F53479 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = I;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = longxianwen;
 				TargetAttributes = {
@@ -199,7 +197,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				562CF2371B95B80900F53479 /* Main.storyboard in Resources */,
 				562CF23C1B95B80900F53479 /* LaunchScreen.xib in Resources */,
 				562CF2391B95B80900F53479 /* Images.xcassets in Resources */,
 			);
@@ -219,8 +216,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				562CF2341B95B80900F53479 /* ViewController.m in Sources */,
 				562CF2311B95B80900F53479 /* AppDelegate.m in Sources */,
+				562CF2531B95C36B00F53479 /* XWTabBarController.m in Sources */,
 				562CF22E1B95B80900F53479 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,14 +241,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		562CF2351B95B80900F53479 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				562CF2361B95B80900F53479 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		562CF23A1B95B80900F53479 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

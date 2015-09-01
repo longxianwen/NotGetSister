@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  XWTabBarController.h
 //  百思不得姐
 //
 //  Created by longxianwen on 15/9/1.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface XWTabBarController : UITabBarController
 
 @end
-
