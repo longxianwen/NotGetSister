@@ -18,6 +18,26 @@
     [super viewDidLoad];
     
     self.navigationItem.title = @"我的关注";
+    
+    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    [leftButton setBackgroundImage:[UIImage imageNamed:@"friendsRecommentIcon"] forState:UIControlStateNormal];
+    
+    [leftButton setBackgroundImage:[UIImage imageNamed:@"friendsRecommentIcon-click"] forState:UIControlStateHighlighted];
+    
+    [leftButton sizeToFit];
+    
+    [leftButton addTarget:self action:@selector(tagClick) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:leftButton];
+}
+
+/**
+ * 左上角按钮点击
+ */
+- (void)tagClick
+{
+    NSLogFunc;
 }
 
 @end
