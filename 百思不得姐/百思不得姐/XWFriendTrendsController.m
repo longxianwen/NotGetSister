@@ -7,6 +7,7 @@
 //
 
 #import "XWFriendTrendsController.h"
+#import "UIBarButtonItem+XWExtension.h"
 
 @interface XWFriendTrendsController ()
 
@@ -19,23 +20,15 @@
     
     self.navigationItem.title = @"我的关注";
     
-    UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIBarButtonItem *leftButton = [UIBarButtonItem buttonItemCreate:self andImage:@"friendsRecommentIcon" andHighlightedImage:@"friendsRecommentIcon-click" andAction:@selector(tagClickFriendTrends)];
     
-    [leftButton setBackgroundImage:[UIImage imageNamed:@"friendsRecommentIcon"] forState:UIControlStateNormal];
-    
-    [leftButton setBackgroundImage:[UIImage imageNamed:@"friendsRecommentIcon-click"] forState:UIControlStateHighlighted];
-    
-    [leftButton sizeToFit];
-    
-    [leftButton addTarget:self action:@selector(tagClick) forControlEvents:UIControlEventTouchUpInside];
-    
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:leftButton];
+    self.navigationItem.leftBarButtonItem = leftButton;
 }
 
 /**
  * 左上角按钮点击
  */
-- (void)tagClick
+- (void)tagClickFriendTrends
 {
     NSLogFunc;
 }

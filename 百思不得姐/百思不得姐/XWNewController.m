@@ -7,6 +7,7 @@
 //
 
 #import "XWNewController.h"
+#import "UIBarButtonItem+XWExtension.h"
 
 @interface XWNewController ()
 
@@ -20,18 +21,15 @@
      self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainTitle"]];
     
     //设置左边按钮
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setBackgroundImage:[UIImage imageNamed:@"MainTagSubIcon"] forState:UIControlStateNormal];
-    [button setBackgroundImage:[UIImage imageNamed:@"MainTagSubIconClick"] forState:UIControlStateHighlighted];
-    [button sizeToFit];
-    [button addTarget:self action:@selector(tagClick) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    UIBarButtonItem *leftButton = [UIBarButtonItem buttonItemCreate:self andImage:@"MainTagSubIcon" andHighlightedImage:@"MainTagSubIconClick" andAction:@selector(tagClickNew)];
+    
+    self.navigationItem.leftBarButtonItem = leftButton;
 }
 
 /**
  * 左上角按钮点击
  */
-- (void)tagClick
+- (void)tagClickNew
 {
     NSLogFunc;
 }

@@ -7,6 +7,7 @@
 //
 
 #import "XWMeController.h"
+#import "UIBarButtonItem+XWExtension.h"
 
 @interface XWMeController ()
 
@@ -21,21 +22,14 @@
     
     //设置右边两个按钮
     
-    UIButton *rightButtonMoon = [UIButton buttonWithType:UIButtonTypeCustom];
-    [rightButtonMoon setBackgroundImage:[UIImage imageNamed:@"mine-moon-icon"] forState:UIControlStateNormal];
-    [rightButtonMoon setBackgroundImage:[UIImage imageNamed:@"mine-moon-icon-click"] forState:UIControlStateHighlighted];
-    [rightButtonMoon sizeToFit];
-    [rightButtonMoon addTarget:self action:@selector(tagClickMoon) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *settingsItem = [UIBarButtonItem buttonItemCreate:self andImage:@"mine-setting-icon" andHighlightedImage:@"mine-setting-icon-click" andAction:@selector(tagClickSetting)];
     
-    UIButton *rightButtonSetting = [UIButton buttonWithType:UIButtonTypeCustom];
-    [rightButtonSetting setBackgroundImage:[UIImage imageNamed:@"mine-setting-icon"] forState:UIControlStateNormal];
-    [rightButtonSetting setBackgroundImage:[UIImage imageNamed:@"mine-setting-icon-click"] forState:UIControlStateHighlighted];
-    [rightButtonSetting sizeToFit];
-    [rightButtonSetting addTarget:self action:@selector(tagClickSetting) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *moonItem = [UIBarButtonItem buttonItemCreate:self andImage:@"mine-moon-icon" andHighlightedImage:@"mine-moon-icon-click" andAction:@selector(tagClickMoon)];
     
-    self.navigationItem.rightBarButtonItems = @[
-            [[UIBarButtonItem alloc]initWithCustomView:rightButtonSetting],
-            [[UIBarButtonItem alloc]initWithCustomView:rightButtonMoon]];
+    
+    self.navigationItem.rightBarButtonItems = @[settingsItem,moonItem];
+    
+    
 }
 
 - (void)tagClickSetting
