@@ -17,6 +17,7 @@
 		565DD1881B95E1E1000B0CF3 /* XWMeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 565DD1871B95E1E1000B0CF3 /* XWMeController.m */; };
 		565DD18A1B95E23B000B0CF3 /* XWTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 565DD1891B95E23B000B0CF3 /* XWTabBarController.m */; };
 		565DD18D1B95E272000B0CF3 /* XWNewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 565DD18C1B95E272000B0CF3 /* XWNewController.m */; };
+		565DD1901B95FA8B000B0CF3 /* XWTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 565DD18F1B95FA8B000B0CF3 /* XWTabBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,8 @@
 		565DD1891B95E23B000B0CF3 /* XWTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWTabBarController.m; sourceTree = "<group>"; };
 		565DD18B1B95E272000B0CF3 /* XWNewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWNewController.h; sourceTree = "<group>"; };
 		565DD18C1B95E272000B0CF3 /* XWNewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWNewController.m; sourceTree = "<group>"; };
+		565DD18E1B95FA8B000B0CF3 /* XWTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWTabBar.h; sourceTree = "<group>"; };
+		565DD18F1B95FA8B000B0CF3 /* XWTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWTabBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +98,8 @@
 				562CF2301B95B80900F53479 /* AppDelegate.m */,
 				562CF2571B95D33F00F53479 /* XWTabBarController.h */,
 				565DD1891B95E23B000B0CF3 /* XWTabBarController.m */,
+				565DD18E1B95FA8B000B0CF3 /* XWTabBar.h */,
+				565DD18F1B95FA8B000B0CF3 /* XWTabBar.m */,
 				562CF2381B95B80900F53479 /* Images.xcassets */,
 				565DD17F1B95E174000B0CF3 /* XWEssenceController.h */,
 				565DD1801B95E174000B0CF3 /* XWEssenceController.m */,
@@ -236,6 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				565DD1901B95FA8B000B0CF3 /* XWTabBar.m in Sources */,
 				565DD1811B95E174000B0CF3 /* XWEssenceController.m in Sources */,
 				562CF2311B95B80900F53479 /* AppDelegate.m in Sources */,
 				565DD18A1B95E23B000B0CF3 /* XWTabBarController.m in Sources */,

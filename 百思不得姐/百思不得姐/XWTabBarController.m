@@ -11,6 +11,7 @@
 #import "XWFriendTrendsController.h"
 #import "XWMeController.h"
 #import "XWNewController.h"
+#import "XWTabBar.h"
 
 @interface XWTabBarController ()
 
@@ -27,6 +28,20 @@
     
     //设置item属性
     [self setItems];
+    
+    //处理tabBar
+    [self setupTabBar];
+    
+}
+
+/**
+ *  处理tabBar
+ */
+- (void)setupTabBar
+{
+    //用kvc的方式将系统的tabbar换成我们自定义的
+    [self setValue:[[XWTabBar alloc]init] forKeyPath:@"tabBar"];
+
 }
 
 /**
@@ -34,7 +49,7 @@
  */
 - (void)addChildViews
 {
-
+    
     [self addChildViewVC:[[XWEssenceController alloc]init] andTitle:@"精华" andImage:@"tabBar_essence_icon" andSelectImage:@"tabBar_essence_click_icon"];
     
     [self addChildViewVC:[[XWNewController alloc]init] andTitle:@"新帖" andImage:@"tabBar_new_icon" andSelectImage:@"tabBar_new_click_icon"];
