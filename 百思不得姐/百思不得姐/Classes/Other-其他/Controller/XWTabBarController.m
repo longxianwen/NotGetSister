@@ -64,16 +64,18 @@
  */
 - (void)addChildViewVC:(UIViewController *) vc andTitle: (NSString *)title andImage:(NSString *)image andSelectImage:(NSString*)selectedImage
 {
-    //疑问:如果是tableViewController控制器，颜色为什么没有显示出来呢
-    UINavigationController *vc1 = [[UINavigationController alloc]initWithRootViewController:vc];
+    //疑问1:如果是tableViewController控制器，颜色为什么没有显示出来呢
+           //因为tableViewController默认为白色，设置的是导航控制器的颜色
+    //疑问2:系统自定义宏变量，报错问题
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
     
-    vc1.view.backgroundColor = [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1.0];
+    nav.view.backgroundColor = [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1.0];
     
-    vc1.tabBarItem.title = title;
-    vc1.tabBarItem.image = [UIImage imageNamed:image];
+    nav.tabBarItem.title = title;
+    nav.tabBarItem.image = [UIImage imageNamed:image];
     //设置选中状态下图片
-    vc1.tabBarItem.selectedImage = [UIImage imageNamed:selectedImage];
-    [self addChildViewController:vc1];
+    nav.tabBarItem.selectedImage = [UIImage imageNamed:selectedImage];
+    [self addChildViewController:nav];
     
 }
 
