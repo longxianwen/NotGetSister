@@ -62,7 +62,6 @@
         {
             //计算x的位置
             CGFloat tabBarButtonX = index * tabBarButtonW;
-//            XWLog(@"%@", tabBarButton);
             
             if(index >=2)
             {
