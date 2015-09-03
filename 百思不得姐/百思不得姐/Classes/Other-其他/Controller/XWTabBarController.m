@@ -12,6 +12,7 @@
 #import "XWMeController.h"
 #import "XWNewController.h"
 #import "XWTabBar.h"
+#import "XWNavigationController.h"
 
 @interface XWTabBarController ()
 
@@ -67,12 +68,12 @@
     //疑问1:如果是tableViewController控制器，颜色为什么没有显示出来呢
            //因为tableViewController默认为白色，设置的是导航控制器的颜色
     //疑问2:系统自定义宏变量，报错问题
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
+    XWNavigationController *nav = [[XWNavigationController alloc]initWithRootViewController:vc];
     
-    nav.view.backgroundColor = [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1.0];
+    vc.view.backgroundColor = [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1.0];
     
-    nav.tabBarItem.title = title;
-    nav.tabBarItem.image = [UIImage imageNamed:image];
+    vc.tabBarItem.title = title;
+    vc.tabBarItem.image = [UIImage imageNamed:image];
     //设置选中状态下图片
     nav.tabBarItem.selectedImage = [UIImage imageNamed:selectedImage];
     [self addChildViewController:nav];

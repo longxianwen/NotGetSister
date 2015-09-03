@@ -11,6 +11,8 @@
 		562CF2391B95B80900F53479 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 562CF2381B95B80900F53479 /* Images.xcassets */; };
 		562CF23C1B95B80900F53479 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 562CF23A1B95B80900F53479 /* LaunchScreen.xib */; };
 		562CF2481B95B80900F53479 /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 562CF2471B95B80900F53479 /* _____Tests.m */; };
+		569B9FEC1B97EDD300B99DAD /* XWNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 569B9FEB1B97EDD300B99DAD /* XWNavigationBar.m */; };
+		569B9FF21B97F02900B99DAD /* XWNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 569B9FF11B97F02900B99DAD /* XWNavigationController.m */; };
 		56F1FDDA1B96D23F00931FAB /* XWEssenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1FDAD1B96D23F00931FAB /* XWEssenceController.m */; };
 		56F1FDDB1B96D23F00931FAB /* XWTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1FDAF1B96D23F00931FAB /* XWTagViewController.m */; };
 		56F1FDDC1B96D23F00931FAB /* XWTagViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56F1FDB21B96D23F00931FAB /* XWTagViewController.xib */; };
@@ -44,6 +46,11 @@
 		562CF2461B95B80900F53479 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		562CF2471B95B80900F53479 /* _____Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_____Tests.m"; sourceTree = "<group>"; };
 		565DD1911B960225000B0CF3 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		569B9FEA1B97EDD300B99DAD /* XWNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWNavigationBar.h; sourceTree = "<group>"; };
+		569B9FEB1B97EDD300B99DAD /* XWNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWNavigationBar.m; sourceTree = "<group>"; };
+		569B9FEF1B97EF7000B99DAD /* readme.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = readme.c; sourceTree = "<group>"; };
+		569B9FF01B97F02900B99DAD /* XWNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWNavigationController.h; sourceTree = "<group>"; };
+		569B9FF11B97F02900B99DAD /* XWNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWNavigationController.m; sourceTree = "<group>"; };
 		56F1FDAC1B96D23F00931FAB /* XWEssenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWEssenceController.h; sourceTree = "<group>"; };
 		56F1FDAD1B96D23F00931FAB /* XWEssenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWEssenceController.m; sourceTree = "<group>"; };
 		56F1FDAE1B96D23F00931FAB /* XWTagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWTagViewController.h; sourceTree = "<group>"; };
@@ -88,6 +95,7 @@
 		562CF21F1B95B80900F53479 = {
 			isa = PBXGroup;
 			children = (
+				569B9FEF1B97EF7000B99DAD /* readme.c */,
 				562CF22A1B95B80900F53479 /* 百思不得姐 */,
 				562CF2441B95B80900F53479 /* 百思不得姐Tests */,
 				562CF2291B95B80900F53479 /* Products */,
@@ -318,6 +326,8 @@
 			children = (
 				56F1FDCE1B96D23F00931FAB /* XWTabBarController.h */,
 				56F1FDCF1B96D23F00931FAB /* XWTabBarController.m */,
+				569B9FF01B97F02900B99DAD /* XWNavigationController.h */,
+				569B9FF11B97F02900B99DAD /* XWNavigationController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -334,6 +344,8 @@
 			children = (
 				56F1FDD41B96D23F00931FAB /* XWTabBar.h */,
 				56F1FDD51B96D23F00931FAB /* XWTabBar.m */,
+				569B9FEA1B97EDD300B99DAD /* XWNavigationBar.h */,
+				569B9FEB1B97EDD300B99DAD /* XWNavigationBar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -470,6 +482,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				569B9FEC1B97EDD300B99DAD /* XWNavigationBar.m in Sources */,
+				569B9FF21B97F02900B99DAD /* XWNavigationController.m in Sources */,
 				56F1FDE31B96D23F00931FAB /* XWTabBarController.m in Sources */,
 				56F1FDDF1B96D23F00931FAB /* XWSettingTableController.m in Sources */,
 				56F1FDDD1B96D23F00931FAB /* XWFriendTrendsController.m in Sources */,

@@ -27,7 +27,7 @@
 
 - (void)tagClickEssence
 {
-    NSLogFunc
+//    NSLogFunc
     XWTagViewController *tag = [[XWTagViewController alloc]init];
     
     tag.hidesBottomBarWhenPushed = YES;
