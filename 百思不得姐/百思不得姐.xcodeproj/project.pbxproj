@@ -17,6 +17,8 @@
 		569B9FF61B99C6B300B99DAD /* XWFriendTrendsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 569B9FF51B99C6B300B99DAD /* XWFriendTrendsController.xib */; };
 		569B9FFA1B99DD5A00B99DAD /* XWLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 569B9FF81B99DD5A00B99DAD /* XWLoginRegisterViewController.m */; };
 		569B9FFB1B99DD5A00B99DAD /* XWLoginRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 569B9FF91B99DD5A00B99DAD /* XWLoginRegisterViewController.xib */; };
+		569B9FFE1B99FD4800B99DAD /* XWQuickLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 569B9FFD1B99FD4800B99DAD /* XWQuickLoginButton.m */; };
+		569BA0041B9A01ED00B99DAD /* UIView+XWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 569BA0031B9A01ED00B99DAD /* UIView+XWExtension.m */; };
 		56F1FDDA1B96D23F00931FAB /* XWEssenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1FDAD1B96D23F00931FAB /* XWEssenceController.m */; };
 		56F1FDDB1B96D23F00931FAB /* XWTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1FDAF1B96D23F00931FAB /* XWTagViewController.m */; };
 		56F1FDDD1B96D23F00931FAB /* XWFriendTrendsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1FDB61B96D23F00931FAB /* XWFriendTrendsController.m */; };
@@ -59,6 +61,10 @@
 		569B9FF71B99DD5A00B99DAD /* XWLoginRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWLoginRegisterViewController.h; sourceTree = "<group>"; };
 		569B9FF81B99DD5A00B99DAD /* XWLoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWLoginRegisterViewController.m; sourceTree = "<group>"; };
 		569B9FF91B99DD5A00B99DAD /* XWLoginRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWLoginRegisterViewController.xib; sourceTree = "<group>"; };
+		569B9FFC1B99FD4800B99DAD /* XWQuickLoginButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWQuickLoginButton.h; sourceTree = "<group>"; };
+		569B9FFD1B99FD4800B99DAD /* XWQuickLoginButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWQuickLoginButton.m; sourceTree = "<group>"; };
+		569BA0021B9A01ED00B99DAD /* UIView+XWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XWExtension.h"; sourceTree = "<group>"; };
+		569BA0031B9A01ED00B99DAD /* UIView+XWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XWExtension.m"; sourceTree = "<group>"; };
 		56F1FDAC1B96D23F00931FAB /* XWEssenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWEssenceController.h; sourceTree = "<group>"; };
 		56F1FDAD1B96D23F00931FAB /* XWEssenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWEssenceController.m; sourceTree = "<group>"; };
 		56F1FDAE1B96D23F00931FAB /* XWTagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWTagViewController.h; sourceTree = "<group>"; };
@@ -238,6 +244,8 @@
 		56F1FDB81B96D23F00931FAB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				569B9FFC1B99FD4800B99DAD /* XWQuickLoginButton.h */,
+				569B9FFD1B99FD4800B99DAD /* XWQuickLoginButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -328,6 +336,8 @@
 			children = (
 				56F1FDCB1B96D23F00931FAB /* UIBarButtonItem+XWExtension.h */,
 				56F1FDCC1B96D23F00931FAB /* UIBarButtonItem+XWExtension.m */,
+				569BA0021B9A01ED00B99DAD /* UIView+XWExtension.h */,
+				569BA0031B9A01ED00B99DAD /* UIView+XWExtension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -496,6 +506,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				569B9FEC1B97EDD300B99DAD /* XWNavigationBar.m in Sources */,
+				569BA0041B9A01ED00B99DAD /* UIView+XWExtension.m in Sources */,
 				569B9FF21B97F02900B99DAD /* XWNavigationController.m in Sources */,
 				56F1FDE31B96D23F00931FAB /* XWTabBarController.m in Sources */,
 				56F1FDDF1B96D23F00931FAB /* XWSettingTableController.m in Sources */,
@@ -505,6 +516,7 @@
 				56F1FDDE1B96D23F00931FAB /* XWMeController.m in Sources */,
 				56F1FDE11B96D23F00931FAB /* AppDelegate.m in Sources */,
 				562CF22E1B95B80900F53479 /* main.m in Sources */,
+				569B9FFE1B99FD4800B99DAD /* XWQuickLoginButton.m in Sources */,
 				56F1FDE51B96D23F00931FAB /* XWTabBar.m in Sources */,
 				56F1FDDA1B96D23F00931FAB /* XWEssenceController.m in Sources */,
 				569B9FFA1B99DD5A00B99DAD /* XWLoginRegisterViewController.m in Sources */,

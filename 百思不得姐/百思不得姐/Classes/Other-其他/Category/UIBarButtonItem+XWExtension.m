@@ -4,7 +4,7 @@
 //
 //  Created by longxianwen on 15/9/2.
 //  Copyright (c) 2015年 longxianwen. All rights reserved.
-//
+//  顶部导航栏内容设置
 
 #import "UIBarButtonItem+XWExtension.h"
 
