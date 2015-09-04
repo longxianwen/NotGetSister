@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="XWLoginRegisterViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_register_background" translatesAutoresizingMaskIntoConstraints="NO" id="eYu-R9-XNj">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tsm-1V-ljr">
+                    <rect key="frame" x="20" y="30" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="ZTC-s1-o1s"/>
+                        <constraint firstAttribute="width" constant="50" id="t4S-2j-eNU"/>
+                    </constraints>
+                    <state key="normal" image="login_close_icon">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="closeRegisterLogin:" destination="-1" eventType="touchUpInside" id="iQe-xS-hOO"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qRH-5m-qlb">
+                    <rect key="frame" x="520" y="40" width="60" height="30"/>
+                    <state key="normal" title="注册账号">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="eYu-R9-XNj" secondAttribute="bottom" id="0vG-2h-iyu"/>
+                <constraint firstItem="eYu-R9-XNj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9U8-uI-3h6"/>
+                <constraint firstAttribute="trailing" secondItem="eYu-R9-XNj" secondAttribute="trailing" id="EsA-N0-65v"/>
+                <constraint firstItem="Tsm-1V-ljr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="RAL-Fq-qu6"/>
+                <constraint firstItem="eYu-R9-XNj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Zcr-HG-jlC"/>
+                <constraint firstItem="Tsm-1V-ljr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="dhX-p3-Nth"/>
+                <constraint firstAttribute="trailing" secondItem="qRH-5m-qlb" secondAttribute="trailing" constant="20" id="oUl-Jq-Op3"/>
+                <constraint firstItem="Tsm-1V-ljr" firstAttribute="centerY" secondItem="qRH-5m-qlb" secondAttribute="centerY" id="qgd-K3-nTT"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="login_close_icon" width="16" height="16"/>
+        <image name="login_register_background" width="320" height="568"/>
+    </resources>
+</document>

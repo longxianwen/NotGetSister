@@ -8,12 +8,14 @@
 
 #import "XWFriendTrendsController.h"
 #import "UIBarButtonItem+XWExtension.h"
+#import "XWLoginRegisterViewController.h"
 
 @interface XWFriendTrendsController ()
 
 @end
 
 @implementation XWFriendTrendsController
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -26,6 +28,19 @@
     self.navigationItem.leftBarButtonItem = leftButton;
 }
 
+/**
+ *  立即登录注册
+ *
+ *  @param sender 登录/注册按钮
+ */
+- (IBAction)clickRegisterLogin:(UIButton *)sender {
+    XWLog(@"%s",__func__);
+    
+    //跳转到注册登录页面
+    XWLoginRegisterViewController *loginRegister = [[XWLoginRegisterViewController alloc]init];
+    
+    [self presentViewController:loginRegister animated:YES completion:nil];
+}
 /**
  * 左上角按钮点击
  */
