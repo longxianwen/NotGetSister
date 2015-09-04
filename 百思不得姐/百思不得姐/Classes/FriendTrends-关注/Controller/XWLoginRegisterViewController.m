@@ -9,6 +9,7 @@
 #import "XWLoginRegisterViewController.h"
 
 @interface XWLoginRegisterViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *login;
 
 @end
 
@@ -17,6 +18,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    //设置按钮圆角
+//    self.login.layer.cornerRadius = 5;
+//    self.login.layer.masksToBounds = YES;
+//    self.login.clipsToBounds = YES;
+    
+//    [self.login setValue:@5 forKeyPath:@"layer.cornerRadius"];
+//    [self.login setValue:@YES forKeyPath:@"layer.masksToBounds"];
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }
 
 #pragma  mark -m 关闭注册登录
