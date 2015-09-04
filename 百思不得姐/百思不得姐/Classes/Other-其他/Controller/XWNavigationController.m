@@ -4,7 +4,7 @@
 //
 //  Created by longxianwen on 15/9/3.
 //  Copyright (c) 2015年 longxianwen. All rights reserved.
-//
+//  导航控制器
 
 #import "XWNavigationController.h"
 
@@ -71,5 +71,11 @@
 {
     [self popViewControllerAnimated:YES];
 }
+
+//统一修改push进去控制器状态栏颜色
+//- (UIStatusBarStyle)preferredStatusBarStyle
+//{
+//    return UIStatusBarStyleLightContent;
+//}
 
 @end

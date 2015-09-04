@@ -14,10 +14,10 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_register_background" translatesAutoresizingMaskIntoConstraints="NO" id="eYu-R9-XNj">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_register_background" translatesAutoresizingMaskIntoConstraints="NO" id="eYu-R9-XNj" userLabel="背景">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tsm-1V-ljr">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tsm-1V-ljr" userLabel="关闭按钮">
                     <rect key="frame" x="20" y="30" width="50" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="ZTC-s1-o1s"/>
@@ -37,13 +37,23 @@
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pan-39-DFE" userLabel="底部快速登录整体">
+                    <rect key="frame" x="0.0" y="480" width="600" height="100"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="YXS-n0-eMT"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="eYu-R9-XNj" secondAttribute="bottom" id="0vG-2h-iyu"/>
+                <constraint firstItem="pan-39-DFE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2OQ-SJ-5ex"/>
                 <constraint firstItem="eYu-R9-XNj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9U8-uI-3h6"/>
+                <constraint firstAttribute="bottom" secondItem="pan-39-DFE" secondAttribute="bottom" constant="20" id="9y2-1Y-bJJ"/>
                 <constraint firstAttribute="trailing" secondItem="eYu-R9-XNj" secondAttribute="trailing" id="EsA-N0-65v"/>
                 <constraint firstItem="Tsm-1V-ljr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="RAL-Fq-qu6"/>
+                <constraint firstAttribute="trailing" secondItem="pan-39-DFE" secondAttribute="trailing" id="VBs-xu-7rU"/>
                 <constraint firstItem="eYu-R9-XNj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Zcr-HG-jlC"/>
                 <constraint firstItem="Tsm-1V-ljr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="dhX-p3-Nth"/>
                 <constraint firstAttribute="trailing" secondItem="qRH-5m-qlb" secondAttribute="trailing" constant="20" id="oUl-Jq-Op3"/>
