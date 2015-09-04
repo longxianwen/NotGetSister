@@ -20,6 +20,8 @@
 {
     if(self = [super initWithFrame:frame])
     {
+        //设置背景图片
+        self.backgroundImage = [UIImage imageNamed:@"tabbar-light"];
         
         //添加+号按钮
         UIButton *publishButton = [UIButton buttonWithType:UIButtonTypeCustom];

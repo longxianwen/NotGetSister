@@ -56,6 +56,14 @@
     }
 }
 
++ (void)initialize
+{
+    //设置背景图片
+    UINavigationBar *bar = [UINavigationBar appearance];
+    [bar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
+    
+}
+
 /**
  *  返回到上一个控制器
  */
