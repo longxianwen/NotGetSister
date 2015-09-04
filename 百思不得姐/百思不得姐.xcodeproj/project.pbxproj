@@ -13,9 +13,10 @@
 		562CF2481B95B80900F53479 /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 562CF2471B95B80900F53479 /* _____Tests.m */; };
 		569B9FEC1B97EDD300B99DAD /* XWNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 569B9FEB1B97EDD300B99DAD /* XWNavigationBar.m */; };
 		569B9FF21B97F02900B99DAD /* XWNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 569B9FF11B97F02900B99DAD /* XWNavigationController.m */; };
+		569B9FF41B99A94000B99DAD /* XWTagViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 569B9FF31B99A94000B99DAD /* XWTagViewController.xib */; };
+		569B9FF61B99C6B300B99DAD /* XWFriendTrendsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 569B9FF51B99C6B300B99DAD /* XWFriendTrendsController.xib */; };
 		56F1FDDA1B96D23F00931FAB /* XWEssenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1FDAD1B96D23F00931FAB /* XWEssenceController.m */; };
 		56F1FDDB1B96D23F00931FAB /* XWTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1FDAF1B96D23F00931FAB /* XWTagViewController.m */; };
-		56F1FDDC1B96D23F00931FAB /* XWTagViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56F1FDB21B96D23F00931FAB /* XWTagViewController.xib */; };
 		56F1FDDD1B96D23F00931FAB /* XWFriendTrendsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1FDB61B96D23F00931FAB /* XWFriendTrendsController.m */; };
 		56F1FDDE1B96D23F00931FAB /* XWMeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1FDBC1B96D23F00931FAB /* XWMeController.m */; };
 		56F1FDDF1B96D23F00931FAB /* XWSettingTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1FDBE1B96D23F00931FAB /* XWSettingTableController.m */; };
@@ -51,11 +52,12 @@
 		569B9FEF1B97EF7000B99DAD /* readme.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = readme.c; sourceTree = "<group>"; };
 		569B9FF01B97F02900B99DAD /* XWNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWNavigationController.h; sourceTree = "<group>"; };
 		569B9FF11B97F02900B99DAD /* XWNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWNavigationController.m; sourceTree = "<group>"; };
+		569B9FF31B99A94000B99DAD /* XWTagViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWTagViewController.xib; sourceTree = "<group>"; };
+		569B9FF51B99C6B300B99DAD /* XWFriendTrendsController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWFriendTrendsController.xib; sourceTree = "<group>"; };
 		56F1FDAC1B96D23F00931FAB /* XWEssenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWEssenceController.h; sourceTree = "<group>"; };
 		56F1FDAD1B96D23F00931FAB /* XWEssenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWEssenceController.m; sourceTree = "<group>"; };
 		56F1FDAE1B96D23F00931FAB /* XWTagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWTagViewController.h; sourceTree = "<group>"; };
 		56F1FDAF1B96D23F00931FAB /* XWTagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWTagViewController.m; sourceTree = "<group>"; };
-		56F1FDB21B96D23F00931FAB /* XWTagViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWTagViewController.xib; sourceTree = "<group>"; };
 		56F1FDB51B96D23F00931FAB /* XWFriendTrendsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWFriendTrendsController.h; sourceTree = "<group>"; };
 		56F1FDB61B96D23F00931FAB /* XWFriendTrendsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWFriendTrendsController.m; sourceTree = "<group>"; };
 		56F1FDBB1B96D23F00931FAB /* XWMeController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWMeController.h; sourceTree = "<group>"; };
@@ -156,8 +158,8 @@
 				56F1FDC11B96D23F00931FAB /* New-新帖 */,
 				56F1FDB31B96D23F00931FAB /* FriendTrends-关注 */,
 				56F1FDB91B96D23F00931FAB /* Me-我 */,
-				56F1FDC71B96D23F00931FAB /* Other-其他 */,
 				56F1FDD61B96D23F00931FAB /* Publish-发布 */,
+				56F1FDC71B96D23F00931FAB /* Other-其他 */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -179,6 +181,7 @@
 				56F1FDAD1B96D23F00931FAB /* XWEssenceController.m */,
 				56F1FDAE1B96D23F00931FAB /* XWTagViewController.h */,
 				56F1FDAF1B96D23F00931FAB /* XWTagViewController.m */,
+				569B9FF31B99A94000B99DAD /* XWTagViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -193,7 +196,6 @@
 		56F1FDB11B96D23F00931FAB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				56F1FDB21B96D23F00931FAB /* XWTagViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -213,6 +215,7 @@
 			children = (
 				56F1FDB51B96D23F00931FAB /* XWFriendTrendsController.h */,
 				56F1FDB61B96D23F00931FAB /* XWFriendTrendsController.m */,
+				569B9FF51B99C6B300B99DAD /* XWFriendTrendsController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -462,8 +465,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				569B9FF61B99C6B300B99DAD /* XWFriendTrendsController.xib in Resources */,
 				562CF23C1B95B80900F53479 /* LaunchScreen.xib in Resources */,
-				56F1FDDC1B96D23F00931FAB /* XWTagViewController.xib in Resources */,
+				569B9FF41B99A94000B99DAD /* XWTagViewController.xib in Resources */,
 				562CF2391B95B80900F53479 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

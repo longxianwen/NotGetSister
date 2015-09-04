@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XWFriendTrendsController : UITableViewController
+@interface XWFriendTrendsController : UIViewController
 
 @end

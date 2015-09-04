@@ -67,10 +67,10 @@
 {
     XWNavigationController *nav = [[XWNavigationController alloc]initWithRootViewController:vc];
     
-    vc.view.backgroundColor = [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1.0];
+    nav.view.backgroundColor = [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1.0];
     
-    vc.tabBarItem.title = title;
-    vc.tabBarItem.image = [UIImage imageNamed:image];
+    nav.tabBarItem.title = title;
+    nav.tabBarItem.image = [UIImage imageNamed:image];
     //设置选中状态下图片
     nav.tabBarItem.selectedImage = [UIImage imageNamed:selectedImage];
     [self addChildViewController:nav];

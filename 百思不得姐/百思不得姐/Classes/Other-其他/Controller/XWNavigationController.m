@@ -29,7 +29,7 @@
 {
     [self addBackItem:viewController];
     [super pushViewController:viewController animated:animated];
-    XWLog(@"%@,%@,%zd",viewController,self.childViewControllers,self.childViewControllers.count);
+//    XWLog(@"%@,%@,%zd",viewController,self.childViewControllers,self.childViewControllers.count);
 }
 
 /**
