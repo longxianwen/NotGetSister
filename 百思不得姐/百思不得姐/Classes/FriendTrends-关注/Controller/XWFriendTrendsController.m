@@ -44,9 +44,9 @@
     
     [self presentViewController:loginRegister animated:YES completion:nil];
 }
-/**
- * 左上角按钮点击
- */
+
+
+#pragma mark - 左上角按钮-推荐关注
 - (void)tagClickFriendTrends
 {
     NSLogFunc;

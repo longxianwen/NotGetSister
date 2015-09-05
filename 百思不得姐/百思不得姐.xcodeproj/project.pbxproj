@@ -13,6 +13,8 @@
 		562CF2481B95B80900F53479 /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 562CF2471B95B80900F53479 /* _____Tests.m */; };
 		568F47A31B9B2B0D003F863F /* XWRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 568F47A11B9B2B0D003F863F /* XWRecommendViewController.m */; };
 		568F47A41B9B2B0D003F863F /* XWRecommendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 568F47A21B9B2B0D003F863F /* XWRecommendViewController.xib */; };
+		568F47A81B9B38F8003F863F /* XWRecommendCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 568F47A61B9B38F8003F863F /* XWRecommendCategoryCell.m */; };
+		568F47A91B9B38F8003F863F /* XWRecommendCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 568F47A71B9B38F8003F863F /* XWRecommendCategoryCell.xib */; };
 		569B9FEC1B97EDD300B99DAD /* XWNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 569B9FEB1B97EDD300B99DAD /* XWNavigationBar.m */; };
 		569B9FF21B97F02900B99DAD /* XWNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 569B9FF11B97F02900B99DAD /* XWNavigationController.m */; };
 		569B9FF41B99A94000B99DAD /* XWTagViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 569B9FF31B99A94000B99DAD /* XWTagViewController.xib */; };
@@ -57,6 +59,9 @@
 		568F47A01B9B2B0D003F863F /* XWRecommendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWRecommendViewController.h; sourceTree = "<group>"; };
 		568F47A11B9B2B0D003F863F /* XWRecommendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWRecommendViewController.m; sourceTree = "<group>"; };
 		568F47A21B9B2B0D003F863F /* XWRecommendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWRecommendViewController.xib; sourceTree = "<group>"; };
+		568F47A51B9B38F8003F863F /* XWRecommendCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWRecommendCategoryCell.h; sourceTree = "<group>"; };
+		568F47A61B9B38F8003F863F /* XWRecommendCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWRecommendCategoryCell.m; sourceTree = "<group>"; };
+		568F47A71B9B38F8003F863F /* XWRecommendCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWRecommendCategoryCell.xib; sourceTree = "<group>"; };
 		569B9FEA1B97EDD300B99DAD /* XWNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWNavigationBar.h; sourceTree = "<group>"; };
 		569B9FEB1B97EDD300B99DAD /* XWNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWNavigationBar.m; sourceTree = "<group>"; };
 		569B9FEF1B97EF7000B99DAD /* readme.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = readme.c; sourceTree = "<group>"; };
@@ -259,6 +264,9 @@
 				569B9FFD1B99FD4800B99DAD /* XWQuickLoginButton.m */,
 				569BA0071B9A906100B99DAD /* XWTextField.h */,
 				569BA0081B9A906100B99DAD /* XWTextField.m */,
+				568F47A51B9B38F8003F863F /* XWRecommendCategoryCell.h */,
+				568F47A61B9B38F8003F863F /* XWRecommendCategoryCell.m */,
+				568F47A71B9B38F8003F863F /* XWRecommendCategoryCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -502,6 +510,7 @@
 				562CF23C1B95B80900F53479 /* LaunchScreen.xib in Resources */,
 				569B9FF41B99A94000B99DAD /* XWTagViewController.xib in Resources */,
 				562CF2391B95B80900F53479 /* Images.xcassets in Resources */,
+				568F47A91B9B38F8003F863F /* XWRecommendCategoryCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +533,7 @@
 				569B9FF21B97F02900B99DAD /* XWNavigationController.m in Sources */,
 				56F1FDE31B96D23F00931FAB /* XWTabBarController.m in Sources */,
 				56F1FDDF1B96D23F00931FAB /* XWSettingTableController.m in Sources */,
+				568F47A81B9B38F8003F863F /* XWRecommendCategoryCell.m in Sources */,
 				56F1FDDD1B96D23F00931FAB /* XWFriendTrendsController.m in Sources */,
 				569BA0061B9A8CEA00B99DAD /* XWLoginRegisterViewController.m in Sources */,
 				56F1FDE21B96D23F00931FAB /* UIBarButtonItem+XWExtension.m in Sources */,

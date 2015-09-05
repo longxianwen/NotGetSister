@@ -27,24 +27,7 @@
 
 }
 
-#pragma  mark -m 关闭注册登录
-- (IBAction)closeRegisterLogin:(UIButton *)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-//状态栏颜色修改为白色
-- (UIStatusBarStyle)preferredStatusBarStyle
-{
-    return UIStatusBarStyleLightContent;
-}
-
-//登录
-- (IBAction)login:(id)sender {
-    //隐藏键盘
-    [self.view endEditing:YES];
-}
-
-//登录还是注册?
+#pragma mark - mark 登录注册切换
 - (IBAction)loginOrRegister:(UIButton *)button {
     
     //修改约束
@@ -61,11 +44,28 @@
     }];
 }
 
+//关闭注册登录界面
+- (IBAction)closeRegisterLogin:(UIButton *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+//登录
+- (IBAction)login:(id)sender {
+    //隐藏键盘
+    [self.view endEditing:YES];
+}
+
 //单击屏幕任何地方的时候隐藏键盘
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     NSLogFunc;
     [self.view endEditing:YES];
+}
+
+//状态栏颜色修改为白色
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 
 @end
