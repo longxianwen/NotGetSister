@@ -10,6 +10,8 @@
 
 @interface XWLoginRegisterViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *login;
+@property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
+@property (weak, nonatomic) IBOutlet UITextField *pwdTextField;
 
 @end
 
@@ -18,23 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    //设置按钮圆角
-//    self.login.layer.cornerRadius = 5;
-//    self.login.layer.masksToBounds = YES;
-//    self.login.clipsToBounds = YES;
-    
-//    [self.login setValue:@5 forKeyPath:@"layer.cornerRadius"];
-//    [self.login setValue:@YES forKeyPath:@"layer.masksToBounds"];
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
 }
 
 #pragma  mark -m 关闭注册登录
@@ -46,6 +32,19 @@
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleLightContent;
+}
+
+//登录
+- (IBAction)login:(id)sender {
+    //隐藏键盘
+    [self.view endEditing:YES];
+}
+
+//单击屏幕任何地方的时候隐藏键盘
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    NSLogFunc;
+    [self.view endEditing:YES];
 }
 
 @end

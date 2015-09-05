@@ -34,7 +34,7 @@
  *  @param sender 登录/注册按钮
  */
 - (IBAction)clickRegisterLogin:(UIButton *)sender {
-    XWLog(@"%s",__func__);
+//    XWLog(@"%s",__func__);
     
     //跳转到注册登录页面
     XWLoginRegisterViewController *loginRegister = [[XWLoginRegisterViewController alloc]init];
