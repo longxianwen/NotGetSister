@@ -7,7 +7,7 @@
 //  注册登录
 
 #import "XWLoginRegisterViewController.h"
-#import "UIView+XWExtension.h"
+
 
 @interface XWLoginRegisterViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *login;

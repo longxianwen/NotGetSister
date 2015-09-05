@@ -6,7 +6,6 @@
 //  Copyright (c) 2015年 longxianwen. All rights reserved.
 //  UIView控件x,y,w,h,centerX,centerY快速获取或者设置
 
-#import "UIView+XWExtension.h"
 
 @implementation UIView (XWExtension)
 

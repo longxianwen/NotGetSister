@@ -7,7 +7,6 @@
 //  精华
 
 #import "XWEssenceController.h"
-#import "UIBarButtonItem+XWExtension.h"
 #import "XWTagViewController.h"
 
 @interface XWEssenceController ()

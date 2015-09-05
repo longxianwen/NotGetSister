@@ -7,7 +7,6 @@
 //  我
 
 #import "XWMeController.h"
-#import "UIBarButtonItem+XWExtension.h"
 #import "XWSettingTableController.h"
 
 @interface XWMeController ()

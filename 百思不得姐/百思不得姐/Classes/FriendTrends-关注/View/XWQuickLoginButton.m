@@ -7,7 +7,6 @@
 //  快速登录按钮
 
 #import "XWQuickLoginButton.h"
-#import "UIView+XWExtension.h"
 
 @implementation XWQuickLoginButton
 

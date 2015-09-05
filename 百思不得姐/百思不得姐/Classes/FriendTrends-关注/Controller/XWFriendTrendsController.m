@@ -7,8 +7,8 @@
 //  关注
 
 #import "XWFriendTrendsController.h"
-#import "UIBarButtonItem+XWExtension.h"
 #import "XWLoginRegisterViewController.h"
+#import "XWRecommendViewController.h"
 
 @interface XWFriendTrendsController ()
 
@@ -26,6 +26,9 @@
     UIBarButtonItem *leftButton = [UIBarButtonItem buttonItemCreate:self andImage:@"friendsRecommentIcon" andHighlightedImage:@"friendsRecommentIcon-click" andAction:@selector(tagClickFriendTrends)];
     
     self.navigationItem.leftBarButtonItem = leftButton;
+    
+    //设置背景颜色
+    self.view.backgroundColor = XWGlobalBg;
 }
 
 /**
@@ -47,6 +50,10 @@
 - (void)tagClickFriendTrends
 {
     NSLogFunc;
+    //跳转到推荐关注页面
+    XWRecommendViewController *recommend = [[XWRecommendViewController alloc]init];
+    
+    [self.navigationController pushViewController:recommend animated:YES];
 }
 
 @end

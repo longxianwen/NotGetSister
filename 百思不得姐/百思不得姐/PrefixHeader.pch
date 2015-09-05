@@ -12,6 +12,10 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
+#import "UIBarButtonItem+XWExtension.h"
+#import "UIView+XWExtension.h"
+#import <UIKit/UIKit.h>
+
 #ifdef DEBUG //开发调试阶段
 #define XWLog(FORMAT, ...) fprintf(stderr,"%s:%d\t%s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
 #else  //发布上线阶段
@@ -20,5 +24,10 @@
 
 //快捷方法调用
 #define NSLogFunc XWLog(@"%s", __func__)
+
+//设置颜色
+#define XWRGBColor(r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0];
+
+#define XWGlobalBg XWRGBColor(223, 223, 223)
 
 #endif

@@ -7,7 +7,6 @@
 //
 
 #import "XWTextField.h"
-#import <objc/runtime.h>
 
 // 占位文字颜色
 #define XWPlaceholderColorKey @"placeholderLabel.textColor"
