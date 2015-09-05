@@ -7,11 +7,15 @@
 //  注册登录
 
 #import "XWLoginRegisterViewController.h"
+#import "UIView+XWExtension.h"
 
 @interface XWLoginRegisterViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *login;
 @property (weak, nonatomic) IBOutlet UITextField *phoneTextField;
 @property (weak, nonatomic) IBOutlet UITextField *pwdTextField;
+
+/**<登录界面左边约束*/
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftSpace;
 
 @end
 
@@ -38,6 +42,23 @@
 - (IBAction)login:(id)sender {
     //隐藏键盘
     [self.view endEditing:YES];
+}
+
+//登录还是注册?
+- (IBAction)loginOrRegister:(UIButton *)button {
+    
+    //修改约束
+    if(self.leftSpace.constant == 0)
+    {
+        self.leftSpace.constant = - self.view.width;
+        button.selected = YES;
+    } else{
+        self.leftSpace.constant = 0;
+        button.selected = NO;
+    }
+    [UIView animateWithDuration:0.25 animations:^{
+        [self.view layoutIfNeeded];
+    }];
 }
 
 //单击屏幕任何地方的时候隐藏键盘
