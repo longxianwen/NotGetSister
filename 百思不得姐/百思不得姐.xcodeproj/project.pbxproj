@@ -19,6 +19,7 @@
 		569B9FFE1B99FD4800B99DAD /* XWQuickLoginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 569B9FFD1B99FD4800B99DAD /* XWQuickLoginButton.m */; };
 		569BA0041B9A01ED00B99DAD /* UIView+XWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 569BA0031B9A01ED00B99DAD /* UIView+XWExtension.m */; };
 		569BA0061B9A8CEA00B99DAD /* XWLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 569BA0051B9A8CEA00B99DAD /* XWLoginRegisterViewController.m */; };
+		569BA0091B9A906100B99DAD /* XWTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 569BA0081B9A906100B99DAD /* XWTextField.m */; };
 		56F1FDDA1B96D23F00931FAB /* XWEssenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1FDAD1B96D23F00931FAB /* XWEssenceController.m */; };
 		56F1FDDB1B96D23F00931FAB /* XWTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1FDAF1B96D23F00931FAB /* XWTagViewController.m */; };
 		56F1FDDD1B96D23F00931FAB /* XWFriendTrendsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1FDB61B96D23F00931FAB /* XWFriendTrendsController.m */; };
@@ -65,6 +66,8 @@
 		569BA0021B9A01ED00B99DAD /* UIView+XWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+XWExtension.h"; sourceTree = "<group>"; };
 		569BA0031B9A01ED00B99DAD /* UIView+XWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+XWExtension.m"; sourceTree = "<group>"; };
 		569BA0051B9A8CEA00B99DAD /* XWLoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWLoginRegisterViewController.m; sourceTree = "<group>"; };
+		569BA0071B9A906100B99DAD /* XWTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWTextField.h; sourceTree = "<group>"; };
+		569BA0081B9A906100B99DAD /* XWTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWTextField.m; sourceTree = "<group>"; };
 		56F1FDAC1B96D23F00931FAB /* XWEssenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWEssenceController.h; sourceTree = "<group>"; };
 		56F1FDAD1B96D23F00931FAB /* XWEssenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWEssenceController.m; sourceTree = "<group>"; };
 		56F1FDAE1B96D23F00931FAB /* XWTagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWTagViewController.h; sourceTree = "<group>"; };
@@ -246,6 +249,8 @@
 			children = (
 				569B9FFC1B99FD4800B99DAD /* XWQuickLoginButton.h */,
 				569B9FFD1B99FD4800B99DAD /* XWQuickLoginButton.m */,
+				569BA0071B9A906100B99DAD /* XWTextField.h */,
+				569BA0081B9A906100B99DAD /* XWTextField.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -520,6 +525,7 @@
 				569B9FFE1B99FD4800B99DAD /* XWQuickLoginButton.m in Sources */,
 				56F1FDE51B96D23F00931FAB /* XWTabBar.m in Sources */,
 				56F1FDDA1B96D23F00931FAB /* XWEssenceController.m in Sources */,
+				569BA0091B9A906100B99DAD /* XWTextField.m in Sources */,
 				56F1FDE01B96D23F00931FAB /* XWNewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
