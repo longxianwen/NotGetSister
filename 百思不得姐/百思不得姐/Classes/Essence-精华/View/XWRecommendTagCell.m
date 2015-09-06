@@ -52,4 +52,17 @@
     [self.tagImage_list sd_setImageWithURL:[NSURL URLWithString:recommendTag.image_list] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"] completed:nil];
 }
 
+//通过更改cell高度设置分隔线
+- (void)setFrame:(CGRect)frame
+{
+    frame.size.height -= 1;
+    
+    //实现两边间距
+//    frame.origin.x += 5;
+//    frame.size.width -= 10;
+    
+    [super setFrame:frame];
+}
+
+
 @end

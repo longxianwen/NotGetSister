@@ -39,13 +39,6 @@
                         </state>
                         <state key="highlighted" backgroundImage="FollowBtnClickBg"/>
                     </button>
-                    <view alpha="0.49999999999999961" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ac3-81-QLU">
-                        <rect key="frame" x="0.0" y="97" width="320" height="1"/>
-                        <color key="backgroundColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="1" id="Vaz-Bi-ah7"/>
-                        </constraints>
-                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="生活百科" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KK6-mC-PGO" userLabel="标签名称">
                         <rect key="frame" x="75" y="24" width="68" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -54,16 +47,13 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="rhL-vM-3zx" secondAttribute="trailing" constant="20" id="DEi-Mb-Zc4"/>
-                    <constraint firstAttribute="trailing" secondItem="Ac3-81-QLU" secondAttribute="trailing" id="GK6-7O-0OX"/>
                     <constraint firstItem="MrC-jU-KMe" firstAttribute="bottom" secondItem="I4Y-gH-adL" secondAttribute="bottom" id="I9R-GV-wtq"/>
                     <constraint firstItem="KK6-mC-PGO" firstAttribute="top" secondItem="MrC-jU-KMe" secondAttribute="top" id="Lhb-5Y-fY0"/>
                     <constraint firstItem="KK6-mC-PGO" firstAttribute="leading" secondItem="I4Y-gH-adL" secondAttribute="leading" id="Ltw-Ma-NRJ"/>
                     <constraint firstItem="MrC-jU-KMe" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="Mck-H5-8iH"/>
                     <constraint firstAttribute="centerY" secondItem="MrC-jU-KMe" secondAttribute="centerY" id="YIa-Gt-cgD"/>
                     <constraint firstItem="rhL-vM-3zx" firstAttribute="centerY" secondItem="MrC-jU-KMe" secondAttribute="centerY" constant="0.75" id="aqU-n2-dso"/>
-                    <constraint firstItem="Ac3-81-QLU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="oNQ-l6-GB7"/>
                     <constraint firstItem="KK6-mC-PGO" firstAttribute="leading" secondItem="MrC-jU-KMe" secondAttribute="trailing" constant="10" id="tCJ-AR-bhi"/>
-                    <constraint firstAttribute="bottom" secondItem="Ac3-81-QLU" secondAttribute="bottom" id="vnP-P6-W2H"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

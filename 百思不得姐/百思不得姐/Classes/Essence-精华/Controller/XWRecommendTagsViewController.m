@@ -10,6 +10,7 @@
 #import "XWRecommendTagCell.h"
 #import <AFNetworking.h>
 #import <MJExtension/MJExtension.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 #import "XWRecommendTag.h"
 
 @interface XWRecommendTagsViewController ()
@@ -17,14 +18,40 @@
 /**<保存标签数据*/
 @property (nonatomic,copy) NSArray *tagArray;
 
+/**<请求管理者*/
+@property (nonatomic,weak) AFHTTPSessionManager * manager;
+
 @end
 
 @implementation XWRecommendTagsViewController
+
+/**< lazy */
+- (AFHTTPSessionManager *)manager
+{
+    if(!_manager)
+    {
+        _manager = [AFHTTPSessionManager manager];
+    }
+    return _manager;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    
+    //表格的初始化
+    [self setupTableView];
+    
+    //加载表格数据
+    [self loadRecommendTags];
+
+}
+
+#pragma mark -m 表格的初始化
+- (void)setupTableView
+{
     self.navigationItem.title = @"推荐标签";
     self.view.backgroundColor = XWGlobalBg;
     
@@ -37,26 +64,70 @@
     
     //注册cell
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([XWRecommendTagCell class]) bundle:nil] forCellReuseIdentifier:@"tag"];
+}
+
+#pragma mark -m 加载表格数据
+- (void)loadRecommendTags
+{
     
-    //请求服务器获取数据
+    [SVProgressHUD show];
+//    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
+    
     //设置请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"tag_recommend";
     params[@"action"] = @"sub";
     params[@"c"] = @"topic";
     
-    
-    [[AFHTTPSessionManager manager]GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
-        XWLog(@"%@",responseObject);
+    //请求服务器获取数据
+    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+//        XWLog(@"%@",responseObject);
         
-        self.tagArray = [XWRecommendTag objectArrayWithKeyValuesArray:responseObject];
+        if(responseObject == nil)
+        {
+            // 关闭弹框
+            [SVProgressHUD showErrorWithStatus:@"加载标签数据失败"];
+            return ;
+        }
         
-        //刷新数据
-        [self.tableView reloadData];
+        __weak typeof(self) weakSelf = self;
+        
+        weakSelf.tagArray = [XWRecommendTag objectArrayWithKeyValuesArray:responseObject];
+        
+        //刷新表格数据
+        [weakSelf.tableView reloadData];
+        
+        //关闭弹窗
+        [SVProgressHUD dismiss];
+        
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        XWLog(@"失败");
+        
+        //取消请求
+        if(error.code == NSURLErrorCancelled) return ;
+        
+        //请求超时
+        if(error.code == NSURLErrorTimedOut)
+        {
+            [SVProgressHUD showErrorWithStatus:@"加载标签超时,请稍后再试..!"];
+        } else
+        {
+            //请求失败
+            [SVProgressHUD showErrorWithStatus:@"加载标签数据失败!"];
+        }
+        
     }];
+}
 
+
+- (void)dealloc
+{
+    XWLog(@"%s",__func__);
+    
+    // 停止请求
+    [self.manager invalidateSessionCancelingTasks:YES];
+//    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    
+    [SVProgressHUD dismiss];
 }
 
 #pragma mark - <UITableViewDataSource>
@@ -70,17 +141,11 @@
     
     XWRecommendTagCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tag"];
     
-    
     cell.recommendTag = self.tagArray[indexPath.row];
     
     return cell;
 }
 
 #pragma mark - <UITableViewDelegate>
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    XWRecommendTagCell *cell = (XWRecommendTagCell*)[tableView cellForRowAtIndexPath:indexPath];
-    cell.height -= 1;
-}
 
 @end
