@@ -34,6 +34,7 @@
 		56F1FDE21B96D23F00931FAB /* UIBarButtonItem+XWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1FDCC1B96D23F00931FAB /* UIBarButtonItem+XWExtension.m */; };
 		56F1FDE31B96D23F00931FAB /* XWTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1FDCF1B96D23F00931FAB /* XWTabBarController.m */; };
 		56F1FDE51B96D23F00931FAB /* XWTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1FDD51B96D23F00931FAB /* XWTabBar.m */; };
+		BA171E1F095BA5DFB3B4EF5A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D40E84653272F9AD4E80746 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5089E612325241562CE423BA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		562CF2281B95B80900F53479 /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		562CF22C1B95B80900F53479 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		562CF22D1B95B80900F53479 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -98,6 +100,8 @@
 		56F1FDCF1B96D23F00931FAB /* XWTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWTabBarController.m; sourceTree = "<group>"; };
 		56F1FDD41B96D23F00931FAB /* XWTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWTabBar.h; sourceTree = "<group>"; };
 		56F1FDD51B96D23F00931FAB /* XWTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWTabBar.m; sourceTree = "<group>"; };
+		7D40E84653272F9AD4E80746 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		85DC31B03EB3159358696FE0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA171E1F095BA5DFB3B4EF5A /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +130,8 @@
 				562CF22A1B95B80900F53479 /* 百思不得姐 */,
 				562CF2441B95B80900F53479 /* 百思不得姐Tests */,
 				562CF2291B95B80900F53479 /* Products */,
+				CE6F2382159AB18E7E492D21 /* Pods */,
+				62FC995EEB92AC8DD9FC3C4B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -423,6 +430,23 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		62FC995EEB92AC8DD9FC3C4B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7D40E84653272F9AD4E80746 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE6F2382159AB18E7E492D21 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				85DC31B03EB3159358696FE0 /* Pods.debug.xcconfig */,
+				5089E612325241562CE423BA /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -430,9 +454,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 562CF24B1B95B80900F53479 /* Build configuration list for PBXNativeTarget "百思不得姐" */;
 			buildPhases = (
+				73F50EE652DBDCC7CBB9BD39 /* Check Pods Manifest.lock */,
 				562CF2241B95B80900F53479 /* Sources */,
 				562CF2251B95B80900F53479 /* Frameworks */,
 				562CF2261B95B80900F53479 /* Resources */,
+				540F5D01784DDA4F467AFF0E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -522,6 +548,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		540F5D01784DDA4F467AFF0E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		73F50EE652DBDCC7CBB9BD39 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		562CF2241B95B80900F53479 /* Sources */ = {
@@ -662,6 +721,7 @@
 		};
 		562CF24C1B95B80900F53479 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85DC31B03EB3159358696FE0 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -676,6 +736,7 @@
 		};
 		562CF24D1B95B80900F53479 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5089E612325241562CE423BA /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
