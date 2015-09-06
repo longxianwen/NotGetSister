@@ -8,25 +8,7 @@
 
 ### From CocoaPods
 
-[CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like `SVProgressHUD` in your projects. Simply add the following line to your [Podfile](http://guides.cocoapods.org/using/using-cocoapods.html):
-
-```ruby
-pod 'SVProgressHUD'
-```
-
-If you want to use the latest features of `SVProgressHUD` add `:head`:
-
-```ruby
-pod 'SVProgressHUD', :head
-```
-
-This pulls from the `master` branch directly. We are usually careful about what we push there and this is the version we use ourselves in all of our projects.
-
-### Carthage
-
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/TransitApp/SVProgressHUD)
-
-You can install SVProgressHUD with Carthage
+I'm not a big fan of CocoaPods, so tend to not keep it updated. If you really want to use SVProgressHUD with CocoaPods, I suggest you use `pod 'SVProgressHUD', :head` to pull from the `master` branch directly. I'm usually careful about what I push there and is the version I use myself in all my projects.
 
 ### Manually
 
@@ -92,8 +74,6 @@ The HUD will get dismissed once the `popActivity` calls will match the number of
 Or show a confirmation glyph before before getting dismissed a little bit later. The display time depends on the length of the given string (between 0.5 and 5 seconds).
 
 ```objective-c
-+ (void)showInfoWithStatus:(NSString *)string;
-+ (void)showInfoWithStatus:(NSString *)string maskType:(SVProgressHUDMaskType)maskType;
 + (void)showSuccessWithStatus:(NSString*)string;
 + (void)showSuccessWithStatus:(NSString*)string maskType:(SVProgressHUDMaskType)maskType;
 + (void)showErrorWithStatus:(NSString *)string;
@@ -111,11 +91,9 @@ Or show a confirmation glyph before before getting dismissed a little bit later.
 + (void)setForegroundColor:(UIColor*)color;                 // default is [UIColor blackColor]
 + (void)setRingThickness:(CGFloat)width;                    // default is 4 pt
 + (void)setFont:(UIFont*)font;                              // default is [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline]
-+ (void)setInfoImage:(UIImage*)image;                       // default is the bundled info image provided by Freepik
 + (void)setSuccessImage:(UIImage*)image;                    // default is bundled success image from Freepik
 + (void)setErrorImage:(UIImage*)image;                      // default is bundled error image from Freepik
 + (void)setDefaultMaskType:(SVProgressHUDMaskType)maskType; // default is SVProgressHUDMaskTypeNone
-+ (void)setViewForExtension:(UIView*)view;                  // default is nil, only used if #define SV_APP_EXTENSIONS is set
 ```
 
 ## Notifications
@@ -128,11 +106,7 @@ Or show a confirmation glyph before before getting dismissed a little bit later.
 
 Each notification passes a `userInfo` dictionary holding the HUD's status string (if any), retrievable via `SVProgressHUDStatusUserInfoKey`.
 
-`SVProgressHUD` also posts `SVProgressHUDDidReceiveTouchEventNotification` when users touch on the overall screen or `SVProgressHUDDidTouchDownInsideNotification` when a user touches on the HUD directly. For this notifications `userInfo` is not passed but the object parameter contains the `UIEvent` that related to the touch.
-
-## App Extensions
-
-When using `SVProgressHUD` in an App Extension, #define SV_APP_EXTENSIONS to avoid using unavailable APIs. Additionally call `setViewForExtension:` from your extensions view controller with `self.view`.
+`SVProgressHUD` also posts `SVProgressHUDDidReceiveTouchEventNotification` when users touch on the overall screen or `SVProgressHUDDidTouchDownInsideNotification` when a user touches on the hud directly. For this notifications `userInfo` is not passed but the object parameter contains the `UIEvent` that related to the touch.
 
 ## Contributing to this project
 
@@ -145,4 +119,4 @@ review the guidelines written by [Nicolas Gallagher](https://github.com/necolas/
 
 ## Credits
 
-`SVProgressHUD` is brought to you by [Sam Vermette](http://samvermette.com) and [contributors to the project](https://github.com/samvermette/SVProgressHUD/contributors). If you're using `SVProgressHUD` in your project, attribution would be very appreciated. The info, success and error icons are made by [Freepik](http://www.freepik.com) from [Flaticon](www.flaticon.com) and are licensed under [Creative Commons BY 3.0](http://creativecommons.org/licenses/by/3.0/). 
+`SVProgressHUD` is brought to you by [Sam Vermette](http://samvermette.com) and [contributors to the project](https://github.com/samvermette/SVProgressHUD/contributors). If you're using `SVProgressHUD` in your project, attribution would be very appreciated. The success and error icons are made by [Freepik](http://www.freepik.com) from [Flaticon](www.flaticon.com) and are licensed under [Creative Commons BY 3.0](http://creativecommons.org/licenses/by/3.0/). 

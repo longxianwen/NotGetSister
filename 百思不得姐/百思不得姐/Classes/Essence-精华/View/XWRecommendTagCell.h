@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XWRecommendTag.h"
 
 @interface XWRecommendTagCell : UITableViewCell
 
+/**<推荐标签数据*/
+@property (nonatomic,strong) XWRecommendTag *recommendTag;
 @end
