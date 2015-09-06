@@ -7,7 +7,7 @@
 //  精华
 
 #import "XWEssenceController.h"
-#import "XWTagViewController.h"
+#import "XWRecommendTagsViewController.h"
 
 @interface XWEssenceController ()
 
@@ -27,7 +27,7 @@
 - (void)tagClickEssence
 {
 //    NSLogFunc
-    XWTagViewController *tag = [[XWTagViewController alloc]init];
+    XWRecommendTagsViewController *tag = [[XWRecommendTagsViewController alloc]init];
     
     tag.hidesBottomBarWhenPushed = YES;
     
