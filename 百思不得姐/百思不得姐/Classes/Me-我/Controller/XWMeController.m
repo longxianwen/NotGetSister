@@ -53,6 +53,7 @@
     self.tableView.tableFooterView = view;
 }
 
+#pragma mark - <UITableViewDataSource>
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 2;
