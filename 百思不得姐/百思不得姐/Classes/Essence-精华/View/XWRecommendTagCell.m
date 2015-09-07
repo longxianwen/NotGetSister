@@ -21,6 +21,11 @@
 - (void)awakeFromNib {
     // Initialization code
 //    NSLogFunc
+    
+    //设置圆角图片
+//    self.tagImage_list.layer.cornerRadius = self.tagImage_list.width * 0.5;
+//    
+//    self.tagImage_list.layer.masksToBounds = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -49,7 +54,37 @@
     }
     
     //标签图片
-    [self.tagImage_list sd_setImageWithURL:[NSURL URLWithString:recommendTag.image_list] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"] completed:nil];
+    [self.tagImage_list sd_setImageWithURL:[NSURL URLWithString:recommendTag.image_list] placeholderImage:[UIImage imageNamed:@"defaultUserIcon"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        
+        if(image == nil) return ;
+        
+        // 开启图形上下文
+        UIGraphicsBeginImageContext(image.size);
+        
+        // 获得上下文
+        CGContextRef ctx = UIGraphicsGetCurrentContext();
+        
+        // 矩形框
+        CGRect rect = CGRectMake(0, 0, image.size.width, image.size.height);
+        
+        // 添加一个圆
+        CGContextAddEllipseInRect(ctx, rect);
+        
+        // 裁剪(裁剪成刚才添加的图形形状)
+        CGContextClip(ctx);
+        
+        // 往圆上面画一张图片
+        [image drawInRect:rect];
+        
+        // 获得上下文中的图片
+        UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+        
+        // 关闭图形上下文
+        UIGraphicsEndImageContext();
+        
+        self.tagImage_list.image = newImage;
+        
+    }];
 }
 
 //通过更改cell高度设置分隔线

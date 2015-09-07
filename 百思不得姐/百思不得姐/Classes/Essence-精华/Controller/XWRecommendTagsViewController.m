@@ -71,7 +71,6 @@
 {
     
     [SVProgressHUD show];
-//    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeBlack];
     
     //设置请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
@@ -80,8 +79,9 @@
     params[@"c"] = @"topic";
     
     //请求服务器获取数据
+     XWWeakSelf
+    
     [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
-//        XWLog(@"%@",responseObject);
         
         if(responseObject == nil)
         {
@@ -89,8 +89,6 @@
             [SVProgressHUD showErrorWithStatus:@"加载标签数据失败"];
             return ;
         }
-        
-        __weak typeof(self) weakSelf = self;
         
         weakSelf.tagArray = [XWRecommendTag objectArrayWithKeyValuesArray:responseObject];
         
@@ -125,7 +123,6 @@
     
     // 停止请求
     [self.manager invalidateSessionCancelingTasks:YES];
-//    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
     
     [SVProgressHUD dismiss];
 }

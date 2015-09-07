@@ -30,4 +30,7 @@
 
 #define XWGlobalBg XWRGBColor(223, 223, 223)
 
+//block弱引用
+#define XWWeakSelf __weak typeof(self) weakSelf = self;
+
 #endif
