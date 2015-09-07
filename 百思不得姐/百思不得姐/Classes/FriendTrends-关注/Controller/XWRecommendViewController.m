@@ -26,13 +26,13 @@ static NSString* const XWCategoryId = @"categoryCell";
     
     
     // 控件的初始化
-    [self setupTableView];
+    [self setupControllerView];
     
     
 }
 
 #pragma mark - 控件的初始化
-- (void)setupTableView
+- (void)setupControllerView
 {
     //设置标题
     self.navigationItem.title = @"推荐关注";

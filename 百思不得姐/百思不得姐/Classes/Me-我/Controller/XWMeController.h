@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XWMeController : UIViewController
+@interface XWMeController : UITableViewController
 
 @end
