@@ -4,22 +4,23 @@
 //
 //  Created by longxianwen on 15/9/5.
 //  Copyright (c) 2015年 longxianwen. All rights reserved.
-//
+//  登录注册文本框UITextField
 
-#import "XWTextField.h"
+#import "XWLoginRegisterTextField.h"
 
 // 占位文字颜色
-#define XWPlaceholderColorKey @"placeholderLabel.textColor"
+static NSString* const XWPlaceholderColorKey  = @"placeholderLabel.textColor";
+
 // 默认的占位文字颜色
 #define XWPlaceholderDefaultColor [UIColor grayColor]
 // 聚焦的占位文字颜色
 #define XWPlaceholderFocusColor [UIColor whiteColor]
 
-@interface XWTextField ()
+@interface XWLoginRegisterTextField ()
 
 @end
 
-@implementation XWTextField
+@implementation XWLoginRegisterTextField
 
 - (void)awakeFromNib
 {

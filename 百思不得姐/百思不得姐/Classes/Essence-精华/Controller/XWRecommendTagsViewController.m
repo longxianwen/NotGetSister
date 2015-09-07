@@ -25,6 +25,7 @@
 
 @implementation XWRecommendTagsViewController
 
+
 /**< lazy */
 - (AFHTTPSessionManager *)manager
 {
@@ -49,6 +50,8 @@
 
 }
 
+/**<cell循环利用标识*/
+static NSString * const XWTagCellId = @"tag";
 #pragma mark -m 表格的初始化
 - (void)setupTableView
 {
@@ -63,7 +66,7 @@
     
     
     //注册cell
-    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([XWRecommendTagCell class]) bundle:nil] forCellReuseIdentifier:@"tag"];
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([XWRecommendTagCell class]) bundle:nil] forCellReuseIdentifier:XWTagCellId];
 }
 
 #pragma mark -m 加载表格数据
@@ -81,7 +84,7 @@
     //请求服务器获取数据
      XWWeakSelf
     
-    [self.manager GET:@"http://api.budejie.com/api/api_open.php" parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+    [self.manager GET:XWRequestURL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         
         if(responseObject == nil)
         {
@@ -136,7 +139,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    XWRecommendTagCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tag"];
+    XWRecommendTagCell *cell = [tableView dequeueReusableCellWithIdentifier:XWTagCellId];
     
     cell.recommendTag = self.tagArray[indexPath.row];
     

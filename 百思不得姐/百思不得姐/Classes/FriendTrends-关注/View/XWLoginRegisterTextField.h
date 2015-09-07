@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XWTextField : UITextField
+@interface XWLoginRegisterTextField : UITextField
 
 @end
