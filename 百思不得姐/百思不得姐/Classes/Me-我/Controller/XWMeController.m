@@ -63,7 +63,8 @@ static NSString * const XWMeCellId = @"me";
     self.tableView.sectionHeaderHeight = 0;
     
     //添加footView
-    self.tableView.tableFooterView = [[XWFootView alloc]init];
+    XWFootView *footerView = [[XWFootView alloc]init];
+    self.tableView.tableFooterView = footerView;
 }
 
 #pragma mark - <UITableViewDataSource>

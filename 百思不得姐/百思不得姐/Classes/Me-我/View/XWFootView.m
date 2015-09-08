@@ -10,7 +10,7 @@
 #import <AFNetworking.h>
 #import <MJExtension/MJExtension.h>
 #import "XWSquare.h"
-#import <UIButton+WebCache.h>
+#import "XWSquareButton.h"
 
 @interface XWFootView ()
 
@@ -25,11 +25,6 @@
 {
     if(self = [super initWithFrame:frame])
     {
-        NSLogFunc
-        
-        self.backgroundColor = [UIColor redColor];
-        
-        
         //向服务器发送请求,获得数据
         //请求参数..
         NSMutableDictionary *params = [NSMutableDictionary dictionary];
@@ -44,6 +39,7 @@
             //字典转模型
             self.squareArr = [XWSquare objectArrayWithKeyValuesArray:responseObject[@"square_list"]];
             
+            //创建方块按钮
             [weakSelf createSubViews:self.squareArr];
             
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -56,7 +52,7 @@
 
 
 
-
+#pragma mark -m 创建方块按钮
 - (void)createSubViews:(NSArray *)squareArr
 {
     //每行的列数
@@ -72,28 +68,38 @@
         CGFloat buttonX = (index % colsCount) * buttonW;
         CGFloat buttony = (index / colsCount) * buttonH;
         
-        UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake
-                         (buttonX, buttony, buttonW, buttonH)];
+        XWSquareButton *btn = [[XWSquareButton alloc]init];
+        btn.frame = CGRectMake(buttonX, buttony, buttonW, buttonH);
+        //监听事件
+        [btn addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
         
-        btn.backgroundColor = randomColor;
+//        btn.backgroundColor = randomColor;
         
-        XWSquare *square =  squareArr[index];
+        XWSquare *squareButton =  squareArr[index];
         
-        [btn setTitle:square.name forState:UIControlStateNormal];
+        //设置数据
+        btn.squareButton = squareButton;
         
-        [btn sd_setImageWithURL:[NSURL URLWithString:square.icon] forState:UIControlStateNormal];
-        
-        /*
-        //下载图片
-        [[SDWebImageManager sharedManager]downloadImageWithURL:[NSURL URLWithString:square.icon] options:0 progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
-            
-            [btn setImage:image forState:UIControlStateNormal];
-            
-        }];
-         */
-        
+        //添加按钮
         [self addSubview:btn];
     }
+    
+    //方案二:通过行数*按钮高度来确定，总高度
+    NSUInteger rowsCount = (squareArr.count + colsCount - 1) / colsCount;
+    
+    self.height = rowsCount * buttonH;
+    
+    // 重新设置footerView
+    UITableView *tableView = (UITableView *)self.superview;
+    tableView.contentSize = CGSizeMake(0, CGRectGetMaxY(self.frame));
+}
+
+#pragma mark - m 监听按钮点击
+- (void)buttonClick:(XWSquareButton *) squareButton
+{
+    XWLog(@"%@ %@",squareButton.squareButton.name,squareButton.squareButton.url);
+    
+    //如果单击按钮是超链接,则点击跳转
 }
 
 @end
