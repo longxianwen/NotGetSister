@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="XWSquareWebViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JAH-LN-zaD">
+                    <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                    <items>
+                        <barButtonItem image="back" id="Qfm-N5-Ly3"/>
+                        <barButtonItem image="forward" id="ZMs-zf-DNa"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="dYJ-Pa-5F7"/>
+                        <barButtonItem systemItem="refresh" id="9Ie-ik-g7u"/>
+                    </items>
+                </toolbar>
+                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v4l-lG-M6t">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </webView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="JAH-LN-zaD" secondAttribute="trailing" id="B8X-JQ-yCX"/>
+                <constraint firstAttribute="bottom" secondItem="JAH-LN-zaD" secondAttribute="bottom" id="Be7-03-XSl"/>
+                <constraint firstItem="v4l-lG-M6t" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="H4Y-jt-yZB"/>
+                <constraint firstItem="v4l-lG-M6t" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Kl4-KD-1Pt"/>
+                <constraint firstItem="JAH-LN-zaD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ZNz-06-uca"/>
+                <constraint firstItem="JAH-LN-zaD" firstAttribute="top" secondItem="v4l-lG-M6t" secondAttribute="bottom" id="drQ-Vu-hwL"/>
+                <constraint firstAttribute="trailing" secondItem="v4l-lG-M6t" secondAttribute="trailing" id="xZQ-wN-luP"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="back" width="32" height="32"/>
+        <image name="forward" width="32" height="32"/>
+    </resources>
+</document>

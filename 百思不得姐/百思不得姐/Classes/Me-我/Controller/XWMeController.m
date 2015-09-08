@@ -104,7 +104,7 @@ static NSString * const XWMeCellId = @"me";
     NSLogFunc
     
     //跳入到设置界面
-    XWSettingTableController *settigs = [[XWSettingTableController alloc]init];
+    XWSettingTableController *settigs = [[XWSettingTableController alloc]initWithStyle:UITableViewStyleGrouped];
     
     settigs.hidesBottomBarWhenPushed = YES;
     

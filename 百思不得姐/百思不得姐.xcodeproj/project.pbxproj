@@ -21,6 +21,8 @@
 		567A63231B9ED67800C4C24A /* NSString+loren.m in Sources */ = {isa = PBXBuildFile; fileRef = 567A63201B9ED67800C4C24A /* NSString+loren.m */; };
 		567A63261B9ED7B600C4C24A /* XWSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = 567A63251B9ED7B600C4C24A /* XWSquare.m */; };
 		56861F571B9EE39100EEC45C /* XWSquareButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 56861F561B9EE39100EEC45C /* XWSquareButton.m */; };
+		56861F5B1B9F12DD00EEC45C /* XWSquareWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56861F591B9F12DD00EEC45C /* XWSquareWebViewController.m */; };
+		56861F5C1B9F12DD00EEC45C /* XWSquareWebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56861F5A1B9F12DD00EEC45C /* XWSquareWebViewController.xib */; };
 		568F47A31B9B2B0D003F863F /* XWRecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 568F47A11B9B2B0D003F863F /* XWRecommendViewController.m */; };
 		568F47A41B9B2B0D003F863F /* XWRecommendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 568F47A21B9B2B0D003F863F /* XWRecommendViewController.xib */; };
 		568F47A81B9B38F8003F863F /* XWRecommendCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 568F47A61B9B38F8003F863F /* XWRecommendCategoryCell.m */; };
@@ -87,6 +89,9 @@
 		567A63251B9ED7B600C4C24A /* XWSquare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWSquare.m; sourceTree = "<group>"; };
 		56861F551B9EE39100EEC45C /* XWSquareButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWSquareButton.h; sourceTree = "<group>"; };
 		56861F561B9EE39100EEC45C /* XWSquareButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWSquareButton.m; sourceTree = "<group>"; };
+		56861F581B9F12DD00EEC45C /* XWSquareWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWSquareWebViewController.h; sourceTree = "<group>"; };
+		56861F591B9F12DD00EEC45C /* XWSquareWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWSquareWebViewController.m; sourceTree = "<group>"; };
+		56861F5A1B9F12DD00EEC45C /* XWSquareWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWSquareWebViewController.xib; sourceTree = "<group>"; };
 		568F47A01B9B2B0D003F863F /* XWRecommendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWRecommendViewController.h; sourceTree = "<group>"; };
 		568F47A11B9B2B0D003F863F /* XWRecommendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWRecommendViewController.m; sourceTree = "<group>"; };
 		568F47A21B9B2B0D003F863F /* XWRecommendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWRecommendViewController.xib; sourceTree = "<group>"; };
@@ -333,6 +338,9 @@
 				56F1FDBC1B96D23F00931FAB /* XWMeController.m */,
 				56F1FDBD1B96D23F00931FAB /* XWSettingTableController.h */,
 				56F1FDBE1B96D23F00931FAB /* XWSettingTableController.m */,
+				56861F581B9F12DD00EEC45C /* XWSquareWebViewController.h */,
+				56861F591B9F12DD00EEC45C /* XWSquareWebViewController.m */,
+				56861F5A1B9F12DD00EEC45C /* XWSquareWebViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -589,6 +597,7 @@
 				569B9FF61B99C6B300B99DAD /* XWFriendTrendsController.xib in Resources */,
 				569B9FFB1B99DD5A00B99DAD /* XWLoginRegisterViewController.xib in Resources */,
 				568F47A41B9B2B0D003F863F /* XWRecommendViewController.xib in Resources */,
+				56861F5C1B9F12DD00EEC45C /* XWSquareWebViewController.xib in Resources */,
 				562CF23C1B95B80900F53479 /* LaunchScreen.xib in Resources */,
 				5659823C1B9C2CAC000B150A /* XWRecommendTagCell.xib in Resources */,
 				562CF2391B95B80900F53479 /* Images.xcassets in Resources */,
@@ -662,6 +671,7 @@
 				567A63211B9ED67800C4C24A /* NSArray+Log.m in Sources */,
 				567A63261B9ED7B600C4C24A /* XWSquare.m in Sources */,
 				56F1FDDB1B96D23F00931FAB /* XWRecommendTagsViewController.m in Sources */,
+				56861F5B1B9F12DD00EEC45C /* XWSquareWebViewController.m in Sources */,
 				56861F571B9EE39100EEC45C /* XWSquareButton.m in Sources */,
 				567A63121B9EB88100C4C24A /* XWFootView.m in Sources */,
 				56954B541B9DAAEB006A82CC /* UIImageView+XWImageView.m in Sources */,

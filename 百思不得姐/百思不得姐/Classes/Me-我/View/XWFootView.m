@@ -11,6 +11,8 @@
 #import <MJExtension/MJExtension.h>
 #import "XWSquare.h"
 #import "XWSquareButton.h"
+#import "XWMeController.h"
+#import "XWSquareWebViewController.h"
 
 @interface XWFootView ()
 
@@ -69,6 +71,7 @@
         CGFloat buttony = (index / colsCount) * buttonH;
         
         XWSquareButton *btn = [[XWSquareButton alloc]init];
+        btn.tag = index;
         btn.frame = CGRectMake(buttonX, buttony, buttonW, buttonH);
         //监听事件
         [btn addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -97,9 +100,22 @@
 #pragma mark - m 监听按钮点击
 - (void)buttonClick:(XWSquareButton *) squareButton
 {
-    XWLog(@"%@ %@",squareButton.squareButton.name,squareButton.squareButton.url);
+    //如果单击按钮不是超链接,则返回
+    if ([squareButton.squareButton.url hasPrefix:@"http"] == NO) return;
     
-    //如果单击按钮是超链接,则点击跳转
+    //跳转到超链接页面
+     XWSquareWebViewController *squareWebViewController = [[XWSquareWebViewController alloc]init];
+    
+    //设置数据
+    squareWebViewController.squareButton = squareButton.squareButton;
+    
+    // 取出当前选中的UITabBarController的子控制器
+    UITabBarController *rootVc =  (UITabBarController *)self.window.rootViewController;
+    
+    UINavigationController *nav = (UINavigationController*)[rootVc selectedViewController];
+    
+    [nav pushViewController:squareWebViewController animated:YES];
+    
 }
 
 @end
