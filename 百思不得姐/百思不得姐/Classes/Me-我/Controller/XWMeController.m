@@ -8,6 +8,7 @@
 
 #import "XWMeController.h"
 #import "XWSettingTableController.h"
+#import "XWMeCell.h"
 
 @interface XWMeController ()
 
@@ -19,24 +20,19 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    
+    //导航栏的初始化
+    [self setupNav];
+    
     //TableView的初始化
     [self setupTableView];
     
 }
 
-#pragma mark -m TableView的初始化
-- (void)setupTableView
+#pragma mark -m 导航栏的初始化
+- (void)setupNav
 {
     self.navigationItem.title = @"我的";
-    
-    //设置背景颜色
-    self.tableView.backgroundColor = XWGlobalBg;
-    
-    self.tableView.contentInset = UIEdgeInsetsMake(-25, 0, 0, 0);
-    
-    //调整组与组之间的距离
-    self.tableView.sectionFooterHeight = 10;
-    self.tableView.sectionHeaderHeight = 0;
     
     //设置右边两个按钮
     UIBarButtonItem *settingsItem = [UIBarButtonItem buttonItemCreate:self andImage:@"mine-setting-icon" andHighlightedImage:@"mine-setting-icon-click" andAction:@selector(tagClickSetting)];
@@ -45,6 +41,25 @@
     
     
     self.navigationItem.rightBarButtonItems = @[settingsItem,moonItem];
+}
+
+#pragma mark -m TableView的初始化
+/**cell循环利用标识*/
+static NSString * const XWMeCellId = @"me";
+- (void)setupTableView
+{
+    //设置背景颜色
+    self.tableView.backgroundColor = XWGlobalBg;
+    
+    //注册cell
+    [self.tableView registerClass:[XWMeCell class] forCellReuseIdentifier:XWMeCellId];
+    
+    //距离顶部间距
+    self.tableView.contentInset = UIEdgeInsetsMake(XWCommMargin - 35, 0, 0, 0);
+    
+    //调整组与组之间的距离
+    self.tableView.sectionFooterHeight = XWCommMargin;
+    self.tableView.sectionHeaderHeight = 0;
     
     //添加footView
     UIView *view = [[UIView alloc]init];
@@ -68,13 +83,7 @@
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"me"];
-    
-    if(cell == nil)
-    {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"me"];
-    }
-    
+    XWMeCell *cell = [tableView dequeueReusableCellWithIdentifier:XWMeCellId];
     
     //设置数据
     if(indexPath.section == 0)
@@ -84,13 +93,8 @@
     } else
     {
         cell.textLabel.text = @"离线下载";
-    }
-    
-    
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
+    }    
 
-    
     return cell;
 }
 

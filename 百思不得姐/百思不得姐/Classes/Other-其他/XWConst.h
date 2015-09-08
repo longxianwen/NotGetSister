@@ -11,5 +11,8 @@
 
 #import <UIKit/UIKit.h>
 
-// 请求路径
-UIKIT_EXTERN NSString * const XWRequestURL;
+UIKIT_EXTERN NSString * const XWRequestURL; /**<请求路径*/
+
+
+UIKIT_EXTERN CGFloat const XWCommMargin; /**<统一的间距*/
+

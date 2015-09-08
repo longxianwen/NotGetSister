@@ -31,7 +31,7 @@
 #define XWARGBColor(a,r,g,b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)/255.0]
 #define XWColor(r,g,b) XWARGBColor(255, (r), (g), (b))
 #define XWCommColor(v)  XWColor((v),(v),(v))
-#define XWGlobalBg XWCommColor(223)
+#define XWGlobalBg XWCommColor(240)
 
 //block弱引用
 #define XWWeakSelf __weak typeof(self) weakSelf = self;
