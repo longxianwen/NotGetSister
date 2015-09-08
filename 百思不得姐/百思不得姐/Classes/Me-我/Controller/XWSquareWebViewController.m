@@ -8,7 +8,10 @@
 
 #import "XWSquareWebViewController.h"
 
-@interface XWSquareWebViewController ()
+@interface XWSquareWebViewController ()<UIWebViewDelegate>
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *backItem;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *forwardItem;
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
 
 @end
 
@@ -18,14 +21,40 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    NSLogFunc;
+    self.navigationItem.title = self.squareButton.name;
     
-    NSLog(@"%@---%@",self.squareButton.name,self.squareButton.url);
+    //加载网页
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.squareButton.url]]];
+    
+    //设置背景色
+    self.webView.backgroundColor = XWGlobalBg;
+    
+    //设置距离上方内边距
+    self.webView.scrollView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+//后退
+- (IBAction)back:(UIBarButtonItem *)sender {
+    [self.webView goBack];
 }
+
+//前进
+- (IBAction)forward:(id)sender {
+    [self.webView goForward];
+}
+
+//刷新
+- (IBAction)refresh:(UIBarButtonItem *)sender {
+    [self.webView reload];
+}
+
+//页面加载完毕会调用
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    self.backItem.enabled = webView.canGoBack;
+    self.forwardItem.enabled = webView.canGoForward;
+}
+
+
 
 @end

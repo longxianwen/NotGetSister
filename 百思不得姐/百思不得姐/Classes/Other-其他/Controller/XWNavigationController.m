@@ -8,7 +8,7 @@
 
 #import "XWNavigationController.h"
 
-@interface XWNavigationController ()
+@interface XWNavigationController ()<UIGestureRecognizerDelegate>
 
 @end
 
@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.interactivePopGestureRecognizer.delegate = self;
 }
 
 /**
@@ -29,7 +31,6 @@
 {
     [self addBackItem:viewController];
     [super pushViewController:viewController animated:animated];
-//    XWLog(@"%@,%@,%zd",viewController,self.childViewControllers,self.childViewControllers.count);
 }
 
 /**
@@ -53,6 +54,9 @@
         backButton.contentEdgeInsets = UIEdgeInsetsMake(0, -20, 0, 0);
         
         viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+        
+        // 隐藏底部的工具条
+        viewController.hidesBottomBarWhenPushed = YES;
     }
 }
 
@@ -70,6 +74,11 @@
 - (void)back
 {
     [self popViewControllerAnimated:YES];
+}
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
+{
+    return self.childViewControllers.count > 1;
 }
 
 //统一修改push进去控制器状态栏颜色
