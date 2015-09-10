@@ -13,6 +13,7 @@
 
 /**默认缓存路径*/
 #define XWCacheFile [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)firstObject] stringByAppendingPathComponent:@"default"]
+//#define XWCacheFile @"/Users/longxianwen/Documents"
 
 /**缓存cell默认文字*/
 static NSString * const XWDefaultCacheText = @"清除缓存";
@@ -60,6 +61,16 @@ static NSString * const XWDefaultCacheText = @"清除缓存";
     }
     
     return self;
+}
+
+//cell重新显示时,重新让菊花转起来
+- (void)updateStatus
+{
+    if (self.accessoryView == nil) return;
+    
+    // 让圈圈继续旋转
+    UIActivityIndicatorView *loadingView = (UIActivityIndicatorView *)self.accessoryView;
+    [loadingView startAnimating];
 }
 
 - (void)clearCache

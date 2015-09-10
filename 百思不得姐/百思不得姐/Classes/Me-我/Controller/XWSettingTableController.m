@@ -54,6 +54,10 @@ static NSString * const XWMeSettingCellId = @"me_setting";
     
     XWClearCacheCell *cell = [tableView dequeueReusableCellWithIdentifier:XWMeSettingCellId];
     
+    //当有多个cell,上下拖动时，导致菊花不转圈。
+    //设个方法可以重新让菊花转起来
+    [cell updateStatus];
+    
     return cell;
 }
 

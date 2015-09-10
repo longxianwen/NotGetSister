@@ -11,4 +11,5 @@
 @interface XWClearCacheCell : UITableViewCell
 
 - (void)clearCache;
+- (void)updateStatus;
 @end
