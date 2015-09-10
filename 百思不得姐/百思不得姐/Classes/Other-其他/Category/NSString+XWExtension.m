@@ -45,7 +45,7 @@
 //获取文件大小
 //不完善。。没有考虑到多重目录的情况。
 //参照sdWebImage的getSize方法来写完善吧。
-- (NSInteger)getfileSize
+- (NSInteger)getFileSize
 {
     NSInteger size = 0;
     

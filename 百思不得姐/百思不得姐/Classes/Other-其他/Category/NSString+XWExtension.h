@@ -50,6 +50,6 @@
  *  获取文件大小
  *  @return 文件总大小
  */
-- (NSInteger)getfileSize;
+- (NSInteger)getFileSize;
 
 @end

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		561F32BA1BA146F1003A62ED /* XWClearCacheCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 561F32B91BA146F1003A62ED /* XWClearCacheCell.m */; };
 		562CF22E1B95B80900F53479 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 562CF22D1B95B80900F53479 /* main.m */; };
 		562CF2391B95B80900F53479 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 562CF2381B95B80900F53479 /* Images.xcassets */; };
 		562CF23C1B95B80900F53479 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 562CF23A1B95B80900F53479 /* LaunchScreen.xib */; };
@@ -64,6 +65,8 @@
 
 /* Begin PBXFileReference section */
 		5089E612325241562CE423BA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		561F32B81BA146F1003A62ED /* XWClearCacheCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWClearCacheCell.h; sourceTree = "<group>"; };
+		561F32B91BA146F1003A62ED /* XWClearCacheCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWClearCacheCell.m; sourceTree = "<group>"; };
 		562CF2281B95B80900F53479 /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		562CF22C1B95B80900F53479 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		562CF22D1B95B80900F53479 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -366,6 +369,8 @@
 				567A63111B9EB88100C4C24A /* XWFootView.m */,
 				56861F551B9EE39100EEC45C /* XWSquareButton.h */,
 				56861F561B9EE39100EEC45C /* XWSquareButton.m */,
+				561F32B81BA146F1003A62ED /* XWClearCacheCell.h */,
+				561F32B91BA146F1003A62ED /* XWClearCacheCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -690,6 +695,7 @@
 				56F1FDDA1B96D23F00931FAB /* XWEssenceController.m in Sources */,
 				569BA0091B9A906100B99DAD /* XWLoginRegisterTextField.m in Sources */,
 				56F1FDE01B96D23F00931FAB /* XWNewController.m in Sources */,
+				561F32BA1BA146F1003A62ED /* XWClearCacheCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

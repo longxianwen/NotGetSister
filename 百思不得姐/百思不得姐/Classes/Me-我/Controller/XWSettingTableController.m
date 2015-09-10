@@ -8,7 +8,7 @@
 
 #import "XWSettingTableController.h"
 #import <SDWebImage/SDImageCache.h>
-#import "NSString+XWExtension.h"
+#import "XWClearCacheCell.h"
 
 @implementation XWSettingTableController
 
@@ -20,13 +20,6 @@
     
     //TableView的初始化
     [self setupTableView];
-    
-    NSString *caches = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)firstObject];
-    
-    NSString *file = [caches stringByAppendingPathComponent:@"default"];
-//    XWLog(@"%zd",@"/Users/longxianwen/Desktop/第3期(广州)2015年07月08日iOS大神班-0825.xls".getfileSize);
-    XWLog(@"%@",file);
-    XWLog(@"%zd",file.getfileSize);
 }
 
 #pragma mark -m TableView的初始化
@@ -39,6 +32,9 @@ static NSString * const XWMeSettingCellId = @"me_setting";
     
     //距离顶部间距
     self.tableView.contentInset = UIEdgeInsetsMake(XWCommMargin - 35, 0, 0, 0);
+    
+    //注册cell
+    [self.tableView registerClass:[XWClearCacheCell class] forCellReuseIdentifier:XWMeSettingCellId];
 }
 
 
@@ -56,15 +52,8 @@ static NSString * const XWMeSettingCellId = @"me_setting";
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:XWMeSettingCellId];
+    XWClearCacheCell *cell = [tableView dequeueReusableCellWithIdentifier:XWMeSettingCellId];
     
-    if(cell == nil)
-    {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:XWMeSettingCellId];
-        
-        cell.textLabel.text = @"清除缓存";
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
     return cell;
 }
 
@@ -73,7 +62,14 @@ static NSString * const XWMeSettingCellId = @"me_setting";
 {
     if(indexPath.section == 0 && indexPath.row == 0)
     {
-        XWLog(@"清除缓存");
+        // 取消选中--时动画效果
+        // 选中后的反显颜色即刻消失
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
+        //拿到选中cell
+        XWClearCacheCell *cell = (XWClearCacheCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+        
+        [cell clearCache];
     }
 }
 
