@@ -1,9 +1,7 @@
-//
-//  readme.c
-//  百思不得姐
-//
-//  Created by longxianwen on 15/9/3.
-//  Copyright (c) 2015年 longxianwen. All rights reserved.
-//
 
-#include <stdio.h>
+清除缓存。细节处理，没有做!
+
+0909:
+发布模块
+
+普通modal和通过根控制器modal

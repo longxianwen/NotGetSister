@@ -7,6 +7,7 @@
 //  表格控制器-底部导航条
 
 #import "XWTabBar.h"
+#import "XWPublishViewController.h"
 
 @interface XWTabBar ()
 
@@ -42,6 +43,9 @@
 - (void)publishClick
 {
     NSLogFunc
+    XWPublishViewController *publish = [[XWPublishViewController alloc]init];
+    
+    [self.window.rootViewController presentViewController:publish animated:YES completion:nil];
 }
 
 - (void)layoutSubviews

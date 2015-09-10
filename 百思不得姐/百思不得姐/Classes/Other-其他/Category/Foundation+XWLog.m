@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+
+//分类中方法优先级大于原始类。
 //数组中文日志
 @implementation NSArray (Log)
 
 - (nonnull NSString *)descriptionWithLocale:(nullable id)locale
 {
-    //    NSLog(@"系统会优先调用数组这个方法。。本地化");
-    
     //1.定义一个可变的字符串,保存拼接结果
     NSMutableString *strM = [NSMutableString string];
     //开始标志
