@@ -35,12 +35,16 @@
 #define XWGlobalBg XWCommColor(240)
 
 //随机颜色--测试
-#define randomColor [UIColor colorWithRed:arc4random_uniform(255) / 255.0 green:arc4random_uniform(255) / 255.0 blue:arc4random_uniform(255) / 255.0 alpha:1]
+#define XWRandomColor [UIColor colorWithRed:arc4random_uniform(255) / 255.0 green:arc4random_uniform(255) / 255.0 blue:arc4random_uniform(255) / 255.0 alpha:1]
 
 // 将数据写到桌面的plist --测试
 #define XWWriteToPlist(data, filename) [data writeToFile:[NSString stringWithFormat:@"/Users/longxianwen/Desktop/%@.plist", filename] atomically:YES];
 
 //block弱引用
 #define XWWeakSelf __weak typeof(self) weakSelf = self;
+
+//尺寸
+#define XWScreenW [UIScreen mainScreen].bounds.size.width
+#define XWScreenH [UIScreen mainScreen].bounds.size.height
 
 #endif

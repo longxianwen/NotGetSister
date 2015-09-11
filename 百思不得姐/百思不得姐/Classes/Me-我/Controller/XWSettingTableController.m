@@ -41,24 +41,35 @@ static NSString * const XWMeSettingCellId = @"me_setting";
 #pragma mark - <UITableViewDataSource>
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 5;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return 5;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //理解为什么要这么写。不同标示的cell
+    if(indexPath.section == 0 && indexPath.row == 0)
+    {
+        XWClearCacheCell *cell = [tableView dequeueReusableCellWithIdentifier:XWMeSettingCellId];
+        //当有多个cell,上下拖动时，导致菊花不转圈。
+        //设个方法可以重新让菊花转起来
+        [cell updateStatus];
+        return cell;
+    } else
+    {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"test"];
+        if(cell == nil)
+        {
+            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"test"];
+        }
+        cell.textLabel.text = [NSString stringWithFormat:@"%zd - %zd", indexPath.section, indexPath.row];
+        return cell;
+    }
     
-    XWClearCacheCell *cell = [tableView dequeueReusableCellWithIdentifier:XWMeSettingCellId];
-    
-    //当有多个cell,上下拖动时，导致菊花不转圈。
-    //设个方法可以重新让菊花转起来
-    [cell updateStatus];
-    
-    return cell;
 }
 
 #pragma mark -m <UITableViewDelegate>
