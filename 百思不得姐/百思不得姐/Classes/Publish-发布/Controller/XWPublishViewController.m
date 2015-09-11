@@ -7,6 +7,7 @@
 //  发布模块
 
 #import "XWPublishViewController.h"
+#import "XWPublishButton.h"
 
 @interface XWPublishViewController ()
 /**标题*/
@@ -49,8 +50,8 @@
         CGFloat buttonX = bottonW * (i % maxColsCount);
         CGFloat buttonY = bottomH * (i / maxColsCount) + bottomStartY;
         
-        UIButton *button = [[UIButton alloc]init];
-        button.backgroundColor = XWRandomColor;
+        XWPublishButton *button = [[XWPublishButton alloc]init];
+//        button.backgroundColor = XWRandomColor;
         button.frame = CGRectMake(buttonX , buttonY, bottonW, bottomH);
         
         //设置按钮内容
@@ -76,6 +77,11 @@
 
 
 - (IBAction)cancel:(UIButton *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
