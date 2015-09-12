@@ -9,6 +9,8 @@
 #import "XWPublishViewController.h"
 #import "XWPublishButton.h"
 #import <pop/POP.h>
+#import "XWPostWordViewController.h"
+#import "XWNavigationController.h"
 
 @interface XWPublishViewController ()
 /**标题*/
@@ -24,14 +26,13 @@
 
 @implementation XWPublishViewController
 
-/**
- *  lazy
- */
+
+#pragma mark - 懒加载
 - (NSArray *)times
 {
     if(!_times)
     {
-        CGFloat interval = 1; // 时间间隔
+        CGFloat interval = 0.1; // 时间间隔
         _times = @[@(0 * interval),
                    @(1 * interval),
                    @(2 * interval),
@@ -51,6 +52,7 @@
     return _publishButtons;
 }
 
+#pragma  mark - 初始化控件
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -63,7 +65,6 @@
     [self setupSloganView];
 }
 
-#pragma mark -m xib中间添加子控件按钮
 - (void)setupButtons
 {
     //按钮数据
@@ -117,7 +118,6 @@
     
 }
 
-#pragma mark -m xib上面添加子控件标语
 - (void)setupSloganView
 {
     UIImageView *sloganView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"app_slogan"]];
@@ -144,17 +144,16 @@
     [sloganView pop_addAnimation:anim forKey:nil];
 }
 
-#pragma mark -m 发布按钮点击
-- (void)publishClick:(XWPublishButton*)button
+/**
+ *  结束是否执行任务
+ *
+ *  @param task block任务
+ */
+- (void)exit:(void(^)())task
 {
-    NSLogFunc;
-}
-
-- (IBAction)cancel{
-    
     //禁止与用于交互
     self.view.userInteractionEnabled = NO;
-
+    
     //让按钮执行动画
     for (int i = 0; i < self.publishButtons.count; i++) {
         XWPublishButton *button = self.publishButtons[i];
@@ -174,14 +173,63 @@
     XWWeakSelf;
     [anim setCompletionBlock:^(POPAnimation * anim, BOOL finished) {
         [weakSelf dismissViewControllerAnimated:NO completion:nil];
+        
+        //执行任务
+        !task?:task();
+        
     }];
     
     [self.sloganView pop_addAnimation:anim forKey:nil];
 }
 
+#pragma mark - 发布按钮点击
+- (void)publishClick:(XWPublishButton*)button
+{
+    [self exit:^{
+        NSInteger index = [self.publishButtons indexOfObject:button];
+        XWPublishButton *button =  self.publishButtons[index];
+        switch (index) {
+            case 0:
+                XWLog(@"%@",button.titleLabel.text);
+                break;
+            case 1:
+                XWLog(@"%@",button.titleLabel.text);
+                break;
+            case 2:
+            {
+                XWLog(@"%@",button.titleLabel.text);
+                //modal发段子控制器
+                XWPostWordViewController *pustWord = [[XWPostWordViewController alloc]init];
+                
+                [self.view.window.rootViewController presentViewController:[[XWNavigationController alloc]initWithRootViewController:pustWord] animated:YES completion:nil];
+                
+                break;
+            }
+            case 3:
+                XWLog(@"%@",button.titleLabel.text);
+                break;
+            case 4:
+                XWLog(@"%@",button.titleLabel.text);
+                break;
+            case 5:
+                XWLog(@"%@",button.titleLabel.text);
+                break;
+            default:
+                break;
+        }
+    }];
+}
+
+
+#pragma mark - 取消
+- (IBAction)cancel{
+    
+    [self exit:nil];
+}
+
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [self cancel];
+    [self exit:nil];
     
 }
 
