@@ -24,7 +24,7 @@
                     </state>
                     <state key="highlighted" image="shareButtonCancelClick"/>
                     <connections>
-                        <action selector="cancel:" destination="-1" eventType="touchUpInside" id="Uta-Wh-3B0"/>
+                        <action selector="cancel" destination="-1" eventType="touchUpInside" id="aGt-OR-J8O"/>
                     </connections>
                 </button>
             </subviews>

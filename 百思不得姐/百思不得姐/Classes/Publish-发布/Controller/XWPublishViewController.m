@@ -17,8 +17,9 @@
 /** 动画时间 */
 @property (nonatomic, strong) NSArray *times;
 
-/**测试动画控件*/
-@property (nonatomic,strong) UISwitch *s;
+/** 发布按钮控件 */
+@property (nonatomic, strong) NSMutableArray *publishButtons;
+
 @end
 
 @implementation XWPublishViewController
@@ -30,7 +31,7 @@
 {
     if(!_times)
     {
-        CGFloat interval = 0.1; // 时间间隔
+        CGFloat interval = 1; // 时间间隔
         _times = @[@(0 * interval),
                    @(1 * interval),
                    @(2 * interval),
@@ -42,20 +43,24 @@
     return _times;
 }
 
+- (NSMutableArray *)publishButtons
+{
+    if (!_publishButtons) {
+        _publishButtons = [NSMutableArray array];
+    }
+    return _publishButtons;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    self.view.userInteractionEnabled = NO;
     
     //为xib添加按钮子控件
     [self setupButtons];
     //为xib添加标语子控件
     [self setupSloganView];
-    
-    self.s = [[UISwitch alloc]init];
-    self.s.on = YES;
-    [self.view addSubview:self.s];
-    
-    NSLog(@"%@",NSStringFromCGRect(self.s.frame));
 }
 
 #pragma mark -m xib中间添加子控件按钮
@@ -84,11 +89,18 @@
         
         //添加按钮
         XWPublishButton *button = [[XWPublishButton alloc]init];
+        button.width = -1; // 按钮的尺寸为0，还是能看见文字缩成一个点，设置按钮的尺寸为负数，那么就看不见文字了
+        
+        [button addTarget:self action:@selector(publishClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.view addSubview:button];
         
         //设置按钮内容
         [button setImage:[UIImage imageNamed:images[i]] forState:UIControlStateNormal];
         [button setTitle:titles[i] forState:UIControlStateNormal];
+        
+        
+        //添加进按钮进数组
+        [self.publishButtons addObject:button];
         
         
         //设置动画
@@ -115,6 +127,7 @@
     sloganView.centerX = XWScreenW * 0.5;
     
     [self.view addSubview:sloganView];
+    self.sloganView = sloganView;
     
     //设置动画
     POPSpringAnimation *anim = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
@@ -123,37 +136,57 @@
     anim.springBounciness = 10;
     //设置定动画执行时间
     anim.beginTime = CACurrentMediaTime() + [[self.times lastObject] doubleValue];
+    
+    XWWeakSelf;
+    [anim setCompletionBlock:^(POPAnimation * anim, BOOL finished) {
+        weakSelf.view.userInteractionEnabled = YES;
+    }];
     [sloganView pop_addAnimation:anim forKey:nil];
 }
 
+#pragma mark -m 发布按钮点击
+- (void)publishClick:(XWPublishButton*)button
+{
+    NSLogFunc;
+}
 
-- (IBAction)cancel:(UIButton *)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+- (IBAction)cancel{
+    
+    //禁止与用于交互
+    self.view.userInteractionEnabled = NO;
+
+    //让按钮执行动画
+    for (int i = 0; i < self.publishButtons.count; i++) {
+        XWPublishButton *button = self.publishButtons[i];
+        
+        POPBasicAnimation *anim = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerPositionY];
+        anim.toValue = @(button.layer.position.y + XWScreenH);
+        anim.beginTime = CACurrentMediaTime() + [self.times[i]doubleValue];
+        [button pop_addAnimation:anim forKey:nil];
+    }
+    
+    //让标题执行动画
+    POPBasicAnimation *anim = [POPBasicAnimation animationWithPropertyNamed:kPOPLayerPositionY];
+    anim.toValue = @(self.sloganView.layer.position.y + XWScreenH);
+    anim.beginTime = CACurrentMediaTime() + [[self.times lastObject] doubleValue];
+    
+    //动画结束干些什么
+    XWWeakSelf;
+    [anim setCompletionBlock:^(POPAnimation * anim, BOOL finished) {
+        [weakSelf dismissViewControllerAnimated:NO completion:nil];
+    }];
+    
+    [self.sloganView pop_addAnimation:anim forKey:nil];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    [self cancel];
     
-    
-    
-//    [self dismissViewControllerAnimated:YES completion:nil];
-    //利用pop执行动画
-//    POPBasicAnimation *anim = [POPBasicAnimation animationWithPropertyNamed:kPOPViewCenter];
-//    anim.fromValue = [NSValue valueWithCGPoint:CGPointZero];
-//    anim.toValue = [NSValue valueWithCGPoint:CGPointMake(200, 200)];
-//    anim.duration = 1.0;
-//    
-//    [self.s pop_addAnimation:anim forKey:nil ];
-//    NSLog(@"%@",NSStringFromCGRect(self.s.frame));
-    
-    POPSpringAnimation *anim = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerPosition];
-    anim.fromValue = [NSValue valueWithCGPoint:CGPointZero];
-    anim.toValue = [NSValue valueWithCGPoint:CGPointMake(200, 200)];
-    anim.springSpeed = 10;
-    anim.springBounciness = 10;
-    [self.s pop_addAnimation:anim forKey:nil];
-    NSLog(@"%@",NSStringFromCGRect(self.s.frame));
-    
+}
+
+- (void)dealloc{
+    NSLogFunc;
 }
 
 @end
