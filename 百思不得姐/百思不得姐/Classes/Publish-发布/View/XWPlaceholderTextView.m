@@ -8,11 +8,24 @@
 
 #import "XWPlaceholderTextView.h"
 
+@interface XWPlaceholderTextView ()
+
+/**占位文字label*/
+@property (nonatomic,weak) UILabel * placeholderLabel;
+
+@end
+
 @implementation XWPlaceholderTextView
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame]) {
+        
+        //添加占位文字label
+        UILabel *placeholderLabel = [[UILabel alloc]init];
+        placeholderLabel.numberOfLines = 0;
+        [self addSubview:placeholderLabel];
+        self.placeholderLabel = placeholderLabel;
         
         //设置默认字体、颜色
         self.placeholderColor = [UIColor grayColor];
@@ -28,7 +41,7 @@
 #pragma mark - 监听文本框输入
 - (void)textDidChange:(NSNotification*)notification
 {
-    [self setNeedsDisplay];
+    self.placeholderLabel.hidden = self.hasText;
 }
 
 - (void)dealloc
@@ -36,58 +49,50 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-#pragma mark - 绘制占位文字
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-    
-    //如果有文字就直接返回,不需要画占位文字
-    if(self.hasText) return;
-    
-    //设置占位文字属性
-    NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
-    
-    attrs[NSForegroundColorAttributeName] = self.placeholderColor;
-    attrs[NSFontAttributeName] = self.font;
-    
-    //画占位文字
-    rect.origin.x = 5;
-    rect.origin.y = 8;
-    rect.size.width -= 2*rect.origin.x;
-    [self.placeholder drawInRect:rect withAttributes:attrs];
-    
-}
-
 #pragma mark - 当用户手动修改属性
 - (void)layoutSubviews
 {
     [super layoutSubviews];
+    
+    //占位文字位置
+    self.placeholderLabel.x = 5;
+    self.placeholderLabel.y = 8;
+    self.placeholderLabel.width =self.width -  2 * self.placeholderLabel.x;
+    [self.placeholderLabel sizeToFit];
 }
 
 - (void)setFont:(UIFont *)font
 {
     [super setFont:font];
+    self.placeholderLabel.font = font;
+    [self.placeholderLabel sizeToFit];
     //强制刷新
 //    [self setNeedsDisplay];
 }
 
 -(void)setPlaceholder:(NSString *)placeholder
 {
-    _placeholder = placeholder;
+    _placeholder = [placeholder copy];
+    self.placeholderLabel.text = _placeholder;
+    [self.placeholderLabel sizeToFit];
 }
 
 - (void)setPlaceholderColor:(UIColor *)placeholderColor
 {
     _placeholderColor = placeholderColor;
+    self.placeholderLabel.textColor = placeholderColor;
 }
 
 - (void)setText:(NSString *)text
 {
     [super setText:text];
+    [self textDidChange:nil];
 }
 
 - (void)setAttributedText:(NSAttributedString *)attributedText
 {
     [super setAttributedText:attributedText];
+    [self textDidChange:nil];
 }
 
 @end
