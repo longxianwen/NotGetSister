@@ -42,7 +42,6 @@
 
 - (void)publishClick
 {
-    NSLogFunc
     XWPublishViewController *publish = [[XWPublishViewController alloc]init];
     
     [self.window.rootViewController presentViewController:publish animated:YES completion:nil];

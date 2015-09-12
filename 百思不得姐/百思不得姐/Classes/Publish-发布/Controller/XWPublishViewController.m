@@ -21,7 +21,6 @@
 
 /** 发布按钮控件 */
 @property (nonatomic, strong) NSMutableArray *publishButtons;
-
 @end
 
 @implementation XWPublishViewController
@@ -63,6 +62,7 @@
     [self setupButtons];
     //为xib添加标语子控件
     [self setupSloganView];
+
 }
 
 - (void)setupButtons
@@ -144,6 +144,7 @@
     [sloganView pop_addAnimation:anim forKey:nil];
 }
 
+#pragma mark - 发布按钮点击
 /**
  *  结束是否执行任务
  *
@@ -182,7 +183,6 @@
     [self.sloganView pop_addAnimation:anim forKey:nil];
 }
 
-#pragma mark - 发布按钮点击
 - (void)publishClick:(XWPublishButton*)button
 {
     [self exit:^{
@@ -197,7 +197,6 @@
                 break;
             case 2:
             {
-                XWLog(@"%@",button.titleLabel.text);
                 //modal发段子控制器
                 XWPostWordViewController *pustWord = [[XWPostWordViewController alloc]init];
                 
