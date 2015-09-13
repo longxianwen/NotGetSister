@@ -62,10 +62,32 @@
 
 + (void)initialize
 {
-    //设置背景图片
+    /** 设置UINavigationBar */
+    //设置导航栏背景图片
     UINavigationBar *bar = [UINavigationBar appearance];
     [bar setBackgroundImage:[UIImage imageNamed:@"navigationbarBackgroundWhite"] forBarMetrics:UIBarMetricsDefault];
     
+    //设置导航栏标题风格
+    NSMutableDictionary *titileAttrs = [NSMutableDictionary dictionary];
+    titileAttrs[NSFontAttributeName] = [UIFont boldSystemFontOfSize:18];
+    [bar setTitleTextAttributes:titileAttrs];
+    
+    
+    /** 设置UIBarButtonItem */
+    UIBarButtonItem *item = [UIBarButtonItem appearance];
+    
+    //设置导航栏左边和右边内容风格
+    
+    //UIControlStateNormal
+    NSMutableDictionary *normalAttrs = [NSMutableDictionary dictionary];
+    normalAttrs[NSForegroundColorAttributeName] = [UIColor blackColor];
+    normalAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:15];
+    [item setTitleTextAttributes:normalAttrs forState:UIControlStateNormal];
+    
+    //UIControlStateDisabled
+    NSMutableDictionary *disabledAttrs = [NSMutableDictionary dictionary];
+    disabledAttrs[NSForegroundColorAttributeName] = [UIColor grayColor];
+    [item setTitleTextAttributes:disabledAttrs forState:UIControlStateDisabled];
 }
 
 /**
