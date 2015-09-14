@@ -40,12 +40,8 @@
     
     self.navigationItem.rightBarButtonItem.enabled = NO;
     
-//    self.navigationItem.rightBarButtonItem.tintColor = [UIColor blackColor];
-    
     //强制刷新
-//    [self.navigationController.navigationBar layoutIfNeeded];
-//    [self.view layoutIfNeeded];
-    [self.navigationController.view layoutIfNeeded];
+    [self.navigationController.navigationBar layoutIfNeeded];
 }
 
 //设置文本输入框

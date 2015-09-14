@@ -11,8 +11,18 @@
 
 #import <UIKit/UIKit.h>
 
-UIKIT_EXTERN NSString * const XWRequestURL; /**<请求路径*/
+/**
+ *  请求路径
+ */
+UIKIT_EXTERN NSString * const XWRequestURL; 
 
+/**
+ *  统一的间距
+ */
+UIKIT_EXTERN CGFloat const XWCommMargin;
 
-UIKIT_EXTERN CGFloat const XWCommMargin; /**<统一的间距*/
+/**
+ *  导航栏最大y值
+ */
+UIKIT_EXTERN CGFloat const XWNavBarMaxY;
 
