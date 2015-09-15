@@ -15,7 +15,7 @@
 #import "XWPictureViewController.h"
 #import "XWWordViewController.h"
 
-@interface XWEssenceController ()
+@interface XWEssenceController () <UIScrollViewDelegate>
 
 /**主控制器UIScrollView*/
 @property (nonatomic,strong) UIScrollView *scrollView;
@@ -148,18 +148,27 @@
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem buttonItemCreate:self andImage:@"MainTagSubIcon" andHighlightedImage:@"MainTagSubIconClick" andAction:@selector(tagClickEssence)];
 }
 
-#pragma mark - 设置主控制器
+#pragma mark - 设置主控制器相关
 - (void)setupScrollView
 {
-//    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.automaticallyAdjustsScrollViewInsets = NO;
     UIScrollView *scrollView = [[UIScrollView alloc]init];
     scrollView.frame = self.view.bounds;
     scrollView.backgroundColor = XWGlobalBg;
+    //设置分页效果
+    scrollView.pagingEnabled = YES;
+    
     //设置最大滚动范围
     scrollView.contentSize = CGSizeMake(self.childViewControllers.count * self.view.width, 0);
     
+    //设置代理
+    scrollView.delegate = self;
+    
     [self.view addSubview:scrollView];
     self.scrollView = scrollView;
+    
+    //默认显示第0个控制器
+    [self scrollViewDidEndScrollingAnimation:scrollView];
 }
 
 #pragma mark - 点击
@@ -192,4 +201,33 @@
     
 }
 
+#pragma mark - <UIScrollViewDelegate>
+
+//通过代码。点击标签栏标题按钮动画结束时调用
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+{
+    NSLogFunc;
+    //取出对应的即将要显示的控制器
+    int index = scrollView.contentOffset.x / self.view.width;
+    UIViewController *willShowChildVc = self.childViewControllers[index];
+    
+//    if(willShowChildVc.isViewLoaded) return;
+    
+    //设置即将要显示控制器view的位置
+    willShowChildVc.view.frame = self.scrollView.bounds;
+    
+    //设置控制器的view为UIScrollView的view
+    [self.scrollView addSubview:willShowChildVc.view];
+}
+
+//人为拖拽。减速完毕后调用
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self scrollViewDidEndScrollingAnimation:scrollView];
+    
+    int index = scrollView.contentOffset.x / self.view.width;
+    
+    //移动到指定标签
+    [self titleButtonClick:self.arrTitleButtons[index]];
+}
 @end
