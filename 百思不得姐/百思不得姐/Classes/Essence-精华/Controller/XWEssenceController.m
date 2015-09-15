@@ -64,27 +64,22 @@
     XWAllViewController *all = [[XWAllViewController alloc]init];
     all.title = @"全部";
     [self addChildViewController:all];
-    all.view.backgroundColor = XWRandomColor;
     
     XWVideoViewController *video = [[XWVideoViewController alloc]init];
     video.title = @"视频";
     [self addChildViewController:video];
-    video.view.backgroundColor = XWRandomColor;
     
     XWVoiceViewController *voice = [[XWVoiceViewController alloc]init];
     voice.title = @"声音";
     [self addChildViewController:voice];
-    voice.view.backgroundColor = XWRandomColor;
     
     XWPictureViewController *picture = [[XWPictureViewController alloc]init];
     picture.title = @"图片";
     [self addChildViewController:picture];
-    picture.view.backgroundColor = XWRandomColor;
     
     XWWordViewController *word = [[XWWordViewController alloc]init];
     word.title = @"文字";
     [self addChildViewController:word];
-    word.view.backgroundColor = XWRandomColor;
 }
 
 
@@ -93,9 +88,15 @@
 {
     //设置顶部标题工具条整体
     UIView *titleView = [[UIView alloc]init];
-    titleView.frame = CGRectMake(0, XWNavBarMaxY, self.view.width, 35);
-    titleView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.5];
+    titleView.frame = CGRectMake(0, XWNavBarMaxY, self.view.width, XWTitleViewH);
+//    titleView.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.5];
     [self.view addSubview:titleView];
+    
+    //为标题栏添加背景图片
+    UIImageView *imageViewBg = [[UIImageView alloc]init];
+    imageViewBg.frame = CGRectMake(0, 0, titleView.width, titleView.height);
+    imageViewBg.image = [UIImage imageNamed:@"tabbar-light"];
+    [titleView addSubview:imageViewBg];
     
     //为标题工具条添加按钮
     NSInteger count = self.childViewControllers.count;
@@ -211,7 +212,7 @@
     int index = scrollView.contentOffset.x / self.view.width;
     UIViewController *willShowChildVc = self.childViewControllers[index];
     
-//    if(willShowChildVc.isViewLoaded) return;
+    if(willShowChildVc.isViewLoaded) return;
     
     //设置即将要显示控制器view的位置
     willShowChildVc.view.frame = self.scrollView.bounds;

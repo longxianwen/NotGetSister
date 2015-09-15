@@ -20,3 +20,9 @@ CGFloat const XWCommMargin = 10;
 
 // 导航栏最大y值
 CGFloat const XWNavBarMaxY = 64;
+
+//UITabBar的高度
+CGFloat const XWTabBarH = 49;
+
+// 标签栏高度
+CGFloat const XWTitleViewH = 35;

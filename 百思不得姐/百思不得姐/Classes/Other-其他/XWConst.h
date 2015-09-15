@@ -26,3 +26,13 @@ UIKIT_EXTERN CGFloat const XWCommMargin;
  */
 UIKIT_EXTERN CGFloat const XWNavBarMaxY;
 
+/**
+ *  标签栏高度
+ */
+UIKIT_EXTERN CGFloat const XWTitleViewH;
+
+/**
+ *  UITabBar的高度
+ */
+UIKIT_EXTERN CGFloat const XWTabBarH;
+

@@ -15,6 +15,19 @@
     [super viewDidLoad];
     
 //    NSLogFunc;
+    [self setupTableView];
+}
+
+- (void)setupTableView
+{
+    //设置背景颜色
+    self.tableView.backgroundColor = XWGlobalBg;
+    
+    //设置内边距
+    self.tableView.contentInset = UIEdgeInsetsMake(XWNavBarMaxY + XWTitleViewH, 0, XWTabBarH, 0);
+    
+    //指定滚动条在scrollerView中的位置
+    self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
 }
 
 #pragma mark - Table view data source
