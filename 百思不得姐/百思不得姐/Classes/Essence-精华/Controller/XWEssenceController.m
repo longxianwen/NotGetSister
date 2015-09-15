@@ -91,19 +91,19 @@
     [titleView addSubview:titleBottomView];
     
     //强引用
+    //解决：刚开始有底部横线，后面没有的问题。(因为底部横线控件死了)
     self.titleBottomView = titleBottomView;
     
     //设置第一个按钮默认选中状态
-    XWLog(@"%@",self.arrTitleButtons);
     XWTitleButton *firstTitleButton = [self.arrTitleButtons firstObject];
     
-    //解决:刚开始底部横线不显示问题
+    //解决:刚开始底部横线不显示问题,这是按钮内部文字宽度苹果内部还没处理完。
+    //sizeToFit告诉苹果立刻计算
     [firstTitleButton.titleLabel sizeToFit];
-    
+
     //解决:底部横线慢慢变大问题
     titleBottomView.width = firstTitleButton.titleLabel.width;
     titleBottomView.centerX = firstTitleButton.centerX;
-    
     [self titleButtonClick:firstTitleButton];
     
 }
@@ -133,6 +133,8 @@
     self.selTitleButton.selected = NO;
     titleButton.selected = YES;
     self.selTitleButton = titleButton;
+    
+    XWLog(@"%f",titleButton.titleLabel.width);
     
     // 底部控件的位置和尺寸
     [UIView animateWithDuration:0.25 animations:^{
