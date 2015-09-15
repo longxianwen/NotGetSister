@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56099D551BA7C5390009B6D5 /* XWAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56099D541BA7C5390009B6D5 /* XWAllViewController.m */; };
+		56099D581BA7C55D0009B6D5 /* XWVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56099D571BA7C55D0009B6D5 /* XWVideoViewController.m */; };
+		56099D5B1BA7C5790009B6D5 /* XWVoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56099D5A1BA7C5790009B6D5 /* XWVoiceViewController.m */; };
+		56099D5E1BA7C58A0009B6D5 /* XWPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56099D5D1BA7C58A0009B6D5 /* XWPictureViewController.m */; };
+		56099D611BA7C5A00009B6D5 /* XWWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56099D601BA7C5A00009B6D5 /* XWWordViewController.m */; };
 		561F32BA1BA146F1003A62ED /* XWClearCacheCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 561F32B91BA146F1003A62ED /* XWClearCacheCell.m */; };
 		562CF22E1B95B80900F53479 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 562CF22D1B95B80900F53479 /* main.m */; };
 		562CF2391B95B80900F53479 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 562CF2381B95B80900F53479 /* Images.xcassets */; };
@@ -69,6 +74,16 @@
 
 /* Begin PBXFileReference section */
 		5089E612325241562CE423BA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		56099D531BA7C5390009B6D5 /* XWAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWAllViewController.h; sourceTree = "<group>"; };
+		56099D541BA7C5390009B6D5 /* XWAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWAllViewController.m; sourceTree = "<group>"; };
+		56099D561BA7C55D0009B6D5 /* XWVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWVideoViewController.h; sourceTree = "<group>"; };
+		56099D571BA7C55D0009B6D5 /* XWVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWVideoViewController.m; sourceTree = "<group>"; };
+		56099D591BA7C5790009B6D5 /* XWVoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWVoiceViewController.h; sourceTree = "<group>"; };
+		56099D5A1BA7C5790009B6D5 /* XWVoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWVoiceViewController.m; sourceTree = "<group>"; };
+		56099D5C1BA7C58A0009B6D5 /* XWPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWPictureViewController.h; sourceTree = "<group>"; };
+		56099D5D1BA7C58A0009B6D5 /* XWPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWPictureViewController.m; sourceTree = "<group>"; };
+		56099D5F1BA7C5A00009B6D5 /* XWWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWWordViewController.h; sourceTree = "<group>"; };
+		56099D601BA7C5A00009B6D5 /* XWWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWWordViewController.m; sourceTree = "<group>"; };
 		561F32B81BA146F1003A62ED /* XWClearCacheCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWClearCacheCell.h; sourceTree = "<group>"; };
 		561F32B91BA146F1003A62ED /* XWClearCacheCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWClearCacheCell.m; sourceTree = "<group>"; };
 		562CF2281B95B80900F53479 /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -269,6 +284,16 @@
 				56F1FDAD1B96D23F00931FAB /* XWEssenceController.m */,
 				56F1FDAE1B96D23F00931FAB /* XWRecommendTagsViewController.h */,
 				56F1FDAF1B96D23F00931FAB /* XWRecommendTagsViewController.m */,
+				56099D531BA7C5390009B6D5 /* XWAllViewController.h */,
+				56099D541BA7C5390009B6D5 /* XWAllViewController.m */,
+				56099D561BA7C55D0009B6D5 /* XWVideoViewController.h */,
+				56099D571BA7C55D0009B6D5 /* XWVideoViewController.m */,
+				56099D591BA7C5790009B6D5 /* XWVoiceViewController.h */,
+				56099D5A1BA7C5790009B6D5 /* XWVoiceViewController.m */,
+				56099D5C1BA7C58A0009B6D5 /* XWPictureViewController.h */,
+				56099D5D1BA7C58A0009B6D5 /* XWPictureViewController.m */,
+				56099D5F1BA7C5A00009B6D5 /* XWWordViewController.h */,
+				56099D601BA7C5A00009B6D5 /* XWWordViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -686,15 +711,19 @@
 				569B9FEC1B97EDD300B99DAD /* XWNavigationBar.m in Sources */,
 				569BA0041B9A01ED00B99DAD /* UIView+XWExtension.m in Sources */,
 				56C1A8C91B9F46D700505537 /* Foundation+XWLog.m in Sources */,
+				56099D551BA7C5390009B6D5 /* XWAllViewController.m in Sources */,
+				56099D611BA7C5A00009B6D5 /* XWWordViewController.m in Sources */,
 				567754461BA7AA620036ED60 /* XWTitleButton.m in Sources */,
 				569B9FF21B97F02900B99DAD /* XWNavigationController.m in Sources */,
 				56CF7BFA1B9C5D8100C55818 /* XWRecommendTag.m in Sources */,
+				56099D581BA7C55D0009B6D5 /* XWVideoViewController.m in Sources */,
 				56F1FDE31B96D23F00931FAB /* XWTabBarController.m in Sources */,
 				5659823B1B9C2CAC000B150A /* XWRecommendTagCell.m in Sources */,
 				56F1FDDF1B96D23F00931FAB /* XWSettingTableController.m in Sources */,
 				56912F811BA4686B00BFA44E /* XWPlaceholderTextView.m in Sources */,
 				567A62DA1B9E832A00C4C24A /* XWMeCell.m in Sources */,
 				568F47A81B9B38F8003F863F /* XWRecommendCategoryCell.m in Sources */,
+				56099D5E1BA7C58A0009B6D5 /* XWPictureViewController.m in Sources */,
 				56F1FDDD1B96D23F00931FAB /* XWFriendTrendsController.m in Sources */,
 				569BA0061B9A8CEA00B99DAD /* XWLoginRegisterViewController.m in Sources */,
 				5663F1C11B9DF747009A852D /* XWConst.m in Sources */,
@@ -711,6 +740,7 @@
 				56F1FDDE1B96D23F00931FAB /* XWMeController.m in Sources */,
 				56F1FDE11B96D23F00931FAB /* AppDelegate.m in Sources */,
 				562CF22E1B95B80900F53479 /* main.m in Sources */,
+				56099D5B1BA7C5790009B6D5 /* XWVoiceViewController.m in Sources */,
 				5632FB831B9FCC2C009414E3 /* XWPublishViewController.m in Sources */,
 				568F47A31B9B2B0D003F863F /* XWRecommendViewController.m in Sources */,
 				569B9FFE1B99FD4800B99DAD /* XWQuickLoginButton.m in Sources */,

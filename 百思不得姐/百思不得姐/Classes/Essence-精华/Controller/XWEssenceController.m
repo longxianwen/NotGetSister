@@ -9,8 +9,16 @@
 #import "XWEssenceController.h"
 #import "XWRecommendTagsViewController.h"
 #import "XWTitleButton.h"
+#import "XWAllViewController.h"
+#import "XWVideoViewController.h"
+#import "XWVoiceViewController.h"
+#import "XWPictureViewController.h"
+#import "XWWordViewController.h"
 
 @interface XWEssenceController ()
+
+/**主控制器UIScrollView*/
+@property (nonatomic,strong) UIScrollView *scrollView;
 
 /**当前选中按钮*/
 @property (nonatomic,weak) UIButton *selTitleButton;
@@ -43,9 +51,40 @@
     
     [self setupNav];
     
+    [self setupChildVcs];
+    
     [self setupScrollView];
     
     [self setupTitleToolBar];
+}
+
+#pragma mark - 添加子控制器
+- (void)setupChildVcs
+{
+    XWAllViewController *all = [[XWAllViewController alloc]init];
+    all.title = @"全部";
+    [self addChildViewController:all];
+    all.view.backgroundColor = XWRandomColor;
+    
+    XWVideoViewController *video = [[XWVideoViewController alloc]init];
+    video.title = @"视频";
+    [self addChildViewController:video];
+    video.view.backgroundColor = XWRandomColor;
+    
+    XWVoiceViewController *voice = [[XWVoiceViewController alloc]init];
+    voice.title = @"声音";
+    [self addChildViewController:voice];
+    voice.view.backgroundColor = XWRandomColor;
+    
+    XWPictureViewController *picture = [[XWPictureViewController alloc]init];
+    picture.title = @"图片";
+    [self addChildViewController:picture];
+    picture.view.backgroundColor = XWRandomColor;
+    
+    XWWordViewController *word = [[XWWordViewController alloc]init];
+    word.title = @"文字";
+    [self addChildViewController:word];
+    word.view.backgroundColor = XWRandomColor;
 }
 
 
@@ -59,8 +98,7 @@
     [self.view addSubview:titleView];
     
     //为标题工具条添加按钮
-    NSArray *titles = @[@"全部", @"视频", @"声音", @"图片", @"段子"];
-    NSInteger count = titles.count;
+    NSInteger count = self.childViewControllers.count;
     
     CGFloat buttonW = titleView.width / count;
     CGFloat buttonH = titleView.height;
@@ -78,30 +116,23 @@
         [self.arrTitleButtons addObject:titleButton];
         
         //设置内容
-        [titleButton setTitle:titles[index] forState:UIControlStateNormal];
+        [titleButton setTitle:[self.childViewControllers[index] title] forState:UIControlStateNormal];
     }
     
     //设置标签栏底部的红色横线
     UIView *titleBottomView = [[UIView alloc]init];
     
-    //不直接用frame设置尺寸应为x值和宽度不确定
     titleBottomView.height = 2;
     titleBottomView.y = titleView.height - titleBottomView.height;
     titleBottomView.backgroundColor = [UIColor redColor];
     [titleView addSubview:titleBottomView];
-    
-    //强引用
-    //解决：刚开始有底部横线，后面没有的问题。(因为底部横线控件死了)
     self.titleBottomView = titleBottomView;
     
     //设置第一个按钮默认选中状态
     XWTitleButton *firstTitleButton = [self.arrTitleButtons firstObject];
-    
-    //解决:刚开始底部横线不显示问题,这是按钮内部文字宽度苹果内部还没处理完。
-    //sizeToFit告诉苹果立刻计算
+
     [firstTitleButton.titleLabel sizeToFit];
 
-    //解决:底部横线慢慢变大问题
     titleBottomView.width = firstTitleButton.titleLabel.width;
     titleBottomView.centerX = firstTitleButton.centerX;
     [self titleButtonClick:firstTitleButton];
@@ -117,13 +148,18 @@
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem buttonItemCreate:self andImage:@"MainTagSubIcon" andHighlightedImage:@"MainTagSubIconClick" andAction:@selector(tagClickEssence)];
 }
 
-#pragma mark - 设置显示view
+#pragma mark - 设置主控制器
 - (void)setupScrollView
 {
+//    self.automaticallyAdjustsScrollViewInsets = NO;
     UIScrollView *scrollView = [[UIScrollView alloc]init];
     scrollView.frame = self.view.bounds;
     scrollView.backgroundColor = XWGlobalBg;
+    //设置最大滚动范围
+    scrollView.contentSize = CGSizeMake(self.childViewControllers.count * self.view.width, 0);
+    
     [self.view addSubview:scrollView];
+    self.scrollView = scrollView;
 }
 
 #pragma mark - 点击
@@ -134,19 +170,20 @@
     titleButton.selected = YES;
     self.selTitleButton = titleButton;
     
-    XWLog(@"%f",titleButton.titleLabel.width);
-    
     // 底部控件的位置和尺寸
     [UIView animateWithDuration:0.25 animations:^{
         self.titleBottomView.width = titleButton.titleLabel.width;
         self.titleBottomView.centerX = titleButton.centerX;
     }];
+    
+    // 让scrollView滚动到对应的位置
+    CGPoint offset = self.scrollView.contentOffset;
+    offset.x = self.view.width * [self.arrTitleButtons indexOfObject:titleButton];
+    [self.scrollView setContentOffset:offset animated:YES];
 }
-
 
 - (void)tagClickEssence
 {
-//    NSLogFunc
     XWRecommendTagsViewController *tag = [[XWRecommendTagsViewController alloc]init];
     
     tag.hidesBottomBarWhenPushed = YES;
