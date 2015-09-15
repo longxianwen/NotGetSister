@@ -8,12 +8,32 @@
 
 #import "XWEssenceController.h"
 #import "XWRecommendTagsViewController.h"
+#import "XWTitleButton.h"
 
 @interface XWEssenceController ()
+
+/**当前选中按钮*/
+@property (nonatomic,strong) UIButton *selTitleButton;
+
+/**存储标签栏按钮*/
+@property (nonatomic,strong) NSMutableArray *arrTitleButtons;
 
 @end
 
 @implementation XWEssenceController
+
+/**
+ *  懒加载
+ *
+ *  @return self
+ */
+- (NSMutableArray *)arrTitleButtons
+{
+    if (!_arrTitleButtons) {
+        _arrTitleButtons = [NSMutableArray array];
+    }
+    return _arrTitleButtons;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,9 +45,8 @@
     [self setupTitleToolBar];
 }
 
-/**
- *  添加顶部标题工具条
- */
+
+#pragma mark - 添加顶部标题工具条
 - (void)setupTitleToolBar
 {
     //设置顶部标题工具条整体
@@ -48,19 +67,24 @@
         CGFloat buttonY = 0;
         CGFloat buttonX = index * buttonW;
         
-        UIButton *button = [[UIButton alloc]init];
-        button.frame = CGRectMake(buttonX, buttonY, buttonW, buttonH);
-        button.backgroundColor = XWRandomColor;
-        [titleView addSubview:button];
+        XWTitleButton *titleButton = [[XWTitleButton alloc]init];
+        titleButton.frame = CGRectMake(buttonX, buttonY, buttonW, buttonH);
+        //监听按钮点击
+        [titleButton addTarget:self action:@selector(titleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        [titleView addSubview:titleButton];
+        [self.arrTitleButtons addObject:titleButton];
         
         //设置内容
-        [button setTitle:titles[index] forState:UIControlStateNormal];
+        [titleButton setTitle:titles[index] forState:UIControlStateNormal];
     }
+    //设置第一个按钮默认选中状态
+    XWLog(@"%@",self.arrTitleButtons);
+    XWTitleButton *titleButton = [self.arrTitleButtons firstObject];
+    [self titleButtonClick:titleButton];
+    
 }
 
-/**
- *  导航栏相关
- */
+#pragma mark - 导航栏相关
 - (void)setupNav
 {
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"MainTitle"]];
@@ -69,16 +93,24 @@
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem buttonItemCreate:self andImage:@"MainTagSubIcon" andHighlightedImage:@"MainTagSubIconClick" andAction:@selector(tagClickEssence)];
 }
 
-/**
- *  设置显示view
- *  水平滚动
- */
+#pragma mark - 设置显示view
 - (void)setupScrollView
 {
     UIScrollView *scrollView = [[UIScrollView alloc]init];
     scrollView.frame = self.view.bounds;
     scrollView.backgroundColor = [UIColor redColor];
     [self.view addSubview:scrollView];
+}
+
+#pragma mark - 点击
+- (void)titleButtonClick:(UIButton*)titleButton
+{
+    //点击文字变色变色
+    self.selTitleButton.selected = NO;
+    titleButton.selected = YES;
+    self.selTitleButton = titleButton;
+    
+    XWLog(@"%@",titleButton.titleLabel.text);
 }
 
 
