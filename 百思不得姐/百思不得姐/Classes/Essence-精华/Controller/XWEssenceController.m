@@ -13,10 +13,13 @@
 @interface XWEssenceController ()
 
 /**当前选中按钮*/
-@property (nonatomic,strong) UIButton *selTitleButton;
+@property (nonatomic,weak) UIButton *selTitleButton;
 
 /**存储标签栏按钮*/
 @property (nonatomic,strong) NSMutableArray *arrTitleButtons;
+
+/** 标题栏底部的指示器 */
+@property (nonatomic, weak) UIView *titleBottomView;
 
 @end
 
@@ -77,10 +80,31 @@
         //设置内容
         [titleButton setTitle:titles[index] forState:UIControlStateNormal];
     }
+    
+    //设置标签栏底部的红色横线
+    UIView *titleBottomView = [[UIView alloc]init];
+    
+    //不直接用frame设置尺寸应为x值和宽度不确定
+    titleBottomView.height = 2;
+    titleBottomView.y = titleView.height - titleBottomView.height;
+    titleBottomView.backgroundColor = [UIColor redColor];
+    [titleView addSubview:titleBottomView];
+    
+    //强引用
+    self.titleBottomView = titleBottomView;
+    
     //设置第一个按钮默认选中状态
     XWLog(@"%@",self.arrTitleButtons);
-    XWTitleButton *titleButton = [self.arrTitleButtons firstObject];
-    [self titleButtonClick:titleButton];
+    XWTitleButton *firstTitleButton = [self.arrTitleButtons firstObject];
+    
+    //解决:刚开始底部横线不显示问题
+    [firstTitleButton.titleLabel sizeToFit];
+    
+    //解决:底部横线慢慢变大问题
+    titleBottomView.width = firstTitleButton.titleLabel.width;
+    titleBottomView.centerX = firstTitleButton.centerX;
+    
+    [self titleButtonClick:firstTitleButton];
     
 }
 
@@ -98,7 +122,7 @@
 {
     UIScrollView *scrollView = [[UIScrollView alloc]init];
     scrollView.frame = self.view.bounds;
-    scrollView.backgroundColor = [UIColor redColor];
+    scrollView.backgroundColor = XWGlobalBg;
     [self.view addSubview:scrollView];
 }
 
@@ -110,7 +134,11 @@
     titleButton.selected = YES;
     self.selTitleButton = titleButton;
     
-    XWLog(@"%@",titleButton.titleLabel.text);
+    // 底部控件的位置和尺寸
+    [UIView animateWithDuration:0.25 animations:^{
+        self.titleBottomView.width = titleButton.titleLabel.width;
+        self.titleBottomView.centerX = titleButton.centerX;
+    }];
 }
 
 

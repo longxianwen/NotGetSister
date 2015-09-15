@@ -15,8 +15,9 @@
 {
     if(self = [super initWithFrame:frame])
     {
-        self.backgroundColor = XWRandomColor;
+        [self setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
         [self setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+        self.titleLabel.font = [UIFont systemFontOfSize:14];
     }
     return self;
 }
