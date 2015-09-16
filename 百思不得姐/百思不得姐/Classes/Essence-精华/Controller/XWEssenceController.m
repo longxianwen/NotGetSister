@@ -207,7 +207,6 @@
 //通过代码。点击标签栏标题按钮动画结束时调用
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
-    NSLogFunc;
     //取出对应的即将要显示的控制器
     int index = scrollView.contentOffset.x / self.view.width;
     UIViewController *willShowChildVc = self.childViewControllers[index];
