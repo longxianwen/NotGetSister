@@ -10,6 +10,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import "XWTopic.h"
 #import <MJExtension/MJExtension.h>
+#import <MJRefresh/MJRefresh.h>
 
 @interface XWAllViewController ()
 
@@ -69,12 +70,11 @@
 #pragma  mark - 下拉刷新
 - (void)setupRefresh
 {
-    //具有默认尺寸
-    UIRefreshControl *refresh = [[UIRefreshControl alloc]init];
-    [self loadNewTopics];
-    [refresh addTarget:self action:@selector(loadNewTopics) forControlEvents:UIControlEventValueChanged];
-    self.refresh = refresh;
-    [self.tableView addSubview:refresh];
+    //下拉刷新
+    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewTopics)];
+    
+    //立马进入刷新状态
+    [self.tableView.header beginRefreshing];
 }
 
 #pragma mark - 请求服务器获取数据
@@ -92,18 +92,16 @@
     
     [self.manager GET:XWRequestURL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         
-//        XWLog(@"%@",responseObject[@"info"]);
-        
         //字典转模型
         weakSelf.arrTopic = [XWTopic objectArrayWithKeyValuesArray:responseObject[@"list"]];
         
          [self.tableView reloadData];
         
         //结束刷新
-//        [weakSelf.refresh endRefreshing];
+        [weakSelf.tableView.header endRefreshing];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         XWLog(@"请求失败..");
-//        [weakSelf.refresh endRefreshing];
+        [weakSelf.tableView.header endRefreshing];
     }];
 }
 
