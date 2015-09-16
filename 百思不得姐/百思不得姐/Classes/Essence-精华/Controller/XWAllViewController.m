@@ -18,10 +18,13 @@
 @property (nonatomic,strong) AFHTTPSessionManager *manager;
 
 /**保存数据*/
-@property (nonatomic,strong) NSArray *arrTopic;
+@property (nonatomic,strong) NSMutableArray *arrTopic;
 
 /**苹果自带下拉刷新组件*/
 @property (nonatomic,strong) UIRefreshControl *refresh;
+
+/** 用来加载下一页数据 */
+@property (nonatomic, copy) NSString *maxtime;
 
 @end
 
@@ -36,11 +39,11 @@
     return _manager;
 }
 
-- (NSArray *)arrTopic
+- (NSMutableArray *)arrTopic
 {
     if(!_arrTopic)
     {
-        _arrTopic = [NSArray array];
+        _arrTopic = [NSMutableArray array];
     }
     return _arrTopic;
 }
@@ -73,21 +76,31 @@
     //下拉刷新
     self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewTopics)];
     
-    //立马进入刷新状态
+     // 自动改变透明度
+    self.tableView.header.automaticallyChangeAlpha = YES;
+    
+    //立马进入下拉刷新状态
     [self.tableView.header beginRefreshing];
+    
+    //上拉刷新
+    MJRefreshFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
+//    footer.appearencePercentTriggerAutoRefresh = 0.5;
+    self.tableView.footer = footer;
 }
 
-#pragma mark - 请求服务器获取数据
+#pragma mark - 请求服务器获取数据(下拉刷新)
 - (void)loadNewTopics
 {
+    //取消以前任务
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    
     //设置请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"list";
     params[@"c"] = @"data";
-    params[@"type"] = @"1";
+    params[@"type"] = @1;
     
     //请求服务器获取数据
-    
     XWWeakSelf;
     
     [self.manager GET:XWRequestURL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
@@ -97,6 +110,9 @@
         
          [self.tableView reloadData];
         
+        //储存maxtime
+        self.maxtime = responseObject[@"info"][@"maxtime"];
+        
         //结束刷新
         [weakSelf.tableView.header endRefreshing];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -105,6 +121,43 @@
     }];
 }
 
+#pragma mark - 请求服务器获取数据(上拉刷新)
+- (void) loadMoreTopics
+{
+    //取消以前任务
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    
+    //设置请求参数
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"list";
+    params[@"c"] = @"data";
+    params[@"type"] = @1;
+    params[@"maxtime"] = self.maxtime;
+    
+    //请求服务器获取数据
+    
+    XWWeakSelf;
+    
+    [self.manager GET:XWRequestURL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        //字典转模型
+        NSArray *moreTopics = [XWTopic objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        
+        //将新数据加载到原来数据的后面
+        [weakSelf.arrTopic addObjectsFromArray:moreTopics];
+        
+        [self.tableView reloadData];
+        
+        //储存maxtime
+        self.maxtime = responseObject[@"info"][@"maxtime"];
+        
+        //结束刷新
+        [weakSelf.tableView.footer endRefreshing];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        XWLog(@"请求失败..");
+        [weakSelf.tableView.footer endRefreshing];
+    }];
+}
 
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
