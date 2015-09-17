@@ -19,6 +19,9 @@
 		562CF2481B95B80900F53479 /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 562CF2471B95B80900F53479 /* _____Tests.m */; };
 		5632FB831B9FCC2C009414E3 /* XWPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5632FB811B9FCC2C009414E3 /* XWPublishViewController.m */; };
 		5632FB841B9FCC2C009414E3 /* XWPublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5632FB821B9FCC2C009414E3 /* XWPublishViewController.xib */; };
+		563B22021BAB391700E5C650 /* XWFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 563B22011BAB391700E5C650 /* XWFooterView.m */; };
+		563B22061BAB3E8000E5C650 /* XWTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 563B22041BAB3E8000E5C650 /* XWTopicCell.m */; };
+		563B22071BAB3E8000E5C650 /* XWTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 563B22051BAB3E8000E5C650 /* XWTopicCell.xib */; };
 		5659823B1B9C2CAC000B150A /* XWRecommendTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 565982391B9C2CAC000B150A /* XWRecommendTagCell.m */; };
 		5659823C1B9C2CAC000B150A /* XWRecommendTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5659823A1B9C2CAC000B150A /* XWRecommendTagCell.xib */; };
 		5663F1C11B9DF747009A852D /* XWConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 5663F1C01B9DF747009A852D /* XWConst.m */; };
@@ -98,6 +101,11 @@
 		5632FB801B9FCC2C009414E3 /* XWPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWPublishViewController.h; sourceTree = "<group>"; };
 		5632FB811B9FCC2C009414E3 /* XWPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWPublishViewController.m; sourceTree = "<group>"; };
 		5632FB821B9FCC2C009414E3 /* XWPublishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWPublishViewController.xib; sourceTree = "<group>"; };
+		563B22001BAB391700E5C650 /* XWFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWFooterView.h; sourceTree = "<group>"; };
+		563B22011BAB391700E5C650 /* XWFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWFooterView.m; sourceTree = "<group>"; };
+		563B22031BAB3E8000E5C650 /* XWTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWTopicCell.h; sourceTree = "<group>"; };
+		563B22041BAB3E8000E5C650 /* XWTopicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWTopicCell.m; sourceTree = "<group>"; };
+		563B22051BAB3E8000E5C650 /* XWTopicCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWTopicCell.xib; sourceTree = "<group>"; };
 		565982381B9C2CAC000B150A /* XWRecommendTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWRecommendTagCell.h; sourceTree = "<group>"; };
 		565982391B9C2CAC000B150A /* XWRecommendTagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWRecommendTagCell.m; sourceTree = "<group>"; };
 		5659823A1B9C2CAC000B150A /* XWRecommendTagCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWRecommendTagCell.xib; sourceTree = "<group>"; };
@@ -225,6 +233,8 @@
 				56F1FDA91B96D23F00931FAB /* Classes */,
 				562CF23A1B95B80900F53479 /* LaunchScreen.xib */,
 				562CF22B1B95B80900F53479 /* Supporting Files */,
+				563B22001BAB391700E5C650 /* XWFooterView.h */,
+				563B22011BAB391700E5C650 /* XWFooterView.m */,
 			);
 			path = "百思不得姐";
 			sourceTree = "<group>";
@@ -320,6 +330,9 @@
 				5659823A1B9C2CAC000B150A /* XWRecommendTagCell.xib */,
 				567754441BA7AA620036ED60 /* XWTitleButton.h */,
 				567754451BA7AA620036ED60 /* XWTitleButton.m */,
+				563B22031BAB3E8000E5C650 /* XWTopicCell.h */,
+				563B22041BAB3E8000E5C650 /* XWTopicCell.m */,
+				563B22051BAB3E8000E5C650 /* XWTopicCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -660,6 +673,7 @@
 				568F47A41B9B2B0D003F863F /* XWRecommendViewController.xib in Resources */,
 				56861F5C1B9F12DD00EEC45C /* XWSquareWebViewController.xib in Resources */,
 				562CF23C1B95B80900F53479 /* LaunchScreen.xib in Resources */,
+				563B22071BAB3E8000E5C650 /* XWTopicCell.xib in Resources */,
 				5659823C1B9C2CAC000B150A /* XWRecommendTagCell.xib in Resources */,
 				562CF2391B95B80900F53479 /* Images.xcassets in Resources */,
 				568F47A91B9B38F8003F863F /* XWRecommendCategoryCell.xib in Resources */,
@@ -717,6 +731,7 @@
 				569BA0041B9A01ED00B99DAD /* UIView+XWExtension.m in Sources */,
 				56C1A8C91B9F46D700505537 /* Foundation+XWLog.m in Sources */,
 				56099D551BA7C5390009B6D5 /* XWAllViewController.m in Sources */,
+				563B22061BAB3E8000E5C650 /* XWTopicCell.m in Sources */,
 				56099D611BA7C5A00009B6D5 /* XWWordViewController.m in Sources */,
 				567754461BA7AA620036ED60 /* XWTitleButton.m in Sources */,
 				569B9FF21B97F02900B99DAD /* XWNavigationController.m in Sources */,
@@ -739,6 +754,7 @@
 				56CE82D51BA9C0F200A8A427 /* XWTopic.m in Sources */,
 				56912F7E1BA42EEB00BFA44E /* XWPostWordViewController.m in Sources */,
 				56F1FDDB1B96D23F00931FAB /* XWRecommendTagsViewController.m in Sources */,
+				563B22021BAB391700E5C650 /* XWFooterView.m in Sources */,
 				56861F5B1B9F12DD00EEC45C /* XWSquareWebViewController.m in Sources */,
 				56861F571B9EE39100EEC45C /* XWSquareButton.m in Sources */,
 				567A63121B9EB88100C4C24A /* XWFootView.m in Sources */,

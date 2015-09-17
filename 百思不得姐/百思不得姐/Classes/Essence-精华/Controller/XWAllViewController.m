@@ -11,6 +11,8 @@
 #import "XWTopic.h"
 #import <MJExtension/MJExtension.h>
 #import <MJRefresh/MJRefresh.h>
+#import "XWFooterView.h"
+#import "XWTopicCell.h"
 
 @interface XWAllViewController ()
 
@@ -58,6 +60,8 @@
     [self setupRefresh];
 }
 
+/**cell循环利用标识*/
+static NSString * const XWTopicCellId = @"TopicCell";
 - (void)setupTableView
 {
     //设置背景颜色
@@ -68,6 +72,9 @@
     
     //指定滚动条在scrollerView中的位置
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+    
+    //注册cell
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([XWTopicCell class]) bundle:nil] forCellReuseIdentifier:XWTopicCellId];
 }
 
 #pragma  mark - 下拉刷新
@@ -83,8 +90,14 @@
     [self.tableView.header beginRefreshing];
     
     //上拉刷新
-    MJRefreshFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
-//    footer.appearencePercentTriggerAutoRefresh = 0.5;
+//    MJRefreshFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
+////    footer.appearencePercentTriggerAutoRefresh = 0.5;
+//    self.tableView.footer = footer;
+    
+    //自定义:
+//    self.tableView.footer = [XWFootView foo];
+    
+    XWFooterView *footer = [XWFooterView  footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
     self.tableView.footer = footer;
 }
 
@@ -167,19 +180,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *ID = @"cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-    }
+    XWTopicCell *cell = [tableView dequeueReusableCellWithIdentifier:XWTopicCellId];
     
     //设置数据
-    XWTopic *topic =  self.arrTopic[indexPath.row];
-    
-    cell.textLabel.text = topic.name;
-    cell.detailTextLabel.text = topic.text;
-    //设置头像
-    [cell.imageView setHeaderImage:topic.profile_image] ;
+    cell.topic = self.arrTopic[indexPath.row];
     
     return cell;
 }
