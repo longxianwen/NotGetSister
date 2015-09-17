@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XWFootView : UIView
+@interface XWSquareFootView : UIView
 
 @end

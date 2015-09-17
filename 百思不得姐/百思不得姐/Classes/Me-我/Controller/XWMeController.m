@@ -9,7 +9,7 @@
 #import "XWMeController.h"
 #import "XWSettingTableController.h"
 #import "XWMeCell.h"
-#import "XWFootView.h"
+#import "XWSquareFootView.h"
 
 @interface XWMeController ()
 
@@ -63,7 +63,7 @@ static NSString * const XWMeCellId = @"me";
     self.tableView.sectionHeaderHeight = 0;
     
     //添加footView
-    XWFootView *footerView = [[XWFootView alloc]init];
+    XWSquareFootView *footerView = [[XWSquareFootView alloc]init];
     self.tableView.tableFooterView = footerView;
 }
 

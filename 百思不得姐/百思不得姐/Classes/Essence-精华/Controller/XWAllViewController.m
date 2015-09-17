@@ -73,8 +73,14 @@ static NSString * const XWTopicCellId = @"TopicCell";
     //指定滚动条在scrollerView中的位置
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     
+    //去掉所有分隔线
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
     //注册cell
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([XWTopicCell class]) bundle:nil] forCellReuseIdentifier:XWTopicCellId];
+    
+    //设置cell的高度
+    self.tableView.rowHeight = 200;
 }
 
 #pragma  mark - 下拉刷新

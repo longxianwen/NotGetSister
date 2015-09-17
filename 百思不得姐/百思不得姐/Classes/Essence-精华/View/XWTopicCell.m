@@ -8,10 +8,21 @@
 
 #import "XWTopicCell.h"
 
+@interface XWTopicCell ()
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *createAtLabel;
+@property (weak, nonatomic) IBOutlet UILabel *text_label;
+
+@end
+
 @implementation XWTopicCell
 
 - (void)awakeFromNib {
     // Initialization code
+    
+    //设置背景图片
+    self.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"mainCellBackground"]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -24,11 +35,19 @@
 {
     _topic = topic;
     
-    //设置数据
-    self.textLabel.text = topic.name;
-    self.detailTextLabel.text = topic.text;
     //设置头像
-    [self.imageView setHeaderImage:topic.profile_image] ;
+    [self.profileImageView setHeaderImage:topic.profile_image];
+    self.nameLabel.text = topic.name;
+    self.createAtLabel.text = topic.created_at;
+    self.text_label.text = topic.text;
+}
+
+- (void)setFrame:(CGRect)frame
+{
+    frame.origin.y += XWCommMargin;
+    frame.size.height = frame.size.height - XWCommMargin;
+    
+    [super setFrame:frame];
 }
 
 @end

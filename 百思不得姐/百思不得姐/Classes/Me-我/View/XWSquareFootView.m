@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 longxianwen. All rights reserved.
 //  我--footerView
 
-#import "XWFootView.h"
+#import "XWSquareFootView.h"
 #import <AFNetworking.h>
 #import <MJExtension/MJExtension.h>
 #import "XWSquare.h"
@@ -14,14 +14,14 @@
 #import "XWMeController.h"
 #import "XWSquareWebViewController.h"
 
-@interface XWFootView ()
+@interface XWSquareFootView ()
 
 /**<方块按钮数据*/
 @property (nonatomic,strong) NSArray *squareArr;
 
 @end
 
-@implementation XWFootView
+@implementation XWSquareFootView
 
 - (instancetype)initWithFrame:(CGRect)frame
 {

@@ -27,7 +27,7 @@
 		5663F1C11B9DF747009A852D /* XWConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 5663F1C01B9DF747009A852D /* XWConst.m */; };
 		567754461BA7AA620036ED60 /* XWTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 567754451BA7AA620036ED60 /* XWTitleButton.m */; };
 		567A62DA1B9E832A00C4C24A /* XWMeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 567A62D91B9E832A00C4C24A /* XWMeCell.m */; };
-		567A63121B9EB88100C4C24A /* XWFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 567A63111B9EB88100C4C24A /* XWFootView.m */; };
+		567A63121B9EB88100C4C24A /* XWSquareFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 567A63111B9EB88100C4C24A /* XWSquareFootView.m */; };
 		567A63231B9ED67800C4C24A /* NSString+XWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 567A63201B9ED67800C4C24A /* NSString+XWExtension.m */; };
 		567A63261B9ED7B600C4C24A /* XWSquare.m in Sources */ = {isa = PBXBuildFile; fileRef = 567A63251B9ED7B600C4C24A /* XWSquare.m */; };
 		56861F571B9EE39100EEC45C /* XWSquareButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 56861F561B9EE39100EEC45C /* XWSquareButton.m */; };
@@ -116,8 +116,8 @@
 		567754451BA7AA620036ED60 /* XWTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWTitleButton.m; sourceTree = "<group>"; };
 		567A62D81B9E832A00C4C24A /* XWMeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWMeCell.h; sourceTree = "<group>"; };
 		567A62D91B9E832A00C4C24A /* XWMeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWMeCell.m; sourceTree = "<group>"; };
-		567A63101B9EB88100C4C24A /* XWFootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWFootView.h; sourceTree = "<group>"; };
-		567A63111B9EB88100C4C24A /* XWFootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWFootView.m; sourceTree = "<group>"; };
+		567A63101B9EB88100C4C24A /* XWSquareFootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWSquareFootView.h; sourceTree = "<group>"; };
+		567A63111B9EB88100C4C24A /* XWSquareFootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWSquareFootView.m; sourceTree = "<group>"; };
 		567A631F1B9ED67800C4C24A /* NSString+XWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+XWExtension.h"; sourceTree = "<group>"; };
 		567A63201B9ED67800C4C24A /* NSString+XWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+XWExtension.m"; sourceTree = "<group>"; };
 		567A63241B9ED7B600C4C24A /* XWSquare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWSquare.h; sourceTree = "<group>"; };
@@ -422,8 +422,8 @@
 			children = (
 				567A62D81B9E832A00C4C24A /* XWMeCell.h */,
 				567A62D91B9E832A00C4C24A /* XWMeCell.m */,
-				567A63101B9EB88100C4C24A /* XWFootView.h */,
-				567A63111B9EB88100C4C24A /* XWFootView.m */,
+				567A63101B9EB88100C4C24A /* XWSquareFootView.h */,
+				567A63111B9EB88100C4C24A /* XWSquareFootView.m */,
 				56861F551B9EE39100EEC45C /* XWSquareButton.h */,
 				56861F561B9EE39100EEC45C /* XWSquareButton.m */,
 				561F32B81BA146F1003A62ED /* XWClearCacheCell.h */,
@@ -757,7 +757,7 @@
 				563B22021BAB391700E5C650 /* XWFooterView.m in Sources */,
 				56861F5B1B9F12DD00EEC45C /* XWSquareWebViewController.m in Sources */,
 				56861F571B9EE39100EEC45C /* XWSquareButton.m in Sources */,
-				567A63121B9EB88100C4C24A /* XWFootView.m in Sources */,
+				567A63121B9EB88100C4C24A /* XWSquareFootView.m in Sources */,
 				56954B541B9DAAEB006A82CC /* UIImageView+XWImageView.m in Sources */,
 				56F1FDDE1B96D23F00931FAB /* XWMeController.m in Sources */,
 				56F1FDE11B96D23F00931FAB /* AppDelegate.m in Sources */,
