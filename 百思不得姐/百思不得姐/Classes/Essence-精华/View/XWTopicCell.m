@@ -50,6 +50,48 @@
     //日期处理
     
     
+    
+    //日期格式化类
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    
+    //设置日期格式
+    formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    
+     //比较发帖时间和当前时间
+    //将字符串日期转换为NSDate,获得发帖时间
+    NSDate *createAtDate = [formatter dateFromString:topic.created_at];
+    
+    //获得当前时间
+    NSDate *nowDate = [NSDate date];
+    XWLog(@"%@---%@",createAtDate,nowDate);
+    
+    //方式一:比较
+    NSTimeInterval interval =  [nowDate timeIntervalSinceDate:createAtDate];
+    
+    XWLog(@"%f",interval);
+     
+    
+    
+    NSDateFormatter *formaterr = [[NSDateFormatter alloc]init];
+    
+    formaterr.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    
+    //方式二:比较发帖时间和当前时间
+    
+    //通过日历类比较
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    
+    //(ˇˍˇ） 想～比较哪些元素
+    NSCalendarUnit unit = NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay|NSCalendarUnitHour|NSCalendarUnitMinute|NSCalendarUnitSecond;
+    
+    NSDateComponents *cmps = [calendar components:unit fromDate:createAtDate toDate:nowDate options:0];
+    
+    XWLog(@"%@---%@",createAtDate,nowDate);
+    NSLog(@"%@",cmps);
+    
+    
+    
+    
     self.text_label.text = topic.text;
     
     //设置工具条底部文字
