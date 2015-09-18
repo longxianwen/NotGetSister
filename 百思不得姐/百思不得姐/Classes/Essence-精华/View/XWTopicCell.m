@@ -42,6 +42,33 @@
     self.text_label.text = topic.text;
 }
 
+- (IBAction)moreClick:(id)sender {
+    
+    //弹出底部弹框
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    //添加内容
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"收藏" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        XWLog(@"收藏");
+    }]];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"举报" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        XWLog(@"举报");
+    }]];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        XWLog(@"取消");
+    }]];
+    
+    
+    
+    //显示弹框
+    [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
+    
+    
+}
+
 - (void)setFrame:(CGRect)frame
 {
     frame.origin.y += XWCommMargin;
