@@ -15,7 +15,7 @@
 #import "UIBarButtonItem+XWExtension.h"
 #import "UIView+XWExtension.h"
 #import "UIImage+XWExtension.h"
-#import "UIImageView+XWImageView.h"
+#import "UIImageView+XWExtension.h"
 #import "NSString+XWExtension.h"
 #import "XWConst.h"
 #import "NSDate+XWExtension.h"

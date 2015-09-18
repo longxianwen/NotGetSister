@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIImageView (XWImageView)
+@interface UIImageView (XWExtension)
 
 #pragma mark -m 根据图片的地址的获得对应的图片
 - (void)setHeaderImage:(NSString *)imageUrl;

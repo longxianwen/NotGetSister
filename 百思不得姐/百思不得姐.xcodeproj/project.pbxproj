@@ -40,7 +40,7 @@
 		56912F7E1BA42EEB00BFA44E /* XWPostWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56912F7D1BA42EEB00BFA44E /* XWPostWordViewController.m */; };
 		56912F811BA4686B00BFA44E /* XWPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56912F801BA4686B00BFA44E /* XWPlaceholderTextView.m */; };
 		56954B511B9DA159006A82CC /* UIImage+XWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 56954B501B9DA159006A82CC /* UIImage+XWExtension.m */; };
-		56954B541B9DAAEB006A82CC /* UIImageView+XWImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56954B531B9DAAEB006A82CC /* UIImageView+XWImageView.m */; };
+		56954B541B9DAAEB006A82CC /* UIImageView+XWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 56954B531B9DAAEB006A82CC /* UIImageView+XWExtension.m */; };
 		569B9FEC1B97EDD300B99DAD /* XWNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 569B9FEB1B97EDD300B99DAD /* XWNavigationBar.m */; };
 		569B9FF21B97F02900B99DAD /* XWNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 569B9FF11B97F02900B99DAD /* XWNavigationController.m */; };
 		569B9FF61B99C6B300B99DAD /* XWFriendTrendsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 569B9FF51B99C6B300B99DAD /* XWFriendTrendsController.xib */; };
@@ -140,8 +140,8 @@
 		56912F801BA4686B00BFA44E /* XWPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWPlaceholderTextView.m; sourceTree = "<group>"; };
 		56954B4F1B9DA159006A82CC /* UIImage+XWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+XWExtension.h"; sourceTree = "<group>"; };
 		56954B501B9DA159006A82CC /* UIImage+XWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+XWExtension.m"; sourceTree = "<group>"; };
-		56954B521B9DAAEB006A82CC /* UIImageView+XWImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+XWImageView.h"; sourceTree = "<group>"; };
-		56954B531B9DAAEB006A82CC /* UIImageView+XWImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+XWImageView.m"; sourceTree = "<group>"; };
+		56954B521B9DAAEB006A82CC /* UIImageView+XWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+XWExtension.h"; sourceTree = "<group>"; };
+		56954B531B9DAAEB006A82CC /* UIImageView+XWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+XWExtension.m"; sourceTree = "<group>"; };
 		569B9FEA1B97EDD300B99DAD /* XWNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWNavigationBar.h; sourceTree = "<group>"; };
 		569B9FEB1B97EDD300B99DAD /* XWNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWNavigationBar.m; sourceTree = "<group>"; };
 		569B9FEF1B97EF7000B99DAD /* readme.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = readme.c; sourceTree = "<group>"; };
@@ -492,8 +492,8 @@
 				569BA0031B9A01ED00B99DAD /* UIView+XWExtension.m */,
 				56954B4F1B9DA159006A82CC /* UIImage+XWExtension.h */,
 				56954B501B9DA159006A82CC /* UIImage+XWExtension.m */,
-				56954B521B9DAAEB006A82CC /* UIImageView+XWImageView.h */,
-				56954B531B9DAAEB006A82CC /* UIImageView+XWImageView.m */,
+				56954B521B9DAAEB006A82CC /* UIImageView+XWExtension.h */,
+				56954B531B9DAAEB006A82CC /* UIImageView+XWExtension.m */,
 				567A631F1B9ED67800C4C24A /* NSString+XWExtension.h */,
 				567A63201B9ED67800C4C24A /* NSString+XWExtension.m */,
 				56C1A8C81B9F46D700505537 /* Foundation+XWLog.m */,
@@ -763,7 +763,7 @@
 				56861F5B1B9F12DD00EEC45C /* XWSquareWebViewController.m in Sources */,
 				56861F571B9EE39100EEC45C /* XWSquareButton.m in Sources */,
 				567A63121B9EB88100C4C24A /* XWSquareFootView.m in Sources */,
-				56954B541B9DAAEB006A82CC /* UIImageView+XWImageView.m in Sources */,
+				56954B541B9DAAEB006A82CC /* UIImageView+XWExtension.m in Sources */,
 				56F1FDDE1B96D23F00931FAB /* XWMeController.m in Sources */,
 				56F1FDE11B96D23F00931FAB /* AppDelegate.m in Sources */,
 				562CF22E1B95B80900F53479 /* main.m in Sources */,

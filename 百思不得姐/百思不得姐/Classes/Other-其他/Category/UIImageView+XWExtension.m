@@ -6,10 +6,10 @@
 //  Copyright (c) 2015年 longxianwen. All rights reserved.
 //  对图片进行封装-获得不同样式的的图片
 
-#import "UIImageView+XWImageView.h"
+#import "UIImageView+XWExtension.h"
 #import <UIImageView+WebCache.h>
 
-@implementation UIImageView (XWImageView)
+@implementation UIImageView (XWExtension)
 
 /**
  *  根据图片的地址的获得对应的图片
