@@ -67,6 +67,7 @@
                                 <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
                                 <state key="normal" title="顶" image="mainCellDing">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted" image="mainCellDingClick"/>
@@ -77,6 +78,7 @@
                                 <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
                                 <state key="normal" title="踩" image="mainCellCai">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted" image="mainCellCaiClick"/>
@@ -87,19 +89,10 @@
                                 <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
                                 <state key="normal" title="分享" image="mainCellShare">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted" image="mainCellShareClick"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnN-qn-GVt">
-                                <rect key="frame" x="240" y="1" width="80" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
-                                <state key="normal" title="评论" image="mainCellComment">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted" image="mainCellCommentClick"/>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell-button-line" translatesAutoresizingMaskIntoConstraints="NO" id="ngS-Jp-ypP" userLabel="按钮分隔线">
                                 <rect key="frame" x="80" y="1" width="1" height="34"/>
@@ -121,6 +114,17 @@
                                     <constraint firstAttribute="width" constant="1" id="r6D-Un-jCj"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnN-qn-GVt">
+                                <rect key="frame" x="240" y="1" width="80" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
+                                <state key="normal" title="评论" image="mainCellComment">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" image="mainCellCommentClick"/>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="jnN-qn-GVt" firstAttribute="leading" secondItem="DmI-5R-wEc" secondAttribute="trailing" id="0kW-YS-XTJ"/>
@@ -187,9 +191,13 @@
                 </variation>
             </tableViewCellContentView>
             <connections>
+                <outlet property="caiButton" destination="4SF-Q5-Q55" id="rPV-np-JQS"/>
+                <outlet property="commentButton" destination="jnN-qn-GVt" id="jLF-et-vzx"/>
                 <outlet property="createAtLabel" destination="aJL-sL-Wcp" id="Xs6-CI-zIB"/>
+                <outlet property="dingButton" destination="Nbc-oD-SFq" id="wYD-0E-gm3"/>
                 <outlet property="nameLabel" destination="1rR-bp-96t" id="2rg-Jv-cJU"/>
                 <outlet property="profileImageView" destination="tcH-nC-DSg" id="G24-0P-5jR"/>
+                <outlet property="repostButton" destination="DmI-5R-wEc" id="GHB-Zg-Gqa"/>
                 <outlet property="text_label" destination="SiH-tW-0Me" id="G2A-8C-Tpg"/>
             </connections>
             <point key="canvasLocation" x="236" y="231.5"/>

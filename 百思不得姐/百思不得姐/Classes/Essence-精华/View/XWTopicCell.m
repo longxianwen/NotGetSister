@@ -13,6 +13,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *createAtLabel;
 @property (weak, nonatomic) IBOutlet UILabel *text_label;
+@property (weak, nonatomic) IBOutlet UIButton *dingButton;
+@property (weak, nonatomic) IBOutlet UIButton *caiButton;
+@property (weak, nonatomic) IBOutlet UIButton *repostButton;
+@property (weak, nonatomic) IBOutlet UIButton *commentButton;
 
 @end
 
@@ -23,6 +27,9 @@
     
     //设置背景图片
     self.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"mainCellBackground"]];
+    
+    //设置cell选中效果
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -31,6 +38,7 @@
     // Configure the view for the selected state
 }
 
+#pragma mark - 设置数据
 - (void)setTopic:(XWTopic *)topic
 {
     _topic = topic;
@@ -39,9 +47,44 @@
     [self.profileImageView setHeaderImage:topic.profile_image];
     self.nameLabel.text = topic.name;
     self.createAtLabel.text = topic.created_at;
+    //日期处理
+    
+    
     self.text_label.text = topic.text;
+    
+    //设置工具条底部文字
+    [self setupButtonTitle:self.dingButton andNSInteger:topic.ding andPlaceholder:@"顶"];
+    
+    [self setupButtonTitle:self.caiButton andNSInteger:topic.cai andPlaceholder:@"踩"];
+    
+    [self setupButtonTitle:self.repostButton andNSInteger:topic.repost andPlaceholder:@"转发/分享"];
+    
+    [self setupButtonTitle:self.commentButton andNSInteger:topic.comment andPlaceholder:@"评论"];
 }
 
+/**
+ *  设置底部工具条数据
+ *
+ *  @param button      工具按钮
+ *  @param number      顶/踩/转发/评论数量
+ *  @param placeholder 默认占位文字
+ */
+- (void)setupButtonTitle:(UIButton*)button andNSInteger:(NSInteger)number andPlaceholder:(NSString*)placeholder
+{
+    if(number >=10000)
+    {
+       [button setTitle:[NSString stringWithFormat:@"%.1f万",number / 10000.0] forState:UIControlStateNormal];
+    } else if (number > 0)
+    {
+        [button setTitle:[NSString stringWithFormat:@"%zd",number] forState:UIControlStateNormal];
+    } else
+    {
+        [button setTitle:[NSString stringWithFormat:@"%@",placeholder] forState:UIControlStateNormal];
+    }
+    
+}
+
+#pragma mark - 更多点击
 - (IBAction)moreClick:(id)sender {
     
     //弹出底部弹框
@@ -61,12 +104,9 @@
         XWLog(@"取消");
     }]];
     
-    
-    
     //显示弹框
     [self.window.rootViewController presentViewController:alert animated:YES completion:nil];
-    
-    
+
 }
 
 - (void)setFrame:(CGRect)frame
