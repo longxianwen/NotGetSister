@@ -15,4 +15,16 @@
 
 //和当前日期进行比较
 - (NSDateComponents*) intervalToNow;
+
+//判断是否为今年
+- (BOOL)isThisYear;
+
+//判断是否为今天
+- (BOOL)isToday;
+
+//判断是否为昨天
+- (BOOL)isYesterday;
+
+//判断是否为明天
+- (BOOL)isTomorrow;
 @end
