@@ -49,6 +49,7 @@
 		569BA0041B9A01ED00B99DAD /* UIView+XWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 569BA0031B9A01ED00B99DAD /* UIView+XWExtension.m */; };
 		569BA0061B9A8CEA00B99DAD /* XWLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 569BA0051B9A8CEA00B99DAD /* XWLoginRegisterViewController.m */; };
 		569BA0091B9A906100B99DAD /* XWLoginRegisterTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 569BA0081B9A906100B99DAD /* XWLoginRegisterTextField.m */; };
+		56ACCC2E1BAC0BAA000A5BF5 /* NSDate+XWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 56ACCC2D1BAC0BAA000A5BF5 /* NSDate+XWExtension.m */; };
 		56B5F4161BA33A5500C14E1D /* XWPublishButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B5F4151BA33A5500C14E1D /* XWPublishButton.m */; };
 		56C1A8C91B9F46D700505537 /* Foundation+XWLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C1A8C81B9F46D700505537 /* Foundation+XWLog.m */; };
 		56CE82D51BA9C0F200A8A427 /* XWTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CE82D41BA9C0F200A8A427 /* XWTopic.m */; };
@@ -156,6 +157,8 @@
 		569BA0051B9A8CEA00B99DAD /* XWLoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWLoginRegisterViewController.m; sourceTree = "<group>"; };
 		569BA0071B9A906100B99DAD /* XWLoginRegisterTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWLoginRegisterTextField.h; sourceTree = "<group>"; };
 		569BA0081B9A906100B99DAD /* XWLoginRegisterTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWLoginRegisterTextField.m; sourceTree = "<group>"; };
+		56ACCC2C1BAC0BAA000A5BF5 /* NSDate+XWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+XWExtension.h"; sourceTree = "<group>"; };
+		56ACCC2D1BAC0BAA000A5BF5 /* NSDate+XWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+XWExtension.m"; sourceTree = "<group>"; };
 		56B5F4141BA33A5500C14E1D /* XWPublishButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWPublishButton.h; sourceTree = "<group>"; };
 		56B5F4151BA33A5500C14E1D /* XWPublishButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWPublishButton.m; sourceTree = "<group>"; };
 		56C1A8C81B9F46D700505537 /* Foundation+XWLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+XWLog.m"; sourceTree = "<group>"; };
@@ -494,6 +497,8 @@
 				567A631F1B9ED67800C4C24A /* NSString+XWExtension.h */,
 				567A63201B9ED67800C4C24A /* NSString+XWExtension.m */,
 				56C1A8C81B9F46D700505537 /* Foundation+XWLog.m */,
+				56ACCC2C1BAC0BAA000A5BF5 /* NSDate+XWExtension.h */,
+				56ACCC2D1BAC0BAA000A5BF5 /* NSDate+XWExtension.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -762,6 +767,7 @@
 				56F1FDDE1B96D23F00931FAB /* XWMeController.m in Sources */,
 				56F1FDE11B96D23F00931FAB /* AppDelegate.m in Sources */,
 				562CF22E1B95B80900F53479 /* main.m in Sources */,
+				56ACCC2E1BAC0BAA000A5BF5 /* NSDate+XWExtension.m in Sources */,
 				56099D5B1BA7C5790009B6D5 /* XWVoiceViewController.m in Sources */,
 				5632FB831B9FCC2C009414E3 /* XWPublishViewController.m in Sources */,
 				568F47A31B9B2B0D003F863F /* XWRecommendViewController.m in Sources */,
