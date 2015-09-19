@@ -50,6 +50,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="checkImageButton" destination="Q60-FX-WjP" id="6aT-Lx-6dd"/>
                 <outlet property="gitIconView" destination="UFr-hp-grP" id="Civ-ly-Qe2"/>
                 <outlet property="imageView" destination="YZ0-C6-jju" id="bxf-YC-gQl"/>
             </connections>

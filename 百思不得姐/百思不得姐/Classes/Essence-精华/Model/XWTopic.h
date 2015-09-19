@@ -66,4 +66,7 @@ typedef enum
 /** 中间内容的frame */
 @property (nonatomic, assign) CGRect contentFrame;
 
+/** 是否大图片 */
+@property (nonatomic, assign, getter=isBigPicture) BOOL bigPicture;
+
 @end

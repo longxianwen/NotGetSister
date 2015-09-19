@@ -17,6 +17,7 @@
 
 /**  gif图标*/
 @property (weak, nonatomic) IBOutlet UIImageView *gitIconView;
+@property (weak, nonatomic) IBOutlet UIButton *checkImageButton;
 
 @end
 @implementation XWTopicPictureView
@@ -38,6 +39,22 @@
         
     }];
     
+    //判断gif
+    self.gitIconView.hidden = !topic.is_gif;
+    
+    //点击查看大图隐藏
+    self.checkImageButton.hidden = !topic.isBigPicture;
+    
+    //如果是大图设置图片模式，显示top部分
+    if(topic.isBigPicture)
+    {
+        self.imageView.contentMode = UIViewContentModeTop;
+        self.imageView.clipsToBounds = YES;
+    } else
+    {
+        self.imageView.contentMode = UIViewContentModeScaleToFill;
+        self.imageView.clipsToBounds = NO;
+    }
 }
 
 #pragma mark - 点击查看全图

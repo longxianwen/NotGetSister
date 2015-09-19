@@ -104,6 +104,11 @@
             // 图片的高度 * 内容的宽度 / 图片的宽度(等比缩放,图片显示真实高度)
             CGFloat contentH = self.height * contentW / self.width;
             
+            if (contentH >= XWScreenH) {
+                contentH = 200;
+                self.bigPicture = YES;
+            }
+            
             CGFloat contentX = XWCommMargin;
             CGFloat contentY = cellHeight;
             self.contentFrame = CGRectMake(contentX, contentY, contentW, contentH);

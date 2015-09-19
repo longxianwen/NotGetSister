@@ -76,7 +76,7 @@
     if(topic.type == XWTopicTypePicture)
     {
         self.pictureView.hidden = NO;
-        //如果发现中间图片内容位置显示不正确，可把下面一行语句方在layoutSubviews中试试,可能是系统又设置回去了
+        //设置位置
         self.pictureView.frame = topic.contentFrame;
         //设置数据
         self.pictureView.topic = topic;
@@ -99,11 +99,6 @@
     [self setupButtonTitle:self.repostButton andNSInteger:topic.repost andPlaceholder:@"转发/分享"];
     
     [self setupButtonTitle:self.commentButton andNSInteger:topic.comment andPlaceholder:@"评论"];
-}
-
-- (void)layoutSubviews
-{
-    
 }
 
 /**
