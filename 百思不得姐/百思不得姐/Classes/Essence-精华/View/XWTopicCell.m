@@ -75,7 +75,6 @@
     //设置中间内容
     if(topic.type == XWTopicTypePicture)
     {
-        XWLog(@"%@--%@--%@",@"图片",topic.name,NSStringFromCGRect(topic.contentFrame));
         self.pictureView.hidden = NO;
         //设置位置
         self.pictureView.frame = topic.contentFrame;
@@ -83,15 +82,12 @@
         self.pictureView.topic = topic;
     } else if(topic.type == XWTopicTypeWord)
     {
-        XWLog(@"%@--%@--%@",@"段子",topic.name,NSStringFromCGRect(topic.contentFrame));
         self.pictureView.hidden = YES;
     } else if(topic.type == XWTopicTypeVoice)
     {
-        XWLog(@"%@--%@--%@",@"声音",topic.name,NSStringFromCGRect(topic.contentFrame));
         self.pictureView.hidden = YES;
     } else if(topic.type == XWTopicTypeVideo)
     {
-        XWLog(@"%@--%@--%@",@"视频",topic.name,NSStringFromCGRect(topic.contentFrame));
         self.pictureView.hidden = YES;
     }
   

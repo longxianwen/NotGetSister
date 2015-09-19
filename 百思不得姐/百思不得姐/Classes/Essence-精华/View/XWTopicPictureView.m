@@ -10,6 +10,7 @@
 #import "XWTopic.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <DALabeledCircularProgressView.h>
+#import "XWSeeBigPictureViewController.h"
 
 @interface XWTopicPictureView ()
 
@@ -28,13 +29,26 @@
 {
     // 清空自动伸缩属性
     self.autoresizingMask = UIViewAutoresizingNone;
+    
+    self.imageView.userInteractionEnabled = YES;
+    
+    self.progressView.roundedCorners = 5;
+    self.progressView.progressLabel.textColor = [UIColor whiteColor];
+    
+    //创建手势
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageClick)];
+    //添加手势
+    [self.imageView addGestureRecognizer:tap];
 }
 
 //拦截设置中间图片内容方法,下载图片
+#pragma mark - 下载图片
 - (void)setTopic:(XWTopic *)topic
 {
-    //下载图片
     
+    _topic = topic;
+    
+    //下载图片
     XWWeakSelf;
     
     [self.imageView sd_setImageWithURL:[NSURL URLWithString:topic.image1] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
@@ -43,7 +57,6 @@
         weakSelf.progressView.hidden = NO;
         weakSelf.progressView.progress = receivedSize * 1.0 / expectedSize;
         weakSelf.progressView.progressLabel.text = [NSString stringWithFormat:@"%.0f%%", weakSelf.progressView.progress * 100];
-        weakSelf.progressView.progressLabel.textColor = [UIColor whiteColor];
     } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         weakSelf.progressView.hidden = YES;
     }];
@@ -67,8 +80,27 @@
 }
 
 #pragma mark - 点击查看全图
+
+- (void)imageClick
+{
+    [self seeBigPicture];
+}
+
 - (IBAction)checkAllImageClick:(id)sender {
-    XWLog(@"点击查看全图");
+    
+    [self seeBigPicture];
+    
+}
+
+- (void)seeBigPicture
+{
+    if (self.imageView.image == nil) return;
+    
+    XWSeeBigPictureViewController *seeBigPicture = [[XWSeeBigPictureViewController alloc]init];
+    
+    seeBigPicture.topic = _topic;
+    
+    [self.window.rootViewController presentViewController:seeBigPicture animated:YES completion:nil];
 }
 
 @end
