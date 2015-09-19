@@ -74,7 +74,7 @@
     //设置中间内容
     if(topic.type == XWTopicTypePicture)
     {
-        self.pictureView.hidden = NO;
+        self.pictureView.hidden = YES;
     } else if(topic.type == XWTopicTypeWord)
     {
         self.pictureView.hidden = YES;

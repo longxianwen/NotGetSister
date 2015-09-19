@@ -195,8 +195,35 @@ static NSString * const XWTopicCellId = @"TopicCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLogFunc;
-    return 500;
+    //顶部内容高度
+    CGFloat cellHeight = XWTopicTextY;
+    
+    //计算文字高度
+    XWTopic *topic = self.arrTopic[indexPath.row];
+    
+    CGFloat textW = XWScreenW - 2 * XWCommMargin;
+    
+    //第一个参数:限制内容的范围
+    //第二个参数:从内容什么位置开始算
+    //第三个参数:内容字体大小
+    //第四个参数:上下文
+    CGFloat textH = [topic.text boundingRectWithSize:CGSizeMake(textW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:15]} context:nil].size.height;
+    
+    cellHeight += textH + XWCommMargin;
+    
+    //中间内容的高度
+    if(topic.type != XWTopicTypeWord)
+    {
+        CGFloat contentW = textW;
+        // 图片的高度 * 内容的宽度 / 图片的宽度(等比缩放,图片显示真实高度)
+        CGFloat contentH = topic.height * contentW / topic.width;
+        cellHeight += contentH + XWCommMargin;
+    }
+    
+    //底部工具条的高度
+    cellHeight += XWTopicToolbarH + XWCommMargin + XWCommMargin;
+    
+    return cellHeight;
 }
 
 @end

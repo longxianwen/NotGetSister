@@ -43,4 +43,10 @@ typedef enum
 
 /** 帖子的类型 */
 @property (nonatomic,assign)XWTopicType type;
+
+/** 图片的宽度 */
+@property (nonatomic, assign) CGFloat width;
+/** 图片的高度 */
+@property (nonatomic, assign) CGFloat height;
+
 @end

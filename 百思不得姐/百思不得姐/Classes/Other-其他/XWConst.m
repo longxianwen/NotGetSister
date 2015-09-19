@@ -26,3 +26,9 @@ CGFloat const XWTabBarH = 49;
 
 // 标签栏高度
 CGFloat const XWTitleViewH = 35;
+
+// 帖子-文字的Y值
+CGFloat const XWTopicTextY = 55;
+
+// 帖子-底部工具条的高度
+CGFloat const XWTopicToolbarH = 35;

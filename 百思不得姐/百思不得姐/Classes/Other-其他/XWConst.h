@@ -36,3 +36,13 @@ UIKIT_EXTERN CGFloat const XWTitleViewH;
  */
 UIKIT_EXTERN CGFloat const XWTabBarH;
 
+/**
+ *  帖子-文字的Y值
+ */
+UIKIT_EXTERN CGFloat const XWTopicTextY;
+
+/**
+ *  帖子-底部工具条的高度
+ */
+UIKIT_EXTERN CGFloat const XWTopicToolbarH;
+
