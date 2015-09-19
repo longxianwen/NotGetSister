@@ -4,11 +4,25 @@
 //
 //  Created by longxianwen on 15/9/16.
 //  Copyright (c) 2015年 longxianwen. All rights reserved.
-//  帖子数据模型(全部，图片，段子，音频，视频)
+//  帖子数据模型(图片，段子，音频，视频)
 
 #import <Foundation/Foundation.h>
 
+//10为图片，29为段子，31为音频，41为视频
+typedef enum
+{
+    /**图片*/
+    XWTopicTypePicture = 10,
+    /**段子*/
+    XWTopicTypeWord = 29,
+    /**声音*/
+    XWTopicTypeVoice = 31,
+    /**视频*/
+    XWTopicTypeVideo = 41
+} XWTopicType;
+
 @interface XWTopic : NSObject
+
 // 用户 -- 发帖者
 /** 用户的名字 */
 @property (nonatomic, copy) NSString *name;
@@ -26,4 +40,7 @@
 @property (nonatomic, assign) NSInteger repost;
 /** 评论数量 */
 @property (nonatomic, assign) NSInteger comment;
+
+/** 帖子的类型 */
+@property (nonatomic,assign)XWTopicType type;
 @end

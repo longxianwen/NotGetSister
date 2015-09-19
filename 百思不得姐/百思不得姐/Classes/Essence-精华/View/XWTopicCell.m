@@ -4,9 +4,10 @@
 //
 //  Created by longxianwen on 15/9/18.
 //  Copyright (c) 2015年 longxianwen. All rights reserved.
-//  自定义帖子cell(全部，图片，段子，音频，视频)
+//  自定义帖子cell(图片，段子，音频，视频)
 
 #import "XWTopicCell.h"
+#import "XWTopicPictureView.h"
 
 @interface XWTopicCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
@@ -18,9 +19,26 @@
 @property (weak, nonatomic) IBOutlet UIButton *repostButton;
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
 
+/**图片*/
+@property (nonatomic,weak) XWTopicPictureView * pictureView;
+
 @end
 
 @implementation XWTopicCell
+
+#pragma mark - lazy
+- (XWTopicPictureView *)pictureView
+{
+    if (!_pictureView) {
+        NSArray * arr = [[NSBundle mainBundle]loadNibNamed:NSStringFromClass([XWTopicPictureView class]) owner:nil options:nil];
+        
+        XWTopicPictureView *pictureView = arr.firstObject;
+        //加载中间内容
+        [self.contentView addSubview:pictureView];
+        _pictureView = pictureView;
+    }
+    return _pictureView;
+}
 
 - (void)awakeFromNib {
     // Initialization code
@@ -43,16 +61,32 @@
 {
     _topic = topic;
     
-    //设置头像
+    //设置顶部内容
+    //头像
     [self.profileImageView setHeaderImage:topic.profile_image];
     self.nameLabel.text = topic.name;
-    
     //日期处理,重写created_at属性的get方法进行拦截
     self.createAtLabel.text = topic.created_at;
     
+    //设置文字内容
     self.text_label.text = topic.text;
     
-    //设置工具条底部文字
+    //设置中间内容
+    if(topic.type == XWTopicTypePicture)
+    {
+        self.pictureView.hidden = NO;
+    } else if(topic.type == XWTopicTypeWord)
+    {
+        self.pictureView.hidden = YES;
+    } else if(topic.type == XWTopicTypeVoice)
+    {
+        self.pictureView.hidden = YES;
+    } else if(topic.type == XWTopicTypeVideo)
+    {
+        self.pictureView.hidden = YES;
+    }
+  
+    //设置工具条底部内容
     [self setupButtonTitle:self.dingButton andNSInteger:topic.ding andPlaceholder:@"顶"];
     
     [self setupButtonTitle:self.caiButton andNSInteger:topic.cai andPlaceholder:@"踩"];

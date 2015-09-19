@@ -80,7 +80,7 @@ static NSString * const XWTopicCellId = @"TopicCell";
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([XWTopicCell class]) bundle:nil] forCellReuseIdentifier:XWTopicCellId];
     
     //设置cell的高度
-    self.tableView.rowHeight = 200;
+//    self.tableView.rowHeight = 500;
 }
 
 #pragma  mark - 下拉刷新
@@ -97,11 +97,9 @@ static NSString * const XWTopicCellId = @"TopicCell";
     
     //上拉刷新
 //    MJRefreshFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
-////    footer.appearencePercentTriggerAutoRefresh = 0.5;
-//    self.tableView.footer = footer;
+//  footer.appearencePercentTriggerAutoRefresh = 0.5;
     
-    //自定义:
-//    self.tableView.footer = [XWFootView foo];
+    //自定义上拉刷新:
     
     XWFooterView *footer = [XWFooterView  footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
     self.tableView.footer = footer;
@@ -186,12 +184,19 @@ static NSString * const XWTopicCellId = @"TopicCell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLogFunc;
     XWTopicCell *cell = [tableView dequeueReusableCellWithIdentifier:XWTopicCellId];
     
     //设置数据
     cell.topic = self.arrTopic[indexPath.row];
     
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLogFunc;
+    return 500;
 }
 
 @end

@@ -49,6 +49,8 @@
 		569BA0041B9A01ED00B99DAD /* UIView+XWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 569BA0031B9A01ED00B99DAD /* UIView+XWExtension.m */; };
 		569BA0061B9A8CEA00B99DAD /* XWLoginRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 569BA0051B9A8CEA00B99DAD /* XWLoginRegisterViewController.m */; };
 		569BA0091B9A906100B99DAD /* XWLoginRegisterTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 569BA0081B9A906100B99DAD /* XWLoginRegisterTextField.m */; };
+		56A0B86B1BAD3BC100A277DD /* XWTopicPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56A0B86A1BAD3BC100A277DD /* XWTopicPictureView.m */; };
+		56A0B86D1BAD3BF600A277DD /* XWTopicPictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56A0B86C1BAD3BF600A277DD /* XWTopicPictureView.xib */; };
 		56ACCC2E1BAC0BAA000A5BF5 /* NSDate+XWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 56ACCC2D1BAC0BAA000A5BF5 /* NSDate+XWExtension.m */; };
 		56B5F4161BA33A5500C14E1D /* XWPublishButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B5F4151BA33A5500C14E1D /* XWPublishButton.m */; };
 		56C1A8C91B9F46D700505537 /* Foundation+XWLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C1A8C81B9F46D700505537 /* Foundation+XWLog.m */; };
@@ -157,6 +159,9 @@
 		569BA0051B9A8CEA00B99DAD /* XWLoginRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWLoginRegisterViewController.m; sourceTree = "<group>"; };
 		569BA0071B9A906100B99DAD /* XWLoginRegisterTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWLoginRegisterTextField.h; sourceTree = "<group>"; };
 		569BA0081B9A906100B99DAD /* XWLoginRegisterTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWLoginRegisterTextField.m; sourceTree = "<group>"; };
+		56A0B8691BAD3BC100A277DD /* XWTopicPictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWTopicPictureView.h; sourceTree = "<group>"; };
+		56A0B86A1BAD3BC100A277DD /* XWTopicPictureView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWTopicPictureView.m; sourceTree = "<group>"; };
+		56A0B86C1BAD3BF600A277DD /* XWTopicPictureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWTopicPictureView.xib; sourceTree = "<group>"; };
 		56ACCC2C1BAC0BAA000A5BF5 /* NSDate+XWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+XWExtension.h"; sourceTree = "<group>"; };
 		56ACCC2D1BAC0BAA000A5BF5 /* NSDate+XWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+XWExtension.m"; sourceTree = "<group>"; };
 		56B5F4141BA33A5500C14E1D /* XWPublishButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWPublishButton.h; sourceTree = "<group>"; };
@@ -336,6 +341,9 @@
 				563B22031BAB3E8000E5C650 /* XWTopicCell.h */,
 				563B22041BAB3E8000E5C650 /* XWTopicCell.m */,
 				563B22051BAB3E8000E5C650 /* XWTopicCell.xib */,
+				56A0B8691BAD3BC100A277DD /* XWTopicPictureView.h */,
+				56A0B86A1BAD3BC100A277DD /* XWTopicPictureView.m */,
+				56A0B86C1BAD3BF600A277DD /* XWTopicPictureView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -679,6 +687,7 @@
 				56861F5C1B9F12DD00EEC45C /* XWSquareWebViewController.xib in Resources */,
 				562CF23C1B95B80900F53479 /* LaunchScreen.xib in Resources */,
 				563B22071BAB3E8000E5C650 /* XWTopicCell.xib in Resources */,
+				56A0B86D1BAD3BF600A277DD /* XWTopicPictureView.xib in Resources */,
 				5659823C1B9C2CAC000B150A /* XWRecommendTagCell.xib in Resources */,
 				562CF2391B95B80900F53479 /* Images.xcassets in Resources */,
 				568F47A91B9B38F8003F863F /* XWRecommendCategoryCell.xib in Resources */,
@@ -775,6 +784,7 @@
 				56F1FDE51B96D23F00931FAB /* XWTabBar.m in Sources */,
 				56F1FDDA1B96D23F00931FAB /* XWEssenceController.m in Sources */,
 				569BA0091B9A906100B99DAD /* XWLoginRegisterTextField.m in Sources */,
+				56A0B86B1BAD3BC100A277DD /* XWTopicPictureView.m in Sources */,
 				56F1FDE01B96D23F00931FAB /* XWNewController.m in Sources */,
 				56B5F4161BA33A5500C14E1D /* XWPublishButton.m in Sources */,
 				561F32BA1BA146F1003A62ED /* XWClearCacheCell.m in Sources */,
