@@ -10,4 +10,10 @@
 
 @implementation XWTopicPictureView
 
+- (void)awakeFromNib
+{
+    // 清空自动伸缩属性
+    self.autoresizingMask = UIViewAutoresizingNone;
+}
+
 @end

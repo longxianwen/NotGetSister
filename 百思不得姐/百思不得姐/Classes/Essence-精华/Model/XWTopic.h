@@ -49,4 +49,11 @@ typedef enum
 /** 图片的高度 */
 @property (nonatomic, assign) CGFloat height;
 
+/***** 额外增加的属性 ******/
+/** cell的高度 */
+@property (nonatomic, assign) CGFloat cellHeight;
+
+/** 中间内容的frame */
+@property (nonatomic, assign) CGRect contentFrame;
+
 @end

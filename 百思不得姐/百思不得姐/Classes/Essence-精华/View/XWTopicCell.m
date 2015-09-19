@@ -56,7 +56,7 @@
     // Configure the view for the selected state
 }
 
-#pragma mark - 设置数据
+#pragma mark - 设置数据(调用频繁)
 - (void)setTopic:(XWTopic *)topic
 {
     _topic = topic;
@@ -74,7 +74,9 @@
     //设置中间内容
     if(topic.type == XWTopicTypePicture)
     {
-        self.pictureView.hidden = YES;
+        self.pictureView.hidden = NO;
+        //如果发现中间图片内容位置显示不正确，可把下面一行语句方在layoutSubviews中试试,可能是系统又设置回去了
+        self.pictureView.frame = topic.contentFrame;
     } else if(topic.type == XWTopicTypeWord)
     {
         self.pictureView.hidden = YES;
@@ -94,6 +96,11 @@
     [self setupButtonTitle:self.repostButton andNSInteger:topic.repost andPlaceholder:@"转发/分享"];
     
     [self setupButtonTitle:self.commentButton andNSInteger:topic.comment andPlaceholder:@"评论"];
+}
+
+- (void)layoutSubviews
+{
+    
 }
 
 /**
