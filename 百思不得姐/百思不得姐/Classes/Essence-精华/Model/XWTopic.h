@@ -49,6 +49,16 @@ typedef enum
 /** 图片的高度 */
 @property (nonatomic, assign) CGFloat height;
 
+/** 小图 */
+@property (nonatomic, copy) NSString *image0;
+/** 大图 */
+@property (nonatomic, copy) NSString *image1;
+/** 中图 */
+@property (nonatomic, copy) NSString *image2;
+
+/** 是否为动态图 */
+@property (nonatomic, assign) BOOL is_gif;
+
 /***** 额外增加的属性 ******/
 /** cell的高度 */
 @property (nonatomic, assign) CGFloat cellHeight;

@@ -32,6 +32,9 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="checkAllImageClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="0MF-WO-xKq"/>
+                    </connections>
                 </button>
             </subviews>
             <constraints>
@@ -46,6 +49,10 @@
                 <constraint firstAttribute="bottom" secondItem="Q60-FX-WjP" secondAttribute="bottom" id="u7d-Q9-4wf"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="gitIconView" destination="UFr-hp-grP" id="Civ-ly-Qe2"/>
+                <outlet property="imageView" destination="YZ0-C6-jju" id="bxf-YC-gQl"/>
+            </connections>
             <point key="canvasLocation" x="316.5" y="56"/>
         </view>
     </objects>

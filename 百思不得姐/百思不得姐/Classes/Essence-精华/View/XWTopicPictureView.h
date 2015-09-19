@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class XWTopic;
 @interface XWTopicPictureView : UIView
 
+/**帖子模型*/
+@property (nonatomic,strong) XWTopic *topic;
 @end

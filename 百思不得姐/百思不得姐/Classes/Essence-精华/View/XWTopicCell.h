@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "XWTopic.h"
+@class XWTopic;
 
 @interface XWTopicCell : UITableViewCell
 

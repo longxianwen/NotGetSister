@@ -8,6 +8,7 @@
 
 #import "XWTopicCell.h"
 #import "XWTopicPictureView.h"
+#import "XWTopic.h"
 
 @interface XWTopicCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
@@ -77,6 +78,8 @@
         self.pictureView.hidden = NO;
         //如果发现中间图片内容位置显示不正确，可把下面一行语句方在layoutSubviews中试试,可能是系统又设置回去了
         self.pictureView.frame = topic.contentFrame;
+        //设置数据
+        self.pictureView.topic = topic;
     } else if(topic.type == XWTopicTypeWord)
     {
         self.pictureView.hidden = YES;
