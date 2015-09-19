@@ -9,6 +9,7 @@
 #import "XWTopicPictureView.h"
 #import "XWTopic.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <DALabeledCircularProgressView.h>
 
 @interface XWTopicPictureView ()
 
@@ -18,6 +19,7 @@
 /**  gif图标*/
 @property (weak, nonatomic) IBOutlet UIImageView *gitIconView;
 @property (weak, nonatomic) IBOutlet UIButton *checkImageButton;
+@property (weak, nonatomic) IBOutlet DALabeledCircularProgressView *progressView;
 
 @end
 @implementation XWTopicPictureView
@@ -31,12 +33,19 @@
 //拦截设置中间图片内容方法,下载图片
 - (void)setTopic:(XWTopic *)topic
 {
-    //根据服务器返回的图片的宽度高度，根据等比例换算成屏幕真实显示的宽度高度
     //下载图片
+    
+    XWWeakSelf;
+    
     [self.imageView sd_setImageWithURL:[NSURL URLWithString:topic.image1] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-        XWLog(@"图片下载成功");
-    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         
+        //进度条设置
+        weakSelf.progressView.hidden = NO;
+        weakSelf.progressView.progress = receivedSize * 1.0 / expectedSize;
+        weakSelf.progressView.progressLabel.text = [NSString stringWithFormat:@"%.0f%%", weakSelf.progressView.progress * 100];
+        weakSelf.progressView.progressLabel.textColor = [UIColor whiteColor];
+    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        weakSelf.progressView.hidden = YES;
     }];
     
     //判断gif
