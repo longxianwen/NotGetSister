@@ -22,11 +22,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSLog(@"%@--%@",self.topic ,self.topic.name);
-    
     //滚动控件
     UIScrollView *scrollView = [[UIScrollView alloc]init];
     scrollView.frame = self.view.bounds;
+    //查看如果没有下面设置背景色语句效果
+    scrollView.backgroundColor = [UIColor blackColor];
     [self.view insertSubview:scrollView atIndex:0];
     
     //图片控件
