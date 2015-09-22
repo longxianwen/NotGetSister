@@ -78,7 +78,7 @@
     [self addChildViewController:picture];
     
     XWWordViewController *word = [[XWWordViewController alloc]init];
-    word.title = @"文字";
+    word.title = @"段子";
     [self addChildViewController:word];
 }
 

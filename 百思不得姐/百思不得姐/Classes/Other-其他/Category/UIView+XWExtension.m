@@ -10,6 +10,16 @@
 @implementation UIView (XWExtension)
 
 /**
+ *  从xib获取自定义view
+ *
+ *  @return 返回自定义view
+ */
++ (instancetype)viewFromXib
+{
+    return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(self) owner:nil options:nil] firstObject];
+}
+
+/**
  *  设置控件x坐标的值
  *
  *  @param x x坐标的位置

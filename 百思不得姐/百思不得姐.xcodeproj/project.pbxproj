@@ -58,6 +58,10 @@
 		56C1A8C91B9F46D700505537 /* Foundation+XWLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C1A8C81B9F46D700505537 /* Foundation+XWLog.m */; };
 		56CE82D51BA9C0F200A8A427 /* XWTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CE82D41BA9C0F200A8A427 /* XWTopic.m */; };
 		56CF7BFA1B9C5D8100C55818 /* XWRecommendTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CF7BF91B9C5D8100C55818 /* XWRecommendTag.m */; };
+		56EAFBB21BB1A65700697F14 /* XWTopicVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56EAFBB11BB1A65700697F14 /* XWTopicVideoView.xib */; };
+		56EAFBB41BB1A6D300697F14 /* XWTopicVoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56EAFBB31BB1A6D300697F14 /* XWTopicVoiceView.xib */; };
+		56EAFBB71BB1A70800697F14 /* XWTopicVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56EAFBB61BB1A70800697F14 /* XWTopicVideoView.m */; };
+		56EAFBBA1BB1A73300697F14 /* XWTopicVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56EAFBB91BB1A73300697F14 /* XWTopicVoiceView.m */; };
 		56F1FDDA1B96D23F00931FAB /* XWEssenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1FDAD1B96D23F00931FAB /* XWEssenceController.m */; };
 		56F1FDDB1B96D23F00931FAB /* XWRecommendTagsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1FDAF1B96D23F00931FAB /* XWRecommendTagsViewController.m */; };
 		56F1FDDD1B96D23F00931FAB /* XWFriendTrendsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1FDB61B96D23F00931FAB /* XWFriendTrendsController.m */; };
@@ -176,6 +180,12 @@
 		56CE82D41BA9C0F200A8A427 /* XWTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWTopic.m; sourceTree = "<group>"; };
 		56CF7BF81B9C5D8100C55818 /* XWRecommendTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWRecommendTag.h; sourceTree = "<group>"; };
 		56CF7BF91B9C5D8100C55818 /* XWRecommendTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWRecommendTag.m; sourceTree = "<group>"; };
+		56EAFBB11BB1A65700697F14 /* XWTopicVideoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWTopicVideoView.xib; sourceTree = "<group>"; };
+		56EAFBB31BB1A6D300697F14 /* XWTopicVoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWTopicVoiceView.xib; sourceTree = "<group>"; };
+		56EAFBB51BB1A70800697F14 /* XWTopicVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWTopicVideoView.h; sourceTree = "<group>"; };
+		56EAFBB61BB1A70800697F14 /* XWTopicVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWTopicVideoView.m; sourceTree = "<group>"; };
+		56EAFBB81BB1A73300697F14 /* XWTopicVoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWTopicVoiceView.h; sourceTree = "<group>"; };
+		56EAFBB91BB1A73300697F14 /* XWTopicVoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWTopicVoiceView.m; sourceTree = "<group>"; };
 		56F1FDAC1B96D23F00931FAB /* XWEssenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWEssenceController.h; sourceTree = "<group>"; };
 		56F1FDAD1B96D23F00931FAB /* XWEssenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWEssenceController.m; sourceTree = "<group>"; };
 		56F1FDAE1B96D23F00931FAB /* XWRecommendTagsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWRecommendTagsViewController.h; sourceTree = "<group>"; };
@@ -352,6 +362,12 @@
 				56A0B8691BAD3BC100A277DD /* XWTopicPictureView.h */,
 				56A0B86A1BAD3BC100A277DD /* XWTopicPictureView.m */,
 				56A0B86C1BAD3BF600A277DD /* XWTopicPictureView.xib */,
+				56EAFBB51BB1A70800697F14 /* XWTopicVideoView.h */,
+				56EAFBB61BB1A70800697F14 /* XWTopicVideoView.m */,
+				56EAFBB11BB1A65700697F14 /* XWTopicVideoView.xib */,
+				56EAFBB81BB1A73300697F14 /* XWTopicVoiceView.h */,
+				56EAFBB91BB1A73300697F14 /* XWTopicVoiceView.m */,
+				56EAFBB31BB1A6D300697F14 /* XWTopicVoiceView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -692,7 +708,9 @@
 				5632FB841B9FCC2C009414E3 /* XWPublishViewController.xib in Resources */,
 				569B9FFB1B99DD5A00B99DAD /* XWLoginRegisterViewController.xib in Resources */,
 				568F47A41B9B2B0D003F863F /* XWRecommendViewController.xib in Resources */,
+				56EAFBB21BB1A65700697F14 /* XWTopicVideoView.xib in Resources */,
 				56861F5C1B9F12DD00EEC45C /* XWSquareWebViewController.xib in Resources */,
+				56EAFBB41BB1A6D300697F14 /* XWTopicVoiceView.xib in Resources */,
 				56A0B8761BAD9F6700A277DD /* XWSeeBigPictureViewController.xib in Resources */,
 				562CF23C1B95B80900F53479 /* LaunchScreen.xib in Resources */,
 				563B22071BAB3E8000E5C650 /* XWTopicCell.xib in Resources */,
@@ -762,6 +780,7 @@
 				56099D581BA7C55D0009B6D5 /* XWVideoViewController.m in Sources */,
 				56F1FDE31B96D23F00931FAB /* XWTabBarController.m in Sources */,
 				5659823B1B9C2CAC000B150A /* XWRecommendTagCell.m in Sources */,
+				56EAFBBA1BB1A73300697F14 /* XWTopicVoiceView.m in Sources */,
 				56F1FDDF1B96D23F00931FAB /* XWSettingTableController.m in Sources */,
 				56912F811BA4686B00BFA44E /* XWPlaceholderTextView.m in Sources */,
 				567A62DA1B9E832A00C4C24A /* XWMeCell.m in Sources */,
@@ -792,6 +811,7 @@
 				568F47A31B9B2B0D003F863F /* XWRecommendViewController.m in Sources */,
 				569B9FFE1B99FD4800B99DAD /* XWQuickLoginButton.m in Sources */,
 				56F1FDE51B96D23F00931FAB /* XWTabBar.m in Sources */,
+				56EAFBB71BB1A70800697F14 /* XWTopicVideoView.m in Sources */,
 				56F1FDDA1B96D23F00931FAB /* XWEssenceController.m in Sources */,
 				569BA0091B9A906100B99DAD /* XWLoginRegisterTextField.m in Sources */,
 				56A0B86B1BAD3BC100A277DD /* XWTopicPictureView.m in Sources */,

@@ -8,6 +8,8 @@
 
 #import "XWTopicCell.h"
 #import "XWTopicPictureView.h"
+#import "XWTopicVideoView.h"
+#import "XWTopicVoiceView.h"
 #import "XWTopic.h"
 
 @interface XWTopicCell ()
@@ -22,6 +24,12 @@
 
 /**图片*/
 @property (nonatomic,weak) XWTopicPictureView * pictureView;
+
+/**视频*/
+@property (nonatomic,weak) XWTopicVideoView * videoView;
+
+/**声音*/
+@property (nonatomic,weak) XWTopicVoiceView * voiceView;
 
 @end
 
@@ -39,6 +47,32 @@
         _pictureView = pictureView;
     }
     return _pictureView;
+}
+
+- (XWTopicVideoView *)videoView
+{
+    if(!_videoView)
+    {
+        XWTopicVideoView *videoView = [XWTopicVideoView viewFromXib];
+        
+        //加载中间内容
+        [self.contentView addSubview:videoView];
+        _videoView = videoView;
+    }
+    return _videoView;
+}
+
+- (XWTopicVoiceView *)voiceView
+{
+    if(!_voiceView)
+    {
+        XWTopicVoiceView *voiceView = [XWTopicVoiceView viewFromXib];
+        
+        //加载中间内容
+        [self.contentView addSubview:voiceView];
+        _voiceView = voiceView;
+    }
+    return _voiceView;
 }
 
 - (void)awakeFromNib {
@@ -76,19 +110,39 @@
     if(topic.type == XWTopicTypePicture)
     {
         self.pictureView.hidden = NO;
+        self.videoView.hidden = YES;
+        self.voiceView.hidden = YES;
         //设置位置
         self.pictureView.frame = topic.contentFrame;
         //设置数据
         self.pictureView.topic = topic;
-    } else if(topic.type == XWTopicTypeWord)
-    {
-        self.pictureView.hidden = YES;
-    } else if(topic.type == XWTopicTypeVoice)
-    {
-        self.pictureView.hidden = YES;
     } else if(topic.type == XWTopicTypeVideo)
     {
         self.pictureView.hidden = YES;
+        self.videoView.hidden = NO;
+        self.voiceView.hidden = YES;
+        
+        //设置位置
+        self.videoView.frame = topic.contentFrame;
+        //设置数据
+        self.videoView.topic = topic;
+        
+    } else if(topic.type == XWTopicTypeVoice)
+    {
+        self.pictureView.hidden = YES;
+        self.videoView.hidden = YES;
+        self.voiceView.hidden = NO;
+        
+        //设置位置
+        self.voiceView.frame = topic.contentFrame;
+        //设置数据
+        self.voiceView.topic = topic;
+        
+    } else if(topic.type == XWTopicTypeWord)
+    {
+        self.pictureView.hidden = YES;
+        self.videoView.hidden = YES;
+        self.voiceView.hidden = YES;
     }
   
     //设置工具条底部内容

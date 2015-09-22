@@ -11,6 +11,11 @@
 @interface UIView (XWExtension)
 
 /**
+ *  从xib获取自定义view
+ */
++ (instancetype)viewFromXib;
+
+/**
  *  设置控件x坐标的值
  */
 - (void)setX:(CGFloat)x;

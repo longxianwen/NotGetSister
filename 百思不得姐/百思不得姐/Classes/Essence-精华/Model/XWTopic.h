@@ -59,6 +59,13 @@ typedef enum
 /** 是否为动态图 */
 @property (nonatomic, assign) BOOL is_gif;
 
+/** 视频的时长 */
+@property (nonatomic, assign) NSInteger videotime;
+/** 音频的时长 */
+@property (nonatomic, assign) NSInteger voicetime;
+/** 播放数量 */
+@property (nonatomic, assign) NSInteger playcount;
+
 /***** 额外增加的属性 ******/
 /** cell的高度 */
 @property (nonatomic, assign) CGFloat cellHeight;
