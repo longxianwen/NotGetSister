@@ -104,8 +104,8 @@
             // 图片的高度 * 内容的宽度 / 图片的宽度(等比缩放,图片显示真实高度)
             CGFloat contentH = self.height * contentW / self.width;
             
-            if (contentH >= XWScreenH) {
-                contentH = 200;
+            if (contentH >= XWScreenH - XWNavBarMaxY - XWTitleViewH - XWTabBarH) {
+                contentH = XWScreenW - 2 * XWCommMargin;
                 self.bigPicture = YES;
             }
             
