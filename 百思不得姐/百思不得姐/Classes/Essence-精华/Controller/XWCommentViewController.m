@@ -116,6 +116,8 @@
 {
     // 工具条平移的距离 == 屏幕高度 - 键盘最终的Y值
     self.bottomSpace.constant = XWScreenH - [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue].origin.y;
+    
+    //添加动画原因:避免输入框瞬间弹上去。会显示view的背景色
     CGFloat duration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     [UIView animateWithDuration:duration animations:^{
         [self.view layoutIfNeeded];

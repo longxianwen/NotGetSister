@@ -1,5 +1,5 @@
 //
-//  XWCommentCell.m
+//  XWTopicCommentCell.m
 //  百思不得姐
 //
 //  Created by longxianwen on 15/9/24.
