@@ -6,6 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="XWCommentViewController">
             <connections>
+                <outlet property="bottomSpace" destination="wuF-V0-03E" id="GDO-4G-fdl"/>
+                <outlet property="tableView" destination="ll2-43-GVH" id="FS0-k3-qkV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,13 +17,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qwy-rl-14I" userLabel="底部工具条">
-                    <rect key="frame" x="0.0" y="560" width="600" height="40"/>
+                    <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comment-bar-bg" translatesAutoresizingMaskIntoConstraints="NO" id="YfR-oi-Mx8" userLabel="背景图片">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D6E-tm-Gfi">
-                            <rect key="frame" x="0.0" y="0.0" width="44" height="40"/>
+                            <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="44" id="Xgx-Gy-Whc"/>
                             </constraints>
@@ -31,7 +33,7 @@
                             <state key="highlighted" image="comment-bar-voice-click"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8G1-DJ-eKc">
-                            <rect key="frame" x="556" y="0.0" width="44" height="40"/>
+                            <rect key="frame" x="556" y="0.0" width="44" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="44" id="UQa-KT-aMJ"/>
                             </constraints>
@@ -41,7 +43,7 @@
                             <state key="highlighted" image="comment_bar_at_icon_click"/>
                         </button>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="写评论..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fcv-pV-02R">
-                            <rect key="frame" x="49" y="5" width="502" height="30"/>
+                            <rect key="frame" x="49" y="5" width="502" height="34"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
@@ -49,7 +51,7 @@
                     <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="D6E-tm-Gfi" secondAttribute="bottom" id="1Tf-ig-geG"/>
-                        <constraint firstAttribute="height" constant="40" id="3fO-Vc-aeI"/>
+                        <constraint firstAttribute="height" constant="44" id="3fO-Vc-aeI"/>
                         <constraint firstAttribute="bottom" secondItem="YfR-oi-Mx8" secondAttribute="bottom" id="4Vg-CL-56K"/>
                         <constraint firstAttribute="trailing" secondItem="YfR-oi-Mx8" secondAttribute="trailing" id="5L1-bk-0Uu"/>
                         <constraint firstAttribute="bottom" secondItem="Fcv-pV-02R" secondAttribute="bottom" constant="5" id="6Ey-4O-XOW"/>
@@ -57,7 +59,6 @@
                         <constraint firstItem="8G1-DJ-eKc" firstAttribute="top" secondItem="qwy-rl-14I" secondAttribute="top" id="7y1-q3-Jl3"/>
                         <constraint firstItem="YfR-oi-Mx8" firstAttribute="leading" secondItem="qwy-rl-14I" secondAttribute="leading" id="B7y-u3-j9i"/>
                         <constraint firstAttribute="trailing" secondItem="8G1-DJ-eKc" secondAttribute="trailing" id="Cbe-a7-AhE"/>
-                        <constraint firstItem="8G1-DJ-eKc" firstAttribute="leading" secondItem="qwy-rl-14I" secondAttribute="leading" id="Dzg-Xh-IXQ"/>
                         <constraint firstItem="D6E-tm-Gfi" firstAttribute="top" secondItem="qwy-rl-14I" secondAttribute="top" id="SrC-I5-1T4"/>
                         <constraint firstAttribute="bottom" secondItem="8G1-DJ-eKc" secondAttribute="bottom" id="Xao-64-7xq"/>
                         <constraint firstItem="Fcv-pV-02R" firstAttribute="top" secondItem="qwy-rl-14I" secondAttribute="top" constant="5" id="fLf-BH-y5r"/>
@@ -65,15 +66,14 @@
                         <constraint firstItem="YfR-oi-Mx8" firstAttribute="top" secondItem="qwy-rl-14I" secondAttribute="top" id="t2g-71-eyG"/>
                         <constraint firstItem="D6E-tm-Gfi" firstAttribute="leading" secondItem="qwy-rl-14I" secondAttribute="leading" id="tqu-sC-6pj"/>
                     </constraints>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="Dzg-Xh-IXQ"/>
-                        </mask>
-                    </variation>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ll2-43-GVH">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="560"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="ciP-M2-rku"/>
+                        <outlet property="delegate" destination="-1" id="yeR-VC-x3A"/>
+                    </connections>
                 </tableView>
             </subviews>
             <constraints>

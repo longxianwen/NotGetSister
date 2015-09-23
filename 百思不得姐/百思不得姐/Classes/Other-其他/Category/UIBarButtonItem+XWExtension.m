@@ -9,7 +9,16 @@
 
 @implementation UIBarButtonItem (XWExtension)
 
-#pragma mark -m 创建导航栏顶部内容
+/**
+ *  创建导航栏顶部内容
+ *
+ *  @param target    目标,self
+ *  @param image     默认状态下图片
+ *  @param highImage 高亮状态下图片
+ *  @param action    点击执行的操作
+ *
+ *  @return 导航栏顶部按钮
+ */
 + (instancetype)buttonItemCreate:(id)target andImage: (NSString*)image andHighlightedImage: (NSString*)highImage andAction:(SEL)action
 {
     
