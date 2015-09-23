@@ -7,6 +7,8 @@
 //  评论
 
 #import "XWCommentViewController.h"
+#import "XWTopicCell.h"
+#import "XWTopicCommentCell.h"
 
 @interface XWCommentViewController ()<UITableViewDelegate,UITableViewDataSource>
 //底部工具条底部约束
@@ -29,12 +31,22 @@
     
     //注册通知--监听键盘的弹出和隐藏
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
-    
 }
 
 - (void)setupTableView
 {
     
+    //设置背景颜色
+    self.tableView.backgroundColor = XWGlobalBg;
+    
+    //设置内边距
+    //如果有导航控制器，苹果会自动加上64的内边距,前提是要是第一个控件
+//    self.tableView.contentInset = UIEdgeInsetsMake(XWNavBarMaxY, 0, XWTabBarH, 0);
+    
+    //注册cell
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([XWTopicCell class]) bundle:nil] forCellReuseIdentifier:@"topic"];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([XWTopicCommentCell class]) bundle:nil] forCellReuseIdentifier:@"cmt"];
 }
 
 - (void)setupNav
@@ -49,33 +61,46 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if(section == 0) return 1;
+    if(section == 1) return 5;
     return 10;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *ID = @"cmt";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    
-    if(cell == nil)
+    if(indexPath.section == 0) //帖子cell
     {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+        return [tableView dequeueReusableCellWithIdentifier:@"topic"];
+    } else //评论cell
+    {
+        return [tableView dequeueReusableCellWithIdentifier:@"cmt"];
     }
-    
-    cell.textLabel.text = @"测试数据";
-    
-    return cell;
+}
+
+//设置每行的高度
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section == 0) return 200;
+    return 50;
+}
+
+//设置分组标题
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+
+{
+    if(section == 0) return nil;
+    if(section == 0) return @"最热评论";
+    return @"最新评论";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    XWLog(@"%ld",indexPath.row);
+//    XWLog(@"%ld",indexPath.row);
     //拖拽时隐藏键盘
     [self.view endEditing:YES];
 }
