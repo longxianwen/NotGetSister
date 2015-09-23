@@ -7,23 +7,9 @@
 //
 
 #import "XWTopic.h"
-#import <MJExtension/MJExtension.h>
+#import "XWComment.h"
 
 @implementation XWTopic
-
-/**
- *  属性名--字典key的映射(key-mapping)
- */
-
-+ (NSDictionary *)replacedKeyFromPropertyName
-{
-    return @{
-             @"ID":@"id",
-             @"small_image":@"image0",
-             @"large_image":@"image1",
-             @"middle_image":@"image2"
-             };
-}
 
 /*
  一、今年
@@ -135,13 +121,15 @@
         }
         
         //最热评论的高度
-        if(self.top_cmt.firstObject)
+        if(self.topComment)
         {
-            NSDictionary *dict = self.top_cmt.firstObject;
+//            XWLog(@"%@",self.topComment);
+            XWComment *cmt = self.topComment;
+            
             //评论人
-            NSString *username = dict[@"user"][@"username"];
+            NSString *username = cmt.user.username;
             //评论内容
-            NSString *content  = dict[@"content"];
+            NSString *content  = cmt.content;
             
             NSString *topCmtStr = [NSString stringWithFormat:@"%@ : %@",username,content];
             

@@ -7,6 +7,7 @@
 //  帖子数据模型(图片，段子，音频，视频)
 
 #import <Foundation/Foundation.h>
+@class XWComment;
 
 //10为图片，29为段子，31为音频，41为视频
 typedef enum
@@ -70,8 +71,9 @@ typedef enum
 /** 播放数量 */
 @property (nonatomic, assign) NSInteger playcount;
 
-/** 最热评论 */
-@property (nonatomic, strong) NSArray *top_cmt;
+/** 最热评论 (这个数组中存放的应该是XMGComment模型)*/
+//@property (nonatomic, strong) NSArray *top_cmt;
+@property (nonatomic, strong) XWComment *topComment;
 
 /***** 额外增加的属性 ******/
 /** cell的高度 */

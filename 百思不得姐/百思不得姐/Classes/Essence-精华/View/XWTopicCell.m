@@ -11,6 +11,7 @@
 #import "XWTopicVideoView.h"
 #import "XWTopicVoiceView.h"
 #import "XWTopic.h"
+#import "XWComment.h"
 
 @interface XWTopicCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
@@ -156,15 +157,16 @@
     }
     
     //最热评论内容
-    if(topic.top_cmt.firstObject)
+    if(topic.topComment)
     {
         self.topCmtView.hidden = NO;
         
-        NSDictionary *dict = topic.top_cmt.firstObject;
+        XWComment *cmt = topic.topComment;
+        
         //评论人
-        NSString *username = dict[@"user"][@"username"];
+        NSString *username = cmt.user.username;
         //评论内容
-        NSString *content  = dict[@"content"];
+        NSString *content  = cmt.content;
         
         NSString *topCmtStr = [NSString stringWithFormat:@"%@:%@",username,content];
         

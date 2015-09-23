@@ -72,6 +72,9 @@
 		56F1FDE21B96D23F00931FAB /* UIBarButtonItem+XWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1FDCC1B96D23F00931FAB /* UIBarButtonItem+XWExtension.m */; };
 		56F1FDE31B96D23F00931FAB /* XWTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1FDCF1B96D23F00931FAB /* XWTabBarController.m */; };
 		56F1FDE51B96D23F00931FAB /* XWTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1FDD51B96D23F00931FAB /* XWTabBar.m */; };
+		56F761D91BB2C12300C5AFA4 /* XWComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F761D81BB2C12300C5AFA4 /* XWComment.m */; };
+		56F761DC1BB2C15B00C5AFA4 /* XWUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F761DB1BB2C15B00C5AFA4 /* XWUser.m */; };
+		56F761DF1BB2C87100C5AFA4 /* MJExtensionConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F761DE1BB2C87100C5AFA4 /* MJExtensionConfig.m */; };
 		BA171E1F095BA5DFB3B4EF5A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D40E84653272F9AD4E80746 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -206,6 +209,12 @@
 		56F1FDCF1B96D23F00931FAB /* XWTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWTabBarController.m; sourceTree = "<group>"; };
 		56F1FDD41B96D23F00931FAB /* XWTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWTabBar.h; sourceTree = "<group>"; };
 		56F1FDD51B96D23F00931FAB /* XWTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWTabBar.m; sourceTree = "<group>"; };
+		56F761D71BB2C12300C5AFA4 /* XWComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWComment.h; sourceTree = "<group>"; };
+		56F761D81BB2C12300C5AFA4 /* XWComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWComment.m; sourceTree = "<group>"; };
+		56F761DA1BB2C15B00C5AFA4 /* XWUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWUser.h; sourceTree = "<group>"; };
+		56F761DB1BB2C15B00C5AFA4 /* XWUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWUser.m; sourceTree = "<group>"; };
+		56F761DD1BB2C87100C5AFA4 /* MJExtensionConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtensionConfig.h; sourceTree = "<group>"; };
+		56F761DE1BB2C87100C5AFA4 /* MJExtensionConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJExtensionConfig.m; sourceTree = "<group>"; };
 		7D40E84653272F9AD4E80746 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		85DC31B03EB3159358696FE0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -344,6 +353,10 @@
 				56CF7BF91B9C5D8100C55818 /* XWRecommendTag.m */,
 				56CE82D31BA9C0F200A8A427 /* XWTopic.h */,
 				56CE82D41BA9C0F200A8A427 /* XWTopic.m */,
+				56F761D71BB2C12300C5AFA4 /* XWComment.h */,
+				56F761D81BB2C12300C5AFA4 /* XWComment.m */,
+				56F761DA1BB2C15B00C5AFA4 /* XWUser.h */,
+				56F761DB1BB2C15B00C5AFA4 /* XWUser.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -507,6 +520,8 @@
 				56F1FDC91B96D23F00931FAB /* AppDelegate.m */,
 				5663F1BF1B9DF747009A852D /* XWConst.h */,
 				5663F1C01B9DF747009A852D /* XWConst.m */,
+				56F761DD1BB2C87100C5AFA4 /* MJExtensionConfig.h */,
+				56F761DE1BB2C87100C5AFA4 /* MJExtensionConfig.m */,
 				56F1FDCA1B96D23F00931FAB /* Category */,
 				56F1FDCD1B96D23F00931FAB /* Controller */,
 				56F1FDD11B96D23F00931FAB /* Model */,
@@ -781,9 +796,11 @@
 				56F1FDE31B96D23F00931FAB /* XWTabBarController.m in Sources */,
 				5659823B1B9C2CAC000B150A /* XWRecommendTagCell.m in Sources */,
 				56EAFBBA1BB1A73300697F14 /* XWTopicVoiceView.m in Sources */,
+				56F761DC1BB2C15B00C5AFA4 /* XWUser.m in Sources */,
 				56F1FDDF1B96D23F00931FAB /* XWSettingTableController.m in Sources */,
 				56912F811BA4686B00BFA44E /* XWPlaceholderTextView.m in Sources */,
 				567A62DA1B9E832A00C4C24A /* XWMeCell.m in Sources */,
+				56F761DF1BB2C87100C5AFA4 /* MJExtensionConfig.m in Sources */,
 				568F47A81B9B38F8003F863F /* XWRecommendCategoryCell.m in Sources */,
 				56099D5E1BA7C58A0009B6D5 /* XWPictureViewController.m in Sources */,
 				56F1FDDD1B96D23F00931FAB /* XWFriendTrendsController.m in Sources */,
@@ -818,6 +835,7 @@
 				56F1FDE01B96D23F00931FAB /* XWNewController.m in Sources */,
 				56B5F4161BA33A5500C14E1D /* XWPublishButton.m in Sources */,
 				561F32BA1BA146F1003A62ED /* XWClearCacheCell.m in Sources */,
+				56F761D91BB2C12300C5AFA4 /* XWComment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
