@@ -24,6 +24,10 @@ typedef enum
 @interface XWTopic : NSObject
 
 // 用户 -- 发帖者
+
+/**ID*/
+@property (nonatomic,copy) NSString *ID;
+
 /** 用户的名字 */
 @property (nonatomic, copy) NSString *name;
 /** 用户的头像 */
@@ -50,11 +54,11 @@ typedef enum
 @property (nonatomic, assign) CGFloat height;
 
 /** 小图 */
-@property (nonatomic, copy) NSString *image0;
+@property (nonatomic, copy) NSString *small_image;//image0
 /** 大图 */
-@property (nonatomic, copy) NSString *image1;
+@property (nonatomic, copy) NSString *large_image;//image1
 /** 中图 */
-@property (nonatomic, copy) NSString *image2;
+@property (nonatomic, copy) NSString *middle_image;//image2
 
 /** 是否为动态图 */
 @property (nonatomic, assign) BOOL is_gif;

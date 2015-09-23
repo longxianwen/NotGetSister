@@ -124,17 +124,11 @@
         
         //设置位置
         self.videoView.frame = topic.contentFrame;
-        
-//        if(self.videoView.height > 355)
-//        {
-//            self.videoView.height = 355;
-//        }
-//        
-//        topic.cellHeight += XWTopicToolbarH + XWCommMargin;
-        
-        XWLog(@"%@,%@",topic.name,NSStringFromCGRect(topic.contentFrame));
+
         //设置数据
         self.videoView.topic = topic;
+        
+//        XWLog(@"%@,%@",topic.name,NSStringFromCGRect(topic.contentFrame));
         
     } else if(topic.type == XWTopicTypeVoice)
     {

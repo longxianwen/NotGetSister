@@ -7,8 +7,23 @@
 //
 
 #import "XWTopic.h"
+#import <MJExtension/MJExtension.h>
 
 @implementation XWTopic
+
+/**
+ *  属性名--字典key的映射(key-mapping)
+ */
+
++ (NSDictionary *)replacedKeyFromPropertyName
+{
+    return @{
+             @"ID":@"id",
+             @"small_image":@"image0",
+             @"large_image":@"image1",
+             @"middle_image":@"image2"
+             };
+}
 
 /*
  一、今年
@@ -104,10 +119,13 @@
             // 图片的高度 * 内容的宽度 / 图片的宽度(等比缩放,图片显示真实高度)
             CGFloat contentH = self.height * contentW / self.width;
             
+            //设置最大宽度
             if (contentH >= XWScreenH - XWNavBarMaxY - XWTitleViewH - XWTabBarH) {
                 contentH = XWScreenW - 2 * XWCommMargin;
                 self.bigPicture = YES;
             }
+            
+            //设置最小宽度
             
             CGFloat contentX = XWCommMargin;
             CGFloat contentY = cellHeight;
