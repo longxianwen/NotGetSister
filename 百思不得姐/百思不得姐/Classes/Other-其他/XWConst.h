@@ -46,3 +46,8 @@ UIKIT_EXTERN CGFloat const XWTopicTextY;
  */
 UIKIT_EXTERN CGFloat const XWTopicToolbarH;
 
+/**
+ *  帖子-最热评论-顶部的高度
+ */
+UIKIT_EXTERN CGFloat const XWTopicTopCmtTopH;
+

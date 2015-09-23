@@ -134,6 +134,23 @@
             cellHeight += contentH + XWCommMargin;
         }
         
+        //最热评论的高度
+        if(self.top_cmt.firstObject)
+        {
+            NSDictionary *dict = self.top_cmt.firstObject;
+            //评论人
+            NSString *username = dict[@"user"][@"username"];
+            //评论内容
+            NSString *content  = dict[@"content"];
+            
+            NSString *topCmtStr = [NSString stringWithFormat:@"%@ : %@",username,content];
+            
+            CGFloat topCmtH = [topCmtStr boundingRectWithSize:CGSizeMake(textW, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]} context:nil].size.height;
+            
+            cellHeight += XWTopicTopCmtTopH + topCmtH + XWCommMargin;
+        }
+        
+        
         //底部工具条的高度
         cellHeight += XWTopicToolbarH + XWCommMargin;
         _cellHeight = cellHeight;

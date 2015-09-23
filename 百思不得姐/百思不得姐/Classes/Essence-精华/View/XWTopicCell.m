@@ -31,6 +31,13 @@
 /**声音*/
 @property (nonatomic,weak) XWTopicVoiceView * voiceView;
 
+/**最热评论*/
+@property (weak, nonatomic) IBOutlet UIView *topCmtView;
+
+/**最热评论内容*/
+@property (weak, nonatomic) IBOutlet UILabel *topCmtLabel;
+
+
 @end
 
 @implementation XWTopicCell
@@ -147,6 +154,26 @@
         self.videoView.hidden = YES;
         self.voiceView.hidden = YES;
     }
+    
+    //最热评论内容
+    if(topic.top_cmt.firstObject)
+    {
+        self.topCmtView.hidden = NO;
+        
+        NSDictionary *dict = topic.top_cmt.firstObject;
+        //评论人
+        NSString *username = dict[@"user"][@"username"];
+        //评论内容
+        NSString *content  = dict[@"content"];
+        
+        NSString *topCmtStr = [NSString stringWithFormat:@"%@:%@",username,content];
+        
+        self.topCmtLabel.text = topCmtStr;
+    } else
+    {
+        self.topCmtView.hidden = YES;
+    }
+    
   
     //设置工具条底部内容
     [self setupButtonTitle:self.dingButton andNSInteger:topic.ding andPlaceholder:@"顶"];
