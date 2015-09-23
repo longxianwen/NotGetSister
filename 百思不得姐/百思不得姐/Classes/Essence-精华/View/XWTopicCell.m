@@ -168,7 +168,7 @@
         //评论内容
         NSString *content  = cmt.content;
         
-        NSString *topCmtStr = [NSString stringWithFormat:@"%@:%@",username,content];
+        NSString *topCmtStr = [NSString stringWithFormat:@" %@:%@",username,content];
         
         self.topCmtLabel.text = topCmtStr;
     } else

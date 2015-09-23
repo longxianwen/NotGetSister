@@ -58,6 +58,8 @@
 		56C1A8C91B9F46D700505537 /* Foundation+XWLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C1A8C81B9F46D700505537 /* Foundation+XWLog.m */; };
 		56CE82D51BA9C0F200A8A427 /* XWTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CE82D41BA9C0F200A8A427 /* XWTopic.m */; };
 		56CF7BFA1B9C5D8100C55818 /* XWRecommendTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CF7BF91B9C5D8100C55818 /* XWRecommendTag.m */; };
+		56D474E21BB3010500FD9DB2 /* XWCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D474E01BB3010500FD9DB2 /* XWCommentViewController.m */; };
+		56D474E31BB3010500FD9DB2 /* XWCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56D474E11BB3010500FD9DB2 /* XWCommentViewController.xib */; };
 		56EAFBB21BB1A65700697F14 /* XWTopicVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56EAFBB11BB1A65700697F14 /* XWTopicVideoView.xib */; };
 		56EAFBB41BB1A6D300697F14 /* XWTopicVoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56EAFBB31BB1A6D300697F14 /* XWTopicVoiceView.xib */; };
 		56EAFBB71BB1A70800697F14 /* XWTopicVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56EAFBB61BB1A70800697F14 /* XWTopicVideoView.m */; };
@@ -183,6 +185,9 @@
 		56CE82D41BA9C0F200A8A427 /* XWTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWTopic.m; sourceTree = "<group>"; };
 		56CF7BF81B9C5D8100C55818 /* XWRecommendTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWRecommendTag.h; sourceTree = "<group>"; };
 		56CF7BF91B9C5D8100C55818 /* XWRecommendTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWRecommendTag.m; sourceTree = "<group>"; };
+		56D474DF1BB3010500FD9DB2 /* XWCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWCommentViewController.h; sourceTree = "<group>"; };
+		56D474E01BB3010500FD9DB2 /* XWCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWCommentViewController.m; sourceTree = "<group>"; };
+		56D474E11BB3010500FD9DB2 /* XWCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWCommentViewController.xib; sourceTree = "<group>"; };
 		56EAFBB11BB1A65700697F14 /* XWTopicVideoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWTopicVideoView.xib; sourceTree = "<group>"; };
 		56EAFBB31BB1A6D300697F14 /* XWTopicVoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWTopicVoiceView.xib; sourceTree = "<group>"; };
 		56EAFBB51BB1A70800697F14 /* XWTopicVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWTopicVideoView.h; sourceTree = "<group>"; };
@@ -339,6 +344,9 @@
 				56099D5D1BA7C58A0009B6D5 /* XWPictureViewController.m */,
 				56099D5F1BA7C5A00009B6D5 /* XWWordViewController.h */,
 				56099D601BA7C5A00009B6D5 /* XWWordViewController.m */,
+				56D474DF1BB3010500FD9DB2 /* XWCommentViewController.h */,
+				56D474E01BB3010500FD9DB2 /* XWCommentViewController.m */,
+				56D474E11BB3010500FD9DB2 /* XWCommentViewController.xib */,
 				56A0B8721BAD9F6700A277DD /* XWSeeBigPictureViewController.h */,
 				56A0B8731BAD9F6700A277DD /* XWSeeBigPictureViewController.m */,
 				56A0B8741BAD9F6700A277DD /* XWSeeBigPictureViewController.xib */,
@@ -729,6 +737,7 @@
 				56A0B8761BAD9F6700A277DD /* XWSeeBigPictureViewController.xib in Resources */,
 				562CF23C1B95B80900F53479 /* LaunchScreen.xib in Resources */,
 				563B22071BAB3E8000E5C650 /* XWTopicCell.xib in Resources */,
+				56D474E31BB3010500FD9DB2 /* XWCommentViewController.xib in Resources */,
 				56A0B86D1BAD3BF600A277DD /* XWTopicPictureView.xib in Resources */,
 				5659823C1B9C2CAC000B150A /* XWRecommendTagCell.xib in Resources */,
 				562CF2391B95B80900F53479 /* Images.xcassets in Resources */,
@@ -834,6 +843,7 @@
 				56A0B86B1BAD3BC100A277DD /* XWTopicPictureView.m in Sources */,
 				56F1FDE01B96D23F00931FAB /* XWNewController.m in Sources */,
 				56B5F4161BA33A5500C14E1D /* XWPublishButton.m in Sources */,
+				56D474E21BB3010500FD9DB2 /* XWCommentViewController.m in Sources */,
 				561F32BA1BA146F1003A62ED /* XWClearCacheCell.m in Sources */,
 				56F761D91BB2C12300C5AFA4 /* XWComment.m in Sources */,
 			);

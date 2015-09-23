@@ -13,6 +13,7 @@
 #import <MJRefresh/MJRefresh.h>
 #import "XWFooterView.h"
 #import "XWTopicCell.h"
+#import "XWCommentViewController.h"
 
 @interface XWAllViewController ()
 
@@ -196,6 +197,14 @@ static NSString * const XWTopicCellId = @"TopicCell";
 {
     XWTopic *topic = self.arrTopic[indexPath.row];
     return topic.cellHeight;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    //跳转到评论页面
+    XWCommentViewController *cmtView = [[XWCommentViewController alloc]init];
+    
+    [self.navigationController pushViewController:cmtView animated:YES];
 }
 
 @end
