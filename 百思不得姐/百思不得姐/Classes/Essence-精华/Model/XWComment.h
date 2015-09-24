@@ -17,4 +17,13 @@
 /** 用户 */
 @property (nonatomic, strong) XWUser *user;
 
+/** 点赞数 */
+@property (nonatomic, assign) NSInteger like_count;
+
+/** 语音文件的路径 */
+@property (nonatomic, copy) NSString *voiceuri;
+
+/** 语音文件的时长 */
+@property (nonatomic, assign) NSInteger voicetime;
+
 @end

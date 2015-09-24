@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class XWComment;
 
 @interface XWTopicCommentCell : UITableViewCell
+
+/** 评论模型数据 */
+@property (nonatomic, strong) XWComment  *comment;
 
 @end

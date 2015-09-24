@@ -6,14 +6,83 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="XWTopicCommentCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="89" id="KGk-i7-Jjw" customClass="XWTopicCommentCell">
+            <rect key="frame" x="0.0" y="0.0" width="386" height="89"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pfP-bm-LOM" userLabel="用户头像">
+                        <rect key="frame" x="10" y="10" width="35" height="35"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="35" id="IgH-kA-mfp"/>
+                            <constraint firstAttribute="width" constant="35" id="PyX-pc-3Dp"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile_manIcon" translatesAutoresizingMaskIntoConstraints="NO" id="0RB-52-eug" userLabel="用户性别">
+                        <rect key="frame" x="55" y="10" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="jYD-7K-rtN"/>
+                            <constraint firstAttribute="height" constant="20" id="vJC-x0-9lK"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldn-ac-vLA" userLabel="用户名">
+                        <rect key="frame" x="85" y="9" width="42" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGd-nu-xtY" userLabel="点赞按钮">
+                        <rect key="frame" x="358" y="10" width="18" height="22"/>
+                        <state key="normal" image="commentLikeButton">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <state key="highlighted" image="commentLikeButtonClick"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="内容" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iLz-Eb-vLI" userLabel="评论内容">
+                        <rect key="frame" x="55" y="31" width="278" height="47"/>
+                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="nTg-G4-YlF"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JXk-8H-Z6m" userLabel="点赞数量">
+                        <rect key="frame" x="338" y="42" width="40" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="g8M-l0-VHx"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="jGd-nu-xtY" secondAttribute="trailing" constant="10" id="8bf-wr-7vA"/>
+                    <constraint firstItem="JXk-8H-Z6m" firstAttribute="top" secondItem="jGd-nu-xtY" secondAttribute="bottom" constant="10" id="8lC-a7-36Z"/>
+                    <constraint firstItem="JXk-8H-Z6m" firstAttribute="leading" secondItem="iLz-Eb-vLI" secondAttribute="trailing" constant="5" id="BrD-Xm-ayN"/>
+                    <constraint firstItem="jGd-nu-xtY" firstAttribute="top" secondItem="ldn-ac-vLA" secondAttribute="top" constant="1" id="Jdp-gW-M4J"/>
+                    <constraint firstItem="ldn-ac-vLA" firstAttribute="leading" secondItem="0RB-52-eug" secondAttribute="trailing" constant="10" id="Jr5-wJ-sVh"/>
+                    <constraint firstItem="pfP-bm-LOM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="SAy-41-7gA"/>
+                    <constraint firstItem="pfP-bm-LOM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="a5F-hG-EiZ"/>
+                    <constraint firstItem="pfP-bm-LOM" firstAttribute="top" secondItem="0RB-52-eug" secondAttribute="top" id="aNa-if-3yE"/>
+                    <constraint firstItem="iLz-Eb-vLI" firstAttribute="top" secondItem="ldn-ac-vLA" secondAttribute="bottom" constant="5" id="b7K-0l-RkS"/>
+                    <constraint firstItem="0RB-52-eug" firstAttribute="top" secondItem="ldn-ac-vLA" secondAttribute="top" constant="1" id="cgE-y1-CEk"/>
+                    <constraint firstAttribute="bottom" secondItem="iLz-Eb-vLI" secondAttribute="bottom" constant="10" id="nhl-iG-6wO"/>
+                    <constraint firstItem="0RB-52-eug" firstAttribute="leading" secondItem="pfP-bm-LOM" secondAttribute="trailing" constant="10" id="ps5-Dz-qbU"/>
+                    <constraint firstItem="JXk-8H-Z6m" firstAttribute="trailing" secondItem="jGd-nu-xtY" secondAttribute="trailing" constant="2" id="uRv-dP-Lns"/>
+                    <constraint firstItem="iLz-Eb-vLI" firstAttribute="leading" secondItem="0RB-52-eug" secondAttribute="leading" id="wxM-W9-bRf"/>
+                </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+            <point key="canvasLocation" x="188" y="120.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="Profile_manIcon" width="13" height="13"/>
+        <image name="commentLikeButton" width="18" height="18"/>
+        <image name="commentLikeButtonClick" width="19" height="19"/>
+    </resources>
 </document>

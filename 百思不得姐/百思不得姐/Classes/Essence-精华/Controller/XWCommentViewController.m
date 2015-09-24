@@ -17,6 +17,9 @@
 //表格
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
+/**暂时存储最热评论*/
+@property (nonatomic,strong) XWComment *topComment;
+
 @end
 
 @implementation XWCommentViewController
@@ -44,6 +47,18 @@
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([XWTopicCell class]) bundle:nil] forCellReuseIdentifier:@"topic"];
     
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([XWTopicCommentCell class]) bundle:nil] forCellReuseIdentifier:@"cmt"];
+    
+    //处理模型数据
+    if(self.topic.topComment)
+    {
+        self.topComment = self.topic.topComment;
+        
+        //不显示最热评论
+        self.topic.topComment = nil;
+        
+        //重新计算cellHeight
+        self.topic.cellHeight = 0;
+    }
     
     //添加headerView
     XWTopicCell *cell = [XWTopicCell viewFromXib];
@@ -94,7 +109,7 @@
 //设置每行的高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50;
+    return 100;
 }
 
 //设置分组标题
@@ -141,6 +156,12 @@
 
 - (void)dealloc
 {
+//    恢复数据
+    if (self.topComment) {
+        self.topic.topComment = self.topComment;
+        self.topic.cellHeight = 0;
+    }
+    
     //移除通知
     [[NSNotificationCenter defaultCenter]removeObserver:self];
 }

@@ -20,4 +20,11 @@
     // Configure the view for the selected state
 }
 
+- (void)setComment:(XWComment *)comment
+{
+    _comment = comment;
+    
+    //设置数据
+}
+
 @end
