@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class XWTopic;
 
 @interface XWCommentViewController : UIViewController
 
+/**帖子模型*/
+@property (nonatomic,strong) XWTopic *topic;
 @end

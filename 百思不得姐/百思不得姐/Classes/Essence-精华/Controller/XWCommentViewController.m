@@ -9,6 +9,7 @@
 #import "XWCommentViewController.h"
 #import "XWTopicCell.h"
 #import "XWTopicCommentCell.h"
+#import "XWTopic.h"
 
 @interface XWCommentViewController ()<UITableViewDelegate,UITableViewDataSource>
 //底部工具条底部约束
@@ -39,14 +40,23 @@
     //设置背景颜色
     self.tableView.backgroundColor = XWGlobalBg;
     
-    //设置内边距
-    //如果有导航控制器，苹果会自动加上64的内边距,前提是要是第一个控件
-//    self.tableView.contentInset = UIEdgeInsetsMake(XWNavBarMaxY, 0, XWTabBarH, 0);
-    
     //注册cell
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([XWTopicCell class]) bundle:nil] forCellReuseIdentifier:@"topic"];
     
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([XWTopicCommentCell class]) bundle:nil] forCellReuseIdentifier:@"cmt"];
+    
+    //添加headerView
+    XWTopicCell *cell = [XWTopicCell viewFromXib];
+    cell.frame = CGRectMake(0, 0, XWScreenW, self.topic.cellHeight);
+    cell.topic = self.topic;
+    
+    //包装cell
+    UIView *headerView = [[UIView alloc]init];
+    headerView.height = cell.height + 2 * XWCommMargin;
+    headerView.backgroundColor = [UIColor redColor];
+    [headerView addSubview:cell];
+    
+    self.tableView.tableHeaderView = headerView;
 }
 
 - (void)setupNav
@@ -61,21 +71,20 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(section == 0) return 1;
-    if(section == 1) return 5;
-    return 10;
+    if(section == 0) return 5;
+    return 25;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(indexPath.section == 0) //帖子cell
     {
-        return [tableView dequeueReusableCellWithIdentifier:@"topic"];
+        return [tableView dequeueReusableCellWithIdentifier:@"cmt"];
     } else //评论cell
     {
         return [tableView dequeueReusableCellWithIdentifier:@"cmt"];
@@ -85,7 +94,6 @@
 //设置每行的高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.section == 0) return 200;
     return 50;
 }
 
@@ -93,7 +101,6 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 
 {
-    if(section == 0) return nil;
     if(section == 0) return @"最热评论";
     return @"最新评论";
 }
@@ -114,12 +121,15 @@
 
 - (void)keyboardWillChangeFrame:(NSNotification*)note
 {
-    // 工具条平移的距离 == 屏幕高度 - 键盘最终的Y值
+    // 工具条平移的距离(键盘的高度) == 屏幕高度 - 键盘最终的Y值
     self.bottomSpace.constant = XWScreenH - [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue].origin.y;
     
     //添加动画原因:避免输入框瞬间弹上去。会显示view的背景色
     CGFloat duration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    //注意动画时间,应该是系统弹出键盘时间
     [UIView animateWithDuration:duration animations:^{
+        //刷新控件状态
         [self.view layoutIfNeeded];
     }];
 }

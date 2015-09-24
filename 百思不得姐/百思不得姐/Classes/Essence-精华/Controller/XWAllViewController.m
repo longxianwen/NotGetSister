@@ -204,6 +204,8 @@ static NSString * const XWTopicCellId = @"TopicCell";
     //跳转到评论页面
     XWCommentViewController *cmtView = [[XWCommentViewController alloc]init];
     
+    cmtView.topic = self.arrTopic[indexPath.row];
+    
     [self.navigationController pushViewController:cmtView animated:YES];
 }
 
