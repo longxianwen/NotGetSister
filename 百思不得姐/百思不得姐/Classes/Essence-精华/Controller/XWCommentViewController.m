@@ -93,6 +93,9 @@ static NSString * const XWCommentCellId = @"comment";
     //设置背景颜色
     self.tableView.backgroundColor = XWGlobalBg;
     
+    //去掉分隔线
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
     //注册cell
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([XWTopicCell class]) bundle:nil] forCellReuseIdentifier:@"topic"];
     
