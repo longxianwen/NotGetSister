@@ -26,6 +26,9 @@
 /** 点赞数量 */
 @property (weak, nonatomic) IBOutlet UILabel *likecountLabel;
 
+/** 语音信息 */
+@property (weak, nonatomic) IBOutlet UIButton *voiceButton;
+
 @end
 
 @implementation XWTopicCommentCell
@@ -62,6 +65,19 @@
     
     self.likecountLabel.text = [NSString stringWithFormat:@"%ld",comment.like_count];
     
+    //设置语音信息
+    if (comment.voiceuri.length) {
+        self.voiceButton.hidden = NO;
+        [self.voiceButton setTitle:[NSString stringWithFormat:@"%zd''", comment.voicetime] forState:UIControlStateNormal];
+    } else {
+        self.voiceButton.hidden = YES;
+    }
+    
+}
+//播放语音信息
+- (IBAction)playVoice:(id)sender {
+    
+    NSLogFunc;
 }
 
 //点赞
