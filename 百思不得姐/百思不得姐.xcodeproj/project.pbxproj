@@ -90,6 +90,13 @@
 			remoteGlobalIDString = 562CF2271B95B80900F53479;
 			remoteInfo = "百思不得姐";
 		};
+		568D3D6F1BB4528A0044CDD7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 562CF2201B95B80900F53479 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 568D3D551BB4528A0044CDD7;
+			remoteInfo = "tableViewGroup0组";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -143,6 +150,8 @@
 		56861F581B9F12DD00EEC45C /* XWSquareWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWSquareWebViewController.h; sourceTree = "<group>"; };
 		56861F591B9F12DD00EEC45C /* XWSquareWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWSquareWebViewController.m; sourceTree = "<group>"; };
 		56861F5A1B9F12DD00EEC45C /* XWSquareWebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWSquareWebViewController.xib; sourceTree = "<group>"; };
+		568D3D561BB4528A0044CDD7 /* tableViewGroup0组.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tableViewGroup0组.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		568D3D6E1BB4528A0044CDD7 /* tableViewGroup0组Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tableViewGroup0组Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		568F47A01B9B2B0D003F863F /* XWRecommendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWRecommendViewController.h; sourceTree = "<group>"; };
 		568F47A11B9B2B0D003F863F /* XWRecommendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWRecommendViewController.m; sourceTree = "<group>"; };
 		568F47A21B9B2B0D003F863F /* XWRecommendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWRecommendViewController.xib; sourceTree = "<group>"; };
@@ -245,6 +254,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		568D3D531BB4528A0044CDD7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		568D3D6B1BB4528A0044CDD7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -265,6 +288,8 @@
 			children = (
 				562CF2281B95B80900F53479 /* 百思不得姐.app */,
 				562CF2411B95B80900F53479 /* 百思不得姐Tests.xctest */,
+				568D3D561BB4528A0044CDD7 /* tableViewGroup0组.app */,
+				568D3D6E1BB4528A0044CDD7 /* tableViewGroup0组Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -692,6 +717,41 @@
 			productReference = 562CF2411B95B80900F53479 /* 百思不得姐Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		568D3D551BB4528A0044CDD7 /* tableViewGroup0组 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 568D3D7A1BB4528A0044CDD7 /* Build configuration list for PBXNativeTarget "tableViewGroup0组" */;
+			buildPhases = (
+				568D3D521BB4528A0044CDD7 /* Sources */,
+				568D3D531BB4528A0044CDD7 /* Frameworks */,
+				568D3D541BB4528A0044CDD7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "tableViewGroup0组";
+			productName = "tableViewGroup0组";
+			productReference = 568D3D561BB4528A0044CDD7 /* tableViewGroup0组.app */;
+			productType = "com.apple.product-type.application";
+		};
+		568D3D6D1BB4528A0044CDD7 /* tableViewGroup0组Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 568D3D7B1BB4528A0044CDD7 /* Build configuration list for PBXNativeTarget "tableViewGroup0组Tests" */;
+			buildPhases = (
+				568D3D6A1BB4528A0044CDD7 /* Sources */,
+				568D3D6B1BB4528A0044CDD7 /* Frameworks */,
+				568D3D6C1BB4528A0044CDD7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				568D3D701BB4528A0044CDD7 /* PBXTargetDependency */,
+			);
+			name = "tableViewGroup0组Tests";
+			productName = "tableViewGroup0组Tests";
+			productReference = 568D3D6E1BB4528A0044CDD7 /* tableViewGroup0组Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -708,6 +768,13 @@
 					562CF2401B95B80900F53479 = {
 						CreatedOnToolsVersion = 6.4;
 						TestTargetID = 562CF2271B95B80900F53479;
+					};
+					568D3D551BB4528A0044CDD7 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					568D3D6D1BB4528A0044CDD7 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 568D3D551BB4528A0044CDD7;
 					};
 				};
 			};
@@ -726,6 +793,8 @@
 			targets = (
 				562CF2271B95B80900F53479 /* 百思不得姐 */,
 				562CF2401B95B80900F53479 /* 百思不得姐Tests */,
+				568D3D551BB4528A0044CDD7 /* tableViewGroup0组 */,
+				568D3D6D1BB4528A0044CDD7 /* tableViewGroup0组Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -755,6 +824,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		562CF23F1B95B80900F53479 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		568D3D541BB4528A0044CDD7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		568D3D6C1BB4528A0044CDD7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -867,6 +950,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		568D3D521BB4528A0044CDD7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		568D3D6A1BB4528A0044CDD7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -874,6 +971,11 @@
 			isa = PBXTargetDependency;
 			target = 562CF2271B95B80900F53479 /* 百思不得姐 */;
 			targetProxy = 562CF2421B95B80900F53479 /* PBXContainerItemProxy */;
+		};
+		568D3D701BB4528A0044CDD7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 568D3D551BB4528A0044CDD7 /* tableViewGroup0组 */;
+			targetProxy = 568D3D6F1BB4528A0044CDD7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1032,6 +1134,64 @@
 			};
 			name = Release;
 		};
+		568D3D761BB4528A0044CDD7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "tableViewGroup0组/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		568D3D771BB4528A0044CDD7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "tableViewGroup0组/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		568D3D781BB4528A0044CDD7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "tableViewGroup0组Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tableViewGroup0组.app/tableViewGroup0组";
+			};
+			name = Debug;
+		};
+		568D3D791BB4528A0044CDD7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "tableViewGroup0组Tests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tableViewGroup0组.app/tableViewGroup0组";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1061,6 +1221,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		568D3D7A1BB4528A0044CDD7 /* Build configuration list for PBXNativeTarget "tableViewGroup0组" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				568D3D761BB4528A0044CDD7 /* Debug */,
+				568D3D771BB4528A0044CDD7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		568D3D7B1BB4528A0044CDD7 /* Build configuration list for PBXNativeTarget "tableViewGroup0组Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				568D3D781BB4528A0044CDD7 /* Debug */,
+				568D3D791BB4528A0044CDD7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

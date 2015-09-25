@@ -35,3 +35,9 @@ CGFloat const XWTopicToolbarH = 35;
 
 // 帖子-最热评论-顶部的高度
 CGFloat const XWTopicTopCmtTopH = 20;
+
+//性别-男
+NSString * const XWUserSexMale = @"m";
+
+//性别-女
+NSString * const XWUserSexFemale = @"f";

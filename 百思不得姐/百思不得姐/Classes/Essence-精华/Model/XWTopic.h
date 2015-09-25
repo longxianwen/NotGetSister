@@ -26,7 +26,7 @@ typedef enum
 
 // 用户 -- 发帖者
 
-/**ID*/
+/**帖子ID*/
 @property (nonatomic,copy) NSString *ID;
 
 /** 用户的名字 */

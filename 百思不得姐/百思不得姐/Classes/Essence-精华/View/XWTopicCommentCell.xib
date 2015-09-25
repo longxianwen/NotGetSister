@@ -30,7 +30,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="用户名" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldn-ac-vLA" userLabel="用户名">
                         <rect key="frame" x="85" y="9" width="42" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGd-nu-xtY" userLabel="点赞按钮">
@@ -39,24 +39,26 @@
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <state key="highlighted" image="commentLikeButtonClick"/>
+                        <connections>
+                            <action selector="clickCmt:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="chv-V1-UPA"/>
+                        </connections>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="内容" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iLz-Eb-vLI" userLabel="评论内容">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="内容" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iLz-Eb-vLI" userLabel="评论内容">
                         <rect key="frame" x="55" y="31" width="278" height="47"/>
-                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="nTg-G4-YlF"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JXk-8H-Z6m" userLabel="点赞数量">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JXk-8H-Z6m" userLabel="点赞数量">
                         <rect key="frame" x="338" y="42" width="40" height="16"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="g8M-l0-VHx"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -77,7 +79,14 @@
                     <constraint firstItem="iLz-Eb-vLI" firstAttribute="leading" secondItem="0RB-52-eug" secondAttribute="leading" id="wxM-W9-bRf"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="188" y="120.5"/>
+            <connections>
+                <outlet property="contentLabel" destination="iLz-Eb-vLI" id="Igx-Fs-PdK"/>
+                <outlet property="likecountLabel" destination="JXk-8H-Z6m" id="Rog-4X-WeA"/>
+                <outlet property="profileImageView" destination="pfP-bm-LOM" id="bGz-eY-8Jd"/>
+                <outlet property="sexImageView" destination="0RB-52-eug" id="baB-Bz-DWE"/>
+                <outlet property="usernameLabel" destination="ldn-ac-vLA" id="vSA-jP-fP9"/>
+            </connections>
+            <point key="canvasLocation" x="321" y="135.5"/>
         </tableViewCell>
     </objects>
     <resources>

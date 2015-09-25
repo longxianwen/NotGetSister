@@ -7,6 +7,26 @@
 //
 
 #import "XWTopicCommentCell.h"
+#import "XWComment.h"
+
+@interface XWTopicCommentCell ()
+
+/** 用户头像 */
+@property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
+
+/** 用户性别 */
+@property (weak, nonatomic) IBOutlet UIImageView *sexImageView;
+
+/** 用户姓名 */
+@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
+
+/** 评论内容 */
+@property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+
+/** 点赞数量 */
+@property (weak, nonatomic) IBOutlet UILabel *likecountLabel;
+
+@end
 
 @implementation XWTopicCommentCell
 
@@ -25,6 +45,27 @@
     _comment = comment;
     
     //设置数据
+    [self.profileImageView setHeaderImage:comment.user.profile_image];
+    
+    //设置性别图像
+    if([comment.user.sex isEqualToString:XWUserSexMale])
+    {
+        self.sexImageView.image = [UIImage imageNamed:@"Profile_manIcon"];
+    } else
+    {
+        self.sexImageView.image = [UIImage imageNamed:@"Profile_womanIcon"];
+    }
+    
+    self.usernameLabel.text = comment.user.username;
+    
+    self.contentLabel.text = comment.content;
+    
+    self.likecountLabel.text = [NSString stringWithFormat:@"%ld",comment.like_count];
+    
 }
 
+//点赞
+- (IBAction)clickCmt:(id)sender {
+    NSLogFunc;
+}
 @end

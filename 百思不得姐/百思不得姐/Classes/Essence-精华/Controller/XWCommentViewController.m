@@ -10,6 +10,12 @@
 #import "XWTopicCell.h"
 #import "XWTopicCommentCell.h"
 #import "XWTopic.h"
+#import <MJRefresh/MJRefresh.h>
+#import <MJExtension/MJExtension.h>
+#import <AFNetworking.h>
+#import "XWComment.h"
+#import "XWTopicCommentCell.h"
+
 
 @interface XWCommentViewController ()<UITableViewDelegate,UITableViewDataSource>
 //底部工具条底部约束
@@ -20,25 +26,69 @@
 /**暂时存储最热评论*/
 @property (nonatomic,strong) XWComment *topComment;
 
+/**请求管理者*/
+@property (nonatomic,strong) AFHTTPSessionManager *manager;
+
+/**帖子最新评论数据*/
+@property (nonatomic,strong) NSMutableArray *latestComments;
+
+/**帖子最热评论数据*/
+@property (nonatomic,strong) NSMutableArray *hotComments;
+
 @end
 
 @implementation XWCommentViewController
 
+#pragma mark - lazy
+- (AFHTTPSessionManager *)manager
+{
+    if (!_manager) {
+        _manager = [AFHTTPSessionManager manager];
+    }
+    return _manager;
+}
+
+- (NSMutableArray *)latestComments
+{
+    if (!_latestComments) {
+        _latestComments = [NSMutableArray array];
+    }
+    return _latestComments;
+}
+
+- (NSMutableArray *)hotComments
+{
+    if (!_hotComments) {
+        _hotComments = [NSMutableArray array];
+    }
+    return _hotComments;
+}
+
+#pragma mark - 初始化
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    //导航栏的初始化
     [self setupNav];
     
     [self setupTableView];
     
-    //注册通知--监听键盘的弹出和隐藏
+    [self setupRefresh];
+    
+    //注册通知--监听键盘
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
 }
 
+static NSString * const XWCommentCellId = @"comment";
+//tableView的初始化相关
 - (void)setupTableView
 {
+    //注册cell
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([XWTopicCommentCell class]) bundle:nil] forCellReuseIdentifier:XWCommentCellId];
+    
+    //动态计算cell的高度
+    self.tableView.estimatedRowHeight = 100; //估算高度
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     
     //设置背景颜色
     self.tableView.backgroundColor = XWGlobalBg;
@@ -48,7 +98,7 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([XWTopicCommentCell class]) bundle:nil] forCellReuseIdentifier:@"cmt"];
     
-    //处理模型数据
+    //处理模型数据,隐藏最热评论
     if(self.topic.topComment)
     {
         self.topComment = self.topic.topComment;
@@ -68,12 +118,12 @@
     //包装cell
     UIView *headerView = [[UIView alloc]init];
     headerView.height = cell.height + 2 * XWCommMargin;
-    headerView.backgroundColor = [UIColor redColor];
     [headerView addSubview:cell];
     
     self.tableView.tableHeaderView = headerView;
 }
 
+//导航栏的初始化
 - (void)setupNav
 {
     self.navigationItem.title = @"评论";
@@ -82,48 +132,115 @@
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem buttonItemCreate:self andImage:@"comment_nav_item_share_icon" andHighlightedImage:@"comment_nav_item_share_icon_click" andAction:@selector(clickMore)];
 }
 
+#pragma  mark - 下拉/上拉刷新相关
+- (void)setupRefresh
+{
+    //下拉刷新
+    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewTopics)];
+    
+    // 自动改变透明度
+    self.tableView.header.automaticallyChangeAlpha = YES;
+    
+    [self.tableView.header beginRefreshing];
+    
+    //上拉刷新
+//    MJRefreshAutoFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
+//    
+//    self.tableView.footer = footer;
+}
+
+//下拉刷新加载数据
+- (void)loadNewTopics
+{
+    //取消以前任务
+    [self.manager.tasks makeObjectsPerformSelector:@selector(cancel)];
+    
+    //设置请求参数
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"dataList";
+    params[@"c"] = @"comment";
+    params[@"data_id"] = self.topic.ID;
+    params[@"hot"] = @1;
+    
+    //请求服务器获取数据
+    XWWeakSelf;
+    
+    [self.manager GET:XWRequestURL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        //字典转模型
+        XWWriteToPlist(responseObject, @"cmt");
+        
+        // 最热评论
+        weakSelf.hotComments = [XWComment objectArrayWithKeyValuesArray:responseObject[@"hot"]];
+        
+        //最新评论
+        weakSelf.latestComments = [XWComment objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        
+        
+        [weakSelf.tableView reloadData];
+        
+        //结束刷新
+        [weakSelf.tableView.header endRefreshing];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        XWLog(@"请求失败..");
+        [weakSelf.tableView.header endRefreshing];
+    }];
+}
+
+//上拉刷新加载数据
+- (void)loadMoreTopics
+{
+    NSLogFunc;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.tableView.footer endRefreshing];
+    });
+}
+
 #pragma mark - <UITableViewDataSource>
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    if(self.hotComments.count) return 2;
+    if(self.latestComments.count) return 1;
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(section == 0) return 5;
-    return 25;
+    if(section == 0 && self.hotComments.count)
+    {
+        return self.hotComments.count;
+    }
+    return self.latestComments.count;
 }
+
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.section == 0) //帖子cell
+    XWTopicCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:XWCommentCellId];
+    
+    //设置评论数据
+    NSArray *comments = self.latestComments;
+    if(indexPath.section == 0 && self.hotComments.count) //最热评论数据
     {
-        return [tableView dequeueReusableCellWithIdentifier:@"cmt"];
-    } else //评论cell
-    {
-        return [tableView dequeueReusableCellWithIdentifier:@"cmt"];
+        comments =  self.hotComments;
     }
-}
-
-//设置每行的高度
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 100;
+    cell.comment = comments[indexPath.row];
+    
+    return cell;
 }
 
 //设置分组标题
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 
 {
-    if(section == 0) return @"最热评论";
+    if(section == 0 && self.hotComments.count) return @"最热评论";
     return @"最新评论";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    XWLog(@"%ld",indexPath.row);
-    //拖拽时隐藏键盘
+    //单击时隐藏键盘
     [self.view endEditing:YES];
 }
 
@@ -134,6 +251,7 @@
     [self.view endEditing:YES];
 }
 
+//监听键盘弹出或者隐藏
 - (void)keyboardWillChangeFrame:(NSNotification*)note
 {
     // 工具条平移的距离(键盘的高度) == 屏幕高度 - 键盘最终的Y值
@@ -149,6 +267,7 @@
     }];
 }
 
+#pragma mark - 更多
 - (void)clickMore
 {
     XWLog(@"更多....");
