@@ -13,5 +13,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.type = XWTopicTypeWord;
 }
 @end

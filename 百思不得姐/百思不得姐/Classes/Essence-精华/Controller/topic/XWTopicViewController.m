@@ -107,6 +107,7 @@ static NSString * const XWTopicCellId = @"TopicCell";
     params[@"c"] = @"data";
     params[@"type"] = @(self.type);
     
+    XWLog(@"%@",@(self.type));
     XWLog(@"%@",self);
     
     //请求服务器获取数据

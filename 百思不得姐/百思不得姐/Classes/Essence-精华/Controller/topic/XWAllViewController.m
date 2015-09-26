@@ -13,6 +13,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.type = 2;
+    
+    [self.view addSubview:[[UISwitch alloc]init]];
 }
 
 @end

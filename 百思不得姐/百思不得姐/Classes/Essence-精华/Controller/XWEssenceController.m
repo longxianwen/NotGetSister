@@ -14,7 +14,6 @@
 #import "XWVoiceViewController.h"
 #import "XWPictureViewController.h"
 #import "XWWordViewController.h"
-#import "XWTopicViewController.h"
 
 @interface XWEssenceController () <UIScrollViewDelegate>
 
@@ -62,29 +61,24 @@
 #pragma mark - 添加子控制器
 - (void)setupChildVcs
 {
-    XWTopicViewController *all = [[XWAllViewController alloc]init];
+    XWAllViewController *all = [[XWAllViewController alloc]init];
     all.title = @"全部";
-    all.type = XWTopicTypeAll;
     [self addChildViewController:all];
     
     XWVideoViewController *video = [[XWVideoViewController alloc]init];
     video.title = @"视频";
-    video.type = XWTopicTypeVideo;
     [self addChildViewController:video];
     
     XWVoiceViewController *voice = [[XWVoiceViewController alloc]init];
     voice.title = @"声音";
-    voice.type = XWTopicTypeVoice;
     [self addChildViewController:voice];
     
     XWPictureViewController *picture = [[XWPictureViewController alloc]init];
     picture.title = @"图片";
-    picture.type = XWTopicTypePicture;
     [self addChildViewController:picture];
     
     XWWordViewController *word = [[XWWordViewController alloc]init];
     word.title = @"段子";
-    word.type = XWTopicTypeWord;
     [self addChildViewController:word];
 }
 

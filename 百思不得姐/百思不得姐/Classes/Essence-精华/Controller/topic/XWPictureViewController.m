@@ -13,6 +13,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.type = XWTopicTypePicture;
 }
 
 @end
