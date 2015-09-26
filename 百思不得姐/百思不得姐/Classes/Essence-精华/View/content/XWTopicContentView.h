@@ -22,4 +22,7 @@
 /**帖子模型*/
 @property (nonatomic,strong) XWTopic *topic;
 
+/**查看大图*/
+- (void)seeBigPicture;
+
 @end

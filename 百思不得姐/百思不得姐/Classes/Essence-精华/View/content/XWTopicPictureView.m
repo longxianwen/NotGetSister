@@ -65,11 +65,10 @@
     }
 }
 
+//单击按钮查看大图
 - (IBAction)checkAllImageClick:(id)sender {
     
-//    [super seeBigPicture];
-    
-    
+    [super performSelector:@selector(seeBigPicture) withObject:nil afterDelay:0];
 }
 
 
