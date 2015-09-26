@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XWEssenceController.h"
 
-@interface XWNewController : UIViewController
+@interface XWNewController : XWEssenceController
 
 @end

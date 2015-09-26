@@ -170,6 +170,13 @@ static NSString * const XWSectionHeader = @"header";
         //字典转模型
 //        XWWriteToPlist(responseObject, @"cmt下");
         
+        //没有评论数据
+        if([responseObject isKindOfClass:[NSArray class]])
+        {
+            [weakSelf.tableView.header endRefreshing];
+            return ;
+        }
+        
         // 最热评论
         weakSelf.hotComments = [XWComment objectArrayWithKeyValuesArray:responseObject[@"hot"]];
         
@@ -210,7 +217,7 @@ static NSString * const XWSectionHeader = @"header";
     XWWeakSelf;
     [manager GET:XWRequestURL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         
-        XWWriteToPlist(responseObject, @"cmt上");
+//        XWWriteToPlist(responseObject, @"cmt上");
         NSArray *moreArr = [XWComment objectArrayWithKeyValuesArray:responseObject[@"data"]];
         
         //把下一页的数据加到上一页数据的后面

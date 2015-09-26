@@ -16,6 +16,7 @@
 #import "XWFooterView.h"
 #import "XWTopicCell.h"
 #import "XWCommentViewController.h"
+#import "XWNewController.h"
 
 @interface XWTopicViewController ()
 
@@ -98,6 +99,19 @@ static NSString * const XWTopicCellId = @"TopicCell";
     self.tableView.footer = footer;
 }
 
+//精华还是新帖
+- (NSString *)aParam
+{
+    
+//    XWLog(@"%@",self.parentViewController);
+    if ([self.parentViewController isKindOfClass:[XWNewController class]]) {
+        return @"newlist";
+    }
+    
+    return @"list";
+}
+
+
 #pragma mark - 请求服务器获取数据(下拉刷新)
 - (void)loadNewTopics
 {
@@ -106,7 +120,7 @@ static NSString * const XWTopicCellId = @"TopicCell";
     
     //设置请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"a"] = @"list";
+    params[@"a"] = [self aParam];
     params[@"c"] = @"data";
     params[@"type"] = @(self.type);
     
