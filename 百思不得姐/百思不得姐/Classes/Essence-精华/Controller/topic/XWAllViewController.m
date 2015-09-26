@@ -10,13 +10,16 @@
 
 @implementation XWAllViewController
 
-- (void)viewDidLoad
+- (XWTopicType)type
 {
-    [super viewDidLoad];
-    
-    self.type = 2;
-    
-    [self.view addSubview:[[UISwitch alloc]init]];
+    return XWTopicTypeAll;
 }
+
+//- (void)viewDidLoad
+//{
+//    [super viewDidLoad];
+//    
+//    [self.view addSubview:[[UISwitch alloc]init]];
+//}
 
 @end

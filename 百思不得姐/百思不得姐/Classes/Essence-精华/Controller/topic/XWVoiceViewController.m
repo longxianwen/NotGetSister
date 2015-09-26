@@ -10,9 +10,14 @@
 
 @implementation XWVoiceViewController
 
+
+- (XWTopicType)type
+{
+    return XWTopicTypeVoice;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.type = XWTopicTypeVoice;
 }
 @end

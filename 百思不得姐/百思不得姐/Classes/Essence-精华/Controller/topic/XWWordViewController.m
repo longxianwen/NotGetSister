@@ -10,9 +10,14 @@
 
 @implementation XWWordViewController
 
+
+- (XWTopicType)type
+{
+    return XWTopicTypeWord;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.type = XWTopicTypeWord;
 }
 @end

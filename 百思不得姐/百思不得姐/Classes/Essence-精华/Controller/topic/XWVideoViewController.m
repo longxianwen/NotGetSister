@@ -10,10 +10,15 @@
 
 @implementation XWVideoViewController
 
+
+- (XWTopicType)type
+{
+    return XWTopicTypeVideo;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.type = XWTopicTypeVideo;
 }
 @end
 

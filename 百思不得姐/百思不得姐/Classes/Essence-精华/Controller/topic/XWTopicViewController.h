@@ -12,5 +12,7 @@
 @interface XWTopicViewController : UITableViewController
 
 /**帖子的类型*/
-@property (nonatomic,assign) XWTopicType type;
+- (XWTopicType)type;
+
+//@property (nonatomic,assign) XWTopicType type;
 @end

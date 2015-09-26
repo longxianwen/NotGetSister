@@ -10,10 +10,14 @@
 
 @implementation XWPictureViewController
 
+- (XWTopicType)type
+{
+    return XWTopicTypePicture;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.type = XWTopicTypePicture;
 }
 
 @end

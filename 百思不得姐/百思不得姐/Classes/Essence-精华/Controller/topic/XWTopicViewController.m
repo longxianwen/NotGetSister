@@ -35,6 +35,9 @@
 
 @implementation XWTopicViewController
 
+//没有实际意义，只是为了消除警告
+- (XWTopicType)type { return 0;}
+
 /**< lazy */
 - (AFHTTPSessionManager *)manager
 {
@@ -106,9 +109,6 @@ static NSString * const XWTopicCellId = @"TopicCell";
     params[@"a"] = @"list";
     params[@"c"] = @"data";
     params[@"type"] = @(self.type);
-    
-    XWLog(@"%@",@(self.type));
-    XWLog(@"%@",self);
     
     //请求服务器获取数据
     XWWeakSelf;
