@@ -15,6 +15,7 @@
 #import <AFNetworking.h>
 #import "XWComment.h"
 #import "XWTopicCommentCell.h"
+#import "XWCommentHeaderFooterView.h"
 
 
 @interface XWCommentViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -80,26 +81,22 @@
 }
 
 static NSString * const XWCommentCellId = @"comment";
+static NSString * const XWSectionHeader = @"header";
 //tableView的初始化相关
 - (void)setupTableView
 {
-    //注册cell
+    //注册评论cell
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([XWTopicCommentCell class]) bundle:nil] forCellReuseIdentifier:XWCommentCellId];
+    
+    //注册section--header
+    [self.tableView registerClass:[XWCommentHeaderFooterView class] forHeaderFooterViewReuseIdentifier:XWSectionHeader];
     
     //动态计算cell的高度
     self.tableView.estimatedRowHeight = 100; //估算高度
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
-    //设置背景颜色
     self.tableView.backgroundColor = XWGlobalBg;
-    
-    //去掉分隔线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-    //注册cell
-    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([XWTopicCell class]) bundle:nil] forCellReuseIdentifier:@"topic"];
-    
-    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([XWTopicCommentCell class]) bundle:nil] forCellReuseIdentifier:@"cmt"];
     
     //处理模型数据,隐藏最热评论
     if(self.topic.topComment)
@@ -147,9 +144,9 @@ static NSString * const XWCommentCellId = @"comment";
     [self.tableView.header beginRefreshing];
     
     //上拉刷新
-//    MJRefreshAutoFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
-//    
-//    self.tableView.footer = footer;
+    MJRefreshAutoFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
+    
+    self.tableView.footer = footer;
 }
 
 //下拉刷新加载数据
@@ -234,11 +231,18 @@ static NSString * const XWCommentCellId = @"comment";
 }
 
 //设置分组标题
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    if(section == 0 && self.hotComments.count) return @"最热评论";
-    return @"最新评论";
+    //从缓存池中取出组首
+    XWCommentHeaderFooterView *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:XWSectionHeader];
+    
+    if (section == 0 && self.hotComments.count) {
+        header.text = @"最热评论";
+    } else {
+        header.text = @"最新评论";
+    }
+    
+    return header;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -257,15 +261,12 @@ static NSString * const XWCommentCellId = @"comment";
 //监听键盘弹出或者隐藏
 - (void)keyboardWillChangeFrame:(NSNotification*)note
 {
-    // 工具条平移的距离(键盘的高度) == 屏幕高度 - 键盘最终的Y值
     self.bottomSpace.constant = XWScreenH - [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue].origin.y;
     
-    //添加动画原因:避免输入框瞬间弹上去。会显示view的背景色
     CGFloat duration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     
     //注意动画时间,应该是系统弹出键盘时间
     [UIView animateWithDuration:duration animations:^{
-        //刷新控件状态
         [self.view layoutIfNeeded];
     }];
 }

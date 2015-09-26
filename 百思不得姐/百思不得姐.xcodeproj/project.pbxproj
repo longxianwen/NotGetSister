@@ -19,6 +19,7 @@
 		562CF2481B95B80900F53479 /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 562CF2471B95B80900F53479 /* _____Tests.m */; };
 		5632FB831B9FCC2C009414E3 /* XWPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5632FB811B9FCC2C009414E3 /* XWPublishViewController.m */; };
 		5632FB841B9FCC2C009414E3 /* XWPublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5632FB821B9FCC2C009414E3 /* XWPublishViewController.xib */; };
+		56394BA61BB5285600F2637E /* XWCommentHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56394BA51BB5285600F2637E /* XWCommentHeaderFooterView.m */; };
 		563B22021BAB391700E5C650 /* XWFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 563B22011BAB391700E5C650 /* XWFooterView.m */; };
 		563B22061BAB3E8000E5C650 /* XWTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 563B22041BAB3E8000E5C650 /* XWTopicCell.m */; };
 		563B22071BAB3E8000E5C650 /* XWTopicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 563B22051BAB3E8000E5C650 /* XWTopicCell.xib */; };
@@ -124,6 +125,8 @@
 		5632FB801B9FCC2C009414E3 /* XWPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWPublishViewController.h; sourceTree = "<group>"; };
 		5632FB811B9FCC2C009414E3 /* XWPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWPublishViewController.m; sourceTree = "<group>"; };
 		5632FB821B9FCC2C009414E3 /* XWPublishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWPublishViewController.xib; sourceTree = "<group>"; };
+		56394BA41BB5285600F2637E /* XWCommentHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWCommentHeaderFooterView.h; sourceTree = "<group>"; };
+		56394BA51BB5285600F2637E /* XWCommentHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWCommentHeaderFooterView.m; sourceTree = "<group>"; };
 		563B22001BAB391700E5C650 /* XWFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWFooterView.h; sourceTree = "<group>"; };
 		563B22011BAB391700E5C650 /* XWFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWFooterView.m; sourceTree = "<group>"; };
 		563B22031BAB3E8000E5C650 /* XWTopicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWTopicCell.h; sourceTree = "<group>"; };
@@ -362,8 +365,6 @@
 			children = (
 				56F1FDAC1B96D23F00931FAB /* XWEssenceController.h */,
 				56F1FDAD1B96D23F00931FAB /* XWEssenceController.m */,
-				56F1FDAE1B96D23F00931FAB /* XWRecommendTagsViewController.h */,
-				56F1FDAF1B96D23F00931FAB /* XWRecommendTagsViewController.m */,
 				56099D531BA7C5390009B6D5 /* XWAllViewController.h */,
 				56099D541BA7C5390009B6D5 /* XWAllViewController.m */,
 				56099D561BA7C55D0009B6D5 /* XWVideoViewController.h */,
@@ -377,6 +378,8 @@
 				56D474DF1BB3010500FD9DB2 /* XWCommentViewController.h */,
 				56D474E01BB3010500FD9DB2 /* XWCommentViewController.m */,
 				56D474E11BB3010500FD9DB2 /* XWCommentViewController.xib */,
+				56F1FDAE1B96D23F00931FAB /* XWRecommendTagsViewController.h */,
+				56F1FDAF1B96D23F00931FAB /* XWRecommendTagsViewController.m */,
 				56A0B8721BAD9F6700A277DD /* XWSeeBigPictureViewController.h */,
 				56A0B8731BAD9F6700A277DD /* XWSeeBigPictureViewController.m */,
 				56A0B8741BAD9F6700A277DD /* XWSeeBigPictureViewController.xib */,
@@ -422,6 +425,8 @@
 				56EAFBB81BB1A73300697F14 /* XWTopicVoiceView.h */,
 				56EAFBB91BB1A73300697F14 /* XWTopicVoiceView.m */,
 				56EAFBB31BB1A6D300697F14 /* XWTopicVoiceView.xib */,
+				56394BA41BB5285600F2637E /* XWCommentHeaderFooterView.h */,
+				56394BA51BB5285600F2637E /* XWCommentHeaderFooterView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -895,6 +900,7 @@
 				56CF7BFA1B9C5D8100C55818 /* XWRecommendTag.m in Sources */,
 				56099D581BA7C55D0009B6D5 /* XWVideoViewController.m in Sources */,
 				56F1FDE31B96D23F00931FAB /* XWTabBarController.m in Sources */,
+				56394BA61BB5285600F2637E /* XWCommentHeaderFooterView.m in Sources */,
 				5659823B1B9C2CAC000B150A /* XWRecommendTagCell.m in Sources */,
 				56EAFBBA1BB1A73300697F14 /* XWTopicVoiceView.m in Sources */,
 				56F761DC1BB2C15B00C5AFA4 /* XWUser.m in Sources */,
@@ -1229,6 +1235,7 @@
 				568D3D771BB4528A0044CDD7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		568D3D7B1BB4528A0044CDD7 /* Build configuration list for PBXNativeTarget "tableViewGroup0组Tests" */ = {
 			isa = XCConfigurationList;
@@ -1237,6 +1244,7 @@
 				568D3D791BB4528A0044CDD7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

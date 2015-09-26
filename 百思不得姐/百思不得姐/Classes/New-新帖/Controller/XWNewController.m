@@ -24,6 +24,14 @@
     UIBarButtonItem *leftButton = [UIBarButtonItem buttonItemCreate:self andImage:@"MainTagSubIcon" andHighlightedImage:@"MainTagSubIconClick" andAction:@selector(tagClickNew)];
     
     self.navigationItem.leftBarButtonItem = leftButton;
+    
+//    UIScrollView *scrollView = [[UIScrollView alloc]init];
+//    scrollView.frame = self.view.bounds;
+//    scrollView.backgroundColor = XWGlobalBg;
+//    
+//    [self.view addSubview:scrollView];
+    
+    self.view.backgroundColor = [UIColor redColor];
 }
 
 /**
