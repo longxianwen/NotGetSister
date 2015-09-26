@@ -12,6 +12,8 @@
 //10为图片，29为段子，31为音频，41为视频
 typedef enum
 {
+    /**All*/
+    XWTopicTypeAll = 1,
     /**图片*/
     XWTopicTypePicture = 10,
     /**段子*/

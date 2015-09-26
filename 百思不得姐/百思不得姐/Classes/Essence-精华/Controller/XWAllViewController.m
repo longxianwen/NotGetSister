@@ -116,7 +116,7 @@ static NSString * const XWTopicCellId = @"TopicCell";
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"list";
     params[@"c"] = @"data";
-    params[@"type"] = @1;
+    params[@"type"] = @(XWTopicTypeAll);
     
     //请求服务器获取数据
     XWWeakSelf;
@@ -149,7 +149,7 @@ static NSString * const XWTopicCellId = @"TopicCell";
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"list";
     params[@"c"] = @"data";
-    params[@"type"] = @1;
+    params[@"type"] = @(XWTopicTypeAll);
     params[@"maxtime"] = self.maxtime;
     
     //请求服务器获取数据
