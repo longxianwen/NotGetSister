@@ -39,7 +39,7 @@
     [super setTopic:topic];
     
     //设置图片
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:topic.large_image]];
+    [_imageView sd_setImageWithURL:[NSURL URLWithString:topic.large_image]];
     
     
     NSString  *playCountStr = nil;

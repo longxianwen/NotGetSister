@@ -11,6 +11,9 @@
 
 @interface XWTopicContentView ()
 
+/**  图片内容*/
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
 @end
 
 @implementation XWTopicContentView

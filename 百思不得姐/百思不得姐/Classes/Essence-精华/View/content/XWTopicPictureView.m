@@ -37,7 +37,7 @@
     //下载图片
     XWWeakSelf;
     
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:topic.large_image] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+    [_imageView sd_setImageWithURL:[NSURL URLWithString:topic.large_image] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
         
         //进度条设置
         weakSelf.progressView.hidden = NO;
@@ -56,12 +56,12 @@
     //如果是大图设置图片模式，显示top部分
     if(topic.isBigPicture)
     {
-        self.imageView.contentMode = UIViewContentModeTop;
-        self.imageView.clipsToBounds = YES;
+        _imageView.contentMode = UIViewContentModeTop;
+        _imageView.clipsToBounds = YES;
     } else
     {
-        self.imageView.contentMode = UIViewContentModeScaleToFill;
-        self.imageView.clipsToBounds = NO;
+        _imageView.contentMode = UIViewContentModeScaleToFill;
+        _imageView.clipsToBounds = NO;
     }
 }
 
