@@ -1,5 +1,5 @@
 //
-//  XWAllViewController.h
+//  XWVoiceViewController.h
 //  百思不得姐
 //
 //  Created by longxianwen on 15/9/15.
@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XWTopicViewController.h"
 
-@interface XWAllViewController : UITableViewController
+@interface XWVoiceViewController : XWTopicViewController
 
 @end

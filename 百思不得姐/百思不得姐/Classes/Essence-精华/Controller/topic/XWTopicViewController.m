@@ -1,12 +1,14 @@
 //
-//  XWVoiceViewController
+//  XWTopicViewController.m
 //  百思不得姐
 //
 //  Created by longxianwen on 15/9/15.
 //  Copyright (c) 2015年 longxianwen. All rights reserved.
 //  全部
 
-#import "XWVoiceViewController.h"
+#import "XWTopicViewController.h"
+#import "XWPictureViewController.h"
+#import "XWVideoViewController.h"
 #import <AFNetworking/AFNetworking.h>
 #import "XWTopic.h"
 #import <MJExtension/MJExtension.h>
@@ -15,7 +17,7 @@
 #import "XWTopicCell.h"
 #import "XWCommentViewController.h"
 
-@interface XWVoiceViewController ()
+@interface XWTopicViewController ()
 
 /**请求管理者*/
 @property (nonatomic,strong) AFHTTPSessionManager *manager;
@@ -31,7 +33,7 @@
 
 @end
 
-@implementation XWVoiceViewController
+@implementation XWTopicViewController
 
 /**< lazy */
 - (AFHTTPSessionManager *)manager
@@ -65,23 +67,15 @@
 static NSString * const XWTopicCellId = @"TopicCell";
 - (void)setupTableView
 {
-    //设置背景颜色
     self.tableView.backgroundColor = XWGlobalBg;
-    
-    //设置内边距
     self.tableView.contentInset = UIEdgeInsetsMake(XWNavBarMaxY + XWTitleViewH, 0, XWTabBarH, 0);
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     //指定滚动条在scrollerView中的位置
     self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
     
-    //去掉所有分隔线
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
     //注册cell
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([XWTopicCell class]) bundle:nil] forCellReuseIdentifier:XWTopicCellId];
-    
-    //设置cell的高度
-    //    self.tableView.rowHeight = 500;
 }
 
 #pragma  mark - 下拉刷新
@@ -97,12 +91,7 @@ static NSString * const XWTopicCellId = @"TopicCell";
     [self.tableView.header beginRefreshing];
     
     //上拉刷新
-    //    MJRefreshFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
-    //  footer.appearencePercentTriggerAutoRefresh = 0.5;
-    
-    //自定义上拉刷新:
-    
-    XWFooterView *footer = [XWFooterView  footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
+    MJRefreshFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreTopics)];
     self.tableView.footer = footer;
 }
 
@@ -116,7 +105,9 @@ static NSString * const XWTopicCellId = @"TopicCell";
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"list";
     params[@"c"] = @"data";
-    params[@"type"] = @(XWTopicTypeVoice);
+    params[@"type"] = @(self.type);
+    
+    XWLog(@"%@",self);
     
     //请求服务器获取数据
     XWWeakSelf;
@@ -149,7 +140,7 @@ static NSString * const XWTopicCellId = @"TopicCell";
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"list";
     params[@"c"] = @"data";
-    params[@"type"] = @(XWTopicTypeVoice);
+    params[@"type"] = @(XWTopicTypeAll);
     params[@"maxtime"] = self.maxtime;
     
     //请求服务器获取数据

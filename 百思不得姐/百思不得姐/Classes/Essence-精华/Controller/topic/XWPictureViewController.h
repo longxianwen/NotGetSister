@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XWTopicViewController.h"
 
-@interface XWPictureViewController : UITableViewController
+@interface XWPictureViewController : XWTopicViewController
 
 @end

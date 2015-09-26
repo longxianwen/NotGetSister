@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		56099D551BA7C5390009B6D5 /* XWAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56099D541BA7C5390009B6D5 /* XWAllViewController.m */; };
-		56099D581BA7C55D0009B6D5 /* XWVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56099D571BA7C55D0009B6D5 /* XWVideoViewController.m */; };
-		56099D5B1BA7C5790009B6D5 /* XWVoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56099D5A1BA7C5790009B6D5 /* XWVoiceViewController.m */; };
-		56099D5E1BA7C58A0009B6D5 /* XWPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56099D5D1BA7C58A0009B6D5 /* XWPictureViewController.m */; };
-		56099D611BA7C5A00009B6D5 /* XWWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56099D601BA7C5A00009B6D5 /* XWWordViewController.m */; };
 		561F32BA1BA146F1003A62ED /* XWClearCacheCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 561F32B91BA146F1003A62ED /* XWClearCacheCell.m */; };
 		562CF22E1B95B80900F53479 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 562CF22D1B95B80900F53479 /* main.m */; };
 		562CF2391B95B80900F53479 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 562CF2381B95B80900F53479 /* Images.xcassets */; };
@@ -63,6 +58,12 @@
 		56CF7BFA1B9C5D8100C55818 /* XWRecommendTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CF7BF91B9C5D8100C55818 /* XWRecommendTag.m */; };
 		56D474E21BB3010500FD9DB2 /* XWCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D474E01BB3010500FD9DB2 /* XWCommentViewController.m */; };
 		56D474E31BB3010500FD9DB2 /* XWCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56D474E11BB3010500FD9DB2 /* XWCommentViewController.xib */; };
+		56E18EA31BB68F710044564A /* XWAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E18E9A1BB68F710044564A /* XWAllViewController.m */; };
+		56E18EA41BB68F710044564A /* XWPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E18E9C1BB68F710044564A /* XWPictureViewController.m */; };
+		56E18EA51BB68F710044564A /* XWVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E18E9E1BB68F710044564A /* XWVideoViewController.m */; };
+		56E18EA61BB68F710044564A /* XWVoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E18EA01BB68F710044564A /* XWVoiceViewController.m */; };
+		56E18EA71BB68F710044564A /* XWWordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E18EA21BB68F710044564A /* XWWordViewController.m */; };
+		56E18EAA1BB690850044564A /* XWTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E18EA91BB690850044564A /* XWTopicViewController.m */; };
 		56EAFBB21BB1A65700697F14 /* XWTopicVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56EAFBB11BB1A65700697F14 /* XWTopicVideoView.xib */; };
 		56EAFBB41BB1A6D300697F14 /* XWTopicVoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56EAFBB31BB1A6D300697F14 /* XWTopicVoiceView.xib */; };
 		56EAFBB71BB1A70800697F14 /* XWTopicVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56EAFBB61BB1A70800697F14 /* XWTopicVideoView.m */; };
@@ -102,16 +103,6 @@
 
 /* Begin PBXFileReference section */
 		5089E612325241562CE423BA /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		56099D531BA7C5390009B6D5 /* XWAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWAllViewController.h; sourceTree = "<group>"; };
-		56099D541BA7C5390009B6D5 /* XWAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWAllViewController.m; sourceTree = "<group>"; };
-		56099D561BA7C55D0009B6D5 /* XWVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWVideoViewController.h; sourceTree = "<group>"; };
-		56099D571BA7C55D0009B6D5 /* XWVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWVideoViewController.m; sourceTree = "<group>"; };
-		56099D591BA7C5790009B6D5 /* XWVoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWVoiceViewController.h; sourceTree = "<group>"; };
-		56099D5A1BA7C5790009B6D5 /* XWVoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWVoiceViewController.m; sourceTree = "<group>"; };
-		56099D5C1BA7C58A0009B6D5 /* XWPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWPictureViewController.h; sourceTree = "<group>"; };
-		56099D5D1BA7C58A0009B6D5 /* XWPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWPictureViewController.m; sourceTree = "<group>"; };
-		56099D5F1BA7C5A00009B6D5 /* XWWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWWordViewController.h; sourceTree = "<group>"; };
-		56099D601BA7C5A00009B6D5 /* XWWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWWordViewController.m; sourceTree = "<group>"; };
 		561F32B81BA146F1003A62ED /* XWClearCacheCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWClearCacheCell.h; sourceTree = "<group>"; };
 		561F32B91BA146F1003A62ED /* XWClearCacheCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWClearCacheCell.m; sourceTree = "<group>"; };
 		562CF2281B95B80900F53479 /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,6 +196,18 @@
 		56D474DF1BB3010500FD9DB2 /* XWCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWCommentViewController.h; sourceTree = "<group>"; };
 		56D474E01BB3010500FD9DB2 /* XWCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWCommentViewController.m; sourceTree = "<group>"; };
 		56D474E11BB3010500FD9DB2 /* XWCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWCommentViewController.xib; sourceTree = "<group>"; };
+		56E18E991BB68F710044564A /* XWAllViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWAllViewController.h; sourceTree = "<group>"; };
+		56E18E9A1BB68F710044564A /* XWAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWAllViewController.m; sourceTree = "<group>"; };
+		56E18E9B1BB68F710044564A /* XWPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWPictureViewController.h; sourceTree = "<group>"; };
+		56E18E9C1BB68F710044564A /* XWPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWPictureViewController.m; sourceTree = "<group>"; };
+		56E18E9D1BB68F710044564A /* XWVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWVideoViewController.h; sourceTree = "<group>"; };
+		56E18E9E1BB68F710044564A /* XWVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWVideoViewController.m; sourceTree = "<group>"; };
+		56E18E9F1BB68F710044564A /* XWVoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWVoiceViewController.h; sourceTree = "<group>"; };
+		56E18EA01BB68F710044564A /* XWVoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWVoiceViewController.m; sourceTree = "<group>"; };
+		56E18EA11BB68F710044564A /* XWWordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWWordViewController.h; sourceTree = "<group>"; };
+		56E18EA21BB68F710044564A /* XWWordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWWordViewController.m; sourceTree = "<group>"; };
+		56E18EA81BB690850044564A /* XWTopicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWTopicViewController.h; sourceTree = "<group>"; };
+		56E18EA91BB690850044564A /* XWTopicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWTopicViewController.m; sourceTree = "<group>"; };
 		56EAFBB11BB1A65700697F14 /* XWTopicVideoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWTopicVideoView.xib; sourceTree = "<group>"; };
 		56EAFBB31BB1A6D300697F14 /* XWTopicVoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWTopicVoiceView.xib; sourceTree = "<group>"; };
 		56EAFBB51BB1A70800697F14 /* XWTopicVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWTopicVideoView.h; sourceTree = "<group>"; };
@@ -337,6 +340,25 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		56E18E981BB68F710044564A /* topic */ = {
+			isa = PBXGroup;
+			children = (
+				56E18EA81BB690850044564A /* XWTopicViewController.h */,
+				56E18EA91BB690850044564A /* XWTopicViewController.m */,
+				56E18E991BB68F710044564A /* XWAllViewController.h */,
+				56E18E9A1BB68F710044564A /* XWAllViewController.m */,
+				56E18E9B1BB68F710044564A /* XWPictureViewController.h */,
+				56E18E9C1BB68F710044564A /* XWPictureViewController.m */,
+				56E18E9D1BB68F710044564A /* XWVideoViewController.h */,
+				56E18E9E1BB68F710044564A /* XWVideoViewController.m */,
+				56E18E9F1BB68F710044564A /* XWVoiceViewController.h */,
+				56E18EA01BB68F710044564A /* XWVoiceViewController.m */,
+				56E18EA11BB68F710044564A /* XWWordViewController.h */,
+				56E18EA21BB68F710044564A /* XWWordViewController.m */,
+			);
+			path = topic;
+			sourceTree = "<group>";
+		};
 		56F1FDA91B96D23F00931FAB /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -363,18 +385,9 @@
 		56F1FDAB1B96D23F00931FAB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				56E18E981BB68F710044564A /* topic */,
 				56F1FDAC1B96D23F00931FAB /* XWEssenceController.h */,
 				56F1FDAD1B96D23F00931FAB /* XWEssenceController.m */,
-				56099D531BA7C5390009B6D5 /* XWAllViewController.h */,
-				56099D541BA7C5390009B6D5 /* XWAllViewController.m */,
-				56099D561BA7C55D0009B6D5 /* XWVideoViewController.h */,
-				56099D571BA7C55D0009B6D5 /* XWVideoViewController.m */,
-				56099D591BA7C5790009B6D5 /* XWVoiceViewController.h */,
-				56099D5A1BA7C5790009B6D5 /* XWVoiceViewController.m */,
-				56099D5C1BA7C58A0009B6D5 /* XWPictureViewController.h */,
-				56099D5D1BA7C58A0009B6D5 /* XWPictureViewController.m */,
-				56099D5F1BA7C5A00009B6D5 /* XWWordViewController.h */,
-				56099D601BA7C5A00009B6D5 /* XWWordViewController.m */,
 				56D474DF1BB3010500FD9DB2 /* XWCommentViewController.h */,
 				56D474E01BB3010500FD9DB2 /* XWCommentViewController.m */,
 				56D474E11BB3010500FD9DB2 /* XWCommentViewController.xib */,
@@ -892,13 +905,12 @@
 				569B9FEC1B97EDD300B99DAD /* XWNavigationBar.m in Sources */,
 				569BA0041B9A01ED00B99DAD /* UIView+XWExtension.m in Sources */,
 				56C1A8C91B9F46D700505537 /* Foundation+XWLog.m in Sources */,
-				56099D551BA7C5390009B6D5 /* XWAllViewController.m in Sources */,
+				56E18EA31BB68F710044564A /* XWAllViewController.m in Sources */,
 				563B22061BAB3E8000E5C650 /* XWTopicCell.m in Sources */,
-				56099D611BA7C5A00009B6D5 /* XWWordViewController.m in Sources */,
 				567754461BA7AA620036ED60 /* XWTitleButton.m in Sources */,
 				569B9FF21B97F02900B99DAD /* XWNavigationController.m in Sources */,
+				56E18EAA1BB690850044564A /* XWTopicViewController.m in Sources */,
 				56CF7BFA1B9C5D8100C55818 /* XWRecommendTag.m in Sources */,
-				56099D581BA7C55D0009B6D5 /* XWVideoViewController.m in Sources */,
 				56F1FDE31B96D23F00931FAB /* XWTabBarController.m in Sources */,
 				56394BA61BB5285600F2637E /* XWCommentHeaderFooterView.m in Sources */,
 				5659823B1B9C2CAC000B150A /* XWRecommendTagCell.m in Sources */,
@@ -909,15 +921,16 @@
 				567A62DA1B9E832A00C4C24A /* XWMeCell.m in Sources */,
 				56F761DF1BB2C87100C5AFA4 /* MJExtensionConfig.m in Sources */,
 				568F47A81B9B38F8003F863F /* XWRecommendCategoryCell.m in Sources */,
-				56099D5E1BA7C58A0009B6D5 /* XWPictureViewController.m in Sources */,
 				56F1FDDD1B96D23F00931FAB /* XWFriendTrendsController.m in Sources */,
 				569BA0061B9A8CEA00B99DAD /* XWLoginRegisterViewController.m in Sources */,
 				56A0B8751BAD9F6700A277DD /* XWSeeBigPictureViewController.m in Sources */,
 				5663F1C11B9DF747009A852D /* XWConst.m in Sources */,
+				56E18EA71BB68F710044564A /* XWWordViewController.m in Sources */,
 				567A63231B9ED67800C4C24A /* NSString+XWExtension.m in Sources */,
 				56954B511B9DA159006A82CC /* UIImage+XWExtension.m in Sources */,
 				56F1FDE21B96D23F00931FAB /* UIBarButtonItem+XWExtension.m in Sources */,
 				567A63261B9ED7B600C4C24A /* XWSquare.m in Sources */,
+				56E18EA61BB68F710044564A /* XWVoiceViewController.m in Sources */,
 				56CE82D51BA9C0F200A8A427 /* XWTopic.m in Sources */,
 				56912F7E1BA42EEB00BFA44E /* XWPostWordViewController.m in Sources */,
 				56F1FDDB1B96D23F00931FAB /* XWRecommendTagsViewController.m in Sources */,
@@ -929,11 +942,12 @@
 				56954B541B9DAAEB006A82CC /* UIImageView+XWExtension.m in Sources */,
 				56F1FDDE1B96D23F00931FAB /* XWMeController.m in Sources */,
 				56F1FDE11B96D23F00931FAB /* AppDelegate.m in Sources */,
+				56E18EA51BB68F710044564A /* XWVideoViewController.m in Sources */,
 				562CF22E1B95B80900F53479 /* main.m in Sources */,
 				56ACCC2E1BAC0BAA000A5BF5 /* NSDate+XWExtension.m in Sources */,
-				56099D5B1BA7C5790009B6D5 /* XWVoiceViewController.m in Sources */,
 				5632FB831B9FCC2C009414E3 /* XWPublishViewController.m in Sources */,
 				568F47A31B9B2B0D003F863F /* XWRecommendViewController.m in Sources */,
+				56E18EA41BB68F710044564A /* XWPictureViewController.m in Sources */,
 				569B9FFE1B99FD4800B99DAD /* XWQuickLoginButton.m in Sources */,
 				56F1FDE51B96D23F00931FAB /* XWTabBar.m in Sources */,
 				56EAFBB71BB1A70800697F14 /* XWTopicVideoView.m in Sources */,
