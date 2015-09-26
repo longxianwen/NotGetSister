@@ -4,7 +4,7 @@
 //
 //  Created by longxianwen on 15/9/24.
 //  Copyright (c) 2015年 longxianwen. All rights reserved.
-//
+//  评论自定义cell
 
 #import "XWTopicCommentCell.h"
 #import "XWComment.h"

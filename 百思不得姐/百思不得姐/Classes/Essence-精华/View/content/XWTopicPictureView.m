@@ -10,12 +10,8 @@
 #import "XWTopic.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <DALabeledCircularProgressView.h>
-#import "XWSeeBigPictureViewController.h"
 
 @interface XWTopicPictureView ()
-
-/**  图片内容*/
-@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 /**  gif图标*/
 @property (weak, nonatomic) IBOutlet UIImageView *gitIconView;
@@ -27,26 +23,16 @@
 
 - (void)awakeFromNib
 {
-    // 清空自动伸缩属性
-    self.autoresizingMask = UIViewAutoresizingNone;
-    
-    self.imageView.userInteractionEnabled = YES;
-    
+    [super awakeFromNib];
     self.progressView.roundedCorners = 5;
     self.progressView.progressLabel.textColor = [UIColor whiteColor];
-    
-    //创建手势
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(imageClick)];
-    //添加手势
-    [self.imageView addGestureRecognizer:tap];
 }
 
 //拦截设置中间图片内容方法,下载图片
 #pragma mark - 下载图片
 - (void)setTopic:(XWTopic *)topic
 {
-    
-    _topic = topic;
+    [super setTopic:topic];
     
     //下载图片
     XWWeakSelf;
@@ -79,28 +65,15 @@
     }
 }
 
-#pragma mark - 点击查看全图
-
-- (void)imageClick
-{
-    [self seeBigPicture];
-}
-
 - (IBAction)checkAllImageClick:(id)sender {
     
-    [self seeBigPicture];
+//    [super seeBigPicture];
+    
     
 }
 
-- (void)seeBigPicture
-{
-    if (self.imageView.image == nil) return;
-    
-    XWSeeBigPictureViewController *seeBigPicture = [[XWSeeBigPictureViewController alloc]init];
-    
-    seeBigPicture.topic = _topic;
-    
-    [self.window.rootViewController presentViewController:seeBigPicture animated:YES completion:nil];
-}
+
+
+
 
 @end

@@ -1,5 +1,5 @@
 //
-//  XWTopicVoiceView.h
+//  XWTopicVideoView.h
 //  百思不得姐
 //
 //  Created by longxianwen on 15/9/22.
@@ -7,10 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-@class XWTopic;
+#import "XWTopicContentView.h"
 
-@interface XWTopicVoiceView : UIView
+@interface XWTopicVideoView :XWTopicContentView
 
-/**帖子模型*/
-@property (nonatomic,strong) XWTopic *topic;
 @end
