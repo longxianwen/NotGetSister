@@ -168,7 +168,7 @@ static NSString * const XWSectionHeader = @"header";
     [self.manager GET:XWRequestURL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         
         //字典转模型
-        XWWriteToPlist(responseObject, @"cmt");
+//        XWWriteToPlist(responseObject, @"cmt下");
         
         // 最热评论
         weakSelf.hotComments = [XWComment objectArrayWithKeyValuesArray:responseObject[@"hot"]];
@@ -181,6 +181,13 @@ static NSString * const XWSectionHeader = @"header";
         
         //结束刷新
         [weakSelf.tableView.header endRefreshing];
+        
+        //如果一页就加载完毕评论数据，就隐藏下拉刷新
+        if(self.latestComments.count >= [responseObject[@"total"] intValue])
+        {
+            weakSelf.tableView.footer.hidden = YES;
+        }
+        
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         XWLog(@"请求失败..");
         [weakSelf.tableView.header endRefreshing];
@@ -190,10 +197,42 @@ static NSString * const XWSectionHeader = @"header";
 //上拉刷新加载数据
 - (void)loadMoreTopics
 {
-    NSLogFunc;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.tableView.footer endRefreshing];
-    });
+    //发送请求给服务器，获取数据
+    AFHTTPSessionManager * manager = [AFHTTPSessionManager manager];
+    
+    //设置请求参数
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"dataList";
+    params[@"c"] = @"comment";
+    params[@"data_id"] = self.topic.ID;
+    params[@"lastcid"] = [self.latestComments.lastObject ID];
+    
+    XWWeakSelf;
+    [manager GET:XWRequestURL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        XWWriteToPlist(responseObject, @"cmt上");
+        NSArray *moreArr = [XWComment objectArrayWithKeyValuesArray:responseObject[@"data"]];
+        
+        //把下一页的数据加到上一页数据的后面
+        [weakSelf.latestComments addObjectsFromArray:moreArr];
+        
+        [weakSelf.tableView reloadData];
+        
+        //到最后一条数据后，就不需要请求服务器了
+        if(self.latestComments.count >= [responseObject[@"total"] intValue])
+        {
+            //如果到最后一条数据了,就结束刷新
+            weakSelf.tableView.footer.hidden = YES;
+//            [weakSelf.tableView.footer noticeNoMoreData];
+        } else
+        {
+            //继续刷新
+            [weakSelf.tableView.footer endRefreshing];
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        XWLog(@"请求失败..");
+        [weakSelf.tableView.header endRefreshing];
+    }];
 }
 
 #pragma mark - <UITableViewDataSource>

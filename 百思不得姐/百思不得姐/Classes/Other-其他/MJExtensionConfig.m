@@ -9,6 +9,7 @@
 #import "MJExtensionConfig.h"
 #import <MJExtension/MJExtension.h>
 #import "XWTopic.h"
+#import "XWComment.h"
 
 @implementation MJExtensionConfig
 
@@ -36,6 +37,12 @@
                  @"large_image":@"image1",
                  @"middle_image":@"image2",
                  @"topComment":@"top_cmt[0]"
+                 };
+    }];
+    
+    [XWComment setupReplacedKeyFromPropertyName:^NSDictionary *{
+        return @{
+                 @"ID":@"id"
                  };
     }];
 }
