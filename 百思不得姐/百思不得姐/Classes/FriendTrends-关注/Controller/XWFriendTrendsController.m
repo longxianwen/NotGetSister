@@ -49,7 +49,6 @@
 #pragma mark - 左上角按钮-推荐关注
 - (void)tagClickFriendTrends
 {
-    NSLogFunc;
     //跳转到推荐关注页面
     XWRecommendViewController *recommend = [[XWRecommendViewController alloc]init];
     

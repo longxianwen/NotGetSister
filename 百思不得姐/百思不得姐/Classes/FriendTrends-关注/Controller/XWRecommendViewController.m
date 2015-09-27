@@ -11,8 +11,11 @@
 #import "XWRecommendCategoryCell.h"
 
 @interface XWRecommendViewController ()<UITableViewDataSource,UITableViewDelegate>
-/**<左边类别表格*/
+/**左边类别表格*/
 @property (weak, nonatomic) IBOutlet UITableView *categoryTableView;
+/**右边用户表格*/
+@property (weak, nonatomic) IBOutlet UITableView *userTableView;
+
 
 @end
 
@@ -40,27 +43,64 @@ static NSString* const XWCategoryId = @"categoryCell";
     //设置背景颜色
     self.view.backgroundColor = XWGlobalBg;
     
+    //设置左边表格
+    //取消系统自动更改内边距
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    UIEdgeInsets inset = UIEdgeInsetsMake(XWNavBarMaxY, 0, 0, 0);
+    self.categoryTableView.contentInset = inset;
+    //指定滚动条在scrollerView中的位置
+    self.categoryTableView.scrollIndicatorInsets = inset;
     //注册左边category cell
     [self.categoryTableView registerNib:[UINib nibWithNibName:NSStringFromClass([XWRecommendCategoryCell class]) bundle:nil] forCellReuseIdentifier:XWCategoryId];
+    
+    //设置右边表格
+    self.userTableView.contentInset = inset;
+    self.userTableView.scrollIndicatorInsets = inset;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 10;
+    if(tableView == self.categoryTableView)  //如果是左边类别表格
+    {
+        return 15;
+    }
+    return 25;  //右边用户表格
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    XWRecommendCategoryCell *cell = [tableView dequeueReusableCellWithIdentifier:XWCategoryId];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"test"];
     
-    //设置数据
+    //创建cell
+    if(cell == nil)
+    {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"test"];
+    }
     
-    cell.textLabel.text = @"数据";
+    if(tableView == self.categoryTableView)
+    {
+        NSString *str = [NSString stringWithFormat:@"左边%ld",indexPath.row];
+        cell.textLabel.text = str;
+    } else
+    {
+        NSString *str = [NSString stringWithFormat:@"右边%ld",indexPath.row];
+        cell.textLabel.text = str;
+    }
     
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(tableView == self.categoryTableView)
+    {
+        XWLog(@"左边%ld行被点击",indexPath.row);
+    } else
+    {
+        XWLog(@"右边%ld行被点击",indexPath.row);
+    }
+}
 
 
 @end
