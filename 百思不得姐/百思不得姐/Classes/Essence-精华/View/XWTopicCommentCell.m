@@ -39,7 +39,8 @@
     //设置背景
     self.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"mainCellBackground"]];
     
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    //取出cell选中时的背景
+//    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

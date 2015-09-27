@@ -32,6 +32,9 @@
 /** 用来加载下一页数据 */
 @property (nonatomic, copy) NSString *maxtime;
 
+//点语法提示
+- (NSString *)aParam;
+
 @end
 
 @implementation XWTopicViewController
@@ -99,7 +102,7 @@ static NSString * const XWTopicCellId = @"TopicCell";
     self.tableView.footer = footer;
 }
 
-//精华还是新帖
+/**精华还是新帖*/
 - (NSString *)aParam
 {
     
@@ -120,7 +123,7 @@ static NSString * const XWTopicCellId = @"TopicCell";
     
     //设置请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"a"] = [self aParam];
+    params[@"a"] = self.aParam;
     params[@"c"] = @"data";
     params[@"type"] = @(self.type);
     

@@ -36,6 +36,8 @@
 /**帖子最热评论数据*/
 @property (nonatomic,strong) NSMutableArray *hotComments;
 
+- (XWComment*)selectComment;
+
 @end
 
 @implementation XWCommentViewController
@@ -295,7 +297,95 @@ static NSString * const XWSectionHeader = @"header";
 {
     //单击时隐藏键盘
     [self.view endEditing:YES];
+    
+    //弹出UIMenuController菜单
+    //取出对应的cell
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    //创建弹出菜单
+    UIMenuController *menu = [UIMenuController sharedMenuController];
+    
+    //设置菜单显示的内容
+    menu.menuItems = @[
+                       [[UIMenuItem alloc]initWithTitle:@"顶" action:@selector(ding:)],
+                       [[UIMenuItem alloc]initWithTitle:@"回复" action:@selector(reply:)],
+                       [[UIMenuItem alloc]initWithTitle:@"举报" action:@selector(warn:)]
+                       ];
+    
+    //设置Menu显示位置
+    [menu setTargetRect:cell.bounds inView:cell];
+    
+    //显示出来
+    [menu setMenuVisible:YES animated:YES];
 }
+
+#pragma mark - UIMenuController处理相关
+
+//当前控制器能否成为第一响应者
+- (BOOL)canBecomeFirstResponder
+{
+    return YES;
+}
+
+//拦截UIMenuController Menu显示内容
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender
+{
+//    XWLog(@"%@",NSStringFromSelector(action));
+    
+//    XWLog(@"%d",self.isFirstResponder);
+    if(!self.isFirstResponder)
+    {
+        //隐藏自定义menu内容
+        if(action == @selector(ding:) ||
+           action == @selector(reply:) ||
+           action == @selector(warn:))
+        {
+            return NO;
+        }
+    }
+    
+    return [super canPerformAction:action withSender:sender];
+}
+
+
+/**获得当前选中的评论*/
+- (XWComment*)selectComment
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    
+    NSArray *comments = self.latestComments;
+    if(indexPath.section == 0 && self.hotComments.count)
+    {
+        comments = self.hotComments;
+    }
+    
+    return comments[indexPath.row];
+}
+
+//顶
+- (void)ding:(UIMenuController*)menu
+{
+    XWLog(@"顶...%@,%@",self.selectComment.user.username,self.selectComment.content);
+}
+
+//回复
+- (void)reply:(UIMenuController*)menu
+{
+    XWLog(@"回复...%@,%@",self.selectComment.user.username,self.selectComment.content);
+}
+
+//举报
+- (void)warn:(UIMenuController*)menu
+{
+    XWLog(@"举报...%@,%@",self.selectComment.user.username,self.selectComment.content);
+}
+
+//粘贴
+//- (void)paste:(id)sender
+//{
+//    XWLog(@"paste");
+//}
+
 
 #pragma mark - <UITableViewDelegate>
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView

@@ -181,6 +181,7 @@
 		56A0B8741BAD9F6700A277DD /* XWSeeBigPictureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWSeeBigPictureViewController.xib; sourceTree = "<group>"; };
 		56ACCC2C1BAC0BAA000A5BF5 /* NSDate+XWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+XWExtension.h"; sourceTree = "<group>"; };
 		56ACCC2D1BAC0BAA000A5BF5 /* NSDate+XWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+XWExtension.m"; sourceTree = "<group>"; };
+		56B46D701BB8252900BC9E87 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		56B5F4141BA33A5500C14E1D /* XWPublishButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWPublishButton.h; sourceTree = "<group>"; };
 		56B5F4151BA33A5500C14E1D /* XWPublishButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWPublishButton.m; sourceTree = "<group>"; };
 		56BD720D1BB3192000392F90 /* XWTopicCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWTopicCommentCell.h; sourceTree = "<group>"; };
@@ -1019,6 +1020,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				562CF23B1B95B80900F53479 /* Base */,
+				56B46D701BB8252900BC9E87 /* zh-Hans */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
