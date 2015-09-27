@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class XWCategoryModel;
 
 @interface XWRecommendCategoryCell : UITableViewCell
 
+/** 类别模型 */
+@property (nonatomic, strong) XWCategoryModel *category;
 @end

@@ -16,6 +16,7 @@
 		5632FB841B9FCC2C009414E3 /* XWPublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5632FB821B9FCC2C009414E3 /* XWPublishViewController.xib */; };
 		563784C61BB8588100F84EED /* XWRecommendUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 563784C41BB8588100F84EED /* XWRecommendUserCell.m */; };
 		563784C71BB8588100F84EED /* XWRecommendUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 563784C51BB8588100F84EED /* XWRecommendUserCell.xib */; };
+		563784CA1BB85CF200F84EED /* XWCategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 563784C91BB85CF200F84EED /* XWCategoryModel.m */; };
 		56394BA61BB5285600F2637E /* XWCommentHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56394BA51BB5285600F2637E /* XWCommentHeaderFooterView.m */; };
 		563B22021BAB391700E5C650 /* XWFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 563B22011BAB391700E5C650 /* XWFooterView.m */; };
 		563B22061BAB3E8000E5C650 /* XWTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 563B22041BAB3E8000E5C650 /* XWTopicCell.m */; };
@@ -122,6 +123,8 @@
 		563784C31BB8588100F84EED /* XWRecommendUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWRecommendUserCell.h; sourceTree = "<group>"; };
 		563784C41BB8588100F84EED /* XWRecommendUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWRecommendUserCell.m; sourceTree = "<group>"; };
 		563784C51BB8588100F84EED /* XWRecommendUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWRecommendUserCell.xib; sourceTree = "<group>"; };
+		563784C81BB85CF200F84EED /* XWCategoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XWCategoryModel.h; path = "百思不得姐/Classes/FriendTrends-关注/View/XWCategoryModel.h"; sourceTree = SOURCE_ROOT; };
+		563784C91BB85CF200F84EED /* XWCategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XWCategoryModel.m; path = "百思不得姐/Classes/FriendTrends-关注/View/XWCategoryModel.m"; sourceTree = SOURCE_ROOT; };
 		56394BA41BB5285600F2637E /* XWCommentHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWCommentHeaderFooterView.h; sourceTree = "<group>"; };
 		56394BA51BB5285600F2637E /* XWCommentHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWCommentHeaderFooterView.m; sourceTree = "<group>"; };
 		563B22001BAB391700E5C650 /* XWFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWFooterView.h; sourceTree = "<group>"; };
@@ -492,6 +495,8 @@
 		56F1FDB71B96D23F00931FAB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				563784C81BB85CF200F84EED /* XWCategoryModel.h */,
+				563784C91BB85CF200F84EED /* XWCategoryModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -942,6 +947,7 @@
 				56F761DC1BB2C15B00C5AFA4 /* XWUser.m in Sources */,
 				56F1FDDF1B96D23F00931FAB /* XWSettingTableController.m in Sources */,
 				56912F811BA4686B00BFA44E /* XWPlaceholderTextView.m in Sources */,
+				563784CA1BB85CF200F84EED /* XWCategoryModel.m in Sources */,
 				567A62DA1B9E832A00C4C24A /* XWMeCell.m in Sources */,
 				56F761DF1BB2C87100C5AFA4 /* MJExtensionConfig.m in Sources */,
 				568F47A81B9B38F8003F863F /* XWRecommendCategoryCell.m in Sources */,

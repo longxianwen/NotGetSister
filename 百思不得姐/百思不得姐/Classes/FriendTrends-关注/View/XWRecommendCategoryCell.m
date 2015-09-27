@@ -7,19 +7,39 @@
 //  推荐关注--左边类别cell
 
 #import "XWRecommendCategoryCell.h"
+#import "XWCategoryModel.h"
+
+@interface XWRecommendCategoryCell ()
+@property (weak, nonatomic) IBOutlet UIView *selectedIndicator;
+
+@end
 
 @implementation XWRecommendCategoryCell
 
 - (void)awakeFromNib {
-    // Initialization code
-    
-    NSLogFunc
+    // 清除文字背景色（这样就不会挡住分割线）
+    self.textLabel.backgroundColor = [UIColor clearColor];
 }
 
+/**
+ * 这个方法可以用来监听cell的选中和取消选中
+ */
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
+    self.textLabel.textColor = selected ? [UIColor redColor] : [UIColor darkGrayColor];
+    
+    self.selectedIndicator.hidden = !selected;
+    
+}
+
+//设置数据
+- (void)setCategory:(XWCategoryModel *)category
+{
+    _category = category;
+    
+    // 设置文字
+    self.textLabel.text = category.name;
 }
 
 @end
