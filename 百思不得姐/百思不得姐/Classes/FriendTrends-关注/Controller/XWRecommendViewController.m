@@ -9,6 +9,7 @@
 
 #import "XWRecommendViewController.h"
 #import "XWRecommendCategoryCell.h"
+#import "XWRecommendUserCell.h"
 
 @interface XWRecommendViewController ()<UITableViewDataSource,UITableViewDelegate>
 /**左边类别表格*/
@@ -22,19 +23,19 @@
 @implementation XWRecommendViewController
 
 static NSString* const XWCategoryId = @"categoryCell";
+static NSString* const XWUserId = @"userCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    
-    // 控件的初始化
+    // UITableView的初始化
     [self setupControllerView];
     
     
 }
 
-#pragma mark - 控件的初始化
+#pragma mark - UITableView的初始化
 - (void)setupControllerView
 {
     //设置标题
@@ -56,9 +57,11 @@ static NSString* const XWCategoryId = @"categoryCell";
     //设置右边表格
     self.userTableView.contentInset = inset;
     self.userTableView.scrollIndicatorInsets = inset;
+    //注册右边user cell
+    [self.userTableView registerNib:[UINib nibWithNibName:NSStringFromClass([XWRecommendUserCell class]) bundle:nil] forCellReuseIdentifier:XWUserId];
 }
 
-
+#pragma mark -<UITableViewDataSource>
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if(tableView == self.categoryTableView)  //如果是左边类别表格
@@ -70,25 +73,18 @@ static NSString* const XWCategoryId = @"categoryCell";
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"test"];
-    
     //创建cell
-    if(cell == nil)
+    if(tableView == self.categoryTableView)  //左边类别cell
     {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"test"];
+        XWRecommendCategoryCell *cell = [tableView dequeueReusableCellWithIdentifier:XWCategoryId];
+        cell.textLabel.text = [NSString stringWithFormat:@"---%zd", indexPath.row];
+        return cell;
+    } else  //右边用户cell
+    {
+        XWRecommendUserCell *cell = [tableView dequeueReusableCellWithIdentifier:XWUserId];
+        cell.textLabel.text = [NSString stringWithFormat:@"---%zd", indexPath.row];
+        return cell;
     }
-    
-    if(tableView == self.categoryTableView)
-    {
-        NSString *str = [NSString stringWithFormat:@"左边%ld",indexPath.row];
-        cell.textLabel.text = str;
-    } else
-    {
-        NSString *str = [NSString stringWithFormat:@"右边%ld",indexPath.row];
-        cell.textLabel.text = str;
-    }
-    
-    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -101,6 +97,4 @@ static NSString* const XWCategoryId = @"categoryCell";
         XWLog(@"右边%ld行被点击",indexPath.row);
     }
 }
-
-
 @end

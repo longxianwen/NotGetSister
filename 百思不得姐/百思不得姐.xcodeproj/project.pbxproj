@@ -14,6 +14,8 @@
 		562CF2481B95B80900F53479 /* _____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 562CF2471B95B80900F53479 /* _____Tests.m */; };
 		5632FB831B9FCC2C009414E3 /* XWPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5632FB811B9FCC2C009414E3 /* XWPublishViewController.m */; };
 		5632FB841B9FCC2C009414E3 /* XWPublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5632FB821B9FCC2C009414E3 /* XWPublishViewController.xib */; };
+		563784C61BB8588100F84EED /* XWRecommendUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 563784C41BB8588100F84EED /* XWRecommendUserCell.m */; };
+		563784C71BB8588100F84EED /* XWRecommendUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 563784C51BB8588100F84EED /* XWRecommendUserCell.xib */; };
 		56394BA61BB5285600F2637E /* XWCommentHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 56394BA51BB5285600F2637E /* XWCommentHeaderFooterView.m */; };
 		563B22021BAB391700E5C650 /* XWFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 563B22011BAB391700E5C650 /* XWFooterView.m */; };
 		563B22061BAB3E8000E5C650 /* XWTopicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 563B22041BAB3E8000E5C650 /* XWTopicCell.m */; };
@@ -117,6 +119,9 @@
 		5632FB801B9FCC2C009414E3 /* XWPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWPublishViewController.h; sourceTree = "<group>"; };
 		5632FB811B9FCC2C009414E3 /* XWPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWPublishViewController.m; sourceTree = "<group>"; };
 		5632FB821B9FCC2C009414E3 /* XWPublishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWPublishViewController.xib; sourceTree = "<group>"; };
+		563784C31BB8588100F84EED /* XWRecommendUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWRecommendUserCell.h; sourceTree = "<group>"; };
+		563784C41BB8588100F84EED /* XWRecommendUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWRecommendUserCell.m; sourceTree = "<group>"; };
+		563784C51BB8588100F84EED /* XWRecommendUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWRecommendUserCell.xib; sourceTree = "<group>"; };
 		56394BA41BB5285600F2637E /* XWCommentHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWCommentHeaderFooterView.h; sourceTree = "<group>"; };
 		56394BA51BB5285600F2637E /* XWCommentHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWCommentHeaderFooterView.m; sourceTree = "<group>"; };
 		563B22001BAB391700E5C650 /* XWFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWFooterView.h; sourceTree = "<group>"; };
@@ -501,6 +506,9 @@
 				568F47A51B9B38F8003F863F /* XWRecommendCategoryCell.h */,
 				568F47A61B9B38F8003F863F /* XWRecommendCategoryCell.m */,
 				568F47A71B9B38F8003F863F /* XWRecommendCategoryCell.xib */,
+				563784C31BB8588100F84EED /* XWRecommendUserCell.h */,
+				563784C41BB8588100F84EED /* XWRecommendUserCell.m */,
+				563784C51BB8588100F84EED /* XWRecommendUserCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -842,6 +850,7 @@
 				5632FB841B9FCC2C009414E3 /* XWPublishViewController.xib in Resources */,
 				569B9FFB1B99DD5A00B99DAD /* XWLoginRegisterViewController.xib in Resources */,
 				568F47A41B9B2B0D003F863F /* XWRecommendViewController.xib in Resources */,
+				563784C71BB8588100F84EED /* XWRecommendUserCell.xib in Resources */,
 				56E18F051BB6AA830044564A /* XWTopicVoiceView.xib in Resources */,
 				56BD72111BB3192000392F90 /* XWTopicCommentCell.xib in Resources */,
 				56E18F011BB6AA830044564A /* XWTopicPictureView.xib in Resources */,
@@ -965,6 +974,7 @@
 				5632FB831B9FCC2C009414E3 /* XWPublishViewController.m in Sources */,
 				568F47A31B9B2B0D003F863F /* XWRecommendViewController.m in Sources */,
 				56E18EA41BB68F710044564A /* XWPictureViewController.m in Sources */,
+				563784C61BB8588100F84EED /* XWRecommendUserCell.m in Sources */,
 				56E18F001BB6AA830044564A /* XWTopicPictureView.m in Sources */,
 				569B9FFE1B99FD4800B99DAD /* XWQuickLoginButton.m in Sources */,
 				56F1FDE51B96D23F00931FAB /* XWTabBar.m in Sources */,
