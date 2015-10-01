@@ -154,12 +154,20 @@ static NSString* const XWUserId = @"userCell";
         //存储右边表格数据
         selectedCategory.usersArr = [XWUserModel objectArrayWithKeyValuesArray:responseObject[@"list"]];
         
+        //存储总数
+        selectedCategory.total = [responseObject[@"total"] integerValue];
+        
         //刷新右边表格
         [weakSelf.userTableView reloadData];
-        XWWriteToPlist(responseObject, @"users下");
+//        XWWriteToPlist(responseObject, @"users下");
         
         //结束刷新
         [weakSelf.userTableView.header endRefreshing];
+        
+        if (selectedCategory.usersArr.count >= selectedCategory.total) {
+            // 这组的所有用户数据已经加载完毕
+            weakSelf.userTableView.footer.hidden = YES;
+        }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [weakSelf.userTableView.header endRefreshing];
     }];
@@ -173,7 +181,6 @@ static NSString* const XWUserId = @"userCell";
     params[@"a"] = @"list";
     params[@"c"] = @"subscribe";
     
-    //获得左边当前选中的类别标签?
     XWCategoryModel *selectedCategory = self.categoriesArr[self.categoryTableView.indexPathForSelectedRow.row];
     // 左边选中的类别的ID
     params[@"category_id"] = selectedCategory.ID;
@@ -189,17 +196,28 @@ static NSString* const XWUserId = @"userCell";
         // 设置当前的最新页码
         selectedCategory.page = page;
         
-        XWWriteToPlist(responseObject, @"users上");
+//        XWWriteToPlist(responseObject, @"users上");
         
         NSArray *newArr = [XWUserModel objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        
+        //存储总数
+         selectedCategory.total = [responseObject[@"total"] integerValue];
         
         //在原来数据基础上追加上新数据
         [selectedCategory.usersArr addObjectsFromArray:newArr];
         
         [weakSelf.userTableView reloadData];
         
-        //结束刷新
-        [weakSelf.userTableView.footer endRefreshing];
+        if(selectedCategory.usersArr.count >= selectedCategory.total)
+        {
+            //这组数据已经加载完毕
+            self.userTableView.footer.hidden = YES;
+        } else //还有下一页数据
+        {
+            //结束刷新
+            [weakSelf.userTableView.footer endRefreshing];
+        }
+        
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [weakSelf.userTableView.footer endRefreshing];
     }];
@@ -255,7 +273,15 @@ static NSString* const XWUserId = @"userCell";
         //得到当前选中的类别
         XWCategoryModel *selectedCategory =  self.categoriesArr[indexPath.row];
         
+        // 刷新右边的用户表格 👉 →
+        // （MJRefresh的默认做法：表格有数据，就会自动显示footer，表格没有数据，就会自动隐藏footer）
         [self.userTableView reloadData];
+        
+        // 判断footer是否应该显示
+        if (selectedCategory.usersArr.count >= selectedCategory.total) {
+            // 这组的所有用户数据已经加载完毕
+            self.userTableView.footer.hidden = YES;
+        }
         
         if(selectedCategory.usersArr.count == 0)  //从未加载过用户数据
         {
