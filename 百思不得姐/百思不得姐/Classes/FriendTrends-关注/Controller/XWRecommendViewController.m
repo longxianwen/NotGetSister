@@ -29,8 +29,6 @@
 /** 左边类别数据 */
 @property (nonatomic, strong) NSArray *categoriesArr;
 
-/** 右边用户数据 */
-@property (nonatomic, strong) NSArray *usersArr;
 @end
 
 @implementation XWRecommendViewController
@@ -95,6 +93,9 @@ static NSString* const XWUserId = @"userCell";
 {
     //设置下拉刷新
     self.userTableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewUsers)];
+    
+    //设置上拉刷新
+    self.userTableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreUsers)];
 }
 
 #pragma mark - 加载右边用户数据(下拉)
@@ -118,7 +119,7 @@ static NSString* const XWUserId = @"userCell";
         
         XWWriteToPlist(responseObject, @"users");
         
-        weakSelf.usersArr = [XWUserModel objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        selectedCategory.usersArr = [XWUserModel objectArrayWithKeyValuesArray:responseObject[@"list"]];
         
         [self.userTableView reloadData];
         
@@ -127,6 +128,11 @@ static NSString* const XWUserId = @"userCell";
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         [self.userTableView.header endRefreshing];
     }];
+}
+
+- (void)loadMoreUsers
+{
+    XWLog(@"加载更多数据");
 }
 
 #pragma mark - 加载左边类别数据
@@ -168,7 +174,12 @@ static NSString* const XWUserId = @"userCell";
     {
         return self.categoriesArr.count;
     }
-    return self.usersArr.count;  //右边用户表格
+    
+    //确定左边选中类别
+    NSInteger row =  self.categoryTableView.indexPathForSelectedRow.row;
+    XWCategoryModel *category = self.categoriesArr[row];
+    
+    return category.usersArr.count;  //右边用户表格行数
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -184,8 +195,13 @@ static NSString* const XWUserId = @"userCell";
     } else  //右边用户cell
     {
         XWRecommendUserCell *cell = [tableView dequeueReusableCellWithIdentifier:XWUserId];
-       
-        cell.user = self.usersArr[indexPath.row];
+        
+        //确定左边选中类别
+        NSInteger selectedCategoryRow =  self.categoryTableView.indexPathForSelectedRow.row;
+        XWCategoryModel *category = self.categoriesArr[selectedCategoryRow];
+        
+        //设置右边用户表格数据
+        cell.user = category.usersArr[indexPath.row];
         
         return cell;
     }
