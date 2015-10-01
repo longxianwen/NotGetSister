@@ -29,6 +29,9 @@
 /** 左边类别数据 */
 @property (nonatomic, strong) NSArray *categoriesArr;
 
+/** 当前的页码 */
+@property (nonatomic, assign) NSInteger page;
+
 @end
 
 @implementation XWRecommendViewController
@@ -50,6 +53,9 @@ static NSString* const XWUserId = @"userCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    //page默认为1
+    self.page = 1;
     
     // UITableView的初始化
     [self setupControllerView];
@@ -98,43 +104,6 @@ static NSString* const XWUserId = @"userCell";
     self.userTableView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreUsers)];
 }
 
-#pragma mark - 加载右边用户数据(下拉)
-- (void)loadNewUsers
-{
-    //设置请求参数
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"a"] = @"list";
-    params[@"c"] = @"subscribe";
-
-    //获得左边当前选中的类别标签?
-    XWCategoryModel *selectedCategory = self.categoriesArr[self.categoryTableView.indexPathForSelectedRow.row];
-    // 左边选中的类别的ID
-    params[@"category_id"] = selectedCategory.ID;
-    
-//    //请求服务器获取数据
-    XWWeakSelf;
-    [self.manager GET:XWRequestURL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
-        
-        [SVProgressHUD dismiss];
-        
-        XWWriteToPlist(responseObject, @"users");
-        
-        selectedCategory.usersArr = [XWUserModel objectArrayWithKeyValuesArray:responseObject[@"list"]];
-        
-        [self.userTableView reloadData];
-        
-        //结束刷新
-        [self.userTableView.header endRefreshing];
-    } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        [self.userTableView.header endRefreshing];
-    }];
-}
-
-- (void)loadMoreUsers
-{
-    XWLog(@"加载更多数据");
-}
-
 #pragma mark - 加载左边类别数据
 - (void)loadCategories
 {
@@ -160,11 +129,82 @@ static NSString* const XWUserId = @"userCell";
         //默认选中
         [weakSelf.categoryTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
         
+        //刷新右边数据
+        [self.userTableView.header beginRefreshing];
+        
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         //如果请求失败,则关闭对话框
         [SVProgressHUD dismiss];
     }];
 }
+
+#pragma mark - 加载右边用户数据(下拉)
+- (void)loadNewUsers
+{
+    //设置请求参数
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"list";
+    params[@"c"] = @"subscribe";
+
+    //获得左边当前选中的类别标签?
+    XWCategoryModel *selectedCategory = self.categoriesArr[self.categoryTableView.indexPathForSelectedRow.row];
+    // 左边选中的类别的ID
+    params[@"category_id"] = selectedCategory.ID;
+    
+//    //请求服务器获取数据
+    XWWeakSelf;
+    [self.manager GET:XWRequestURL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
+            //存储右边表格数据
+            selectedCategory.usersArr = [XWUserModel objectArrayWithKeyValuesArray:responseObject[@"list"]];
+            
+            //刷新右边表格
+            [weakSelf.userTableView reloadData];
+        });
+        XWWriteToPlist(responseObject, @"users下");
+        
+        //结束刷新
+        [weakSelf.userTableView.header endRefreshing];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [weakSelf.userTableView.header endRefreshing];
+    }];
+}
+
+- (void)loadMoreUsers
+{
+    self.page++;
+    
+    //设置请求参数
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"list";
+    params[@"c"] = @"subscribe";
+    
+    //获得左边当前选中的类别标签?
+    XWCategoryModel *selectedCategory = self.categoriesArr[self.categoryTableView.indexPathForSelectedRow.row];
+    // 左边选中的类别的ID
+    params[@"category_id"] = selectedCategory.ID;
+    params[@"page"] = @(self.page++);
+    
+    //请求服务器获取数据
+    XWWeakSelf;
+    [self.manager GET:XWRequestURL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        XWWriteToPlist(responseObject, @"users上");
+        
+//        selectedCategory.usersArr = [XWUserModel objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        
+//        [weakSelf.userTableView reloadData];
+        
+        //结束刷新
+        [weakSelf.userTableView.footer endRefreshing];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [weakSelf.userTableView.footer endRefreshing];
+    }];
+    
+}
+
 
 #pragma mark -<UITableViewDataSource>
 //tableView参数用于区分不同的表格
@@ -211,7 +251,17 @@ static NSString* const XWUserId = @"userCell";
 {    
     if(tableView == self.categoryTableView)
     {
-        [self.userTableView.header beginRefreshing];
+        //得到当前选中的类别
+        XWCategoryModel *selectedCategory =  self.categoriesArr[indexPath.row];
+        
+        [self.userTableView reloadData];
+        
+        if(selectedCategory.usersArr.count == 0)  //从未加载过用户数据
+        {
+            //加载右边数据
+            [self.userTableView.header beginRefreshing];
+        } 
+        
     } else
     {
         XWLog(@"右边%ld行被点击",indexPath.row);
