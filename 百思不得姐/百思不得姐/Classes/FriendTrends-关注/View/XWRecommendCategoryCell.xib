@@ -6,42 +6,41 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="KGk-i7-Jjw" customClass="XWRecommendCategoryCell">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="eMo-ZG-XjZ" customClass="XWRecommendCategoryCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eMo-ZG-XjZ" id="3wY-aj-FDn">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mfF-Oq-LwQ" userLabel="分隔线">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="inO-XE-UzM" userLabel="分隔线">
                         <rect key="frame" x="0.0" y="42.5" width="320" height="1"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="1" id="h4k-i0-FEP"/>
+                            <constraint firstAttribute="height" constant="1" id="IyQ-ba-eRh"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r7S-3k-YFj" userLabel="左边类别指示器">
-                        <rect key="frame" x="0.0" y="0.0" width="5" height="42.5"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ope-vy-nUz" userLabel="右边指示器">
+                        <rect key="frame" x="0.0" y="0.0" width="3" height="42.5"/>
                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="5" id="ImH-cU-Hqd"/>
+                            <constraint firstAttribute="width" constant="3" id="5KS-bB-pLs"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="mfF-Oq-LwQ" firstAttribute="top" secondItem="r7S-3k-YFj" secondAttribute="bottom" id="1u4-uL-cVy"/>
-                    <constraint firstAttribute="bottom" secondItem="mfF-Oq-LwQ" secondAttribute="bottom" id="H6g-JW-zKQ"/>
-                    <constraint firstItem="mfF-Oq-LwQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="MfD-vj-Tck"/>
-                    <constraint firstItem="r7S-3k-YFj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="W9D-Fq-ve9"/>
-                    <constraint firstItem="r7S-3k-YFj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="fJd-A2-hJJ"/>
-                    <constraint firstAttribute="trailing" secondItem="mfF-Oq-LwQ" secondAttribute="trailing" id="wax-NZ-Zcs"/>
+                    <constraint firstItem="Ope-vy-nUz" firstAttribute="leading" secondItem="3wY-aj-FDn" secondAttribute="leading" id="5aH-NL-fNj"/>
+                    <constraint firstItem="inO-XE-UzM" firstAttribute="top" secondItem="Ope-vy-nUz" secondAttribute="bottom" id="9k5-Dt-vFC"/>
+                    <constraint firstItem="Ope-vy-nUz" firstAttribute="top" secondItem="3wY-aj-FDn" secondAttribute="top" id="TXZ-5a-Zss"/>
+                    <constraint firstAttribute="bottom" secondItem="inO-XE-UzM" secondAttribute="bottom" id="qfy-zF-oWp"/>
+                    <constraint firstItem="inO-XE-UzM" firstAttribute="leading" secondItem="3wY-aj-FDn" secondAttribute="leading" id="rpX-ra-mg8"/>
+                    <constraint firstAttribute="trailing" secondItem="inO-XE-UzM" secondAttribute="trailing" id="zZk-bg-feT"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.94191919189999995" green="0.94191919189999995" blue="0.94191919189999995" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
-                <outlet property="selectedIndicator" destination="r7S-3k-YFj" id="DGi-xW-B83"/>
+                <outlet property="selectedIndicator" destination="Ope-vy-nUz" id="QtL-7L-19v"/>
             </connections>
-            <point key="canvasLocation" x="247" y="237"/>
+            <point key="canvasLocation" x="350" y="305"/>
         </tableViewCell>
     </objects>
 </document>

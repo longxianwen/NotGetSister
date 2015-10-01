@@ -104,6 +104,9 @@ static NSString* const XWUserId = @"userCell";
         
         [self.categoryTableView reloadData];
         
+        //默认选中
+        [weakSelf.categoryTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
+        
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
     }];

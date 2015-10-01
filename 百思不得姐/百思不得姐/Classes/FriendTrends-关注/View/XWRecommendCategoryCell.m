@@ -10,6 +10,7 @@
 #import "XWCategoryModel.h"
 
 @interface XWRecommendCategoryCell ()
+/**右边竖条指示器*/
 @property (weak, nonatomic) IBOutlet UIView *selectedIndicator;
 
 @end
@@ -24,13 +25,12 @@
 /**
  * 这个方法可以用来监听cell的选中和取消选中
  */
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated
+{
     [super setSelected:selected animated:animated];
-
-    self.textLabel.textColor = selected ? [UIColor redColor] : [UIColor darkGrayColor];
     
+    self.textLabel.textColor = selected?[UIColor redColor]:[UIColor grayColor];
     self.selectedIndicator.hidden = !selected;
-    
 }
 
 //设置数据
