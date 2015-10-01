@@ -9,6 +9,13 @@
 #import "XWRecommendUserCell.h"
 #import "XWUserModel.h"
 
+@interface XWRecommendUserCell ()
+@property (weak, nonatomic) IBOutlet UIImageView *headerImageView;
+@property (weak, nonatomic) IBOutlet UILabel *screenNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *fansCountLabel;
+
+@end
+
 @implementation XWRecommendUserCell
 
 - (void)awakeFromNib {
@@ -25,9 +32,31 @@
 {
     _user = user;
     
-    self.textLabel.text = user.screen_name;
+    [self.headerImageView setHeaderImage:user.header];
     
-     XWLog(@"%@--",user.screen_name);
+    self.screenNameLabel.text = user.screen_name;
+    
+    
+    //设置粉丝数
+    NSInteger fansCount  = [user.fans_count integerValue];
+    
+    NSString *fansCountStr = nil;
+    
+    if(fansCount > 10000)
+    {
+        fansCountStr = [NSString stringWithFormat:@"%0.1f万人关注",fansCount / 10000.0];
+    } else
+    {
+        fansCountStr = [NSString stringWithFormat:@"%@人关注",user.fans_count];
+    }
+    
+    self.fansCountLabel.text = fansCountStr;
+    
+}
+
+//关注
+- (IBAction)attentionClick {
+    NSLogFunc;
 }
 
 @end

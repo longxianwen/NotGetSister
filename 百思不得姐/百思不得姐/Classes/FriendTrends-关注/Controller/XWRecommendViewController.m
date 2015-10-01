@@ -83,6 +83,7 @@ static NSString* const XWUserId = @"userCell";
     self.categoryTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     //设置右边表格
+    self.userTableView.rowHeight = 70;
     self.userTableView.contentInset = inset;
     self.userTableView.scrollIndicatorInsets = inset;
     //注册右边user cell
