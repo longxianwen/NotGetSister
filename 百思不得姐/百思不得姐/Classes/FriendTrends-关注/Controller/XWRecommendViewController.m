@@ -29,9 +29,6 @@
 /** 左边类别数据 */
 @property (nonatomic, strong) NSArray *categoriesArr;
 
-/** 当前的页码 */
-@property (nonatomic, assign) NSInteger page;
-
 @end
 
 @implementation XWRecommendViewController
@@ -53,9 +50,6 @@ static NSString* const XWUserId = @"userCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    //page默认为1
-    self.page = 1;
     
     // UITableView的初始化
     [self setupControllerView];
@@ -145,24 +139,23 @@ static NSString* const XWUserId = @"userCell";
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"a"] = @"list";
     params[@"c"] = @"subscribe";
-
-    //获得左边当前选中的类别标签?
+    
     XWCategoryModel *selectedCategory = self.categoriesArr[self.categoryTableView.indexPathForSelectedRow.row];
     // 左边选中的类别的ID
     params[@"category_id"] = selectedCategory.ID;
     
-//    //请求服务器获取数据
+    //请求服务器获取数据
     XWWeakSelf;
     [self.manager GET:XWRequestURL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            
-            //存储右边表格数据
-            selectedCategory.usersArr = [XWUserModel objectArrayWithKeyValuesArray:responseObject[@"list"]];
-            
-            //刷新右边表格
-            [weakSelf.userTableView reloadData];
-        });
+        // 重置页码为1（设置默认页码）
+        selectedCategory.page = 1;
+  
+        //存储右边表格数据
+        selectedCategory.usersArr = [XWUserModel objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        
+        //刷新右边表格
+        [weakSelf.userTableView reloadData];
         XWWriteToPlist(responseObject, @"users下");
         
         //结束刷新
@@ -174,7 +167,6 @@ static NSString* const XWUserId = @"userCell";
 
 - (void)loadMoreUsers
 {
-    self.page++;
     
     //设置请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
@@ -185,17 +177,26 @@ static NSString* const XWUserId = @"userCell";
     XWCategoryModel *selectedCategory = self.categoriesArr[self.categoryTableView.indexPathForSelectedRow.row];
     // 左边选中的类别的ID
     params[@"category_id"] = selectedCategory.ID;
-    params[@"page"] = @(self.page++);
+    
+    //设置局部变量保存下一页页码
+    NSInteger page = selectedCategory.page + 1;
+    params[@"page"] = @(page);
     
     //请求服务器获取数据
     XWWeakSelf;
     [self.manager GET:XWRequestURL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         
+        // 设置当前的最新页码
+        selectedCategory.page = page;
+        
         XWWriteToPlist(responseObject, @"users上");
         
-//        selectedCategory.usersArr = [XWUserModel objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        NSArray *newArr = [XWUserModel objectArrayWithKeyValuesArray:responseObject[@"list"]];
         
-//        [weakSelf.userTableView reloadData];
+        //在原来数据基础上追加上新数据
+        [selectedCategory.usersArr addObjectsFromArray:newArr];
+        
+        [weakSelf.userTableView reloadData];
         
         //结束刷新
         [weakSelf.userTableView.footer endRefreshing];
@@ -260,7 +261,7 @@ static NSString* const XWUserId = @"userCell";
         {
             //加载右边数据
             [self.userTableView.header beginRefreshing];
-        } 
+        }
         
     } else
     {

@@ -15,7 +15,10 @@
 /** 名字 */
 @property (nonatomic, copy) NSString *name;
 
+/** 当前的页码 */
+@property (nonatomic, assign) NSInteger page;
+
 /** 右边用户数据 */
-@property (nonatomic, strong) NSArray *usersArr;
+@property (nonatomic, strong) NSMutableArray *usersArr;
 
 @end
