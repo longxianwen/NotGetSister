@@ -113,6 +113,7 @@ static NSString* const XWUserId = @"userCell";
 }
 
 #pragma mark -<UITableViewDataSource>
+//tableView参数用于区分不同的表格
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if(tableView == self.categoryTableView)  //如果是左边类别表格
