@@ -14,6 +14,8 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 #import <MJExtension/MJExtension.h>
 #import "XWCategoryModel.h"
+#import <MJRefresh/MJRefresh.h>
+#import "XWUserModel.h"
 
 @interface XWRecommendViewController ()<UITableViewDataSource,UITableViewDelegate>
 /**左边类别表格*/
@@ -26,6 +28,9 @@
 
 /** 左边类别数据 */
 @property (nonatomic, strong) NSArray *categoriesArr;
+
+/** 右边用户数据 */
+@property (nonatomic, strong) NSArray *usersArr;
 @end
 
 @implementation XWRecommendViewController
@@ -50,6 +55,9 @@ static NSString* const XWUserId = @"userCell";
     
     // UITableView的初始化
     [self setupControllerView];
+    
+    //设置刷新
+    [self setupRefresh];
     
     //加载左边类别数据
     [self loadCategories];
@@ -82,6 +90,44 @@ static NSString* const XWUserId = @"userCell";
     self.userTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
+- (void)setupRefresh
+{
+    //设置下拉刷新
+    self.userTableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewUsers)];
+}
+
+#pragma mark - 加载右边用户数据(下拉)
+- (void)loadNewUsers
+{
+    //设置请求参数
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"a"] = @"list";
+    params[@"c"] = @"subscribe";
+
+    //获得左边当前选中的类别标签?
+    XWCategoryModel *selectedCategory = self.categoriesArr[self.categoryTableView.indexPathForSelectedRow.row];
+    // 左边选中的类别的ID
+    params[@"category_id"] = selectedCategory.ID;
+    
+//    //请求服务器获取数据
+    XWWeakSelf;
+    [self.manager GET:XWRequestURL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        [SVProgressHUD dismiss];
+        
+        XWWriteToPlist(responseObject, @"users");
+        
+        weakSelf.usersArr = [XWUserModel objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        
+        [self.userTableView reloadData];
+        
+        //结束刷新
+        [self.userTableView.header endRefreshing];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        [self.userTableView.header endRefreshing];
+    }];
+}
+
 #pragma mark - 加载左边类别数据
 - (void)loadCategories
 {
@@ -98,7 +144,7 @@ static NSString* const XWUserId = @"userCell";
     [self.manager GET:XWRequestURL parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         [SVProgressHUD dismiss];
         
-//        XWWriteToPlist(responseObject, @"catagory");
+        XWWriteToPlist(responseObject, @"catagory");
         
         weakSelf.categoriesArr = [XWCategoryModel objectArrayWithKeyValuesArray:responseObject[@"list"]];
         
@@ -108,7 +154,8 @@ static NSString* const XWUserId = @"userCell";
         [weakSelf.categoryTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
         
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
-        
+        //如果请求失败,则关闭对话框
+        [SVProgressHUD dismiss];
     }];
 }
 
@@ -120,7 +167,7 @@ static NSString* const XWUserId = @"userCell";
     {
         return self.categoriesArr.count;
     }
-    return 25;  //右边用户表格
+    return self.usersArr.count;  //右边用户表格
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -129,7 +176,6 @@ static NSString* const XWUserId = @"userCell";
     if(tableView == self.categoryTableView)  //左边类别cell
     {
         XWRecommendCategoryCell *cell = [tableView dequeueReusableCellWithIdentifier:XWCategoryId];
-        cell.textLabel.text = [NSString stringWithFormat:@"---%zd", indexPath.row];
         
         cell.category = self.categoriesArr[indexPath.row];
         
@@ -137,16 +183,18 @@ static NSString* const XWUserId = @"userCell";
     } else  //右边用户cell
     {
         XWRecommendUserCell *cell = [tableView dequeueReusableCellWithIdentifier:XWUserId];
-        cell.textLabel.text = [NSString stringWithFormat:@"---%zd", indexPath.row];
+       
+        cell.user = self.usersArr[indexPath.row];
+        
         return cell;
     }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
+{    
     if(tableView == self.categoryTableView)
     {
-        XWLog(@"左边%ld行被点击",indexPath.row);
+        [self.userTableView.header beginRefreshing];
     } else
     {
         XWLog(@"右边%ld行被点击",indexPath.row);

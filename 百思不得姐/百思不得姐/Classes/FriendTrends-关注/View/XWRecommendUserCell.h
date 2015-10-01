@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+@class XWUserModel;
 
 @interface XWRecommendUserCell : UITableViewCell
 
+/** 类别模型 */
+@property (nonatomic, strong) XWUserModel *user;
 @end
