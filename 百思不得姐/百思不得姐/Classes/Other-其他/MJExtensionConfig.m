@@ -10,7 +10,7 @@
 #import <MJExtension/MJExtension.h>
 #import "XWTopic.h"
 #import "XWComment.h"
-#import "XWCategoryModel.h"
+#import "XWRecommendCategoryModel.h"
 
 @implementation MJExtensionConfig
 
@@ -47,7 +47,7 @@
                  };
     }];
     
-    [XWCategoryModel setupReplacedKeyFromPropertyName:^NSDictionary *{
+    [XWRecommendCategoryModel setupReplacedKeyFromPropertyName:^NSDictionary *{
         return @{
                  @"ID":@"id"
                  };

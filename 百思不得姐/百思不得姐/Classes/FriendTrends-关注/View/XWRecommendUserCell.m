@@ -7,7 +7,7 @@
 //  推荐关注--右边用户cell
 
 #import "XWRecommendUserCell.h"
-#import "XWUserModel.h"
+#import "XWRecommendUserModel.h"
 
 @interface XWRecommendUserCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *headerImageView;
@@ -28,7 +28,7 @@
     // Configure the view for the selected state
 }
 
-- (void)setUser:(XWUserModel *)user
+- (void)setUser:(XWRecommendUserModel *)user
 {
     _user = user;
     

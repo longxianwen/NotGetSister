@@ -13,9 +13,9 @@
 #import <AFNetworking/AFNetworking.h>
 #import <SVProgressHUD/SVProgressHUD.h>
 #import <MJExtension/MJExtension.h>
-#import "XWCategoryModel.h"
+#import "XWRecommendCategoryModel.h"
 #import <MJRefresh/MJRefresh.h>
-#import "XWUserModel.h"
+#import "XWRecommendUserModel.h"
 
 @interface XWRecommendViewController ()<UITableViewDataSource,UITableViewDelegate>
 /**左边类别表格*/
@@ -116,7 +116,7 @@ static NSString* const XWUserId = @"userCell";
         
         XWWriteToPlist(responseObject, @"catagory");
         
-        weakSelf.categoriesArr = [XWCategoryModel objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        weakSelf.categoriesArr = [XWRecommendCategoryModel objectArrayWithKeyValuesArray:responseObject[@"list"]];
         
         [self.categoryTableView reloadData];
         
@@ -140,7 +140,7 @@ static NSString* const XWUserId = @"userCell";
     params[@"a"] = @"list";
     params[@"c"] = @"subscribe";
     
-    XWCategoryModel *selectedCategory = self.categoriesArr[self.categoryTableView.indexPathForSelectedRow.row];
+    XWRecommendCategoryModel *selectedCategory = self.categoriesArr[self.categoryTableView.indexPathForSelectedRow.row];
     // 左边选中的类别的ID
     params[@"category_id"] = selectedCategory.ID;
     
@@ -152,7 +152,7 @@ static NSString* const XWUserId = @"userCell";
         selectedCategory.page = 1;
   
         //存储右边表格数据
-        selectedCategory.usersArr = [XWUserModel objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        selectedCategory.usersArr = [XWRecommendUserModel objectArrayWithKeyValuesArray:responseObject[@"list"]];
         
         //存储总数
         selectedCategory.total = [responseObject[@"total"] integerValue];
@@ -181,7 +181,7 @@ static NSString* const XWUserId = @"userCell";
     params[@"a"] = @"list";
     params[@"c"] = @"subscribe";
     
-    XWCategoryModel *selectedCategory = self.categoriesArr[self.categoryTableView.indexPathForSelectedRow.row];
+    XWRecommendCategoryModel *selectedCategory = self.categoriesArr[self.categoryTableView.indexPathForSelectedRow.row];
     // 左边选中的类别的ID
     params[@"category_id"] = selectedCategory.ID;
     
@@ -198,7 +198,7 @@ static NSString* const XWUserId = @"userCell";
         
 //        XWWriteToPlist(responseObject, @"users上");
         
-        NSArray *newArr = [XWUserModel objectArrayWithKeyValuesArray:responseObject[@"list"]];
+        NSArray *newArr = [XWRecommendUserModel objectArrayWithKeyValuesArray:responseObject[@"list"]];
         
         //存储总数
          selectedCategory.total = [responseObject[@"total"] integerValue];
@@ -236,7 +236,7 @@ static NSString* const XWUserId = @"userCell";
     
     //确定左边选中类别
     NSInteger row =  self.categoryTableView.indexPathForSelectedRow.row;
-    XWCategoryModel *category = self.categoriesArr[row];
+    XWRecommendCategoryModel *category = self.categoriesArr[row];
     
     return category.usersArr.count;  //右边用户表格行数
 }
@@ -257,7 +257,7 @@ static NSString* const XWUserId = @"userCell";
         
         //确定左边选中类别
         NSInteger selectedCategoryRow =  self.categoryTableView.indexPathForSelectedRow.row;
-        XWCategoryModel *category = self.categoriesArr[selectedCategoryRow];
+        XWRecommendCategoryModel *category = self.categoriesArr[selectedCategoryRow];
         
         //设置右边用户表格数据
         cell.user = category.usersArr[indexPath.row];
@@ -271,7 +271,7 @@ static NSString* const XWUserId = @"userCell";
     if(tableView == self.categoryTableView)
     {
         //得到当前选中的类别
-        XWCategoryModel *selectedCategory =  self.categoriesArr[indexPath.row];
+        XWRecommendCategoryModel *selectedCategory =  self.categoriesArr[indexPath.row];
         
         // 刷新右边的用户表格 👉 →
         // （MJRefresh的默认做法：表格有数据，就会自动显示footer，表格没有数据，就会自动隐藏footer）

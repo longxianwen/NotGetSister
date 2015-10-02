@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 longxianwen. All rights reserved.
 //  推荐关注--左边类别cell模型
 
-#import "XWCategoryModel.h"
+#import "XWRecommendCategoryModel.h"
 
-@implementation XWCategoryModel
+@implementation XWRecommendCategoryModel
 
 @end

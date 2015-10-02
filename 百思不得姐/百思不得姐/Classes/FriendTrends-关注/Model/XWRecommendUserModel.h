@@ -1,5 +1,5 @@
 //
-//  XWUserModel.h
+//  XWRecommendUserModel.h
 //  百思不得姐
 //
 //  Created by longxianwen on 15/10/1.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface XWUserModel : NSObject
+@interface XWRecommendUserModel : NSObject
 
 
 /**header图片*/

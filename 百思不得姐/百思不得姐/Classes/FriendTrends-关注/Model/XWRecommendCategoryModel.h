@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface XWCategoryModel : NSObject
+@interface XWRecommendCategoryModel : NSObject
 
 /** id */
 @property (nonatomic, copy) NSString *ID;

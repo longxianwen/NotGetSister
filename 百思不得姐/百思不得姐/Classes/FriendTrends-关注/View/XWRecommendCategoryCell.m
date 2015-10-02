@@ -7,7 +7,7 @@
 //  推荐关注--左边类别cell
 
 #import "XWRecommendCategoryCell.h"
-#import "XWCategoryModel.h"
+#import "XWRecommendCategoryModel.h"
 
 @interface XWRecommendCategoryCell ()
 /**右边竖条指示器*/
@@ -34,7 +34,7 @@
 }
 
 //设置数据
-- (void)setCategory:(XWCategoryModel *)category
+- (void)setCategory:(XWRecommendCategoryModel *)category
 {
     _category = category;
     

@@ -23,8 +23,8 @@
 		5659823B1B9C2CAC000B150A /* XWRecommendTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 565982391B9C2CAC000B150A /* XWRecommendTagCell.m */; };
 		5659823C1B9C2CAC000B150A /* XWRecommendTagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5659823A1B9C2CAC000B150A /* XWRecommendTagCell.xib */; };
 		5663F1C11B9DF747009A852D /* XWConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 5663F1C01B9DF747009A852D /* XWConst.m */; };
-		567296E81BBCE7BF00F8509E /* XWCategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 567296E71BBCE7BF00F8509E /* XWCategoryModel.m */; };
-		567296EB1BBCE84000F8509E /* XWUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 567296EA1BBCE84000F8509E /* XWUserModel.m */; };
+		567296E81BBCE7BF00F8509E /* XWRecommendCategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 567296E71BBCE7BF00F8509E /* XWRecommendCategoryModel.m */; };
+		567296EB1BBCE84000F8509E /* XWRecommendUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 567296EA1BBCE84000F8509E /* XWRecommendUserModel.m */; };
 		567754461BA7AA620036ED60 /* XWTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 567754451BA7AA620036ED60 /* XWTitleButton.m */; };
 		567A62DA1B9E832A00C4C24A /* XWMeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 567A62D91B9E832A00C4C24A /* XWMeCell.m */; };
 		567A63121B9EB88100C4C24A /* XWSquareFootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 567A63111B9EB88100C4C24A /* XWSquareFootView.m */; };
@@ -137,10 +137,10 @@
 		565DD1911B960225000B0CF3 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		5663F1BF1B9DF747009A852D /* XWConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWConst.h; sourceTree = "<group>"; };
 		5663F1C01B9DF747009A852D /* XWConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWConst.m; sourceTree = "<group>"; };
-		567296E61BBCE7BF00F8509E /* XWCategoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWCategoryModel.h; sourceTree = "<group>"; };
-		567296E71BBCE7BF00F8509E /* XWCategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWCategoryModel.m; sourceTree = "<group>"; };
-		567296E91BBCE84000F8509E /* XWUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWUserModel.h; sourceTree = "<group>"; };
-		567296EA1BBCE84000F8509E /* XWUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWUserModel.m; sourceTree = "<group>"; };
+		567296E61BBCE7BF00F8509E /* XWRecommendCategoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWRecommendCategoryModel.h; sourceTree = "<group>"; };
+		567296E71BBCE7BF00F8509E /* XWRecommendCategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWRecommendCategoryModel.m; sourceTree = "<group>"; };
+		567296E91BBCE84000F8509E /* XWRecommendUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWRecommendUserModel.h; sourceTree = "<group>"; };
+		567296EA1BBCE84000F8509E /* XWRecommendUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWRecommendUserModel.m; sourceTree = "<group>"; };
 		567754441BA7AA620036ED60 /* XWTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWTitleButton.h; sourceTree = "<group>"; };
 		567754451BA7AA620036ED60 /* XWTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWTitleButton.m; sourceTree = "<group>"; };
 		567A62D81B9E832A00C4C24A /* XWMeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWMeCell.h; sourceTree = "<group>"; };
@@ -358,10 +358,10 @@
 		567296E51BBCE7BF00F8509E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				567296E61BBCE7BF00F8509E /* XWCategoryModel.h */,
-				567296E71BBCE7BF00F8509E /* XWCategoryModel.m */,
-				567296E91BBCE84000F8509E /* XWUserModel.h */,
-				567296EA1BBCE84000F8509E /* XWUserModel.m */,
+				567296E61BBCE7BF00F8509E /* XWRecommendCategoryModel.h */,
+				567296E71BBCE7BF00F8509E /* XWRecommendCategoryModel.m */,
+				567296E91BBCE84000F8509E /* XWRecommendUserModel.h */,
+				567296EA1BBCE84000F8509E /* XWRecommendUserModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -962,7 +962,7 @@
 				56E18EA71BB68F710044564A /* XWWordViewController.m in Sources */,
 				567A63231B9ED67800C4C24A /* NSString+XWExtension.m in Sources */,
 				56E18F081BB6AAFB0044564A /* XWTopicContentView.m in Sources */,
-				567296E81BBCE7BF00F8509E /* XWCategoryModel.m in Sources */,
+				567296E81BBCE7BF00F8509E /* XWRecommendCategoryModel.m in Sources */,
 				56954B511B9DA159006A82CC /* UIImage+XWExtension.m in Sources */,
 				56F1FDE21B96D23F00931FAB /* UIBarButtonItem+XWExtension.m in Sources */,
 				567A63261B9ED7B600C4C24A /* XWSquare.m in Sources */,
@@ -974,7 +974,7 @@
 				56BD72101BB3192000392F90 /* XWTopicCommentCell.m in Sources */,
 				563B22021BAB391700E5C650 /* XWFooterView.m in Sources */,
 				56861F5B1B9F12DD00EEC45C /* XWSquareWebViewController.m in Sources */,
-				567296EB1BBCE84000F8509E /* XWUserModel.m in Sources */,
+				567296EB1BBCE84000F8509E /* XWRecommendUserModel.m in Sources */,
 				56861F571B9EE39100EEC45C /* XWSquareButton.m in Sources */,
 				567A63121B9EB88100C4C24A /* XWSquareFootView.m in Sources */,
 				56954B541B9DAAEB006A82CC /* UIImageView+XWExtension.m in Sources */,
