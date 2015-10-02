@@ -18,10 +18,10 @@
 
 @implementation XWPostWordViewController
 
+#pragma  mark - 初始化控件
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     
     [self setupNav];
     
@@ -40,7 +40,7 @@
     
     self.navigationItem.rightBarButtonItem.enabled = NO;
     
-    //强制刷新
+    //强制刷新(解决导航条右边按钮设置无效情况)
     [self.navigationController.navigationBar layoutIfNeeded];
 }
 
@@ -59,6 +59,7 @@
     self.placeholderTextView = placeholderTextView;
     
     [self.view addSubview:placeholderTextView];
+    XWLog(@"%@",NSStringFromCGRect(placeholderTextView.frame));
 }
 
 #pragma mark - <UITextViewDelegate>
@@ -69,7 +70,6 @@
 
 - (void)textViewDidChange:(UITextView *)textView
 {
-    NSLogFunc;
     self.navigationItem.rightBarButtonItem.enabled = self.placeholderTextView.hasText;
 }
 

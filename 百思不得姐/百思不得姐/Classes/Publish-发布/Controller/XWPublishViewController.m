@@ -58,13 +58,12 @@
     
     self.view.userInteractionEnabled = NO;
     
-    //为xib添加按钮子控件
     [self setupButtons];
-    //为xib添加标语子控件
     [self setupSloganView];
 
 }
 
+//为xib添加按钮子控件
 - (void)setupButtons
 {
     //按钮数据
@@ -118,6 +117,7 @@
     
 }
 
+//为xib添加标语子控件
 - (void)setupSloganView
 {
     UIImageView *sloganView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"app_slogan"]];
@@ -183,6 +183,7 @@
     [self.sloganView pop_addAnimation:anim forKey:nil];
 }
 
+//发布按钮点击
 - (void)publishClick:(XWPublishButton*)button
 {
     [self exit:^{

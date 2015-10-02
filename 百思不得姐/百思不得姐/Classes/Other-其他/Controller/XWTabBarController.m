@@ -50,12 +50,11 @@
  */
 - (void)addChildViews
 {
-    
-    [self addChildViewVC:[[XWFriendTrendsController alloc]init] andTitle:@"关注" andImage:@"tabBar_friendTrends_icon" andSelectImage:@"tabBar_friendTrends_click_icon"];
-    
     [self addChildViewVC:[[XWEssenceController alloc]init] andTitle:@"精华" andImage:@"tabBar_essence_icon" andSelectImage:@"tabBar_essence_click_icon"];
     
     [self addChildViewVC:[[XWNewController alloc]init] andTitle:@"新帖" andImage:@"tabBar_new_icon" andSelectImage:@"tabBar_new_click_icon"];
+    
+    [self addChildViewVC:[[XWFriendTrendsController alloc]init] andTitle:@"关注" andImage:@"tabBar_friendTrends_icon" andSelectImage:@"tabBar_friendTrends_click_icon"];
     
     [self addChildViewVC:[[XWMeController alloc]initWithStyle:UITableViewStyleGrouped] andTitle:@"我" andImage:@"tabBar_me_icon" andSelectImage:@"tabBar_me_click_icon"];
 }
