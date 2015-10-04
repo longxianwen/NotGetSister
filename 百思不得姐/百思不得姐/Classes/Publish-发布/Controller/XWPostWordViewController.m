@@ -8,11 +8,15 @@
 
 #import "XWPostWordViewController.h"
 #import "XWPlaceholderTextView.h"
+#import "XWPostWordToolbar.h"
 
 @interface XWPostWordViewController ()<UITextViewDelegate>
 
 /**文本输入框*/
 @property (nonatomic,strong) XWPlaceholderTextView *placeholderTextView;
+
+/** 工具条 */
+@property (nonatomic, weak) XWPostWordToolbar *toolbar;
 
 @end
 
@@ -27,6 +31,11 @@
     
     [self setupTextView];
     
+    //设置底部工具条
+    [self setupBottomToolBar];
+    
+//    //立刻弹出键盘
+//    [self.placeholderTextView becomeFirstResponder];
 }
 
 //顶部导航栏相关
@@ -59,7 +68,48 @@
     self.placeholderTextView = placeholderTextView;
     
     [self.view addSubview:placeholderTextView];
-    XWLog(@"%@",NSStringFromCGRect(placeholderTextView.frame));
+}
+
+//设置底部工具条
+- (void)setupBottomToolBar
+{
+    //从xib加载自定义view
+    XWPostWordToolbar *toolBar = [XWPostWordToolbar viewFromXib];
+    
+    //设置自定义view的位置
+    toolBar.x = 0;
+    toolBar.y = self.view.height - toolBar.height;
+    toolBar.width = self.view.width;
+    [self.view addSubview:toolBar];
+    self.toolbar = toolBar;
+    
+    //监听键盘的显示或者隐藏
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
+}
+
+#pragma mark - 键盘相关
+- (void)keyboardWillChange:(NSNotification *)note
+{
+    CGFloat duration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey]doubleValue];
+    
+    [UIView animateWithDuration:duration animations:^{
+        //底部工具条平移的y值
+        CGFloat ty = [note.userInfo[UIKeyboardFrameEndUserInfoKey]CGRectValue].origin.y - XWScreenH;
+        self.toolbar.transform = CGAffineTransformMakeTranslation(0, ty);
+    }];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
+
+//控件显示完毕之后在弹出键盘
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    //立刻弹出键盘
+    [self.placeholderTextView becomeFirstResponder];
 }
 
 #pragma mark - <UITextViewDelegate>

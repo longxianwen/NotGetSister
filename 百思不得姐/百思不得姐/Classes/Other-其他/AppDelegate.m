@@ -125,7 +125,7 @@
     // 显示顶部window
     //Application windows are expected to have a root view controller at the end of application launch，可以去除这个错误
     //因为到这里程序已经显示完毕，主窗口也已经加载好了
-    [self topWindow];
+//    [self topWindow];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

@@ -53,6 +53,9 @@
 		56A0B8761BAD9F6700A277DD /* XWSeeBigPictureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56A0B8741BAD9F6700A277DD /* XWSeeBigPictureViewController.xib */; };
 		56ACCC2E1BAC0BAA000A5BF5 /* NSDate+XWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 56ACCC2D1BAC0BAA000A5BF5 /* NSDate+XWExtension.m */; };
 		56B5F4161BA33A5500C14E1D /* XWPublishButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 56B5F4151BA33A5500C14E1D /* XWPublishButton.m */; };
+		56BA76451BC12B9900EDD557 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1FDC91B96D23F00931FAB /* AppDelegate.m */; };
+		56BA76481BC131BE00EDD557 /* XWPostWordToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BA76471BC131BE00EDD557 /* XWPostWordToolbar.m */; settings = {ASSET_TAGS = (); }; };
+		56BA764A1BC133A800EDD557 /* XWPostWordToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56BA76491BC133A800EDD557 /* XWPostWordToolbar.xib */; settings = {ASSET_TAGS = (); }; };
 		56BD72101BB3192000392F90 /* XWTopicCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BD720E1BB3192000392F90 /* XWTopicCommentCell.m */; };
 		56BD72111BB3192000392F90 /* XWTopicCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56BD720F1BB3192000392F90 /* XWTopicCommentCell.xib */; };
 		56C1A8C91B9F46D700505537 /* Foundation+XWLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C1A8C81B9F46D700505537 /* Foundation+XWLog.m */; };
@@ -79,7 +82,6 @@
 		56F1FDDE1B96D23F00931FAB /* XWMeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1FDBC1B96D23F00931FAB /* XWMeController.m */; };
 		56F1FDDF1B96D23F00931FAB /* XWSettingTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1FDBE1B96D23F00931FAB /* XWSettingTableController.m */; };
 		56F1FDE01B96D23F00931FAB /* XWNewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1FDC41B96D23F00931FAB /* XWNewController.m */; };
-		56F1FDE11B96D23F00931FAB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1FDC91B96D23F00931FAB /* AppDelegate.m */; };
 		56F1FDE21B96D23F00931FAB /* UIBarButtonItem+XWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1FDCC1B96D23F00931FAB /* UIBarButtonItem+XWExtension.m */; };
 		56F1FDE31B96D23F00931FAB /* XWTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1FDCF1B96D23F00931FAB /* XWTabBarController.m */; };
 		56F1FDE51B96D23F00931FAB /* XWTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 56F1FDD51B96D23F00931FAB /* XWTabBar.m */; };
@@ -195,6 +197,9 @@
 		56B46D701BB8252900BC9E87 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		56B5F4141BA33A5500C14E1D /* XWPublishButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWPublishButton.h; sourceTree = "<group>"; };
 		56B5F4151BA33A5500C14E1D /* XWPublishButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWPublishButton.m; sourceTree = "<group>"; };
+		56BA76461BC131BE00EDD557 /* XWPostWordToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWPostWordToolbar.h; sourceTree = "<group>"; };
+		56BA76471BC131BE00EDD557 /* XWPostWordToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWPostWordToolbar.m; sourceTree = "<group>"; };
+		56BA76491BC133A800EDD557 /* XWPostWordToolbar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWPostWordToolbar.xib; sourceTree = "<group>"; };
 		56BD720D1BB3192000392F90 /* XWTopicCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWTopicCommentCell.h; sourceTree = "<group>"; };
 		56BD720E1BB3192000392F90 /* XWTopicCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWTopicCommentCell.m; sourceTree = "<group>"; };
 		56BD720F1BB3192000392F90 /* XWTopicCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWTopicCommentCell.xib; sourceTree = "<group>"; };
@@ -362,6 +367,13 @@
 				567296E71BBCE7BF00F8509E /* XWRecommendCategoryModel.m */,
 				567296E91BBCE84000F8509E /* XWRecommendUserModel.h */,
 				567296EA1BBCE84000F8509E /* XWRecommendUserModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		56B06B381BC11199008947C6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -674,7 +686,7 @@
 			isa = PBXGroup;
 			children = (
 				56F1FDD71B96D23F00931FAB /* Controller */,
-				56F1FDD81B96D23F00931FAB /* Model */,
+				56B06B381BC11199008947C6 /* Model */,
 				56F1FDD91B96D23F00931FAB /* View */,
 			);
 			path = "Publish-发布";
@@ -692,13 +704,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		56F1FDD81B96D23F00931FAB /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		56F1FDD91B96D23F00931FAB /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -706,6 +711,9 @@
 				56B5F4151BA33A5500C14E1D /* XWPublishButton.m */,
 				56912F7F1BA4686B00BFA44E /* XWPlaceholderTextView.h */,
 				56912F801BA4686B00BFA44E /* XWPlaceholderTextView.m */,
+				56BA76461BC131BE00EDD557 /* XWPostWordToolbar.h */,
+				56BA76471BC131BE00EDD557 /* XWPostWordToolbar.m */,
+				56BA76491BC133A800EDD557 /* XWPostWordToolbar.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -867,6 +875,7 @@
 				56861F5C1B9F12DD00EEC45C /* XWSquareWebViewController.xib in Resources */,
 				56A0B8761BAD9F6700A277DD /* XWSeeBigPictureViewController.xib in Resources */,
 				562CF23C1B95B80900F53479 /* LaunchScreen.xib in Resources */,
+				56BA764A1BC133A800EDD557 /* XWPostWordToolbar.xib in Resources */,
 				563B22071BAB3E8000E5C650 /* XWTopicCell.xib in Resources */,
 				56D474E31BB3010500FD9DB2 /* XWCommentViewController.xib in Resources */,
 				5659823C1B9C2CAC000B150A /* XWRecommendTagCell.xib in Resources */,
@@ -938,6 +947,7 @@
 			files = (
 				569B9FEC1B97EDD300B99DAD /* XWNavigationBar.m in Sources */,
 				569BA0041B9A01ED00B99DAD /* UIView+XWExtension.m in Sources */,
+				56BA76481BC131BE00EDD557 /* XWPostWordToolbar.m in Sources */,
 				56C1A8C91B9F46D700505537 /* Foundation+XWLog.m in Sources */,
 				56E18EA31BB68F710044564A /* XWAllViewController.m in Sources */,
 				563B22061BAB3E8000E5C650 /* XWTopicCell.m in Sources */,
@@ -979,10 +989,10 @@
 				567A63121B9EB88100C4C24A /* XWSquareFootView.m in Sources */,
 				56954B541B9DAAEB006A82CC /* UIImageView+XWExtension.m in Sources */,
 				56F1FDDE1B96D23F00931FAB /* XWMeController.m in Sources */,
-				56F1FDE11B96D23F00931FAB /* AppDelegate.m in Sources */,
 				56E18EA51BB68F710044564A /* XWVideoViewController.m in Sources */,
 				562CF22E1B95B80900F53479 /* main.m in Sources */,
 				56ACCC2E1BAC0BAA000A5BF5 /* NSDate+XWExtension.m in Sources */,
+				56BA76451BC12B9900EDD557 /* AppDelegate.m in Sources */,
 				5632FB831B9FCC2C009414E3 /* XWPublishViewController.m in Sources */,
 				568F47A31B9B2B0D003F863F /* XWRecommendViewController.m in Sources */,
 				56E18EA41BB68F710044564A /* XWPictureViewController.m in Sources */,
@@ -1145,6 +1155,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1162,6 +1173,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
