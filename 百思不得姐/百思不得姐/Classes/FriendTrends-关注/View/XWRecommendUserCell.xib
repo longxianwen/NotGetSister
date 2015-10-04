@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -10,11 +11,12 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="71"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="70.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ddV-CO-cZg" userLabel="header">
                         <rect key="frame" x="10" y="10" width="50" height="50.5"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="b2z-Y5-rqc"/>
                             <constraint firstAttribute="height" constant="50" id="v5l-3b-OSb"/>
@@ -22,18 +24,21 @@
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="screen_name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XOl-xx-Wsp">
                         <rect key="frame" x="70" y="10" width="169" height="18"/>
+                        <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8888人关注" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSn-As-pSI" userLabel="fans_count">
-                        <rect key="frame" x="68" y="41" width="74" height="17"/>
+                        <rect key="frame" x="68" y="41" width="77.5" height="17"/>
+                        <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJI-mp-7ZU">
                         <rect key="frame" x="249" y="20" width="51" height="30"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="51" id="nPk-qa-Qc6"/>
                             <constraint firstAttribute="height" constant="30" id="xQD-lR-Ui4"/>
@@ -52,12 +57,14 @@
                     </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J5M-1r-lpL" userLabel="分隔线">
                         <rect key="frame" x="0.0" y="69.5" width="320" height="1"/>
+                        <animations/>
                         <color key="backgroundColor" red="0.94191919189999995" green="0.94191919189999995" blue="0.94191919189999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="cuF-Zf-nj0"/>
                         </constraints>
                     </view>
                 </subviews>
+                <animations/>
                 <constraints>
                     <constraint firstItem="ddV-CO-cZg" firstAttribute="bottom" secondItem="PSn-As-pSI" secondAttribute="bottom" constant="2" id="2is-q3-nil"/>
                     <constraint firstAttribute="trailing" secondItem="J5M-1r-lpL" secondAttribute="trailing" id="6OW-SG-jBi"/>
@@ -73,6 +80,7 @@
                     <constraint firstAttribute="trailing" secondItem="zJI-mp-7ZU" secondAttribute="trailing" constant="20" id="xvh-fP-b5j"/>
                 </constraints>
             </tableViewCellContentView>
+            <animations/>
             <connections>
                 <outlet property="fansCountLabel" destination="PSn-As-pSI" id="eCc-gX-TbI"/>
                 <outlet property="headerImageView" destination="ddV-CO-cZg" id="Hfc-Ax-4dw"/>

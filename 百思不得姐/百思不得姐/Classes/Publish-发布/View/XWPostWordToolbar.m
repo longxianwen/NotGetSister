@@ -8,6 +8,17 @@
 
 #import "XWPostWordToolbar.h"
 
+@interface XWPostWordToolbar ()
+
+@property (weak, nonatomic) IBOutlet UIView *topView;
+
+@end
+
 @implementation XWPostWordToolbar
+
+- (void)awakeFromNib
+{
+    XWLog(@"%s",__func__);
+}
 
 @end

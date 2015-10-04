@@ -11,15 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="335" height="106"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7zq-ep-iKx" userLabel="顶部标签栏">
-                    <rect key="frame" x="0.0" y="0.0" width="335" height="60"/>
-                    <animations/>
-                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="60" id="3Wt-eR-7ue"/>
-                    </constraints>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MYV-8X-9Vr" userLabel="底部">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MYV-8X-9Vr" userLabel="底部工具栏">
                     <rect key="frame" x="0.0" y="71" width="335" height="35"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tabbar-light" translatesAutoresizingMaskIntoConstraints="NO" id="taY-ck-gTJ">
@@ -64,11 +56,8 @@
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="7zq-ep-iKx" secondAttribute="trailing" id="1Jy-fp-ifH"/>
                 <constraint firstAttribute="bottom" secondItem="MYV-8X-9Vr" secondAttribute="bottom" id="W1P-fx-Hdt"/>
                 <constraint firstAttribute="trailing" secondItem="MYV-8X-9Vr" secondAttribute="trailing" id="jky-te-BNY"/>
-                <constraint firstItem="7zq-ep-iKx" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="tew-yR-PKG"/>
-                <constraint firstItem="7zq-ep-iKx" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="uqT-uG-crv"/>
                 <constraint firstItem="MYV-8X-9Vr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="yn1-T8-H2n"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
