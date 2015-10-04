@@ -25,7 +25,13 @@
     {
         UIWindow *win = [[UIWindow alloc]init];
         win.frame = CGRectMake(0, 0, XWScreenW, 20);
-        win.rootViewController = [[UIViewController alloc]init];
+        //xcode7中有问题.. //xcode7中窗口必须要添加,根控制器。导致问题所在..
+        //添加窗口导致状态栏消失
+//        UIViewController *con = [[UIViewController alloc]init];
+//        con.view.backgroundColor = [UIColor redColor];
+//        con.view.frame = win.bounds;
+//        win.rootViewController = con;
+//        XWLog(@"%@",NSStringFromCGRect(con.view.frame));
         win.windowLevel = UIWindowLevelAlert;
         win.hidden = NO;
         win.backgroundColor = [UIColor clearColor];
