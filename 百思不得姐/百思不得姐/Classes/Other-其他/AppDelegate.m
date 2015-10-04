@@ -25,6 +25,7 @@
     {
         UIWindow *win = [[UIWindow alloc]init];
         win.frame = CGRectMake(0, 0, XWScreenW, 20);
+        win.rootViewController = [[UIViewController alloc]init];
         win.windowLevel = UIWindowLevelAlert;
         win.hidden = NO;
         win.backgroundColor = [UIColor clearColor];
