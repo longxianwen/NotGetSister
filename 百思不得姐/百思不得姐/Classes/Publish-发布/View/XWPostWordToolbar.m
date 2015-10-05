@@ -7,6 +7,8 @@
 //  发表文字页面--自定义底部工具条
 
 #import "XWPostWordToolbar.h"
+#import "XWAddTagViewController.h"
+#import "XWNavigationController.h"
 
 @interface XWPostWordToolbar ()
 
@@ -37,7 +39,15 @@
 //添加标签
 - (void)addClick
 {
-    XWLog(@"点击了...");
+    XWAddTagViewController *addTag = [[XWAddTagViewController alloc]init];
+    
+    XWNavigationController *nav = [[XWNavigationController alloc]initWithRootViewController:addTag];
+    
+    //根据源控制器拿到曾经modal出来的目标控制器(当前显示的发表文字控制器)
+    UIViewController *vc = self.window.rootViewController.presentedViewController;
+    
+    //modal出添加标签控制器。
+    [vc presentViewController:nav animated:YES completion:nil];
 }
 
 @end

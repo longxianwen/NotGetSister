@@ -4,7 +4,7 @@
 //
 //  Created by longxianwen on 15/9/12.
 //  Copyright (c) 2015年 longxianwen. All rights reserved.
-//  发段子
+//  发段子--发表文字
 
 #import "XWPostWordViewController.h"
 #import "XWPlaceholderTextView.h"
