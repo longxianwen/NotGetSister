@@ -22,6 +22,16 @@ UIKIT_EXTERN NSString * const XWRequestURL;
 UIKIT_EXTERN CGFloat const XWCommMargin;
 
 /**
+ *  统一较小的间距
+ */
+UIKIT_EXTERN CGFloat const XWCommonSmallMargin;
+
+/**
+ *  标签的高度
+ */
+UIKIT_EXTERN CGFloat const XWTagH;
+
+/**
  *  导航栏最大y值
  */
 UIKIT_EXTERN CGFloat const XWNavBarMaxY;

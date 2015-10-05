@@ -19,6 +19,7 @@
 #import "NSString+XWExtension.h"
 #import "XWConst.h"
 #import "NSDate+XWExtension.h"
+#import "UITextField+XWExtension.h"
 
 #ifdef DEBUG //开发调试阶段
 #define XWLog(FORMAT, ...) fprintf(stderr,"%s:%d\t%s\n",[[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String], __LINE__, [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);

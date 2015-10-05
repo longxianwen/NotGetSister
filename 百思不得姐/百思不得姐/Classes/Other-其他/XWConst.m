@@ -17,9 +17,14 @@ NSString * const XWRequestURL = @"http://api.budejie.com/api/api_open.php";
 // 统一的间距
 CGFloat const XWCommMargin = 10;
 
+// 统一较小的间距
+CGFloat const XWCommonSmallMargin = 5;
 
 // 导航栏最大y值
 CGFloat const XWNavBarMaxY = 64;
+
+// 标签的高度
+CGFloat const XWTagH = 25;
 
 //UITabBar的高度
 CGFloat const XWTabBarH = 49;

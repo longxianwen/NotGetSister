@@ -40,7 +40,8 @@ static NSString* const XWPlaceholderColorKey  = @"placeholderLabel.textColor";
  */
 - (BOOL)becomeFirstResponder
 {
-    [self setValue:XWPlaceholderFocusColor forKeyPath:XWPlaceholderColorKey];
+//    [self setValue:XWPlaceholderFocusColor forKeyPath:XWPlaceholderColorKey];
+    self.placeholderColor = XWPlaceholderFocusColor;
     return [super becomeFirstResponder];
 }
 
@@ -49,7 +50,8 @@ static NSString* const XWPlaceholderColorKey  = @"placeholderLabel.textColor";
  */
 - (BOOL)resignFirstResponder
 {
-    [self setValue:XWPlaceholderDefaultColor forKeyPath:XWPlaceholderColorKey];
+//    [self setValue:XWPlaceholderDefaultColor forKeyPath:XWPlaceholderColorKey];
+    self.placeholderColor = XWPlaceholderDefaultColor;
     return [super resignFirstResponder];
 }
 

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -21,9 +22,11 @@
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_register_background" translatesAutoresizingMaskIntoConstraints="NO" id="eYu-R9-XNj" userLabel="背景">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <animations/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tsm-1V-ljr" userLabel="关闭按钮">
                     <rect key="frame" x="20" y="30" width="50" height="50"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="ZTC-s1-o1s"/>
                         <constraint firstAttribute="width" constant="50" id="t4S-2j-eNU"/>
@@ -37,6 +40,7 @@
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qRH-5m-qlb">
                     <rect key="frame" x="480" y="40" width="100" height="30"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="e7a-Q1-cO2"/>
                     </constraints>
@@ -58,6 +62,7 @@
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="快速登录" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0hY-tQ-ld8">
                                     <rect key="frame" x="272" y="6" width="56" height="17"/>
+                                    <animations/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="56" id="IHC-rI-aM5"/>
                                     </constraints>
@@ -67,11 +72,14 @@
                                 </label>
                                 <imageView userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_register_left_line" translatesAutoresizingMaskIntoConstraints="NO" id="AhO-jV-DvH" userLabel="左线">
                                     <rect key="frame" x="0.0" y="0.0" width="267" height="30"/>
+                                    <animations/>
                                 </imageView>
                                 <imageView userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_register_right_line" translatesAutoresizingMaskIntoConstraints="NO" id="F2F-cC-Kj3" userLabel="右线">
                                     <rect key="frame" x="329" y="0.0" width="271" height="30"/>
+                                    <animations/>
                                 </imageView>
                             </subviews>
+                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="AhO-jV-DvH" secondAttribute="bottom" id="9WT-Tx-rkI"/>
                                 <constraint firstItem="0hY-tQ-ld8" firstAttribute="leading" secondItem="AhO-jV-DvH" secondAttribute="trailing" constant="5" id="AeF-Jf-Ful"/>
@@ -91,6 +99,7 @@
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qA-5X-9oy" userLabel="QQ登录" customClass="XWQuickLoginButton">
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="100"/>
+                                    <animations/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <state key="normal" title="QQ登录" image="login_QQ_icon">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -99,6 +108,7 @@
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rY6-O6-e7c" userLabel="QQ登录" customClass="XWQuickLoginButton">
                                     <rect key="frame" x="400" y="0.0" width="200" height="100"/>
+                                    <animations/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <state key="normal" title="腾讯微博" image="login_tecent_icon">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -107,6 +117,7 @@
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ig-dr-QWD" userLabel="QQ登录" customClass="XWQuickLoginButton">
                                     <rect key="frame" x="200" y="0.0" width="200" height="100"/>
+                                    <animations/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <state key="normal" title="微博登录" image="login_sina_icon">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -114,6 +125,7 @@
                                     <state key="highlighted" image="login_sina_icon_click"/>
                                 </button>
                             </subviews>
+                            <animations/>
                             <constraints>
                                 <constraint firstItem="8Ig-dr-QWD" firstAttribute="leading" secondItem="6qA-5X-9oy" secondAttribute="trailing" id="3Pl-uc-Q9A"/>
                                 <constraint firstItem="rY6-O6-e7c" firstAttribute="leading" secondItem="8Ig-dr-QWD" secondAttribute="trailing" id="5fX-sM-ECE"/>
@@ -131,6 +143,7 @@
                             </constraints>
                         </view>
                     </subviews>
+                    <animations/>
                     <constraints>
                         <constraint firstItem="fVO-zF-Gpy" firstAttribute="leading" secondItem="pan-39-DFE" secondAttribute="leading" id="HnR-JQ-zRb"/>
                         <constraint firstItem="Hrj-6u-Pxc" firstAttribute="leading" secondItem="pan-39-DFE" secondAttribute="leading" id="Q9h-b6-mGu"/>
@@ -149,18 +162,22 @@
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_rgister_textfield_bg" translatesAutoresizingMaskIntoConstraints="NO" id="A2u-zI-s3i" userLabel="背景图片">
                                     <rect key="frame" x="0.0" y="0.0" width="266" height="92"/>
+                                    <animations/>
                                 </imageView>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="e27-Xx-RyM" userLabel="手机号" customClass="XWLoginRegisterTextField">
                                     <rect key="frame" x="10" y="0.0" width="256" height="46"/>
+                                    <animations/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 </textField>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="hNw-Wt-oRv" userLabel="密码" customClass="XWLoginRegisterTextField">
                                     <rect key="frame" x="10" y="46" width="256" height="46"/>
+                                    <animations/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 </textField>
                             </subviews>
+                            <animations/>
                             <constraints>
                                 <constraint firstItem="A2u-zI-s3i" firstAttribute="leading" secondItem="74x-bZ-uYE" secondAttribute="leading" id="0nL-ct-I0y"/>
                                 <constraint firstAttribute="trailing" secondItem="hNw-Wt-oRv" secondAttribute="trailing" id="428-dc-Sac"/>
@@ -180,6 +197,7 @@
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxk-Hx-k9B">
                             <rect key="frame" x="167" y="107" width="266" height="35"/>
+                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="35" id="gOD-kt-dQv"/>
                             </constraints>
@@ -199,14 +217,16 @@
                                 <action selector="login:" destination="-1" eventType="touchUpInside" id="U0i-GA-wf5"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D7P-RB-pIj">
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D7P-RB-pIj">
                             <rect key="frame" x="364" y="157" width="69" height="30"/>
+                            <animations/>
                             <state key="normal" title="忘记密码?">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
                     </subviews>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="200" id="2Ci-Dt-i7n"/>
                         <constraint firstAttribute="centerX" secondItem="hxk-Hx-k9B" secondAttribute="centerX" id="5KZ-77-6YE"/>
@@ -226,18 +246,22 @@
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login_rgister_textfield_bg" translatesAutoresizingMaskIntoConstraints="NO" id="mAN-Z4-4wF" userLabel="背景图片">
                                     <rect key="frame" x="0.0" y="0.0" width="266" height="92"/>
+                                    <animations/>
                                 </imageView>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="2IJ-Jj-0w8" userLabel="手机号" customClass="XWTextField">
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="2IJ-Jj-0w8" userLabel="手机号" customClass="XWLoginRegisterTextField">
                                     <rect key="frame" x="10" y="0.0" width="256" height="46"/>
+                                    <animations/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 </textField>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="设置密码" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="mGd-qU-w8O" userLabel="密码" customClass="XWTextField">
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="设置密码" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="mGd-qU-w8O" userLabel="密码" customClass="XWLoginRegisterTextField">
                                     <rect key="frame" x="10" y="46" width="256" height="46"/>
+                                    <animations/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 </textField>
                             </subviews>
+                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="mAN-Z4-4wF" secondAttribute="trailing" id="4hZ-j9-NIb"/>
                                 <constraint firstItem="mGd-qU-w8O" firstAttribute="top" secondItem="2IJ-Jj-0w8" secondAttribute="bottom" id="6b4-n3-BB0"/>
@@ -257,6 +281,7 @@
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EHY-Lh-vDW">
                             <rect key="frame" x="167" y="107" width="266" height="35"/>
+                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="35" id="DRq-Wx-trD"/>
                             </constraints>
@@ -277,6 +302,7 @@
                             </connections>
                         </button>
                     </subviews>
+                    <animations/>
                     <constraints>
                         <constraint firstItem="EHY-Lh-vDW" firstAttribute="top" secondItem="kdw-0r-dlU" secondAttribute="bottom" constant="15" id="H8S-Zn-NUm"/>
                         <constraint firstItem="kdw-0r-dlU" firstAttribute="top" secondItem="b46-LS-44L" secondAttribute="top" id="IFo-qM-thM"/>
@@ -287,6 +313,7 @@
                     </constraints>
                 </view>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="eYu-R9-XNj" secondAttribute="bottom" id="0vG-2h-iyu"/>

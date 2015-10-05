@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -10,10 +11,12 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eMo-ZG-XjZ" id="3wY-aj-FDn">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="inO-XE-UzM" userLabel="分隔线">
                         <rect key="frame" x="0.0" y="42.5" width="320" height="1"/>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="IyQ-ba-eRh"/>
@@ -21,12 +24,14 @@
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ope-vy-nUz" userLabel="右边指示器">
                         <rect key="frame" x="0.0" y="0.0" width="3" height="42.5"/>
+                        <animations/>
                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="3" id="5KS-bB-pLs"/>
                         </constraints>
                     </view>
                 </subviews>
+                <animations/>
                 <constraints>
                     <constraint firstItem="Ope-vy-nUz" firstAttribute="leading" secondItem="3wY-aj-FDn" secondAttribute="leading" id="5aH-NL-fNj"/>
                     <constraint firstItem="inO-XE-UzM" firstAttribute="top" secondItem="Ope-vy-nUz" secondAttribute="bottom" id="9k5-Dt-vFC"/>
@@ -36,6 +41,7 @@
                     <constraint firstAttribute="trailing" secondItem="inO-XE-UzM" secondAttribute="trailing" id="zZk-bg-feT"/>
                 </constraints>
             </tableViewCellContentView>
+            <animations/>
             <color key="backgroundColor" red="0.94191919189999995" green="0.94191919189999995" blue="0.94191919189999995" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="selectedIndicator" destination="Ope-vy-nUz" id="QtL-7L-19v"/>

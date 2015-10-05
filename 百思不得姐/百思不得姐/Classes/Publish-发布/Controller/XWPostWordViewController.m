@@ -13,7 +13,7 @@
 @interface XWPostWordViewController ()<UITextViewDelegate>
 
 /**文本输入框*/
-@property (nonatomic,strong) XWPlaceholderTextView *placeholderTextView;
+@property (nonatomic,strong) XWPlaceholderTextView *textView;
 
 /** 工具条 */
 @property (nonatomic, weak) XWPostWordToolbar *toolbar;
@@ -35,7 +35,7 @@
     [self setupBottomToolBar];
     
 //    //立刻弹出键盘
-//    [self.placeholderTextView becomeFirstResponder];
+//    [self.textView becomeFirstResponder];
 }
 
 //顶部导航栏相关
@@ -56,18 +56,18 @@
 //设置文本输入框
 - (void)setupTextView
 {
-    XWPlaceholderTextView *placeholderTextView = [[XWPlaceholderTextView alloc]init];
+    XWPlaceholderTextView *textView = [[XWPlaceholderTextView alloc]init];
     
-    placeholderTextView.frame = self.view.bounds;
+    textView.frame = self.view.bounds;
     //默认占位文字
-    placeholderTextView.placeholder = @"把好玩的图片，好笑的段子或糗事发到这里，接受千万网友膜拜吧！发布违反国家法律内容的，我们将依法提交给有关部门处理。";
+    textView.placeholder = @"把好玩的图片，好笑的段子或糗事发到这里，接受千万网友膜拜吧！发布违反国家法律内容的，我们将依法提交给有关部门处理。";
     //使一个控件可以竖直方向可以拖拽
-    placeholderTextView.alwaysBounceVertical = YES;
-    placeholderTextView.delegate = self;
+    textView.alwaysBounceVertical = YES;
+    textView.delegate = self;
     
-    self.placeholderTextView = placeholderTextView;
+    self.textView = textView;
     
-    [self.view addSubview:placeholderTextView];
+    [self.view addSubview:textView];
 }
 
 //设置底部工具条
@@ -109,7 +109,7 @@
 {
     [super viewDidAppear:animated];
     //立刻弹出键盘
-    [self.placeholderTextView becomeFirstResponder];
+    [self.textView becomeFirstResponder];
 }
 
 #pragma mark - <UITextViewDelegate>
@@ -120,7 +120,7 @@
 
 - (void)textViewDidChange:(UITextView *)textView
 {
-    self.navigationItem.rightBarButtonItem.enabled = self.placeholderTextView.hasText;
+    self.navigationItem.rightBarButtonItem.enabled = self.textView.hasText;
 }
 
 #pragma mark - 导航条内容点击
@@ -132,6 +132,7 @@
 - (void)cancel
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+    [self.textView resignFirstResponder];
 }
 
 @end

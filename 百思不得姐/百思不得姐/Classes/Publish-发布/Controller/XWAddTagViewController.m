@@ -10,28 +10,67 @@
 
 @interface XWAddTagViewController ()
 
+
+/**文本输入框*/
+@property (nonatomic,strong) UITextField *textField;
+
 @end
 
 @implementation XWAddTagViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    //设置背景色
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    [self setupNav];
+    
+    //设置文本输入框
+    [self setupTextField];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)setupNav
+{
+    self.title = @"添加标签";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleDone target:self action:@selector(cancel)];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStyleDone target:self action:@selector(done)];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)setupTextField
+{
+    UITextField *textField = [[UITextField alloc]init];
+    textField.x = XWCommonSmallMargin;
+    textField.width = self.view.width - 2 * textField.x;
+    textField.height = XWTagH;
+    textField.y = XWNavBarMaxY + XWCommonSmallMargin;
+    
+    textField.font = [UIFont systemFontOfSize:15];
+    
+    textField.placeholderColor = [UIColor grayColor];
+    
+    textField.placeholder = @"多个标签用逗号或者换行隔开";
+    self.textField = textField;
+    
+    [self.view addSubview:textField];
 }
-*/
+
+- (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    //弹出键盘
+    [self.textField becomeFirstResponder];
+}
+
+- (void)cancel
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.textField resignFirstResponder];
+}
+
+- (void)done
+{
+    //添加标签
+}
 
 @end
