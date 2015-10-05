@@ -36,6 +36,9 @@
 #define XWCommColor(v)  XWColor((v),(v),(v))
 #define XWGlobalBg XWCommColor(240)
 
+// 标签的背景颜色
+#define XWTagBgColor XWColor(70, 142, 243)
+
 //随机颜色--测试
 #define XWRandomColor [UIColor colorWithRed:arc4random_uniform(255) / 255.0 green:arc4random_uniform(255) / 255.0 blue:arc4random_uniform(255) / 255.0 alpha:1]
 
