@@ -71,6 +71,7 @@
 - (void)done
 {
     //添加标签
+    NSLogFunc;
 }
 
 @end

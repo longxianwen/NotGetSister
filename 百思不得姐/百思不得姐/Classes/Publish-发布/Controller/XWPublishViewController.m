@@ -203,10 +203,6 @@
                 //modal发段子控制器
                 XWPostWordViewController *pustWord = [[XWPostWordViewController alloc]init];
                 
-                //不能用一个已经死了的控制器或者dismiss的控制器(不在窗口上)来弹出其他控制器
-                //Warning: Attempt to present <XWNavigationController: 0x7fafe43721b0> on <XWPublishViewController: 0x7fafe40f07c0> whose view is not in the window hierarchy!
-                //                [self presentViewController:[[XWNavigationController alloc]initWithRootViewController:pustWord] animated:YES completion:nil];
-//                XWLog(@"%@---%@",self,self.view.window.rootViewController);
                 [self.view.window.rootViewController presentViewController:[[XWNavigationController alloc]initWithRootViewController:pustWord] animated:YES completion:nil];
                 break;
             }

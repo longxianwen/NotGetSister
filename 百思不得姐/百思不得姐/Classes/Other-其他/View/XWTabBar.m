@@ -8,7 +8,7 @@
 
 #import "XWTabBar.h"
 #import "XWPublishViewController.h"
-#import "XWPostWordViewController.h"
+#import "XWAddTagViewController.h"
 #import "XWNavigationController.h"
 
 @interface XWTabBar ()
@@ -45,12 +45,14 @@
 - (void)publishClick
 {
 //    XWPublishViewController *publish = [[XWPublishViewController alloc]init];
+//    
+//    [self.window.rootViewController presentViewController:publish animated:YES completion:nil];
     
-//    [self.window.rootViewController presentViewController:pustWord animated:YES completion:nil];
+    XWAddTagViewController *addTag = [[XWAddTagViewController alloc]init];
     
-    XWPostWordViewController *pustWord = [[XWPostWordViewController alloc]init];
-    
-    [self.window.rootViewController presentViewController:[[XWNavigationController alloc]initWithRootViewController:pustWord] animated:YES completion:nil];
+    XWNavigationController *nav = [[XWNavigationController alloc]initWithRootViewController:addTag];
+//    
+    [self.window.rootViewController presentViewController:nav animated:YES completion:nil];
 }
 
 - (void)layoutSubviews

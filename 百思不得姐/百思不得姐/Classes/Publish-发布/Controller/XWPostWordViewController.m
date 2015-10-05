@@ -27,15 +27,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    //设置背景颜色
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     [self setupNav];
     
     [self setupTextView];
     
     //设置底部工具条
     [self setupBottomToolBar];
-    
-//    //立刻弹出键盘
-//    [self.textView becomeFirstResponder];
 }
 
 //顶部导航栏相关
