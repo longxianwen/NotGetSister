@@ -60,6 +60,7 @@
 		56BD72111BB3192000392F90 /* XWTopicCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56BD720F1BB3192000392F90 /* XWTopicCommentCell.xib */; };
 		56BF50431BC238FA00CACC83 /* XWAddTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BF50421BC238FA00CACC83 /* XWAddTagViewController.m */; settings = {ASSET_TAGS = (); }; };
 		56BF50461BC257E600CACC83 /* UITextField+XWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BF50451BC257E600CACC83 /* UITextField+XWExtension.m */; settings = {ASSET_TAGS = (); }; };
+		56BF506C1BC2E0EE00CACC83 /* XWTagButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BF506B1BC2E0EE00CACC83 /* XWTagButton.m */; settings = {ASSET_TAGS = (); }; };
 		56C1A8C91B9F46D700505537 /* Foundation+XWLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C1A8C81B9F46D700505537 /* Foundation+XWLog.m */; };
 		56CE82D51BA9C0F200A8A427 /* XWTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CE82D41BA9C0F200A8A427 /* XWTopic.m */; };
 		56CF7BFA1B9C5D8100C55818 /* XWRecommendTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CF7BF91B9C5D8100C55818 /* XWRecommendTag.m */; };
@@ -209,6 +210,8 @@
 		56BF50421BC238FA00CACC83 /* XWAddTagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWAddTagViewController.m; sourceTree = "<group>"; };
 		56BF50441BC257E600CACC83 /* UITextField+XWExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+XWExtension.h"; sourceTree = "<group>"; };
 		56BF50451BC257E600CACC83 /* UITextField+XWExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+XWExtension.m"; sourceTree = "<group>"; };
+		56BF506A1BC2E0EE00CACC83 /* XWTagButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWTagButton.h; sourceTree = "<group>"; };
+		56BF506B1BC2E0EE00CACC83 /* XWTagButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWTagButton.m; sourceTree = "<group>"; };
 		56C1A8C81B9F46D700505537 /* Foundation+XWLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+XWLog.m"; sourceTree = "<group>"; };
 		56CE82D31BA9C0F200A8A427 /* XWTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWTopic.h; sourceTree = "<group>"; };
 		56CE82D41BA9C0F200A8A427 /* XWTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWTopic.m; sourceTree = "<group>"; };
@@ -724,6 +727,8 @@
 				56BA76461BC131BE00EDD557 /* XWPostWordToolbar.h */,
 				56BA76471BC131BE00EDD557 /* XWPostWordToolbar.m */,
 				56BA76491BC133A800EDD557 /* XWPostWordToolbar.xib */,
+				56BF506A1BC2E0EE00CACC83 /* XWTagButton.h */,
+				56BF506B1BC2E0EE00CACC83 /* XWTagButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1009,6 +1014,7 @@
 				568F47A31B9B2B0D003F863F /* XWRecommendViewController.m in Sources */,
 				56E18EA41BB68F710044564A /* XWPictureViewController.m in Sources */,
 				563784C61BB8588100F84EED /* XWRecommendUserCell.m in Sources */,
+				56BF506C1BC2E0EE00CACC83 /* XWTagButton.m in Sources */,
 				56E18F001BB6AA830044564A /* XWTopicPictureView.m in Sources */,
 				569B9FFE1B99FD4800B99DAD /* XWQuickLoginButton.m in Sources */,
 				56F1FDE51B96D23F00931FAB /* XWTabBar.m in Sources */,

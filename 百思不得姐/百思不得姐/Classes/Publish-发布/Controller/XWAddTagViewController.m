@@ -7,6 +7,7 @@
 //  添加标签
 
 #import "XWAddTagViewController.h"
+#import "XWTagButton.h"
 
 @interface XWAddTagViewController ()
 
@@ -19,9 +20,20 @@
 /** 提醒按钮 */
 @property (nonatomic, weak) UIButton *tipButton;
 
+/** 存放所有的标签按钮 */
+@property (nonatomic, strong) NSMutableArray *tagButtons;
+
 @end
 
 @implementation XWAddTagViewController
+
+- (NSMutableArray *)tagButtons
+{
+    if (!_tagButtons) {
+        _tagButtons = [NSMutableArray array];
+    }
+    return _tagButtons;
+}
 
 - (UIButton *)tipButton
 {
@@ -90,8 +102,7 @@
 - (void)setupTextField
 {
     UITextField *textField = [[UITextField alloc]init];
-    textField.x = XWCommonSmallMargin;
-    textField.width = self.contentView.width - XWCommonSmallMargin;
+    textField.width = self.contentView.width;
     textField.height = XWTagH;
     textField.backgroundColor = [UIColor greenColor];
     textField.font = [UIFont systemFontOfSize:15];
@@ -111,12 +122,13 @@
     [self.textField becomeFirstResponder];
 }
 
+#pragma mark - 标签提示
 - (void)textDidChange
 {
     if(self.textField.hasText)
     {
         self.tipButton.hidden = NO;
-       //添加标签按钮提示
+        //添加标签按钮提示
         self.tipButton.y = CGRectGetMaxY(self.textField.frame) + XWCommonSmallMargin;
         
         [self.tipButton setTitle:[NSString stringWithFormat:@"添加标签：%@", self.textField.text] forState:UIControlStateNormal];
@@ -126,9 +138,48 @@
     }
 }
 
+#pragma mark - 添加标签
 - (void)tipClick
 {
-    NSLogFunc;
+    //创建一个标签按钮
+    XWTagButton *newTagButton = [XWTagButton buttonWithType:UIButtonTypeCustom];
+    [newTagButton setTitle:self.textField.text forState:UIControlStateNormal];
+    [self.contentView addSubview:newTagButton];
+    
+    //设置按钮位置
+    UIButton *lastTagButton = self.tagButtons.lastObject;
+    
+    if(lastTagButton)
+    {
+        // 左边的总宽度
+        CGFloat leftWidth = CGRectGetMaxX(lastTagButton.frame) + XWCommonSmallMargin;
+        CGFloat rightWidth = self.contentView.width - leftWidth;
+        
+        if(rightWidth >= newTagButton.width)  //添加到本行的其他标签按钮的后面
+        {
+            newTagButton.x = leftWidth;
+            newTagButton.y = lastTagButton.y;
+        } else  //换行
+        {
+            newTagButton.x = 0;
+            newTagButton.y = CGRectGetMaxY(lastTagButton.frame) + XWCommonSmallMargin;
+        }
+    } else
+    {
+        newTagButton.x = 0;
+        newTagButton.y = 0;
+    }
+    
+    //添加标签按钮到数组
+    [self.tagButtons addObject:newTagButton];
+    
+    //设置文本框
+    self.textField.x = CGRectGetMaxX(newTagButton.frame) + XWCommonSmallMargin;
+    self.textField.y = newTagButton.y;
+    self.textField.text = nil;
+    
+    //隐藏标签提示
+    self.tipButton.hidden = YES;
 }
 
 #pragma mark - 导航栏点击
