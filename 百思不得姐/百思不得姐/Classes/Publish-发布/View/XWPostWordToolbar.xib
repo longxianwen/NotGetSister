@@ -8,14 +8,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="XWPostWordToolbar"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="XWPostWordToolbar">
-            <rect key="frame" x="0.0" y="0.0" width="335" height="116"/>
+            <rect key="frame" x="0.0" y="0.0" width="177" height="108"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MYV-8X-9Vr" userLabel="底部工具栏">
-                    <rect key="frame" x="0.0" y="81" width="335" height="35"/>
+                    <rect key="frame" x="0.0" y="73" width="177" height="35"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tabbar-light" translatesAutoresizingMaskIntoConstraints="NO" id="taY-ck-gTJ">
-                            <rect key="frame" x="0.0" y="0.0" width="335" height="35"/>
+                            <rect key="frame" x="0.0" y="0.0" width="177" height="35"/>
                             <animations/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="raR-EG-eLl" userLabel="@">
@@ -53,7 +53,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o9m-LB-AdQ" userLabel="顶部标签栏">
-                    <rect key="frame" x="0.0" y="0.0" width="335" height="60"/>
+                    <rect key="frame" x="0.0" y="0.0" width="177" height="60"/>
                     <animations/>
                     <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -78,7 +78,7 @@
                 <outlet property="topView" destination="o9m-LB-AdQ" id="dOZ-Zo-VZ5"/>
                 <outlet property="topViewHeight" destination="z5W-lr-ysD" id="bXC-AW-lYu"/>
             </connections>
-            <point key="canvasLocation" x="218.5" y="117"/>
+            <point key="canvasLocation" x="139.5" y="113"/>
         </view>
     </objects>
     <resources>

@@ -37,6 +37,7 @@
 
 - (void)awakeFromNib
 {
+    NSLogFunc;
     //添加标签按钮
     UIButton *addbutton = [UIButton buttonWithType:UIButtonTypeCustom];
     
@@ -52,6 +53,9 @@
     self.addButton = addbutton;
     
     [self.topView addSubview:addbutton];
+    
+    // 默认传递2个标签
+    [self createTagLabels:@[@"吐槽", @"糗事"]];
 }
 
 
@@ -82,6 +86,7 @@
 //添加标签到顶部标签栏
 - (void)createTagLabels:(NSArray *)tagTitles
 {
+    NSLogFunc;
     //删除以前所有的标签
     [self.tagLabels removeAllObjects];
     
@@ -100,33 +105,48 @@
         newTagLabel.height = XWTagH;
         newTagLabel.width += 2 * XWCommonSmallMargin;
         
-        //设置位置
-        UILabel *lastLabel = self.tagLabels.lastObject;
-        // 左边的总宽度
-        CGFloat leftWidth = CGRectGetMaxX(lastLabel.frame) + XWCommonSmallMargin;
-        CGFloat rightWidth = self.topView.width - leftWidth;
-        
-        if(lastLabel) //不是第一个标签
-        {
-            if(rightWidth >= newTagLabel.width)  //添加到本行的其他标签按钮的后面
-            {
-                newTagLabel.x = leftWidth;
-                newTagLabel.y = lastLabel.y;
-            } else  //换行
-            {
-                newTagLabel.x = 0;
-                newTagLabel.y = CGRectGetMaxY(lastLabel.frame) + XWCommonSmallMargin;
-            }
-        } else //第一个标签
-        {
-            newTagLabel.x = 0;
-            newTagLabel.y = 0;
-        }
-        
         [self.topView addSubview:newTagLabel];
         
         //添加标签按钮到数组
         [self.tagLabels addObject:newTagLabel];
+        
+        // 重新布局子控件
+        [self setNeedsLayout];
+    }
+}
+
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    
+    NSLogFunc;
+    
+    //计算位置
+    for (int i = 0 ; i < self.tagLabels.count; i++) {
+        
+        // 创建label
+        UILabel *newTagLabel = self.tagLabels[i];
+        
+        if(i == 0)
+        {
+            newTagLabel.x = 0;
+            newTagLabel.y = 0;
+        } else
+        {
+            UILabel *previousTagLabel = self.tagLabels[i - 1];
+            // 左边的总宽度
+            CGFloat leftWidth = CGRectGetMaxX(previousTagLabel.frame) + XWCommonSmallMargin;
+            CGFloat rightWidth = self.topView.width - leftWidth;
+            
+            if(rightWidth >= newTagLabel.width)  //添加到本行的其他标签按钮的后面
+            {
+                newTagLabel.x = leftWidth;
+                newTagLabel.y = previousTagLabel.y;
+            } else  //换行
+            {
+                newTagLabel.x = 0;
+                newTagLabel.y = CGRectGetMaxY(previousTagLabel.frame) + XWCommonSmallMargin;
+            }
+        }
     }
     
     //设置+号按钮位置
@@ -150,7 +170,6 @@
     CGFloat oldHeight = self.height;
     self.height = self.topViewHeight.constant + self.bottomView.height + XWCommonSmallMargin;
     self.y += oldHeight - self.height;
-    
 }
 
 @end

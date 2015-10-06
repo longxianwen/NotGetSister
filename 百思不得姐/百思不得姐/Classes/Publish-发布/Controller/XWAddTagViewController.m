@@ -141,7 +141,8 @@
     textField.deleteBackwardOperation = ^
     {
         //判断有没有文字,有文字就不删出标签
-        if(weakSelf.textField.hasText) return ;
+        //如果没有标签按钮，也不删除标签
+        if(weakSelf.textField.hasText || weakSelf.tagButtons.count == 0) return ;
         
         [weakSelf tagClick:weakSelf.tagButtons.lastObject];
     };
@@ -246,17 +247,24 @@
     textW = MAX(100, textW);
     
     XWTagButton *lastTagButton = self.tagButtons.lastObject;
-    CGFloat leftWidth = CGRectGetMaxX(lastTagButton.frame) + XWCommonSmallMargin;
-    CGFloat rightWidth = self.contentView.width - leftWidth;
-    
-    if(rightWidth >= textW )
-    {
-        self.textField.x = leftWidth;
-        self.textField.y = lastTagButton.y;
-    } else
+    if(lastTagButton == nil)
     {
         self.textField.x = 0;
-        self.textField.y = CGRectGetMaxY(lastTagButton.frame) + XWCommonSmallMargin;
+        self.textField.y = 0;
+    } else
+    {
+        CGFloat leftWidth = CGRectGetMaxX(lastTagButton.frame) + XWCommonSmallMargin;
+        CGFloat rightWidth = self.contentView.width - leftWidth;
+        
+        if(rightWidth >= textW )
+        {
+            self.textField.x = leftWidth;
+            self.textField.y = lastTagButton.y;
+        } else
+        {
+            self.textField.x = 0;
+            self.textField.y = CGRectGetMaxY(lastTagButton.frame) + XWCommonSmallMargin;
+        }
     }
     
     //标签提示按钮位置
