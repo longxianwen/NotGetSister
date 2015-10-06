@@ -109,7 +109,7 @@
     contentView.y = XWNavBarMaxY + XWCommonSmallMargin;
     contentView.width = self.view.width - 2 * contentView.x;
     contentView.height = self.view.height;
-    contentView.backgroundColor = [UIColor grayColor];
+//    contentView.backgroundColor = [UIColor grayColor];
     
     self.contentView = contentView;
     [self.view addSubview:contentView];
@@ -120,7 +120,7 @@
     XWTagTextField *textField = [[XWTagTextField alloc]init];
     textField.width = self.contentView.width;
     textField.height = XWTagH;
-    textField.backgroundColor = [UIColor greenColor];
+//    textField.backgroundColor = [UIColor greenColor];
     textField.font = [UIFont systemFontOfSize:15];
     textField.placeholderColor = [UIColor grayColor];
     textField.placeholder = @"多个标签用逗号或者换行隔开";

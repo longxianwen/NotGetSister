@@ -13,6 +13,8 @@
 @interface XWPostWordToolbar ()
 
 @property (weak, nonatomic) IBOutlet UIView *topView;
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewHeight;
 
 /**保存标签*/
 @property (nonatomic,strong) NSMutableArray *tagLabels;
@@ -86,13 +88,19 @@
     for (NSString *text in tagTitles) {
         UILabel *newTagLabel = [[UILabel alloc]init];
         newTagLabel.backgroundColor = XWTagBgColor;
+        newTagLabel.font = [UIFont systemFontOfSize:14];
+        newTagLabel.textColor = [UIColor whiteColor];
+        newTagLabel.textAlignment = NSTextAlignmentCenter;
         newTagLabel.text = text;
+        
+        //设置尺寸
         [newTagLabel sizeToFit];
         
         //微调高度
-        newTagLabel.height = self.addButton.height;
+        newTagLabel.height = XWTagH;
+        newTagLabel.width += 2 * XWCommonSmallMargin;
         
-        //设置frame
+        //设置位置
         UILabel *lastLabel = self.tagLabels.lastObject;
         // 左边的总宽度
         CGFloat leftWidth = CGRectGetMaxX(lastLabel.frame) + XWCommonSmallMargin;
@@ -106,13 +114,13 @@
                 newTagLabel.y = lastLabel.y;
             } else  //换行
             {
-                newTagLabel.x = XWCommonSmallMargin;
+                newTagLabel.x = 0;
                 newTagLabel.y = CGRectGetMaxY(lastLabel.frame) + XWCommonSmallMargin;
             }
         } else //第一个标签
         {
-            newTagLabel.x = XWCommonSmallMargin;
-            newTagLabel.y = XWCommonSmallMargin;
+            newTagLabel.x = 0;
+            newTagLabel.y = 0;
         }
         
         [self.topView addSubview:newTagLabel];
@@ -137,7 +145,12 @@
         self.addButton.y = CGRectGetMaxY(lastLabel.frame) + XWCommonSmallMargin;
     }
     
-
+    //计算工具条的高度
+    self.topViewHeight.constant = CGRectGetMaxY(self.addButton.frame);
+    CGFloat oldHeight = self.height;
+    self.height = self.topViewHeight.constant + self.bottomView.height + XWCommonSmallMargin;
+    self.y += oldHeight - self.height;
+    
 }
 
 @end
