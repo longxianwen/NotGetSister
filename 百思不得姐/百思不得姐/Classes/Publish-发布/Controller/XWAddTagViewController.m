@@ -8,6 +8,8 @@
 
 #import "XWAddTagViewController.h"
 #import "XWTagButton.h"
+#import "XWTagTextField.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface XWAddTagViewController ()<UITextFieldDelegate>
 
@@ -76,6 +78,17 @@
     
     //设置文本输入框
     [self setupTextField];
+    
+    [self setupTags];
+}
+
+- (void)setupTags
+{
+    self.textField.text = @"哈哈";
+    [self tipClick];
+    
+    self.textField.text = @"呵呵";
+    [self tipClick];
 }
 
 - (void)setupNav
@@ -101,7 +114,7 @@
 
 - (void)setupTextField
 {
-    UITextField *textField = [[UITextField alloc]init];
+    XWTagTextField *textField = [[XWTagTextField alloc]init];
     textField.width = self.contentView.width;
     textField.height = XWTagH;
     textField.backgroundColor = [UIColor greenColor];
@@ -111,14 +124,25 @@
     textField.delegate = self;
     
     //为文本框添加清除按钮
-    textField.clearsOnBeginEditing = YES;
-    textField.clearButtonMode = UITextFieldViewModeAlways;
+//    textField.clearsOnBeginEditing = YES;
+//    textField.clearButtonMode = UITextFieldViewModeAlways;
     
     [textField addTarget:self action:@selector(textDidChange) forControlEvents:UIControlEventEditingChanged];
     
     self.textField = textField;
     
     [self.contentView addSubview:textField];
+    
+    // 设置点击删除键需要执行的操作
+    XWWeakSelf;
+    textField.deleteBackwardOperation = ^
+    {
+        //判断有没有文字,有文字就不删出标签
+        if(weakSelf.textField.hasText) return ;
+        
+        [weakSelf tagClick:weakSelf.tagButtons.lastObject];
+    };
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -162,6 +186,11 @@
 - (void)tipClick
 {
     if(self.textField.hasText == NO) return;
+    
+    if (self.tagButtons.count == 5) {
+        [SVProgressHUD showErrorWithStatus:@"最多添加5个标签" maskType:SVProgressHUDMaskTypeBlack];
+        return;
+    }
         
     //创建一个标签按钮
     XWTagButton *newTagButton = [XWTagButton buttonWithType:UIButtonTypeCustom];
@@ -285,7 +314,7 @@
 //只能监听文本框后面的清除按钮
 - (BOOL)textFieldShouldClear:(UITextField *)textField
 {
-    NSLogFunc;
+//    NSLogFunc;
     return YES;
 }
 
