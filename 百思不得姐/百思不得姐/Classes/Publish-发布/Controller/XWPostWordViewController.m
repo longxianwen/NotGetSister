@@ -84,7 +84,7 @@
     self.toolbar = toolBar;
     
     //监听键盘的显示或者隐藏
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
+//    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
 }
 
 #pragma mark - 键盘相关
@@ -99,17 +99,26 @@
     }];
 }
 
-- (void)dealloc
-{
-    [[NSNotificationCenter defaultCenter]removeObserver:self];
-}
+//- (void)dealloc
+//{
+//    [[NSNotificationCenter defaultCenter]removeObserver:self];
+//}
 
 //控件显示完毕之后在弹出键盘
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+    //监听键盘的显示或者隐藏
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardWillChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
+    
     //立刻弹出键盘
     [self.textView becomeFirstResponder];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
 #pragma mark - <UITextViewDelegate>
