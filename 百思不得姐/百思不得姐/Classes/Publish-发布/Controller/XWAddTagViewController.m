@@ -130,36 +130,18 @@
     {
         NSString *text = self.textField.text;
         NSString *lastChar = [text substringFromIndex:text.length - 1];
-        if([lastChar isEqualToString:@","]||[lastChar isEqualToString:@"，"])
+        if([lastChar isEqualToString:@","]||[lastChar isEqualToString:@"，"]) //最后输入的字符是,号
         {
             //去掉最后一个逗号
             self.textField.text = [self.textField.text substringToIndex:text.length - 1];
             // 点击提醒按钮
             [self tipClick];
-        } else
+        } else  //最后输入的字符不是逗号
         {
-            //计算输入文字的长度
-            CGFloat textW = [text sizeWithAttributes:@{NSFontAttributeName:self.textField.font}].width;
-            
-            //得到左边宽度和右边宽度
-            UIButton *lastTagButton = self.tagButtons.lastObject;
-            
-            CGFloat leftWidth = CGRectGetMaxX(lastTagButton.frame) + XWCommonSmallMargin;
-            CGFloat rightWidth = self.contentView.width - leftWidth;
-            
-            if(rightWidth >= textW)  //添加到本行的其他标签按钮的后面
-            {
-                self.textField.x = leftWidth;
-                self.textField.y = lastTagButton.y;
-            } else  //换行
-            {
-                self.textField.x = 0;
-                self.textField.y = CGRectGetMaxY(lastTagButton.frame) + XWCommonSmallMargin;
-            }
+            //排版文本框
+            [self setupTextFieldFrame];
             
             self.tipButton.hidden = NO;
-            //添加标签按钮提示
-            self.tipButton.y = CGRectGetMaxY(self.textField.frame) + XWCommonSmallMargin;
             
             [self.tipButton setTitle:[NSString stringWithFormat:@"添加标签：%@", self.textField.text] forState:UIControlStateNormal];
         }
@@ -173,57 +155,80 @@
 #pragma mark - 添加标签
 - (void)tipClick
 {
+    if(self.textField.hasText == NO) return;
+        
     //创建一个标签按钮
     XWTagButton *newTagButton = [XWTagButton buttonWithType:UIButtonTypeCustom];
     [newTagButton setTitle:self.textField.text forState:UIControlStateNormal];
     [self.contentView addSubview:newTagButton];
     
-    //设置按钮位置
-    UIButton *lastTagButton = self.tagButtons.lastObject;
-    
-    if(lastTagButton)
-    {
-        // 左边的总宽度
-        CGFloat leftWidth = CGRectGetMaxX(lastTagButton.frame) + XWCommonSmallMargin;
-        CGFloat rightWidth = self.contentView.width - leftWidth;
-        
-        if(rightWidth >= newTagButton.width)  //添加到本行的其他标签按钮的后面
-        {
-            newTagButton.x = leftWidth;
-            newTagButton.y = lastTagButton.y;
-        } else  //换行
-        {
-            newTagButton.x = 0;
-            newTagButton.y = CGRectGetMaxY(lastTagButton.frame) + XWCommonSmallMargin;
-        }
-    } else
-    {
-        newTagButton.x = 0;
-        newTagButton.y = 0;
-    }
+    //设置标签按钮位置
+    [self setupTagButtonFrame:newTagButton referenceTagButton:self.tagButtons.lastObject];
     
     //添加标签按钮到数组
     [self.tagButtons addObject:newTagButton];
     
     //设置文本框
-    CGFloat leftWidth = CGRectGetMaxX(newTagButton.frame) + XWCommonSmallMargin;
-    CGFloat rightWidth = self.contentView.width - self.textField.x;
-    
-    if(rightWidth >= 100 )
-    {
-        self.textField.x = leftWidth;
-        self.textField.y = newTagButton.y;
-    } else
-    {
-        self.textField.x = 0;
-        self.textField.y = CGRectGetMaxY(newTagButton.frame) + XWCommonSmallMargin;
-    }
-    
     self.textField.text = nil;
+    [self setupTextFieldFrame];
     
     //隐藏标签提示
     self.tipButton.hidden = YES;
 }
+
+#pragma mark - 布局
+
+//排布文本框
+-(void)setupTextFieldFrame
+{
+    CGFloat textW = [self.textField.text sizeWithAttributes:@{NSFontAttributeName:self.textField.font}].width;
+    
+    textW = MAX(100, textW);
+    
+    XWTagButton *lastTagButton = self.tagButtons.lastObject;
+    CGFloat leftWidth = CGRectGetMaxX(lastTagButton.frame) + XWCommonSmallMargin;
+    CGFloat rightWidth = self.contentView.width - leftWidth;
+    
+    if(rightWidth >= textW )
+    {
+        self.textField.x = leftWidth;
+        self.textField.y = lastTagButton.y;
+    } else
+    {
+        self.textField.x = 0;
+        self.textField.y = CGRectGetMaxY(lastTagButton.frame) + XWCommonSmallMargin;
+    }
+    
+    //标签提示按钮位置
+    self.tipButton.y = CGRectGetMaxY(self.textField.frame) + XWCommonSmallMargin;
+}
+
+//排布标签按钮
+- (void)setupTagButtonFrame:(XWTagButton *)tagButton referenceTagButton:(XWTagButton *)referenceTagButton
+{
+    // 没有参照按钮（tagButton是第一个标签按钮）
+    if (referenceTagButton == nil) {
+        tagButton.x = 0;
+        tagButton.y = 0;
+        return;
+    }
+    
+    // tagButton不是第一个标签按钮
+    // 左边的总宽度
+    CGFloat leftWidth = CGRectGetMaxX(referenceTagButton.frame) + XWCommonSmallMargin;
+    CGFloat rightWidth = self.contentView.width - leftWidth;
+    
+    if(rightWidth >= tagButton.width)  //添加到本行的其他标签按钮的后面
+    {
+        tagButton.x = leftWidth;
+        tagButton.y = referenceTagButton.y;
+    } else  //换行
+    {
+        tagButton.x = 0;
+        tagButton.y = CGRectGetMaxY(referenceTagButton.frame) + XWCommonSmallMargin;
+    }
+}
+
 
 #pragma mark - 导航栏点击
 
