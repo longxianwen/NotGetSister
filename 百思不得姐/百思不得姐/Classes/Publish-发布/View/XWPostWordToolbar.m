@@ -14,9 +14,24 @@
 
 @property (weak, nonatomic) IBOutlet UIView *topView;
 
+/**保存标签*/
+@property (nonatomic,strong) NSMutableArray *tagLabels;
+
+/**addButton*/
+@property (nonatomic,strong) UIButton *addButton;
+
 @end
 
 @implementation XWPostWordToolbar
+
+- (NSMutableArray *)tagLabels
+{
+    if(!_tagLabels)
+    {
+        _tagLabels = [NSMutableArray array];
+    }
+    return _tagLabels;
+}
 
 - (void)awakeFromNib
 {
@@ -32,14 +47,26 @@
     //监听事件
     [addbutton addTarget:self action:@selector(addClick) forControlEvents:UIControlEventTouchUpInside];
     
+    self.addButton = addbutton;
+    
     [self.topView addSubview:addbutton];
 }
 
 
-//添加标签
+//得到标签
 - (void)addClick
 {
     XWAddTagViewController *addTag = [[XWAddTagViewController alloc]init];
+    
+    addTag.tags = [self.tagLabels valueForKeyPath:@"text"];
+    
+    //这里需要拿到返回的标签数据
+    XWWeakSelf;
+    addTag.tagButtonData = ^(NSArray *tagTitles)
+    {
+        //创建标签，并添加到工具条的顶部标签栏
+        [weakSelf createTagLabels:tagTitles];
+    };
     
     XWNavigationController *nav = [[XWNavigationController alloc]initWithRootViewController:addTag];
     
@@ -48,6 +75,69 @@
     
     //modal出添加标签控制器。
     [vc presentViewController:nav animated:YES completion:nil];
+}
+
+//添加标签到顶部标签栏
+- (void)createTagLabels:(NSArray *)tagTitles
+{
+    //删除以前所有的标签
+    [self.tagLabels removeAllObjects];
+    
+    for (NSString *text in tagTitles) {
+        UILabel *newTagLabel = [[UILabel alloc]init];
+        newTagLabel.backgroundColor = XWTagBgColor;
+        newTagLabel.text = text;
+        [newTagLabel sizeToFit];
+        
+        //微调高度
+        newTagLabel.height = self.addButton.height;
+        
+        //设置frame
+        UILabel *lastLabel = self.tagLabels.lastObject;
+        // 左边的总宽度
+        CGFloat leftWidth = CGRectGetMaxX(lastLabel.frame) + XWCommonSmallMargin;
+        CGFloat rightWidth = self.topView.width - leftWidth;
+        
+        if(lastLabel) //不是第一个标签
+        {
+            if(rightWidth >= newTagLabel.width)  //添加到本行的其他标签按钮的后面
+            {
+                newTagLabel.x = leftWidth;
+                newTagLabel.y = lastLabel.y;
+            } else  //换行
+            {
+                newTagLabel.x = XWCommonSmallMargin;
+                newTagLabel.y = CGRectGetMaxY(lastLabel.frame) + XWCommonSmallMargin;
+            }
+        } else //第一个标签
+        {
+            newTagLabel.x = XWCommonSmallMargin;
+            newTagLabel.y = XWCommonSmallMargin;
+        }
+        
+        [self.topView addSubview:newTagLabel];
+        
+        //添加标签按钮到数组
+        [self.tagLabels addObject:newTagLabel];
+    }
+    
+    //设置+号按钮位置
+    UILabel *lastLabel = self.tagLabels.lastObject;
+    // 左边的总宽度
+    CGFloat leftWidth = CGRectGetMaxX(lastLabel.frame) + XWCommonSmallMargin;
+    CGFloat rightWidth = self.topView.width - leftWidth;
+    
+    if(rightWidth >= 100 )
+    {
+        self.addButton.x = leftWidth;
+        self.addButton.y = lastLabel.y;
+    } else
+    {
+        self.addButton.x = 0;
+        self.addButton.y = CGRectGetMaxY(lastLabel.frame) + XWCommonSmallMargin;
+    }
+    
+
 }
 
 @end

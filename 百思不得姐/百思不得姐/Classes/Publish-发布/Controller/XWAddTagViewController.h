@@ -10,4 +10,10 @@
 
 @interface XWAddTagViewController : UIViewController
 
+/**保存的标签数据*/
+@property (nonatomic,copy) void(^tagButtonData)(NSArray *);
+
+/** 从上一个界面传递过来的标签数据 */
+@property (nonatomic, strong) NSArray *tags;
+
 @end

@@ -82,13 +82,16 @@
     [self setupTags];
 }
 
+//设置从发表文字页面传过来的标签数据
 - (void)setupTags
 {
-    self.textField.text = @"哈哈";
-    [self tipClick];
+    if(self.tags.count == 0) return;
     
-    self.textField.text = @"呵呵";
-    [self tipClick];
+    //如果有标签数据
+    for (NSString *text in self.tags) {
+        self.textField.text = text;
+        [self tipClick];
+    }
 }
 
 - (void)setupNav
@@ -297,8 +300,21 @@
 
 - (void)done
 {
-    //添加标签
-    NSLogFunc;
+    //返回添加标签数据
+    
+    //收集数据，从一个数组中取元素属性
+    //方式一:循环
+    //NSMutableArray *tagButtonTitles = [NSMutableArray array];
+//    for (XWTagButton *tagButton in self.tagButtons) {
+//        [tagButtonTitles addObject:tagButton.currentTitle];
+//    }
+    
+    //方式二:kvc
+    NSArray *tagButtonTitles = [self.tagButtons valueForKeyPath:@"currentTitle"];
+    
+    !self.tagButtonData ? : self.tagButtonData(tagButtonTitles);
+    
+    [self cancel];
 }
 
 #pragma mark - <UITextFieldDelegate>

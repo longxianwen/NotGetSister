@@ -8,8 +8,6 @@
 
 #import "XWTabBar.h"
 #import "XWPublishViewController.h"
-#import "XWAddTagViewController.h"
-#import "XWNavigationController.h"
 
 @interface XWTabBar ()
 
@@ -44,15 +42,9 @@
 
 - (void)publishClick
 {
-//    XWPublishViewController *publish = [[XWPublishViewController alloc]init];
-//    
-//    [self.window.rootViewController presentViewController:publish animated:YES completion:nil];
+    XWPublishViewController *publish = [[XWPublishViewController alloc]init];
     
-    XWAddTagViewController *addTag = [[XWAddTagViewController alloc]init];
-    
-    XWNavigationController *nav = [[XWNavigationController alloc]initWithRootViewController:addTag];
-//    
-    [self.window.rootViewController presentViewController:nav animated:YES completion:nil];
+    [self.window.rootViewController presentViewController:publish animated:YES completion:nil];
 }
 
 - (void)layoutSubviews
