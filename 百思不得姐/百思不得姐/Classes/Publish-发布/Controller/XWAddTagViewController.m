@@ -110,6 +110,10 @@
     textField.placeholder = @"多个标签用逗号或者换行隔开";
     textField.delegate = self;
     
+    //为文本框添加清除按钮
+    textField.clearsOnBeginEditing = YES;
+    textField.clearButtonMode = UITextFieldViewModeAlways;
+    
     [textField addTarget:self action:@selector(textDidChange) forControlEvents:UIControlEventEditingChanged];
     
     self.textField = textField;
@@ -123,7 +127,9 @@
     [self.textField becomeFirstResponder];
 }
 
-#pragma mark - 标签提示
+#pragma mark - 标签相关
+
+//标签按钮提示
 - (void)textDidChange
 {
     if(self.textField.hasText)
@@ -152,7 +158,7 @@
     }
 }
 
-#pragma mark - 添加标签
+//添加标签
 - (void)tipClick
 {
     if(self.textField.hasText == NO) return;
@@ -160,6 +166,7 @@
     //创建一个标签按钮
     XWTagButton *newTagButton = [XWTagButton buttonWithType:UIButtonTypeCustom];
     [newTagButton setTitle:self.textField.text forState:UIControlStateNormal];
+    [newTagButton addTarget:self action:@selector(tagClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:newTagButton];
     
     //设置标签按钮位置
@@ -168,7 +175,7 @@
     //添加标签按钮到数组
     [self.tagButtons addObject:newTagButton];
     
-    //设置文本框
+    //设置文本框以及位置
     self.textField.text = nil;
     [self setupTextFieldFrame];
     
@@ -176,7 +183,28 @@
     self.tipButton.hidden = YES;
 }
 
-#pragma mark - 布局
+
+//点击标签按钮删除标签
+-(void)tagClick:(XWTagButton *)clickedTagButton
+{
+    // 即将被删除的标签按钮的索引
+    NSUInteger index = [self.tagButtons indexOfObject:clickedTagButton];
+    // 删除按钮
+    [clickedTagButton removeFromSuperview];
+    [self.tagButtons removeObject:clickedTagButton];
+    
+    // 处理后面的标签按钮位置
+    for (NSUInteger i = index; i < self.tagButtons.count; i++) {
+        XWTagButton *tagButton = self.tagButtons[i];
+        // 如果i不为0，就参照上一个标签按钮
+        XWTagButton *previousTagButton = (i == 0) ? nil : self.tagButtons[i - 1];
+        [self setupTagButtonFrame:tagButton referenceTagButton:previousTagButton];
+    }
+    
+    // 处理文本框位置
+    [self setupTextFieldFrame];
+
+}
 
 //排布文本框
 -(void)setupTextFieldFrame
@@ -251,6 +279,13 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [self tipClick];
+    return YES;
+}
+
+//只能监听文本框后面的清除按钮
+- (BOOL)textFieldShouldClear:(UITextField *)textField
+{
+    NSLogFunc;
     return YES;
 }
 
