@@ -127,6 +127,27 @@
 {
     if(self.textField.hasText)
     {
+        NSString *text = self.textField.text;
+        
+        //计算输入文字的长度
+        CGFloat textW = [text sizeWithAttributes:@{NSFontAttributeName:self.textField.font}].width;
+        
+        //得到左边宽度和右边宽度
+        UIButton *lastTagButton = self.tagButtons.lastObject;
+        
+        CGFloat leftWidth = CGRectGetMaxX(lastTagButton.frame) + XWCommonSmallMargin;
+        CGFloat rightWidth = self.contentView.width - leftWidth;
+        
+        if(rightWidth >= textW)  //添加到本行的其他标签按钮的后面
+        {
+            self.textField.x = leftWidth;
+            self.textField.y = lastTagButton.y;
+        } else  //换行
+        {
+            self.textField.x = 0;
+            self.textField.y = CGRectGetMaxY(lastTagButton.frame) + XWCommonSmallMargin;
+        }
+        
         self.tipButton.hidden = NO;
         //添加标签按钮提示
         self.tipButton.y = CGRectGetMaxY(self.textField.frame) + XWCommonSmallMargin;
@@ -187,7 +208,7 @@
         self.textField.y = CGRectGetMaxY(newTagButton.frame) + XWCommonSmallMargin;
     }
     
-        self.textField.text = nil;
+    self.textField.text = nil;
     
     //隐藏标签提示
     self.tipButton.hidden = YES;
