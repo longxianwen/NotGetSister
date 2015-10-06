@@ -9,7 +9,7 @@
 #import "XWAddTagViewController.h"
 #import "XWTagButton.h"
 
-@interface XWAddTagViewController ()
+@interface XWAddTagViewController ()<UITextFieldDelegate>
 
 /** 用来容纳所有按钮和文本框 */
 @property (nonatomic, weak) UIView *contentView;
@@ -108,6 +108,7 @@
     textField.font = [UIFont systemFontOfSize:15];
     textField.placeholderColor = [UIColor grayColor];
     textField.placeholder = @"多个标签用逗号或者换行隔开";
+    textField.delegate = self;
     
     [textField addTarget:self action:@selector(textDidChange) forControlEvents:UIControlEventEditingChanged];
     
@@ -128,31 +129,41 @@
     if(self.textField.hasText)
     {
         NSString *text = self.textField.text;
-        
-        //计算输入文字的长度
-        CGFloat textW = [text sizeWithAttributes:@{NSFontAttributeName:self.textField.font}].width;
-        
-        //得到左边宽度和右边宽度
-        UIButton *lastTagButton = self.tagButtons.lastObject;
-        
-        CGFloat leftWidth = CGRectGetMaxX(lastTagButton.frame) + XWCommonSmallMargin;
-        CGFloat rightWidth = self.contentView.width - leftWidth;
-        
-        if(rightWidth >= textW)  //添加到本行的其他标签按钮的后面
+        NSString *lastChar = [text substringFromIndex:text.length - 1];
+        if([lastChar isEqualToString:@","]||[lastChar isEqualToString:@"，"])
         {
-            self.textField.x = leftWidth;
-            self.textField.y = lastTagButton.y;
-        } else  //换行
+            //去掉最后一个逗号
+            self.textField.text = [self.textField.text substringToIndex:text.length - 1];
+            // 点击提醒按钮
+            [self tipClick];
+        } else
         {
-            self.textField.x = 0;
-            self.textField.y = CGRectGetMaxY(lastTagButton.frame) + XWCommonSmallMargin;
+            //计算输入文字的长度
+            CGFloat textW = [text sizeWithAttributes:@{NSFontAttributeName:self.textField.font}].width;
+            
+            //得到左边宽度和右边宽度
+            UIButton *lastTagButton = self.tagButtons.lastObject;
+            
+            CGFloat leftWidth = CGRectGetMaxX(lastTagButton.frame) + XWCommonSmallMargin;
+            CGFloat rightWidth = self.contentView.width - leftWidth;
+            
+            if(rightWidth >= textW)  //添加到本行的其他标签按钮的后面
+            {
+                self.textField.x = leftWidth;
+                self.textField.y = lastTagButton.y;
+            } else  //换行
+            {
+                self.textField.x = 0;
+                self.textField.y = CGRectGetMaxY(lastTagButton.frame) + XWCommonSmallMargin;
+            }
+            
+            self.tipButton.hidden = NO;
+            //添加标签按钮提示
+            self.tipButton.y = CGRectGetMaxY(self.textField.frame) + XWCommonSmallMargin;
+            
+            [self.tipButton setTitle:[NSString stringWithFormat:@"添加标签：%@", self.textField.text] forState:UIControlStateNormal];
         }
-        
-        self.tipButton.hidden = NO;
-        //添加标签按钮提示
-        self.tipButton.y = CGRectGetMaxY(self.textField.frame) + XWCommonSmallMargin;
-        
-        [self.tipButton setTitle:[NSString stringWithFormat:@"添加标签：%@", self.textField.text] forState:UIControlStateNormal];
+
     } else
     {
         self.tipButton.hidden = YES;
@@ -226,6 +237,16 @@
 {
     //添加标签
     NSLogFunc;
+}
+
+#pragma mark - <UITextFieldDelegate>
+/**
+ 点击右下角return按钮就会调用这个方法
+ */
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self tipClick];
+    return YES;
 }
 
 @end
