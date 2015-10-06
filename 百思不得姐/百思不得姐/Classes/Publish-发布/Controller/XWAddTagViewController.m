@@ -174,9 +174,20 @@
     [self.tagButtons addObject:newTagButton];
     
     //设置文本框
-    self.textField.x = CGRectGetMaxX(newTagButton.frame) + XWCommonSmallMargin;
-    self.textField.y = newTagButton.y;
-    self.textField.text = nil;
+    CGFloat leftWidth = CGRectGetMaxX(newTagButton.frame) + XWCommonSmallMargin;
+    CGFloat rightWidth = self.contentView.width - self.textField.x;
+    
+    if(rightWidth >= 100 )
+    {
+        self.textField.x = leftWidth;
+        self.textField.y = newTagButton.y;
+    } else
+    {
+        self.textField.x = 0;
+        self.textField.y = CGRectGetMaxY(newTagButton.frame) + XWCommonSmallMargin;
+    }
+    
+        self.textField.text = nil;
     
     //隐藏标签提示
     self.tipButton.hidden = YES;
