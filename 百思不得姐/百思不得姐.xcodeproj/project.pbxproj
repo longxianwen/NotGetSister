@@ -63,6 +63,7 @@
 		56BF506C1BC2E0EE00CACC83 /* XWTagButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 56BF506B1BC2E0EE00CACC83 /* XWTagButton.m */; settings = {ASSET_TAGS = (); }; };
 		56C1A8C91B9F46D700505537 /* Foundation+XWLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C1A8C81B9F46D700505537 /* Foundation+XWLog.m */; };
 		56C56BBF1BC3D63500AD84A3 /* XWTagTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C56BBE1BC3D63500AD84A3 /* XWTagTextField.m */; settings = {ASSET_TAGS = (); }; };
+		56CCD7731BFF0BD9003BF8A5 /* XWWindowRootController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CCD7721BFF0BD9003BF8A5 /* XWWindowRootController.m */; settings = {ASSET_TAGS = (); }; };
 		56CE82D51BA9C0F200A8A427 /* XWTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CE82D41BA9C0F200A8A427 /* XWTopic.m */; };
 		56CF7BFA1B9C5D8100C55818 /* XWRecommendTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 56CF7BF91B9C5D8100C55818 /* XWRecommendTag.m */; };
 		56D474E21BB3010500FD9DB2 /* XWCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D474E01BB3010500FD9DB2 /* XWCommentViewController.m */; };
@@ -216,6 +217,8 @@
 		56C1A8C81B9F46D700505537 /* Foundation+XWLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+XWLog.m"; sourceTree = "<group>"; };
 		56C56BBD1BC3D63500AD84A3 /* XWTagTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWTagTextField.h; sourceTree = "<group>"; };
 		56C56BBE1BC3D63500AD84A3 /* XWTagTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWTagTextField.m; sourceTree = "<group>"; };
+		56CCD7711BFF0BD9003BF8A5 /* XWWindowRootController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWWindowRootController.h; sourceTree = "<group>"; };
+		56CCD7721BFF0BD9003BF8A5 /* XWWindowRootController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWWindowRootController.m; sourceTree = "<group>"; };
 		56CE82D31BA9C0F200A8A427 /* XWTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWTopic.h; sourceTree = "<group>"; };
 		56CE82D41BA9C0F200A8A427 /* XWTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWTopic.m; sourceTree = "<group>"; };
 		56CF7BF81B9C5D8100C55818 /* XWRecommendTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWRecommendTag.h; sourceTree = "<group>"; };
@@ -633,6 +636,8 @@
 			children = (
 				56F1FDC81B96D23F00931FAB /* AppDelegate.h */,
 				56F1FDC91B96D23F00931FAB /* AppDelegate.m */,
+				56CCD7711BFF0BD9003BF8A5 /* XWWindowRootController.h */,
+				56CCD7721BFF0BD9003BF8A5 /* XWWindowRootController.m */,
 				5663F1BF1B9DF747009A852D /* XWConst.h */,
 				5663F1C01B9DF747009A852D /* XWConst.m */,
 				56F761DD1BB2C87100C5AFA4 /* MJExtensionConfig.h */,
@@ -985,6 +990,7 @@
 				567A62DA1B9E832A00C4C24A /* XWMeCell.m in Sources */,
 				56BF50431BC238FA00CACC83 /* XWAddTagViewController.m in Sources */,
 				56F761DF1BB2C87100C5AFA4 /* MJExtensionConfig.m in Sources */,
+				56CCD7731BFF0BD9003BF8A5 /* XWWindowRootController.m in Sources */,
 				568F47A81B9B38F8003F863F /* XWRecommendCategoryCell.m in Sources */,
 				56F1FDDD1B96D23F00931FAB /* XWFriendTrendsController.m in Sources */,
 				569BA0061B9A8CEA00B99DAD /* XWLoginRegisterViewController.m in Sources */,

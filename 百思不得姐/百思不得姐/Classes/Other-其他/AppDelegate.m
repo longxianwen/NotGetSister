@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "XWTabBarController.h"
+#import "XWWindowRootController.h"
 
 @interface AppDelegate ()
 
@@ -25,16 +26,14 @@
     {
         UIWindow *win = [[UIWindow alloc]init];
         win.frame = CGRectMake(0, 0, XWScreenW, 20);
-        //xcode7中有问题.. //xcode7中窗口必须要添加,根控制器。导致问题所在..
-        //添加窗口导致状态栏消失
-//        UIViewController *con = [[UIViewController alloc]init];
-//        con.view.backgroundColor = [UIColor redColor];
-//        con.view.frame = win.bounds;
-//        win.rootViewController = con;
-//        XWLog(@"%@",NSStringFromCGRect(con.view.frame));
+        
+        XWWindowRootController *con = [[XWWindowRootController alloc]init];
+        
+        win.rootViewController = con;
         win.windowLevel = UIWindowLevelAlert;
         win.hidden = NO;
         win.backgroundColor = [UIColor clearColor];
+        
         [win addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(topWindowClick)]];
         _topWindow = win;
     }
@@ -125,7 +124,7 @@
     // 显示顶部window
     //Application windows are expected to have a root view controller at the end of application launch，可以去除这个错误
     //因为到这里程序已经显示完毕，主窗口也已经加载好了
-//    [self topWindow];
+    [self topWindow];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
