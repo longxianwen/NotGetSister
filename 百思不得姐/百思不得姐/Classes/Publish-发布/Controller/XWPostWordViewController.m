@@ -32,10 +32,10 @@
     
     [self setupNav];
     
-    [self setupTextView];
-    
     //设置底部工具条
     [self setupBottomToolBar];
+    
+    [self setupTextView];
 }
 
 //顶部导航栏相关
@@ -58,7 +58,11 @@
 {
     XWPlaceholderTextView *textView = [[XWPlaceholderTextView alloc]init];
     
-    textView.frame = self.view.bounds;
+//    textView.frame = self.view.bounds;
+    textView.x = 0;
+    textView.y = XWNavBarMaxY;
+    textView.width = self.view.width;
+    textView.height = self.view.height - self.toolbar.height - XWNavBarMaxY;
     //默认占位文字
     textView.placeholder = @"把好玩的图片，好笑的段子或糗事发到这里，接受千万网友膜拜吧！发布违反国家法律内容的，我们将依法提交给有关部门处理。";
     //使一个控件可以竖直方向可以拖拽
